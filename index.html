@@ -8,37 +8,36 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
-            padding: 0;
-            background-color: #f4f4f9;
+            background-color: #f9f9f9;
             color: #333;
         }
         .profile-container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
+        h1, h2 {
+            color: #4CAF50;
         }
-        p {
-            font-size: 16px;
-            margin: 5px 0;
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
     <div class="profile-container">
         <h1 id="name"></h1>
-        <p id="headline"></p>
+        <p><strong>Posición:</strong> <span id="headline"></span></p>
         <p><strong>Ubicación:</strong> <span id="location"></span></p>
-        <p><strong>Resumen:</strong> <span id="summary"></span></p>
         <h2>Habilidades</h2>
         <ul id="skills"></ul>
-        <h2>Licencias y Certificaciones</h2>
+        <h2>Certificaciones</h2>
         <ul id="certifications"></ul>
     </div>
 
@@ -51,21 +50,24 @@
                 document.getElementById('name').textContent = `${data.firstName} ${data.lastName}`;
                 document.getElementById('headline').textContent = data.headline;
                 document.getElementById('location').textContent = data.location;
-                document.getElementById('summary').textContent = data.summary;
 
                 // Mostrar habilidades
                 const skillsList = document.getElementById('skills');
                 data.skills.forEach(skill => {
                     const li = document.createElement('li');
-                    li.textContent = skill;
+                    li.textContent = skill.name;
                     skillsList.appendChild(li);
                 });
 
-                // Mostrar licencias y certificaciones
+                // Mostrar certificaciones
                 const certificationsList = document.getElementById('certifications');
                 data.certifications.forEach(cert => {
                     const li = document.createElement('li');
-                    li.textContent = `${cert.name} - ${cert.issuer} (${cert.date})`;
+                    li.innerHTML = `
+                        <strong>${cert.name}</strong> por ${cert.authority} <br>
+                        Fecha de inicio: ${cert.timePeriod?.startDate?.month || 'N/A'}/${cert.timePeriod?.startDate?.year || 'N/A'} <br>
+                        <a href="${cert.url}" target="_blank">Ver certificación</a>
+                    `;
                     certificationsList.appendChild(li);
                 });
             })
