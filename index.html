@@ -26,7 +26,14 @@
             padding-left: 20px;
         }
         li {
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -46,26 +53,28 @@
         fetch('linkedin-data.json')
             .then(response => response.json())
             .then(data => {
-                // Mostrar información básica
+                // Información básica
                 document.getElementById('name').textContent = `${data.firstName} ${data.lastName}`;
                 document.getElementById('headline').textContent = data.headline;
                 document.getElementById('location').textContent = data.location;
 
-                // Mostrar habilidades
+                // Habilidades
                 const skillsList = document.getElementById('skills');
                 data.skills.forEach(skill => {
                     const li = document.createElement('li');
-                    li.textContent = skill.name;
+                    li.textContent = skill.name; // Mostrar todas las habilidades
                     skillsList.appendChild(li);
                 });
 
-                // Mostrar certificaciones
+                // Certificaciones
                 const certificationsList = document.getElementById('certifications');
                 data.certifications.forEach(cert => {
                     const li = document.createElement('li');
                     li.innerHTML = `
-                        <strong>${cert.name}</strong> por ${cert.authority} <br>
+                        <strong>${cert.name}</strong> <br>
+                        Autoridad: ${cert.authority || 'N/A'} <br>
                         Fecha de inicio: ${cert.timePeriod?.startDate?.month || 'N/A'}/${cert.timePeriod?.startDate?.year || 'N/A'} <br>
+                        Fecha de finalización: ${cert.timePeriod?.endDate?.month || 'N/A'}/${cert.timePeriod?.endDate?.year || 'N/A'} <br>
                         <a href="${cert.url}" target="_blank">Ver certificación</a>
                     `;
                     certificationsList.appendChild(li);
