@@ -1,31 +1,75 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Mi Sitio Web</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de LinkedIn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .profile-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
-  <h1>¡Hola, mundo!</h1>
-  <p>Bienvenido a mi sitio web alojado en GitHub Pages.</p>
+    <div class="profile-container">
+        <h1 id="name"></h1>
+        <p id="headline"></p>
+        <p><strong>Ubicación:</strong> <span id="location"></span></p>
+        <p><strong>Resumen:</strong> <span id="summary"></span></p>
+        <h2>Habilidades</h2>
+        <ul id="skills"></ul>
+        <h2>Licencias y Certificaciones</h2>
+        <ul id="certifications"></ul>
+    </div>
+
+    <script>
+        // Cargar datos desde linkedin-data.json
+        fetch('linkedin-data.json')
+            .then(response => response.json())
+            .then(data => {
+                // Mostrar información básica
+                document.getElementById('name').textContent = `${data.firstName} ${data.lastName}`;
+                document.getElementById('headline').textContent = data.headline;
+                document.getElementById('location').textContent = data.location;
+                document.getElementById('summary').textContent = data.summary;
+
+                // Mostrar habilidades
+                const skillsList = document.getElementById('skills');
+                data.skills.forEach(skill => {
+                    const li = document.createElement('li');
+                    li.textContent = skill;
+                    skillsList.appendChild(li);
+                });
+
+                // Mostrar licencias y certificaciones
+                const certificationsList = document.getElementById('certifications');
+                data.certifications.forEach(cert => {
+                    const li = document.createElement('li');
+                    li.textContent = `${cert.name} - ${cert.issuer} (${cert.date})`;
+                    certificationsList.appendChild(li);
+                });
+            })
+            .catch(error => console.error('Error al cargar los datos de LinkedIn:', error));
+    </script>
 </body>
 </html>
-
-<div id="linkedin-profile">
-  <h2>Mi Perfil de LinkedIn</h2>
-  <p>Nombre: <span id="name"></span></p>
-  <p>Posición: <span id="headline"></span></p>
-  <p>Ubicación: <span id="location"></span></p>
-  <p>Descripción: <span id="summary"></span></p>
-</div>
-
-<script>
-  fetch("linkedin-data.json")
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById("name").textContent = data.firstName + " " + data.lastName;
-      document.getElementById("headline").textContent = data.headline;
-      document.getElementById("location").textContent = data.location;
-      document.getElementById("summary").textContent = data.summary;
-    })
-    .catch(error => console.error("Error al cargar los datos de LinkedIn:", error));
-</script>
