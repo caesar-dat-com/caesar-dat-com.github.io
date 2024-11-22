@@ -8,8 +8,17 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
-            background-color: #f9f9f9;
             color: #333;
+            overflow: hidden;
+            position: relative;
+        }
+        #animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Asegura que esté detrás del contenido */
         }
         .profile-container {
             max-width: 800px;
@@ -38,6 +47,8 @@
     </style>
 </head>
 <body>
+    <canvas id="animated-background"></canvas> <!-- Fondo animado -->
+
     <div class="profile-container">
         <h1 id="name"></h1>
         <p><strong>Posición:</strong> <span id="headline"></span></p>
@@ -62,7 +73,7 @@
                 const skillsList = document.getElementById('skills');
                 data.skills.forEach(skill => {
                     const li = document.createElement('li');
-                    li.textContent = skill.name; // Mostrar todas las habilidades
+                    li.textContent = skill.name;
                     skillsList.appendChild(li);
                 });
 
@@ -82,5 +93,8 @@
             })
             .catch(error => console.error('Error al cargar los datos de LinkedIn:', error));
     </script>
+
+    <!-- Integración del fondo animado -->
+    <script type="module" src="./js/index-BPOyE4-t.js"></script>
 </body>
 </html>
