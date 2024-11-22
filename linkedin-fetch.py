@@ -1,18 +1,15 @@
-import os
-from linkedin_api import Linkedin
 import json
-
-# Validar las credenciales de LinkedIn desde las variables de entorno
-username = os.getenv("LINKEDIN_USERNAME")
-password = os.getenv("LINKEDIN_PASSWORD")
-
-if not username or not password:
-    print("Error: Las credenciales de LinkedIn no están configuradas correctamente.")
-    exit(1)
+from linkedin_api import Linkedin
+from config import LINKEDIN_USERNAME, LINKEDIN_PASSWORD  # Importar credenciales desde config.py
 
 try:
+    # Validar que las credenciales no estén vacías
+    if not LINKEDIN_USERNAME or not LINKEDIN_PASSWORD:
+        print("Error: Las credenciales de LinkedIn no están configuradas correctamente en config.py.")
+        exit(1)
+
     # Autenticación con LinkedIn
-    linkedin = Linkedin(username, password)
+    linkedin = Linkedin(LINKEDIN_USERNAME, LINKEDIN_PASSWORD)
     print("Autenticación exitosa con LinkedIn.")
 
     # Obtén los datos del perfil
