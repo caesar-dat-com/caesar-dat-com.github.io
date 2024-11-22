@@ -1,6 +1,6 @@
 import json
 from linkedin_api import Linkedin
-from config import LINKEDIN_USERNAME, LINKEDIN_PASSWORD  # Importar credenciales desde config.py
+from config import LINKEDIN_USERNAME, LINKEDIN_PASSWORD  # Credenciales desde config.py
 
 try:
     # Validar que las credenciales no estén vacías
@@ -13,7 +13,7 @@ try:
     print("Autenticación exitosa con LinkedIn.")
 
     # Obtén los datos del perfil
-    profile = linkedin.get_profile("caesar-dat-com")  # Reemplaza con tu nombre público de LinkedIn
+    profile = linkedin.get_profile("cesar-reyes-8a60622b2")  # Tu nombre público de LinkedIn
     print("Datos del perfil obtenidos exitosamente.")
 
     # Extrae información relevante
@@ -23,7 +23,8 @@ try:
         "headline": profile.get("headline", ""),
         "location": profile.get("geoLocationName", ""),
         "summary": profile.get("summary", ""),
-        "skills": profile.get("skills", [])
+        "skills": profile.get("skills", []),
+        "certifications": profile.get("certifications", [])  # Agregar licencias y certificaciones
     }
 
     # Guarda los datos en un archivo JSON
