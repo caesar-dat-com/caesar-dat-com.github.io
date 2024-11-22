@@ -3,7 +3,7 @@ name: Actualizar Datos de LinkedIn
 on:
   push:
     branches:
-      - main  # Cambia "main" si tu rama principal tiene otro nombre
+      - master  # Cambia "main" si tu rama principal tiene otro nombre
 
 jobs:
   update-linkedin-data:
