@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Sitio Web</title>
+</head>
+<body>
+  <h1>¡Hola, mundo!</h1>
+  <p>Bienvenido a mi sitio web alojado en GitHub Pages.</p>
+</body>
+</html>
+
+<div id="linkedin-profile">
+  <h2>Mi Perfil de LinkedIn</h2>
+  <p>Nombre: <span id="name"></span></p>
+  <p>Posición: <span id="headline"></span></p>
+  <p>Ubicación: <span id="location"></span></p>
+  <p>Descripción: <span id="summary"></span></p>
+</div>
+
+<script>
+  fetch("linkedin-data.json")
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("name").textContent = data.firstName + " " + data.lastName;
+      document.getElementById("headline").textContent = data.headline;
+      document.getElementById("location").textContent = data.location;
+      document.getElementById("summary").textContent = data.summary;
+    })
+    .catch(error => console.error("Error al cargar los datos de LinkedIn:", error));
+</script>
