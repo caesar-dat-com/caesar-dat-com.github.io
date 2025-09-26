@@ -1,64 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de LinkedIn</title>
-    <!-- Enlace al archivo CSS -->
-    <link rel="stylesheet" href="C:/Users/cesar/Desktop/platzi/caesar-dat-com.github.io/css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>caesar-dat-com</title>
+
+  <!-- Google AdSense Auto ads -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7788698843042083"
+    crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- Fondo animado -->
-    <canvas id="animated-background"></canvas>
-
-    <!-- Contenido principal -->
-    <div class="profile-container">
-        <h1 id="name"></h1>
-        <p><strong>Posición:</strong> <span id="headline"></span></p>
-        <p><strong>Ubicación:</strong> <span id="location"></span></p>
-        <h2>Habilidades</h2>
-        <ul id="skills"></ul>
-        <h2>Certificaciones</h2>
-        <ul id="certifications"></ul>
-    </div>
-
-    <!-- Script para cargar datos dinámicos -->
-    <script>
-        // Cargar datos desde linkedin-data.json
-        fetch('linkedin-data.json')
-            .then(response => response.json())
-            .then(data => {
-                // Información básica
-                document.getElementById('name').textContent = `${data.firstName} ${data.lastName}`;
-                document.getElementById('headline').textContent = data.headline;
-                document.getElementById('location').textContent = data.location;
-
-                // Habilidades
-                const skillsList = document.getElementById('skills');
-                data.skills.forEach(skill => {
-                    const li = document.createElement('li');
-                    li.textContent = skill.name;
-                    skillsList.appendChild(li);
-                });
-
-                // Certificaciones
-                const certificationsList = document.getElementById('certifications');
-                data.certifications.forEach(cert => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `
-                        <strong>${cert.name}</strong> <br>
-                        Autoridad: ${cert.authority || 'N/A'} <br>
-                        Fecha de inicio: ${cert.timePeriod?.startDate?.month || 'N/A'}/${cert.timePeriod?.startDate?.year || 'N/A'} <br>
-                        Fecha de finalización: ${cert.timePeriod?.endDate?.month || 'N/A'}/${cert.timePeriod?.endDate?.year || 'N/A'} <br>
-                        <a href="${cert.url}" target="_blank">Ver certificación</a>
-                    `;
-                    certificationsList.appendChild(li);
-                });
-            })
-            .catch(error => console.error('Error al cargar los datos de LinkedIn:', error));
-    </script>
-
-    <!-- Integración del nuevo fondo animado -->
-    <script src="C:/Users/cesar/Desktop/platzi/caesar-dat-com.github.io/js/background.js"></script>
 </body>
 </html>
