@@ -4,12 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>caesar-dat-com</title>
+  <meta name="description" content="Sitio personal de César Reyes." />
 
-  <!-- Google AdSense Auto ads -->
+  <!-- Google AdSense: Auto ads -->
+  <meta name="google-adsense-account" content="ca-pub-7788698843042083">
   <script async
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7788698843042083"
     crossorigin="anonymous"></script>
+
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+         margin:0;padding:0;background:#0f1115;color:#e6e6e6}
+    header{padding:32px 16px;text-align:center}
+    main{max-width:880px;margin:0 auto;padding:16px}
+    .card{background:#151823;border:1px solid #24283b;border-radius:14px;padding:20px}
+    .ad-wrap{margin:24px 0;display:flex;justify-content:center}
+    a{color:#79b8ff;text-decoration:none}
+    a:hover{text-decoration:underline}
+    footer{padding:24px 16px;text-align:center;color:#a9b2c0}
+  </style>
 </head>
 <body>
+  <header>
+    <h1>caesar-dat-com</h1>
+    <p>Bienvenido 👋 — Probando Google AdSense en GitHub Pages.</p>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>Contenido de ejemplo</h2>
+      <p>
+        Este es un HTML mínimo para que AdSense pueda inyectar Auto ads.
+        Si usas bloqueadores de anuncios, desactívalos para validar.
+      </p>
+
+      <!-- Bloque de anuncio manual (display). Sustituye data-ad-slot por el tuyo -->
+      <div class="ad-wrap">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-7788698843042083"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+
+      <p>
+        Tip: además del Auto ads en el <code>&lt;head&gt;</code>, mantener al menos un bloque manual
+        ayuda a que aparezca un anuncio mientras Google aprende del sitio.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="y"></span> César Reyes
+  </footer>
+
+  <script>
+    // año dinámico en el footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
