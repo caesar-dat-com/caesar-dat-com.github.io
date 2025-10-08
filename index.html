@@ -6,44 +6,59 @@
   <title>caesar-dat-com</title>
   <meta name="description" content="Sitio personal de César Reyes." />
 
-  <!-- Google AdSense: Auto ads -->
+  <!-- Google AdSense: Auto ads (debe ir en el <head>) -->
   <meta name="google-adsense-account" content="ca-pub-7788698843042083">
   <script async
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7788698843042083"
     crossorigin="anonymous"></script>
 
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
-         margin:0;padding:0;background:#0f1115;color:#e6e6e6}
-    header{padding:32px 16px;text-align:center}
-    main{max-width:880px;margin:0 auto;padding:16px}
-    .card{background:#151823;border:1px solid #24283b;border-radius:14px;padding:20px}
-    .ad-wrap{margin:24px 0;display:flex;justify-content:center}
-    a{color:#79b8ff;text-decoration:none}
+    :root{
+      --bg:#0f1115; --panel:#151823; --line:#24283b; --text:#e6e6e6; --muted:#a9b2c0; --link:#79b8ff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    header{padding:32px 16px; text-align:center}
+    header h1{margin:0 0 6px}
+    header p{margin:0; color:var(--muted)}
+    main{max-width:900px; margin:0 auto; padding:16px}
+    .card{
+      background:var(--panel); border:1px solid var(--line); border-radius:14px;
+      padding:22px; box-shadow:0 8px 24px rgb(0 0 0 / 22%);
+    }
+    .ad-wrap{margin:28px 0; display:flex; justify-content:center}
+    a{color:var(--link); text-decoration:none}
     a:hover{text-decoration:underline}
-    footer{padding:24px 16px;text-align:center;color:#a9b2c0}
+    footer{padding:28px 16px; text-align:center; color:var(--muted)}
   </style>
 </head>
+
 <body>
   <header>
     <h1>caesar-dat-com</h1>
-    <p>Bienvenido 👋 — Probando Google AdSense en GitHub Pages.</p>
+    <p>Bienvenido 👋 — Google AdSense integrado en GitHub Pages.</p>
   </header>
 
   <main>
-    <div class="card">
-      <h2>Contenido de ejemplo</h2>
+    <section class="card">
+      <h2>Contenido</h2>
       <p>
-        Este es un HTML mínimo para que AdSense pueda inyectar Auto ads.
-        Si usas bloqueadores de anuncios, desactívalos para validar.
+        Esta página integra <strong>Google AdSense</strong> con Auto ads (en el
+        <code>&lt;head&gt;</code>) y un bloque manual responsive para pruebas.
+        Desactiva bloqueadores de anuncios al validar.
       </p>
 
-      <!-- Bloque de anuncio manual (display). Sustituye data-ad-slot por el tuyo -->
+      <!-- Bloque de anuncio manual (Display-Home) -->
       <div class="ad-wrap">
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-7788698843042083"
-             data-ad-slot="1234567890"
+             data-ad-slot="1386463466"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
       </div>
@@ -52,14 +67,14 @@
       </script>
 
       <p>
-        Tip: además del Auto ads en el <code>&lt;head&gt;</code>, mantener al menos un bloque manual
-        ayuda a que aparezca un anuncio mientras Google aprende del sitio.
+        Si aún no ves anuncios, es normal durante la revisión inicial. Mantén contenido
+        original y verifica que <code>/ads.txt</code> esté publicado en la raíz.
       </p>
-    </div>
+    </section>
   </main>
 
   <footer>
-    © <span id="y"></span> César Reyes
+    © <span id="y"></span> César Reyes · <a href="https://caesar-dat-com.github.io/">Inicio</a>
   </footer>
 
   <script>
