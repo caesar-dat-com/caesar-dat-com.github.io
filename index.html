@@ -1,1917 +1,1981 @@
-<!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<!doctype html>
+<html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>César Reyes — Perfil</title>
 
-  <title>César Reyes · Perfil</title>
-  <meta name="description" content="Sitio personal de César Reyes: perfil, experiencia, proyectos, stack y contacto." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=VT323&display=swap"
-    rel="stylesheet" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Exo:wght@200;400;600;800&family=JetBrains+Mono:wght@300;600&display=swap"
+    rel="stylesheet">
 
   <style>
+    :root {
+      --bg0: #070b12;
+      --bg1: #0b1220;
+      --card: rgba(255, 255, 255, .06);
+      --card2: rgba(255, 255, 255, .04);
+      --stroke: rgba(255, 255, 255, .14);
+      --stroke2: rgba(255, 255, 255, .08);
+
+      --accent: hsl(175 100% 77%);
+      --shadow: hsl(10 100% 60%);
+      --text: rgba(255, 255, 255, .92);
+      --muted: rgba(255, 255, 255, .65);
+      --muted2: rgba(255, 255, 255, .45);
+
+      --r: 18px;
+      --r2: 26px;
+
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: "Exo", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+      --glow: 0 0 0.9rem color-mix(in oklab, var(--accent) 30%, transparent);
+      --shadowGlow: 0 0 1.2rem color-mix(in oklab, var(--shadow) 35%, transparent);
+      --elev: 0 14px 50px rgba(0, 0, 0, .55);
+
+      --sbTrack: color-mix(in oklab, var(--bg1) 70%, black);
+      --sbThumb: color-mix(in oklab, var(--accent) 40%, rgba(255, 255, 255, .12));
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg0: #f6f8ff;
+        --bg1: #edf1ff;
+        --card: rgba(0, 0, 0, .04);
+        --card2: rgba(0, 0, 0, .03);
+        --stroke: rgba(0, 0, 0, .12);
+        --stroke2: rgba(0, 0, 0, .08);
+
+        --text: rgba(0, 0, 0, .86);
+        --muted: rgba(0, 0, 0, .6);
+        --muted2: rgba(0, 0, 0, .45);
+
+        --elev: 0 18px 50px rgba(0, 0, 0, .15);
+        --sbTrack: color-mix(in oklab, var(--bg1) 70%, white);
+        --sbThumb: color-mix(in oklab, var(--accent) 35%, rgba(0, 0, 0, .10));
+      }
+    }
+
     * {
       box-sizing: border-box;
     }
 
     html,
     body {
-      --colors-bg--100: #0e0b10;
-      --colors-bg--300: #1e181e;
-      --colors-bg--500: #191a1e;
-
-      --colors-primary--200: #f4908b;
-      --colors-primary--300: #ea6f69;
-      --colors-primary--500: #e8615a;
-      --colors-primary--600: #9c3230;
-
-      --colors-secondary--500: #2be4ea;
-      --colors-tertiary--500: #fed33f;
-
-      --fonts-primary: "Rajdhani", system-ui, -apple-system, Segoe UI, Roboto,
-        Arial, sans-serif;
-      --fonts-secondary: "VT323", ui-monospace, SFMono-Regular, Menlo, Monaco,
-        Consolas, "Liberation Mono", "Courier New", monospace;
-
-      --ui-glow: 0 0 10px rgba(232, 97, 90, 0.35);
-      --ui-glow-strong: 0 0 18px rgba(43, 228, 234, 0.35);
-      --ui-glow-text: -9px -6px 40px currentColor;
-
-      --ui-notch-amount: 1rem;
-      --ui-notch-hypotenuse: 22.627416px;
-      --ui-notch-path: polygon(0 0,
-          100% 0,
-          100% calc(100% - var(--ui-notch-amount) + 2px),
-          calc(100% - var(--ui-notch-amount) + 2px) 100%,
-          0 100%);
-
-      --accent: var(--colors-secondary--500);
-      --shadow: var(--colors-primary--500);
-
       height: 100%;
-      margin: 0;
     }
 
     body {
-      font-family: var(--fonts-primary);
-      color: var(--colors-primary--500);
-      background: radial-gradient(ellipse at 28% 12%,
-          rgba(70, 22, 22, 0.95) 0%,
-          transparent 60%),
-        radial-gradient(ellipse at 72% 18%,
-          rgba(43, 228, 234, 0.10) 0%,
-          transparent 55%),
-        linear-gradient(180deg, var(--colors-bg--500), var(--colors-bg--100));
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 15% 10%, color-mix(in oklab, var(--accent) 10%, transparent), transparent 60%),
+        radial-gradient(900px 600px at 85% 20%, color-mix(in oklab, var(--shadow) 10%, transparent), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow: hidden;
-      /* ✅ evita “romper” fondos por altura infinita */
+      /* internal scrolling only (prevents background breaking on long content) */
     }
 
-    /* Scanlines + grid */
+    /* Fixed background layers */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
-      background: repeating-linear-gradient(to bottom,
-          rgba(255, 255, 255, 0.03),
-          rgba(255, 255, 255, 0.03) 1px,
-          transparent 1px,
-          transparent 4px);
-      opacity: 0.35;
+      opacity: .55;
+      background:
+        linear-gradient(transparent 31px, rgba(255, 255, 255, .05) 32px),
+        linear-gradient(90deg, transparent 31px, rgba(255, 255, 255, .04) 32px);
+      background-size: 32px 32px;
       mix-blend-mode: overlay;
-      z-index: 0;
+      mask-image: radial-gradient(60% 55% at 50% 35%, black, transparent 72%);
     }
 
     body::after {
       content: "";
       position: fixed;
-      inset: 0;
+      inset: -20%;
       pointer-events: none;
-      background-image: linear-gradient(rgba(43, 228, 234, 0.07) 1px,
-          transparent 1px),
-        linear-gradient(90deg, rgba(43, 228, 234, 0.07) 1px, transparent 1px);
-      background-size: 42px 42px;
-      opacity: 0.08;
-      z-index: 0;
+      opacity: .08;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+      transform: rotate(-7deg);
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    /* Scrollbars (same aesthetic as buttons) */
+    :where(.scrollArea, body) {
+      scrollbar-width: thin;
+      scrollbar-color: var(--sbThumb) var(--sbTrack);
     }
 
-    .skip {
-      position: absolute;
-      left: -9999px;
-      top: 12px;
-      padding: 10px 12px;
-      background: rgba(25, 26, 30, 0.95);
-      border: 1px solid var(--colors-secondary--500);
-      color: var(--colors-secondary--500);
-      font-family: var(--fonts-secondary);
-      z-index: 9999;
+    :where(.scrollArea)::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
     }
 
-    .skip:focus {
-      left: 12px;
+    :where(.scrollArea)::-webkit-scrollbar-track {
+      background: var(--sbTrack);
+      border: 1px solid var(--stroke2);
+      border-radius: 999px;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .12);
+      margin: 6px;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
+    :where(.scrollArea)::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg,
+          color-mix(in oklab, var(--accent) 50%, rgba(255, 255, 255, .12)),
+          color-mix(in oklab, var(--accent) 22%, rgba(255, 255, 255, .08)));
+      border-radius: 999px;
+      border: 1px solid color-mix(in oklab, var(--accent) 35%, var(--stroke));
+      box-shadow: var(--glow);
+    }
+
+    :where(.scrollArea)::-webkit-scrollbar-thumb:hover {
+      filter: saturate(1.2) brightness(1.06);
+    }
+
+    /* Layout */
+    .app {
+      height: 100dvh;
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr) 340px;
+      gap: 16px;
+      padding: 16px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1100px) {
+      .app {
+        grid-template-columns: 92px minmax(0, 1fr);
+      }
+
+      .rail--right {
+        display: none;
       }
     }
 
-    /* ========== App shell (altura fija + scroll interno) ========== */
-    .app-skeleton {
-      position: relative;
-      z-index: 1;
-      width: min(1180px, 100%);
-      margin: 0 auto;
-      padding: 16px 14px 16px;
-      height: 100dvh;
-      /* ✅ */
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
+    @media (max-width: 760px) {
+      .app {
+        grid-template-columns: 1fr;
+      }
 
-    .app-header {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 14px 10px 12px;
-      flex: 0 0 auto;
-    }
+      .rail--left {
+        display: none;
+      }
 
-    .app-header::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 100%;
-      height: 2px;
-      background: var(--colors-primary--500);
-      box-shadow: var(--ui-glow);
-      opacity: 0.9;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 10px;
-      padding: 6px 8px;
-    }
-
-    .brand__title {
-      font-family: var(--fonts-secondary);
-      font-size: 1.55rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-shadow: var(--ui-glow-text);
-      color: var(--colors-secondary--500);
-      white-space: nowrap;
-    }
-
-    .brand__tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 3px 10px;
-      border: 1px solid var(--colors-tertiary--500);
-      color: var(--colors-tertiary--500);
-      font-family: var(--fonts-secondary);
-      letter-spacing: 0.06em;
-      clip-path: var(--ui-notch-path);
-      background: rgba(25, 26, 30, 0.45);
-    }
-
-    .hint-pill {
-      font-family: var(--fonts-secondary);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--colors-primary--200);
-      padding: 6px 10px;
-      border: 1px solid rgba(156, 50, 48, 0.9);
-      background: rgba(25, 26, 30, 0.5);
-      clip-path: var(--ui-notch-path);
-      white-space: nowrap;
-    }
-
-    .app-container {
-      flex: 1 1 auto;
-      min-height: 0;
-      /* ✅ crucial para scroll interno */
-      display: grid;
-      grid-template-columns: 280px 1fr 320px;
-      gap: 14px;
-      align-items: stretch;
-    }
-
-    .app-container>aside,
-    .app-container>main {
-      min-height: 0;
-      /* ✅ */
-    }
-
-    @media (max-width: 980px) {
       body {
         overflow: auto;
       }
 
-      .app-skeleton {
+      .stage {
         height: auto;
-      }
-
-      .app-container {
-        grid-template-columns: 1fr;
-        min-height: auto;
+        overflow: visible;
       }
     }
 
-    /* ========== UI blocks ========== */
-    .pad {
-      background: rgba(30, 24, 30, 0.92);
-      border: 2px solid var(--colors-primary--600);
-      clip-path: var(--ui-notch-path);
-      box-shadow: var(--ui-glow);
+    .rail {
+      border-radius: var(--r2);
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border: 1px solid var(--stroke2);
+      box-shadow: var(--elev);
+      backdrop-filter: blur(14px);
       position: relative;
-      height: 100%;
-    }
-
-    .pad::before {
-      content: "";
-      position: absolute;
-      right: -6px;
-      bottom: 5px;
-      width: var(--ui-notch-hypotenuse);
-      height: 3px;
-      transform: rotate(-45deg);
-      background: var(--colors-primary--600);
-      z-index: 2;
-    }
-
-    .pad__body {
-      padding: 16px 16px calc(16px + var(--ui-notch-amount));
-      height: 100%;
-    }
-
-    .pad__scroll {
-      overflow: auto;
-      /* ✅ scroll interno */
-    }
-
-    .section-title {
-      margin: 0 0 6px;
-      font-family: var(--fonts-secondary);
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--colors-secondary--500);
-      text-shadow: 0 0 14px rgba(43, 228, 234, 0.25);
-    }
-
-    .muted {
-      color: var(--colors-primary--200);
-      margin: 0;
-    }
-
-    .divider {
-      height: 1px;
-      background: rgba(232, 97, 90, 0.35);
-      box-shadow: var(--ui-glow);
-      margin: 12px 0;
-      opacity: 0.8;
-    }
-
-    /* ========== Left rail nav ========== */
-    .nav-section__header {
-      background: rgba(25, 26, 30, 0.7);
-      border: 1px solid rgba(93, 35, 34, 0.95);
-      border-radius: 3px;
-      padding: 10px 12px;
-      margin-bottom: 10px;
-    }
-
-    .nav-section__title {
-      margin: 0;
-      color: var(--colors-secondary--500);
-      font-family: var(--fonts-secondary);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .nav-rail {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 6px;
-    }
-
-    .nav-rail button {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 9px 10px;
-      border: 1px solid transparent;
-      border-radius: 3px;
-      color: var(--colors-secondary--500);
-      background: transparent;
-      cursor: pointer;
-      font: inherit;
-      transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
-    }
-
-    .nav-rail button:hover,
-    .nav-rail button:focus-visible {
-      background: rgba(25, 26, 30, 0.7);
-      border-color: rgba(93, 35, 34, 0.95);
-      transform: translateX(1px);
-      outline: none;
-    }
-
-    .nav-rail button.is-active {
-      background: rgba(57, 20, 25, 0.75);
-      border-color: var(--colors-primary--600);
-      color: var(--colors-tertiary--500);
-    }
-
-    .badge {
-      border: 1.5px solid var(--colors-tertiary--500);
-      border-radius: 3px;
-      color: var(--colors-tertiary--500);
-      font-family: var(--fonts-secondary);
-      letter-spacing: 0.06em;
-      padding: 2px 6px;
-      font-size: 0.95rem;
-    }
-
-    .form-control {
-      background: rgba(25, 26, 30, 0.55);
-      border: 1px solid var(--colors-primary--600);
-      clip-path: var(--ui-notch-path);
-      padding: 8px;
-      position: relative;
-    }
-
-    .form-control::before {
-      content: "";
-      position: absolute;
-      right: -6px;
-      bottom: 5px;
-      width: var(--ui-notch-hypotenuse);
-      height: 3px;
-      transform: rotate(-45deg);
-      background: var(--colors-primary--600);
-    }
-
-    .form-control input {
-      width: 100%;
-      border: 0;
-      outline: none;
-      background: transparent;
-      color: var(--colors-primary--200);
-      font-family: var(--fonts-primary);
-      font-size: 1rem;
-      letter-spacing: 0.04em;
-    }
-
-    /* ========== Center view router ========== */
-    main .pad__body {
-      padding: 0;
       overflow: hidden;
     }
 
-    #stage {
+    .rail::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      pointer-events: none;
+      background:
+        radial-gradient(600px 200px at 50% -20%, color-mix(in oklab, var(--accent) 22%, transparent), transparent 60%),
+        radial-gradient(500px 200px at 70% 115%, color-mix(in oklab, var(--shadow) 16%, transparent), transparent 55%);
+      opacity: .9;
+    }
+
+    .rail__inner {
       position: relative;
       height: 100%;
-      overflow: auto;
-      /* ✅ */
-      padding: 16px 16px calc(16px + var(--ui-notch-amount));
-    }
-
-    .page {
-      display: none;
-    }
-
-    .page.is-active {
-      display: block;
-      view-transition-name: page;
-    }
-
-    #stage::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      pointer-events: none;
-      opacity: 0;
-      background: repeating-linear-gradient(to bottom,
-          rgba(43, 228, 234, 0.18),
-          rgba(43, 228, 234, 0.18) 1px,
-          transparent 1px,
-          transparent 6px);
-      mix-blend-mode: screen;
-      filter: blur(0.2px);
-    }
-
-    #stage.is-glitch::before {
-      animation: stage-glitch 420ms steps(2) both;
-      opacity: 0.6;
-    }
-
-    @keyframes stage-glitch {
-      0% {
-        transform: translate(0, 0);
-        clip-path: inset(0 0 0 0);
-      }
-
-      25% {
-        transform: translate(2px, -1px);
-        clip-path: inset(8% 0 62% 0);
-      }
-
-      55% {
-        transform: translate(-2px, 1px);
-        clip-path: inset(38% 0 34% 0);
-      }
-
-      100% {
-        transform: translate(0, 0);
-        clip-path: inset(0 0 0 0);
-      }
-    }
-
-    @supports (view-transition-name: page) {
-      ::view-transition-old(page) {
-        animation: vt-out 220ms ease both;
-        filter: saturate(120%) blur(1px);
-        opacity: 0.85;
-      }
-
-      ::view-transition-new(page) {
-        animation: vt-in 260ms ease both, vt-glitch 520ms steps(2) both;
-        filter: saturate(120%);
-      }
-
-      @keyframes vt-in {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes vt-out {
-        from {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        to {
-          opacity: 0;
-          transform: translateY(-8px);
-        }
-      }
-
-      @keyframes vt-glitch {
-        0% {
-          clip-path: inset(0 0 0 0);
-        }
-
-        20% {
-          clip-path: inset(10% 0 60% 0);
-          transform: translateX(-1px);
-        }
-
-        45% {
-          clip-path: inset(44% 0 35% 0);
-          transform: translateX(1px);
-        }
-
-        70% {
-          clip-path: inset(65% 0 15% 0);
-          transform: translateX(-1px);
-        }
-
-        100% {
-          clip-path: inset(0 0 0 0);
-          transform: translateX(0);
-        }
-      }
-    }
-
-    /* ========== Cards & lists ========== */
-    .grid-2 {
-      display: grid;
-      gap: 12px;
-      grid-template-columns: 1fr;
-    }
-
-    @media (min-width: 760px) {
-      .grid-2 {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .cards {
-      display: grid;
-      gap: 12px;
-    }
-
-    .item {
-      background: rgba(25, 26, 30, 0.55);
-      border: 1px solid rgba(156, 50, 48, 0.9);
-      clip-path: var(--ui-notch-path);
-      padding: 12px;
-      position: relative;
-    }
-
-    .item::before {
-      content: "";
-      position: absolute;
-      right: -6px;
-      bottom: 4px;
-      width: var(--ui-notch-hypotenuse);
-      height: 3px;
-      transform: rotate(-45deg);
-      background: rgba(156, 50, 48, 0.9);
-    }
-
-    .item h4 {
-      margin: 0 0 6px;
-      color: var(--colors-secondary--500);
-      letter-spacing: 0.02em;
-    }
-
-    .item p {
-      margin: 0;
-      color: var(--colors-primary--200);
-    }
-
-    .detail-list {
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: var(--colors-primary--200);
-    }
-
-    .detail-list li+li {
-      margin-top: 6px;
-    }
-
-    /* ========== Chips ========== */
-    .chip-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      padding: 14px;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 54px;
+      border-radius: 16px;
+      border: 1px solid var(--stroke2);
+      background: rgba(255, 255, 255, .06);
+      box-shadow: var(--glow);
+      letter-spacing: .14em;
+      font-weight: 800;
+    }
+
+    .brand small {
+      font-size: 11px;
+      opacity: .75;
+      letter-spacing: .2em;
+      font-family: var(--mono);
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
       gap: 10px;
     }
 
-    .chip {
-      padding: 8px 14px;
-      border-radius: 2px;
-      background: rgba(25, 26, 30, 0.65);
-      border: 1px solid rgba(156, 50, 48, 0.9);
-      color: var(--colors-secondary--500);
-      font-family: var(--fonts-secondary);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      clip-path: var(--ui-notch-path);
-      position: relative;
-    }
-
-    .chip::before {
-      content: "";
-      position: absolute;
-      right: -6px;
-      bottom: 4px;
-      width: var(--ui-notch-hypotenuse);
-      height: 3px;
-      transform: rotate(-45deg);
-      background: rgba(156, 50, 48, 0.9);
-    }
-
-    /* ========== Hero ========== */
-    .hero-title {
-      margin: 0 0 8px;
-      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
-      letter-spacing: 0.02em;
-      color: var(--colors-secondary--500);
-      text-shadow: var(--ui-glow-text);
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 18px;
-      color: var(--colors-primary--200);
-      margin: 0;
-    }
-
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 10px;
-      border: 1px solid rgba(93, 35, 34, 0.95);
-      background: rgba(25, 26, 30, 0.45);
-      border-radius: 3px;
-    }
-
-    /* ========== Cyber button + Popover ========== */
     .cyber-btn {
-      --corner: 12px;
-      --border: 1px;
-      --clip: polygon(0 0,
-          100% 0,
-          100% calc(100% - var(--corner)),
-          calc(100% - var(--corner)) 100%,
-          0% 100%);
-      width: 100%;
-      text-align: left;
-      text-transform: uppercase;
-      display: inline-flex;
+      all: unset;
+      display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.75rem;
-      padding: 0.6rem 0.6rem;
-      border: 0;
-      background: transparent;
-      position: relative;
-      color: var(--accent);
+      gap: 10px;
+      padding: 10px 10px;
+      border-radius: 16px;
+      border: 1px solid var(--stroke2);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .04));
       cursor: pointer;
-      font-family: var(--fonts-secondary);
-      letter-spacing: 0.06em;
+      transition: transform .12s ease, filter .12s ease, border-color .12s ease;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     }
 
-    .cyber-btn * {
-      pointer-events: none;
+    .cyber-btn:hover {
+      transform: translateY(-1px);
+      filter: saturate(1.05);
+      border-color: color-mix(in oklab, var(--accent) 18%, var(--stroke2));
     }
 
-    .cyber-btn kbd {
-      color: var(--colors-bg--300);
-      font-weight: 700;
-      width: 22px;
-      aspect-ratio: 1;
-      font-size: 9px;
-      border-radius: 50%;
-      background: var(--accent);
-      display: inline-grid;
-      place-items: center;
+    .cyber-btn[aria-current="page"] {
+      border-color: color-mix(in oklab, var(--accent) 40%, var(--stroke2));
+      box-shadow: var(--glow);
     }
 
-    .backdrop {
-      position: absolute;
-      z-index: -1;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.25);
-      clip-path: var(--clip);
-      pointer-events: none;
-      box-shadow: var(--ui-glow-strong);
-    }
-
-    .backdrop::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: var(--accent);
-      border: var(--border) solid transparent;
-      clip-path: var(--clip);
-      mask: linear-gradient(#0000 0% 100%), linear-gradient(#fff 0% 100%);
-      mask-clip: padding-box, border-box;
-      mask-repeat: no-repeat;
-      mask-composite: intersect;
-      opacity: 0.8;
-    }
-
-    .corner {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      height: var(--corner);
-      width: var(--corner);
-    }
-
-    .corner::after {
-      content: "";
-      height: calc(var(--border) * 2);
-      width: 200%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      translate: -50% -50%;
-      transform: rotate(135deg);
-      background: var(--accent);
-    }
-
-    .cyber-btn .glitch {
-      display: none;
-      position: absolute;
-      inset: 0;
+    .cyber-btn__left {
+      display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      padding: 0.6rem 0.6rem;
-      color: var(--accent);
-      text-shadow: 0 1px var(--shadow);
-    }
-
-    .cyber-btn:is(:hover, :focus-visible) .glitch {
-      display: flex;
-      animation: glitch 2s infinite;
-      outline: none;
-    }
-
-    .letters {
-      display: inline-flex;
-      gap: 1px;
-    }
-
-    .letters span:nth-of-type(2),
-    .letters span:nth-of-type(5) {
-      transform: scale(1, -1);
-    }
-
-    .letters span:nth-of-type(3),
-    .letters span:nth-of-type(6),
-    .letters span:nth-of-type(7) {
-      transform: scale(-1, -1);
-    }
-
-    @keyframes glitch {
-      0% {
-        clip-path: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
-      }
-
-      8% {
-        clip-path: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
-        transform: translate(-2px, 0);
-      }
-
-      10% {
-        clip-path: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 85% 54%, 8% 54%, 0 54%);
-        transform: translate(2px, 0);
-      }
-
-      45% {
-        clip-path: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 85% 85%, 8% 85%, 0 70%);
-        transform: translate(-2px, 0);
-      }
-
-      100% {
-        clip-path: polygon(0 0, 100% 0, 100% 0, 95% 0, 85% 0, 8% 0, 0 0);
-        transform: translate(0, 0);
-      }
-    }
-
-    .modal {
-      --corner: 12px;
-      --border: 2px;
-      --clip: polygon(0 0,
-          100% 0,
-          100% calc(100% - var(--corner)),
-          calc(100% - var(--corner)) 100%,
-          0% 100%);
-
-      color: var(--accent);
-      width: clamp(340px, 55vw, 560px);
-      border: 0;
-      padding: 0;
-      overflow: visible;
-      background: transparent;
-      font-family: var(--fonts-secondary);
-    }
-
-    .modal::backdrop {
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(6px);
-    }
-
-    .modal__body {
-      backdrop-filter: saturate(180%) blur(8px);
-      background: rgba(0, 0, 0, 0.25);
-      border: var(--border) solid rgba(43, 228, 234, 0.65);
-      clip-path: var(--clip);
-    }
-
-    .body__content {
-      padding: 1rem;
-      position: relative;
-    }
-
-    .modal h2 {
-      margin: 0 0 0.75rem 0;
-      text-transform: uppercase;
-      position: relative;
-      font-size: 1.25rem;
-    }
-
-    .modal h2::after {
-      content: "";
-      height: var(--border);
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: var(--accent);
-      position: absolute;
-      opacity: 0.85;
-    }
-
-    .modal p {
-      margin: 0.5rem 0 0;
-      color: color-mix(in oklch, var(--accent), white 35%);
-      letter-spacing: 0.04em;
-      font-family: var(--fonts-primary);
-    }
-
-    .modal__actions {
-      display: flex;
-      flex-wrap: wrap;
       gap: 10px;
-      justify-content: flex-end;
-      padding: 1rem 0 0;
-    }
-
-    .action-btn {
-      border: 1px solid rgba(43, 228, 234, 0.65);
-      background: rgba(0, 0, 0, 0.25);
-      color: var(--accent);
-      font-family: var(--fonts-secondary);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 10px 12px;
-      cursor: pointer;
-      clip-path: var(--ui-notch-path);
-    }
-
-    .action-btn:hover,
-    .action-btn:focus-visible {
-      outline: none;
-      background: rgba(43, 228, 234, 0.08);
-    }
-
-    .action-btn--danger {
-      border-color: rgba(232, 97, 90, 0.7);
-      color: var(--colors-primary--200);
-    }
-
-    /* Toast */
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%);
-      background: rgba(25, 26, 30, 0.92);
-      border: 1px solid var(--colors-secondary--500);
-      color: var(--colors-secondary--500);
-      padding: 10px 12px;
-      font-family: var(--fonts-secondary);
-      letter-spacing: 0.06em;
-      clip-path: var(--ui-notch-path);
-      box-shadow: var(--ui-glow-strong);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s, transform 0.2s;
-      z-index: 9999;
-    }
-
-    .toast.is-on {
-      opacity: 1;
-      transform: translateX(-50%) translateY(-2px);
-    }
-
-    /* Memento Mori widget */
-    .mm-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .mm-title {
-      margin: 0;
-      font-family: var(--fonts-secondary);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--colors-tertiary--500);
-    }
-
-    .mm-sub {
-      margin: 0;
-      color: var(--colors-primary--200);
-    }
-
-    .mm-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .mm-stat {
-      background: rgba(25, 26, 30, 0.55);
-      border: 1px solid rgba(156, 50, 48, 0.9);
-      clip-path: var(--ui-notch-path);
-      padding: 10px;
-    }
-
-    .mm-stat b {
-      color: var(--colors-secondary--500);
-      font-family: var(--fonts-secondary);
-      letter-spacing: 0.06em;
-    }
-
-    .mm-stat span {
-      display: block;
-      margin-top: 6px;
-      color: var(--colors-primary--200);
-    }
-
-    .mm-canvas-wrap {
-      margin-top: 12px;
-      border: 1px solid rgba(43, 228, 234, 0.35);
-      background: rgba(0, 0, 0, 0.18);
-      clip-path: var(--ui-notch-path);
-      padding: 10px;
-    }
-
-    .mm-legend {
-      margin-top: 10px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      color: var(--colors-primary--200);
-      font-family: var(--fonts-primary);
+      min-width: 0;
     }
 
     .dot {
       width: 10px;
       height: 10px;
-      border-radius: 2px;
-      display: inline-block;
-      margin-right: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      background: color-mix(in oklab, var(--accent) 55%, rgba(255, 255, 255, .16));
+      box-shadow: 0 0 0.7rem color-mix(in oklab, var(--accent) 35%, transparent);
+      flex: 0 0 auto;
     }
 
-    .dot--lived {
-      background: var(--accent);
+    .cyber-btn__label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 700;
+      opacity: .95;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .dot--left {
-      background: rgba(255, 255, 255, 0.12);
+    kbd {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 5px 8px;
+      border-radius: 12px;
+      border: 1px solid var(--stroke2);
+      background: rgba(0, 0, 0, .18);
+      opacity: .9;
     }
 
-    .dot--now {
-      background: var(--colors-tertiary--500);
+    @media (prefers-color-scheme: light) {
+      kbd {
+        background: rgba(255, 255, 255, .55);
+      }
     }
 
-    .mm-kv {
-      display: grid;
+    .rail__footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
       gap: 10px;
-      grid-template-columns: 1fr;
-      margin-top: 12px;
     }
 
-    .mm-kv .item {
-      padding: 10px;
+    .mini {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 12px;
+      border-radius: 18px;
+      border: 1px solid var(--stroke2);
+      background: rgba(255, 255, 255, .05);
     }
 
-    .mono {
-      font-family: var(--fonts-secondary);
-      letter-spacing: 0.06em;
+    .mini h4 {
+      margin: 0;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      opacity: .86;
+    }
+
+    .mini p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .mini a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dashed color-mix(in oklab, var(--accent) 35%, transparent);
+    }
+
+    .stage {
+      border-radius: var(--r2);
+      border: 1px solid var(--stroke2);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
+      box-shadow: var(--elev);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      min-width: 0;
+    }
+
+    .stage::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      pointer-events: none;
+      background: linear-gradient(90deg,
+          transparent,
+          color-mix(in oklab, var(--accent) 10%, transparent),
+          transparent);
+      opacity: .65;
+      transform: translateX(-35%);
+      animation: sweep 8s linear infinite;
+    }
+
+    @keyframes sweep {
+      0% {
+        transform: translateX(-35%);
+      }
+
+      100% {
+        transform: translateX(35%);
+      }
+    }
+
+    .stage__top {
+      position: relative;
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid var(--stroke2);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .title {
+      margin: 0;
+      font-size: clamp(20px, 2.2vw, 28px);
+      letter-spacing: .02em;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .08em;
+      font-family: var(--mono);
       text-transform: uppercase;
     }
 
-    /* Tiny */
-    code {
-      color: var(--colors-tertiary--500);
-      font-family: var(--fonts-secondary);
+    .stage__meta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .stage__body {
+      position: relative;
+      padding: 14px 14px 16px;
+      min-height: 0;
+      overflow: auto;
+      scrollbar-gutter: stable both-edges;
+    }
+
+    .card {
+      border-radius: 20px;
+      border: 1px solid var(--stroke2);
+      background: rgba(255, 255, 255, .05);
+      padding: 14px;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+
+    .card+.card {
+      margin-top: 12px;
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 920px) {
+      .grid2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .h {
+      margin: 0 0 8px;
+      font-size: 13px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-family: var(--mono);
+      color: color-mix(in oklab, var(--text) 92%, var(--muted));
+    }
+
+    .p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .tagrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke2);
+      background: rgba(0, 0, 0, .16);
+      font-family: var(--mono);
+      font-size: 12px;
+      color: color-mix(in oklab, var(--text) 86%, var(--muted));
+    }
+
+    @media (prefers-color-scheme: light) {
+      .tag {
+        background: rgba(255, 255, 255, .55);
+      }
+    }
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .item {
+      border-radius: 18px;
+      border: 1px solid var(--stroke2);
+      background: rgba(255, 255, 255, .04);
+      padding: 12px;
+    }
+
+    .item__top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .item__t {
+      margin: 0;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: .02em;
+    }
+
+    .item__m {
+      margin: 6px 0 0;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .when {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      white-space: nowrap;
+    }
+
+    .btn {
+      all: unset;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border: 1px solid var(--stroke2);
+      background: linear-gradient(180deg,
+          color-mix(in oklab, var(--accent) 12%, rgba(255, 255, 255, .08)),
+          rgba(255, 255, 255, .04));
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: transform .12s ease, filter .12s ease, border-color .12s ease;
+      box-shadow: var(--glow);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: saturate(1.1);
+      border-color: color-mix(in oklab, var(--accent) 40%, var(--stroke2));
+    }
+
+    .btn--ghost {
+      background: rgba(255, 255, 255, .04);
+      box-shadow: none;
+    }
+
+    /* Right rail widgets */
+    .widget {
+      border-radius: 20px;
+      border: 1px solid var(--stroke2);
+      background: rgba(255, 255, 255, .05);
+      padding: 12px;
+    }
+
+    .widget__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .widget__title {
+      margin: 0;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-family: var(--mono);
+      color: color-mix(in oklab, var(--text) 92%, var(--muted));
+    }
+
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke2);
+      background: rgba(0, 0, 0, .18);
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .bar>i {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), color-mix(in oklab, var(--shadow) 45%, var(--accent)));
+      box-shadow: var(--glow);
+    }
+
+    @media (prefers-color-scheme: light) {
+      .bar {
+        background: rgba(255, 255, 255, .55);
+      }
+    }
+
+    .smallprint {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted2);
+      line-height: 1.45;
+    }
+
+    /* Modal / popover (centered) */
+    .modal {
+      width: min(980px, calc(100vw - 32px));
+      border-radius: 26px;
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(0, 0, 0, .35), rgba(0, 0, 0, .18));
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .6);
+      backdrop-filter: blur(18px);
+      padding: 0;
+      overflow: hidden;
+      color: var(--text);
+    }
+
+    @media (prefers-color-scheme: light) {
+      .modal {
+        background: linear-gradient(180deg, rgba(255, 255, 255, .85), rgba(255, 255, 255, .65));
+      }
+    }
+
+    .modal::backdrop {
+      background: rgba(0, 0, 0, .58);
+      backdrop-filter: blur(6px);
+    }
+
+    [popover] {
+      inset: 50% auto auto 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    [popover]:popover-open {
+      animation: popIn .18s ease-out;
+    }
+
+    @keyframes popIn {
+      from {
+        transform: translate(-50%, -48%) scale(.98);
+        opacity: 0;
+      }
+
+      to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+    }
+
+    .modal__header {
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--stroke2);
+      position: relative;
+      background: rgba(255, 255, 255, .03);
+    }
+
+    .modal__header h3 {
+      margin: 0;
+      font-size: 13px;
+      font-family: var(--mono);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .modal__content {
+      padding: 14px;
+      max-height: min(68dvh, 680px);
+      overflow: auto;
+    }
+
+    /* Glitch layer (subtle) */
+    .glitch {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .12;
+      mix-blend-mode: screen;
+      background:
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, .25) 3px),
+        radial-gradient(1000px 220px at 50% -10%, color-mix(in oklab, var(--accent) 25%, transparent), transparent 65%),
+        radial-gradient(900px 260px at 65% 120%, color-mix(in oklab, var(--shadow) 22%, transparent), transparent 60%);
+      animation: glitchDrift 8s linear infinite;
+      transform: translateZ(0);
+    }
+
+    @keyframes glitchDrift {
+      0% {
+        transform: translate3d(0, 0, 0);
+        filter: hue-rotate(0deg);
+      }
+
+      50% {
+        transform: translate3d(0, -3px, 0);
+        filter: hue-rotate(12deg);
+      }
+
+      100% {
+        transform: translate3d(0, 0, 0);
+        filter: hue-rotate(0deg);
+      }
+    }
+
+    /* Memento grid */
+    .mm-wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .mm-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
+    .mm-stat {
+      border: 1px solid var(--stroke2);
+      background: rgba(255, 255, 255, .04);
+      border-radius: 18px;
+      padding: 12px;
+    }
+
+    .mm-stat b {
+      display: block;
+      font-family: var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .mm-stat span {
+      display: block;
+      margin-top: 6px;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+
+    .mm-grid {
+      border-radius: 22px;
+      border: 1px solid var(--stroke2);
+      background: rgba(255, 255, 255, .03);
+      padding: 12px;
+      overflow: auto;
+    }
+
+    .mm-grid__inner {
+      display: grid;
+      grid-auto-rows: 8px;
+      grid-template-columns: repeat(52, 8px);
+      gap: 3px;
+      width: max-content;
+    }
+
+    .mm-cell {
+      width: 8px;
+      height: 8px;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, .10);
+      border: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .mm-cell.past {
+      background: color-mix(in oklab, var(--accent) 40%, rgba(255, 255, 255, .12));
+      border-color: color-mix(in oklab, var(--accent) 45%, rgba(255, 255, 255, .10));
+      box-shadow: 0 0 .5rem color-mix(in oklab, var(--accent) 22%, transparent);
+    }
+
+    .mm-cell.current {
+      background: linear-gradient(180deg, var(--accent), color-mix(in oklab, var(--shadow) 45%, var(--accent)));
+      border-color: color-mix(in oklab, var(--accent) 55%, rgba(255, 255, 255, .12));
+      box-shadow: var(--glow), var(--shadowGlow);
+    }
+
+    .mm-cell.future {
+      background: rgba(255, 255, 255, .06);
+      border-color: rgba(255, 255, 255, .06);
+    }
+
+    /* Spotify */
+    .spotify-embed {
+      width: 100%;
+      height: 360px;
+      border: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, .12);
+    }
+
+    .sp-top3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .sp-artist {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--stroke2);
+      background: rgba(255, 255, 255, .04);
+      border-radius: 18px;
+      padding: 10px;
+    }
+
+    .sp-artist img {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid var(--stroke2);
+    }
+
+    .sp-artist b {
+      font-size: 13px;
+    }
+
+    .sp-artist a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dashed color-mix(in oklab, var(--accent) 35%, transparent);
+    }
+
+    /* Instagram embed area */
+    .ig-shell {
+      border-radius: 22px;
+      border: 1px solid var(--stroke2);
+      background: rgba(255, 255, 255, .03);
+      padding: 12px;
+      overflow: hidden;
+    }
+
+    .ig-shell .ig-fallback {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+      border-radius: 18px;
+      border: 1px solid var(--stroke2);
+      background: rgba(255, 255, 255, .04);
+    }
+
+    .ig-shell .ig-fallback b {
+      font-family: var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .ig-shell .ig-embed {
+      margin-top: 12px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--stroke2);
+      background: rgba(0, 0, 0, .12);
+      padding: 10px;
+    }
+
+    .ig-shell blockquote.instagram-media {
+      background: transparent !important;
+      border: 0 !important;
+      margin: 0 auto !important;
+      width: 100% !important;
+      max-width: 540px !important;
+      min-width: 0 !important;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .stage::before {
+        animation: none;
+      }
+
+      .glitch {
+        animation: none;
+      }
+
+      .cyber-btn,
+      .btn {
+        transition: none;
+      }
+
+      [popover]:popover-open {
+        animation: none;
+      }
     }
   </style>
 </head>
 
 <body>
-  <a class="skip" href="#main">Saltar al contenido</a>
+  <div class="app" id="app">
 
-  <div class="app-skeleton" id="top">
-    <header class="app-header">
-      <a class="brand" href="#top" aria-label="Inicio">
-        <span class="brand__title">CÉSAR REYES</span>
-        <span class="brand__tag">DATA · IA · AUTOMATION</span>
-      </a>
-
-      <span class="hint-pill">U: Actions · 1–7: Secciones · M: Memento</span>
-    </header>
-
-    <div class="app-container">
-      <!-- Left rail -->
-      <aside>
-        <div class="pad">
-          <div class="pad__body pad__scroll">
-            <div class="nav-section">
-              <div class="nav-section__header">
-                <h2 class="nav-section__title">Secciones</h2>
-              </div>
-
-              <ul class="nav-rail" id="rail">
-                <li>
-                  <button type="button" data-go="about">
-                    <span>Sobre mí</span><span class="badge">1</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" data-go="stack">
-                    <span>Stack</span><span class="badge">2</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" data-go="experience">
-                    <span>Experiencia</span><span class="badge">3</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" data-go="projects">
-                    <span>Proyectos</span><span class="badge">4</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" data-go="education">
-                    <span>Educación</span><span class="badge">5</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" data-go="certs">
-                    <span>Certificaciones</span><span class="badge">6</span>
-                  </button>
-                </li>
-                <li>
-                  <button type="button" data-go="contact">
-                    <span>Contacto</span><span class="badge">7</span>
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            <div class="divider"></div>
-
-            <h3 class="section-title" style="font-size: 1.05rem">Buscar</h3>
-            <p class="muted" style="margin-bottom: 10px">
-              Filtra skills y certificaciones.
-            </p>
-            <div class="form-control">
-              <input id="search" type="text" placeholder="python, power bi, QA, ..." autocomplete="off" />
-            </div>
-
-            <div class="divider"></div>
-
-            <button class="cyber-btn" type="button" aria-label="Actions" popovertarget="actions"
-              popovertargetaction="show" id="actions-btn">
-              <span class="backdrop"><span class="corner"></span></span>
-              <kbd>U</kbd>
-              <span>Actions</span>
-
-              <span class="glitch" aria-hidden="true">
-                <span class="backdrop"><span class="corner"></span></span>
-                <kbd>U</kbd>
-                <span class="letters">
-                  <span>A</span><span>c</span><span>t</span><span>i</span><span>o</span><span>n</span><span>s</span>
-                </span>
-              </span>
-            </button>
-
-            <div style="height: 10px"></div>
-
-            <button class="cyber-btn" type="button" aria-label="Memento Mori" popovertarget="memento"
-              popovertargetaction="show" id="memento-btn-left" style="color: var(--colors-tertiary--500)">
-              <span class="backdrop" style="box-shadow: 0 0 18px rgba(254, 211, 63, 0.22)">
-                <span class="corner"></span>
-              </span>
-              <kbd style="background: var(--colors-tertiary--500)">M</kbd>
-              <span>Memento Mori</span>
-
-              <span class="glitch" aria-hidden="true" style="color: var(--colors-tertiary--500)">
-                <span class="backdrop" style="box-shadow: 0 0 18px rgba(254, 211, 63, 0.22)">
-                  <span class="corner"></span>
-                </span>
-                <kbd style="background: var(--colors-tertiary--500)">M</kbd>
-                <span class="letters">
-                  <span>M</span><span>e</span><span>m</span><span>e</span><span>n</span><span>t</span><span>o</span>
-                </span>
-              </span>
-            </button>
+    <!-- LEFT NAV -->
+    <aside class="rail rail--left">
+      <div class="rail__inner">
+        <div class="brand" title="César Reyes">
+          <div>
+            <div style="font-size:18px; line-height:1; font-weight:900; letter-spacing:.18em;">CR</div>
+            <small>PROFILE</small>
           </div>
         </div>
-      </aside>
 
-      <!-- Center -->
-      <main id="main">
-        <div class="pad">
-          <div class="pad__body">
-            <div id="stage">
-              <!-- ABOUT -->
-              <section class="page is-active" id="about" data-page>
-                <h1 class="hero-title" id="name">Cargando…</h1>
-                <p class="hero-meta">
-                  <span>💼 <strong id="headline">—</strong></span>
-                  <span>📍 <strong id="location">—</strong></span>
-                  <span>⚡ <strong id="focus">Automatización · Datos · IA</strong></span>
-                </p>
+        <nav class="nav" aria-label="Secciones">
+          <button class="cyber-btn" data-panel="overview" aria-current="page">
+            <span class="cyber-btn__left"><span class="dot"></span><span class="cyber-btn__label">Overview</span></span>
+            <kbd>1</kbd>
+          </button>
+          <button class="cyber-btn" data-panel="experience">
+            <span class="cyber-btn__left"><span class="dot"></span><span class="cyber-btn__label">Trabajo</span></span>
+            <kbd>2</kbd>
+          </button>
+          <button class="cyber-btn" data-panel="projects">
+            <span class="cyber-btn__left"><span class="dot"></span><span
+                class="cyber-btn__label">Proyectos</span></span>
+            <kbd>3</kbd>
+          </button>
+          <button class="cyber-btn" data-panel="skills">
+            <span class="cyber-btn__left"><span class="dot"></span><span class="cyber-btn__label">Skills</span></span>
+            <kbd>4</kbd>
+          </button>
+          <button class="cyber-btn" data-panel="education">
+            <span class="cyber-btn__left"><span class="dot"></span><span
+                class="cyber-btn__label">Educación</span></span>
+            <kbd>5</kbd>
+          </button>
+          <button class="cyber-btn" data-panel="certs">
+            <span class="cyber-btn__left"><span class="dot"></span><span class="cyber-btn__label">Certs</span></span>
+            <kbd>6</kbd>
+          </button>
+          <button class="cyber-btn" data-panel="contact">
+            <span class="cyber-btn__left"><span class="dot"></span><span class="cyber-btn__label">Contacto</span></span>
+            <kbd>7</kbd>
+          </button>
+        </nav>
 
-                <div class="divider"></div>
-
-                <p class="muted" id="summary" style="font-size: 1.05rem">
-                  Cargando resumen…
-                </p>
-
-                <div class="divider"></div>
-
-                <div class="grid-2">
-                  <div class="item">
-                    <h4>Enfoque actual</h4>
-                    <p>
-                      Ingeniería en Datos e IA (UAO) + automatización de procesos y
-                      mejora continua (experiencia industrial).
-                    </p>
-                  </div>
-                  <div class="item">
-                    <h4>Highlights</h4>
-                    <ul class="detail-list">
-                      <li>Implementé un aplicativo low-code (~1300 usuarios).</li>
-                      <li>1er lugar Rally Latinoamericano de Innovación (UAO).</li>
-                      <li>Ruta BI/Analytics (Power BI, DAX, Tableau, Looker, Excel).</li>
-                    </ul>
-                  </div>
-                </div>
-              </section>
-
-              <!-- STACK -->
-              <section class="page" id="stack" data-page>
-                <h2 class="section-title">Stack</h2>
-                <p class="muted">Skills (LinkedIn) + skills clave (curadas).</p>
-
-                <div class="divider"></div>
-
-                <div class="grid-2">
-                  <div>
-                    <h3 class="section-title" style="font-size: 1.05rem">
-                      Skills (LinkedIn)
-                    </h3>
-                    <ul id="skills" class="chip-list" style="margin-top: 10px"></ul>
-                    <p class="muted" id="skills-empty" style="display: none; margin-top: 10px">
-                      No hay skills para mostrar (o el filtro está muy estricto).
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 class="section-title" style="font-size: 1.05rem">
-                      Skills clave
-                    </h3>
-                    <ul class="chip-list" style="margin-top: 10px">
-                      <li class="chip">Python</li>
-                      <li class="chip">POO</li>
-                      <li class="chip">SQL</li>
-                      <li class="chip">Power BI</li>
-                      <li class="chip">DAX</li>
-                      <li class="chip">Tableau</li>
-                      <li class="chip">Looker Studio</li>
-                      <li class="chip">Excel</li>
-                      <li class="chip">QA & testing</li>
-                      <li class="chip">Git / GitHub</li>
-                      <li class="chip">HTML / CSS</li>
-                      <li class="chip">Low-code</li>
-                    </ul>
-
-                    <div class="divider"></div>
-
-                    <div class="item">
-                      <h4>Soft skills & idiomas</h4>
-                      <p>
-                        Trabajo en equipo · Decisiones basadas en datos · Adaptabilidad
-                        y gestión del cambio · Comunicación clara y asertiva · Proactividad
-                        y aprendizaje continuo · Atención al detalle y enfoque en la calidad.
-                      </p>
-                      <p style="margin-top: 10px" class="muted">
-                        <strong>Español:</strong> nativo · <strong>Inglés:</strong> intermedio (B1–B2)
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              <!-- EXPERIENCE -->
-              <section class="page" id="experience" data-page>
-                <h2 class="section-title">Experiencia</h2>
-                <p class="muted">Rol actual + trayectoria en planta.</p>
-
-                <div class="divider"></div>
-
-                <div class="cards">
-                  <article class="item">
-                    <h4>Supervisor – Postobón S.A. <span class="badge">Actual</span></h4>
-                    <p class="muted">Cali, Colombia</p>
-                    <ul class="detail-list">
-                      <li>Supervisión de operaciones en planta, estándares de calidad, productividad y seguridad.</li>
-                      <li>Asignación y seguimiento de tareas para continuidad de producción.</li>
-                      <li>Reportes e indicadores con herramientas ofimáticas y sistemas internos.</li>
-                      <li>Trabajo con Mantenimiento para reportar incidentes y proponer mejoras.</li>
-                    </ul>
-                  </article>
-
-                  <article class="item">
-                    <h4>Técnico – Postobón S.A.</h4>
-                    <p class="muted">Cali, Colombia</p>
-                    <ul class="detail-list">
-                      <li>Soporte técnico en líneas de producción y equipos.</li>
-                      <li>Registro de incidencias/intervenciones mejorando trazabilidad.</li>
-                      <li>Colaboración para reducir tiempos de parada y aumentar eficiencia.</li>
-                    </ul>
-                  </article>
-                </div>
-              </section>
-
-              <!-- PROJECTS -->
-              <section class="page" id="projects" data-page>
-                <h2 class="section-title">Proyectos</h2>
-                <p class="muted">Proyectos con impacto (operación real + innovación).</p>
-
-                <div class="divider"></div>
-
-                <div class="cards">
-                  <article class="item">
-                    <h4>Aplicativo low-code nacional – Postobón S.A.</h4>
-                    <p class="muted">Control de personal y tareas de Mantenimiento · <span class="badge">~1300
-                        usuarios</span></p>
-                    <ul class="detail-list">
-                      <li>Diseño e implementación para control de personal, asignación y seguimiento.</li>
-                      <li>Centralización de procesos manuales en flujo digital trazable.</li>
-                    </ul>
-                  </article>
-
-                  <article class="item">
-                    <h4>Rally Latinoamericano de Innovación – 1er lugar</h4>
-                    <p class="muted">Categoría Innovación (UAO)</p>
-                    <ul class="detail-list">
-                      <li>Integrante del equipo ganador con solución a reto real en tiempo limitado.</li>
-                    </ul>
-                  </article>
-
-                  <article class="item">
-                    <h4>Platzi Space Program – Satélite</h4>
-                    <p class="muted">Programa intensivo</p>
-                    <ul class="detail-list">
-                      <li>Refuerzo de fundamentos de ingeniería, trabajo en equipo y pensamiento sistémico.</li>
-                    </ul>
-                  </article>
-                </div>
-              </section>
-
-              <!-- EDUCATION -->
-              <section class="page" id="education" data-page>
-                <h2 class="section-title">Educación</h2>
-                <p class="muted">Formación base + especialización en datos/IA.</p>
-
-                <div class="divider"></div>
-
-                <div class="cards">
-                  <article class="item">
-                    <h4>Ingeniería en Datos e Inteligencia Artificial</h4>
-                    <p class="muted">Universidad Autónoma de Occidente (UAO) · Cali, Colombia</p>
-                    <p class="muted" style="margin-top: 8px">
-                      Etapa final · Incluye certificación de inglés (B1/B2).
-                    </p>
-                  </article>
-
-                  <article class="item">
-                    <h4>Tecnología en Gestión de Sistemas Mecatrónicos</h4>
-                    <p class="muted">FCECEP · Cali, Colombia</p>
-                  </article>
-                </div>
-              </section>
-
-              <!-- CERTS -->
-              <section class="page" id="certs" data-page>
-                <h2 class="section-title">Certificaciones</h2>
-                <p class="muted">Lista cargada desde LinkedIn (si existe en tu <code>linkedin-data.json</code>).</p>
-
-                <div class="divider"></div>
-
-                <div class="grid-2">
-                  <div class="item">
-                    <h4>Certificaciones (LinkedIn)</h4>
-                    <ul id="certifications" class="detail-list" style="margin-top: 10px"></ul>
-                    <p class="muted" id="certs-empty" style="display: none; margin-top: 10px">
-                      No hay certificaciones para mostrar (o el filtro está muy estricto).
-                    </p>
-                  </div>
-
-                  <div class="item">
-                    <h4>Formación adicional</h4>
-                    <p class="muted">
-                      Más de 18 cursos en ruta BI/Analytics (Power BI, DAX, Tableau, Looker, Excel, forecasting,
-                      métricas,
-                      storytelling, estadística aplicada) + fundamentos de Python, circuitos electrónicos, electricidad
-                      e
-                      inglés técnico enfocado en tecnología e innovación.
-                    </p>
-                  </div>
-                </div>
-              </section>
-
-              <!-- CONTACT -->
-              <section class="page" id="contact" data-page>
-                <h2 class="section-title">Contacto</h2>
-                <p class="muted">
-                  Email: <span id="email-text">cesar.cesarreyes25@gmail.com</span>
-                </p>
-                <p class="muted" style="margin-top: 8px">
-                  Tip: presiona <b class="mono">U</b> para copiar email / abrir links.
-                </p>
-
-                <div class="divider"></div>
-
-                <div class="item">
-                  <h4>Mensaje rápido</h4>
-                  <p class="muted">
-                    “Hola César, vi tu perfil y me gustaría hablar sobre…”
-                  </p>
-                </div>
-
-                <div class="divider"></div>
-
-                <p class="muted" style="text-align:center; opacity:.9;">
-                  © <span id="year"></span> César Reyes
-                </p>
-              </section>
-            </div>
+        <div class="rail__footer">
+          <div class="mini">
+            <h4>Shortcuts</h4>
+            <p>1–7 secciones · <b>M</b> Memento Mori · <b>S</b> Spotify · <b>I</b> Instagram · <b>Esc</b> cerrar</p>
           </div>
-        </div>
-      </main>
-
-      <!-- Right rail (Memento Mori aquí) -->
-      <aside>
-        <div class="pad">
-          <div class="pad__body pad__scroll">
-            <h2 class="section-title">Snapshot</h2>
-            <p class="muted" id="snapshot">Vista rápida. Se actualiza según la sección.</p>
-
-            <div class="divider"></div>
-
-            <div class="item">
-              <h4>Sección actual</h4>
-              <p class="muted" id="current-section">Sobre mí</p>
-            </div>
-
-            <div class="divider"></div>
-
-            <!-- MEMENTO MORI WIDGET -->
-            <button class="item" id="mm-card" type="button" popovertarget="memento" popovertargetaction="show"
-              style="width:100%; text-align:left; cursor:pointer;" aria-label="Abrir Memento Mori">
-              <div class="mm-header">
-                <h3 class="mm-title">Memento Mori</h3>
-                <span class="badge">Semanas</span>
-              </div>
-              <p class="mm-sub" id="mm-sub">Cargando…</p>
-
-              <div class="mm-stats">
-                <div class="mm-stat">
-                  <b>Vividas</b>
-                  <span id="mm-lived">—</span>
-                </div>
-                <div class="mm-stat">
-                  <b>Restantes</b>
-                  <span id="mm-left">—</span>
-                </div>
-              </div>
-
-              <div class="mm-canvas-wrap">
-                <canvas id="mm-canvas" width="280" height="220" aria-label="Calendario de vida por semanas"></canvas>
-                <div class="mm-legend">
-                  <span><i class="dot dot--lived"></i>vividas</span>
-                  <span><i class="dot dot--left"></i>restantes</span>
-                  <span><i class="dot dot--now"></i>semana actual</span>
-                </div>
-              </div>
-            </button>
-
-            <div class="divider"></div>
-
-            <p class="muted" style="margin: 0">
-              <span class="mono" style="color: var(--colors-tertiary--500);">NETWIRE_ID</span>
-              <span style="opacity: 0.8">:</span>
-              <span id="seed" class="muted"></span>
+          <div class="mini">
+            <h4>Links</h4>
+            <p>
+              <a id="lnkLinkedIn" href="#" target="_blank" rel="noreferrer">LinkedIn</a> ·
+              <a id="lnkGitHub" href="#" target="_blank" rel="noreferrer">GitHub</a><br>
+              <a id="lnkSpotify" href="#" target="_blank" rel="noreferrer">Spotify</a> ·
+              <a id="lnkInstagram" href="#" target="_blank" rel="noreferrer">Instagram</a>
             </p>
           </div>
         </div>
-      </aside>
+      </div>
+    </aside>
+
+    <!-- STAGE -->
+    <main class="stage">
+      <header class="stage__top">
+        <div>
+          <h1 class="title" id="stageTitle">Overview</h1>
+          <p class="subtitle" id="stageSubtitle">César Reyes · Bogotá, Colombia</p>
+        </div>
+        <div class="stage__meta">
+          <span class="when" id="stageHint">Usa 1–7 para navegar</span>
+        </div>
+      </header>
+
+      <div class="stage__body scrollArea" id="stageBody"></div>
+    </main>
+
+    <!-- RIGHT RAIL -->
+    <aside class="rail rail--right">
+      <div class="rail__inner scrollArea" style="overflow:auto;">
+        <div class="widget">
+          <div class="widget__top">
+            <h3 class="widget__title">Quick Actions</h3>
+            <button class="btn btn--ghost" id="btnContact" type="button">Contacto <kbd
+                style="margin-left:6px">7</kbd></button>
+          </div>
+          <p class="smallprint" style="margin:0">
+            Acciones únicas aquí (sin repetir lo mismo en la parte superior). Todo el contenido vive en el panel
+            central.
+          </p>
+        </div>
+
+        <div class="widget" id="mmWidget">
+          <div class="widget__top">
+            <h3 class="widget__title">Memento Mori</h3>
+            <button class="btn btn--ghost" id="btnMM" type="button">Abrir <kbd style="margin-left:6px">M</kbd></button>
+          </div>
+
+          <div class="metric"><span>Semanas vividas</span><b id="mmWeeksLived">—</b></div>
+          <div class="metric"><span>Semanas restantes</span><b id="mmWeeksLeft">—</b></div>
+          <div class="bar" aria-hidden="true"><i id="mmBar"></i></div>
+        </div>
+
+        <div class="widget" id="spWidget">
+          <div class="widget__top">
+            <h3 class="widget__title">Spotify</h3>
+            <button class="btn btn--ghost" id="btnSP" type="button">Abrir <kbd style="margin-left:6px">S</kbd></button>
+          </div>
+          <div class="metric"><span>Top artistas</span><b id="spTopLabel">—</b></div>
+          <p class="smallprint" style="margin:10px 0 0">
+            Para mostrar “likes” y top artistas de forma automática a visitantes, lo recomendado es un proxy (para no
+            exponer tokens).
+          </p>
+        </div>
+
+        <div class="widget" id="igWidget">
+          <div class="widget__top">
+            <h3 class="widget__title">Instagram</h3>
+            <button class="btn btn--ghost" id="btnIG" type="button">Abrir <kbd style="margin-left:6px">I</kbd></button>
+          </div>
+          <p class="smallprint" style="margin:0">
+            Previsualización del perfil (si tu cuenta es pública y tienes activado “Embeds”).
+          </p>
+        </div>
+
+        <div class="widget">
+          <div class="widget__top">
+            <h3 class="widget__title">Estado</h3>
+          </div>
+          <p class="p" id="statusLine" style="margin:0">Listo.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- POPOVER: MEMENTO MORI -->
+  <div class="modal" id="mmModal" popover>
+    <div class="modal__header">
+      <h3>Memento Mori</h3>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <button class="btn btn--ghost" type="button" id="mmClose">Cerrar <kbd style="margin-left:6px">Esc</kbd></button>
+      </div>
+      <div class="glitch" aria-hidden="true"></div>
+    </div>
+    <div class="modal__content scrollArea">
+      <div class="mm-wrap">
+        <div class="mm-stats">
+          <div class="mm-stat"><b>Fin del día</b><span id="tDay">—</span></div>
+          <div class="mm-stat"><b>Fin de la semana</b><span id="tWeek">—</span></div>
+          <div class="mm-stat"><b>Vida (estimación)</b><span id="tLife">—</span></div>
+        </div>
+
+        <div class="card">
+          <p class="p" style="margin:0">
+            Semanas vividas: <b id="mmLivedBig">—</b> · Semanas restantes: <b id="mmLeftBig">—</b> · Vida estimada: <b
+              id="mmLifeYears">—</b> años
+          </p>
+        </div>
+
+        <div class="mm-grid">
+          <div class="mm-grid__inner" id="mmGrid" aria-label="Calendario de semanas"></div>
+        </div>
+
+        <p class="smallprint" style="margin:0">
+          Ajuste rápido: edita <code style="font-family:var(--mono)">LIFE_EXPECTANCY_YEARS</code>.
+        </p>
+      </div>
     </div>
   </div>
 
-  <!-- Popover: Quick Actions -->
-  <div class="modal" popover="auto" id="actions">
-    <section class="modal__body">
-      <div class="body__content">
-        <h2><span>Quick Actions</span></h2>
-        <p>Links y utilidades (sin duplicar botones en todas las secciones).</p>
+  <!-- POPOVER: SPOTIFY -->
+  <div class="modal" id="spModal" popover>
+    <div class="modal__header">
+      <h3>Spotify</h3>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <button class="btn btn--ghost" type="button" id="spClose">Cerrar <kbd style="margin-left:6px">Esc</kbd></button>
+      </div>
+      <div class="glitch" aria-hidden="true"></div>
+    </div>
+    <div class="modal__content scrollArea">
+      <div class="grid2">
+        <div class="card">
+          <h4 class="h">Tu perfil</h4>
+          <p class="p" style="margin:0">
+            <a id="spProfileLink" href="#" target="_blank" rel="noreferrer"
+              style="color:inherit;text-decoration:none;border-bottom:1px dashed color-mix(in oklab, var(--accent) 35%, transparent);">
+              Abrir en Spotify
+            </a>
+          </p>
+          <p class="smallprint" style="margin:10px 0 0">
+            Spotify no ofrece un “embed oficial” de perfil de usuario como iframe (lo típico es embebible para
+            playlists/tracks/albums/artists).
+            Por eso aquí abrimos tu perfil y embebemos una playlist pública (o tracks individuales).
+          </p>
 
-        <div class="divider"></div>
+          <h4 class="h" style="margin-top:12px">Top 3 artistas</h4>
+          <div class="sp-top3" id="spTop3"></div>
+          <p class="smallprint" style="margin:10px 0 0" id="spUpdated">—</p>
+        </div>
 
-        <div class="modal__actions">
-          <button class="action-btn" data-action="linkedin" type="button">Open LinkedIn</button>
-          <button class="action-btn" data-action="github" type="button">Open GitHub</button>
-          <button class="action-btn" data-action="copy" type="button">Copy email</button>
-          <button class="action-btn action-btn--danger" data-action="close" type="button">Close (Esc)</button>
+        <div class="card">
+          <h4 class="h">Escuchar</h4>
+          <iframe class="spotify-embed" id="spEmbed"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          <div class="tagrow" style="margin-top:12px">
+            <button class="btn btn--ghost" type="button" id="spModeInfo">Config</button>
+            <button class="btn" type="button" id="spRefresh">Refrescar</button>
+          </div>
+          <p class="smallprint" style="margin:10px 0 0" id="spHint"></p>
         </div>
       </div>
-    </section>
+
+      <div class="card" style="margin-top:12px">
+        <h4 class="h">Canciones guardadas (muestra)</h4>
+        <div class="list" id="spTracks"></div>
+      </div>
+    </div>
   </div>
 
-  <!-- Popover: Memento Mori -->
-  <div class="modal" popover="auto" id="memento">
-    <section class="modal__body">
-      <div class="body__content">
-        <h2><span>Memento Mori</span></h2>
-        <p id="mm-modal-sub">Tiempo restante en semana / día / vida (estimado).</p>
+  <!-- POPOVER: INSTAGRAM -->
+  <div class="modal" id="igModal" popover>
+    <div class="modal__header">
+      <h3>Instagram</h3>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <button class="btn btn--ghost" type="button" id="igClose">Cerrar <kbd style="margin-left:6px">Esc</kbd></button>
+      </div>
+      <div class="glitch" aria-hidden="true"></div>
+    </div>
 
-        <div class="divider"></div>
+    <div class="modal__content scrollArea">
+      <div class="grid2">
+        <div class="card">
+          <h4 class="h">Previsualización</h4>
+          <div class="ig-shell">
+            <div class="ig-fallback">
+              <div>
+                <b>Perfil</b>
+                <div class="smallprint" id="igInfo" style="margin-top:6px">—</div>
+              </div>
+              <a class="btn" id="igOpen" href="#" target="_blank" rel="noreferrer">Abrir</a>
+            </div>
 
-        <div class="mm-kv">
-          <div class="item">
-            <h4>Fin del día</h4>
-            <p class="muted mono" id="t-day">—</p>
+            <div class="ig-embed" id="igEmbedWrap">
+              <!-- Instagram embed will render inside -->
+              <div class="smallprint" id="igLoading">Cargando embed…</div>
+              <div id="igEmbed"></div>
+            </div>
           </div>
-          <div class="item">
-            <h4>Fin de la semana</h4>
-            <p class="muted mono" id="t-week">—</p>
-          </div>
-          <div class="item">
-            <h4>Vida (estimado)</h4>
-            <p class="muted mono" id="t-life">—</p>
-            <p class="muted" id="life-date" style="margin-top:8px; opacity:.9;"></p>
-          </div>
-          <div class="item">
-            <h4>Semanas</h4>
-            <p class="muted">
-              <span class="mono">Vividas:</span> <span id="mm-lived-2">—</span><br />
-              <span class="mono">Restantes:</span> <span id="mm-left-2">—</span><br />
-              <span class="mono">Total:</span> <span id="mm-total-2">—</span>
-            </p>
-          </div>
+
+          <p class="smallprint" style="margin:10px 0 0">
+            Si el embed no carga: revisa que tu cuenta sea pública y que la opción “Embeds” esté activa.
+          </p>
         </div>
 
-        <div class="modal__actions">
-          <button class="action-btn action-btn--danger" data-action="close-mm" type="button">Close (Esc)</button>
+        <div class="card">
+          <h4 class="h">Enlace rápido</h4>
+          <p class="p" style="margin:0">
+            <a id="igLink" href="#" target="_blank" rel="noreferrer"
+              style="color:inherit;text-decoration:none;border-bottom:1px dashed color-mix(in oklab, var(--accent) 35%, transparent);">
+              Abrir @caesar__palace
+            </a>
+          </p>
+
+          <h4 class="h" style="margin-top:12px">Tip</h4>
+          <p class="smallprint" style="margin:0">
+            Si quieres algo tipo “grid de posts” embebido, normalmente se hace con una herramienta/servicio (feed
+            widget) o con un backend que lea contenido.
+            Para “solo preview”, el embed oficial de Instagram es lo más liviano.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
   </div>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <!-- Templates for panels -->
+  <template id="tpl-overview">
+    <div class="card">
+      <h4 class="h">Quién soy</h4>
+      <p class="p" id="ovBio"></p>
+      <div class="tagrow" id="ovTags"></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h4 class="h">Ahora</h4>
+        <p class="p" id="ovNow"></p>
+      </div>
+      <div class="card">
+        <h4 class="h">Lo que hago</h4>
+        <div class="list" id="ovDo"></div>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-experience">
+    <div class="card">
+      <h4 class="h">Trabajo</h4>
+      <p class="p">Experiencia y responsabilidades (una sección visible a la vez).</p>
+    </div>
+    <div class="list" id="xpList"></div>
+  </template>
+
+  <template id="tpl-projects">
+    <div class="card">
+      <h4 class="h">Proyectos</h4>
+      <p class="p">Selección con links para ver código y documentación.</p>
+    </div>
+    <div class="list" id="pjList"></div>
+  </template>
+
+  <template id="tpl-skills">
+    <div class="grid2">
+      <div class="card">
+        <h4 class="h">Skills</h4>
+        <div class="tagrow" id="skTech"></div>
+      </div>
+      <div class="card">
+        <h4 class="h">Forma de trabajar</h4>
+        <div class="tagrow" id="skSoft"></div>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-education">
+    <div class="card">
+      <h4 class="h">Educación</h4>
+      <div class="list" id="edList"></div>
+    </div>
+  </template>
+
+  <template id="tpl-certs">
+    <div class="card">
+      <h4 class="h">Certificaciones</h4>
+      <div class="list" id="ctList"></div>
+    </div>
+  </template>
+
+  <template id="tpl-contact">
+    <div class="card">
+      <h4 class="h">Contacto</h4>
+      <p class="p">Links directos y CTA corto.</p>
+      <div class="tagrow" style="margin-top:12px">
+        <a class="btn" id="contactEmail" href="mailto:tu-correo@ejemplo.com">Email</a>
+        <a class="btn btn--ghost" id="contactLinkedIn" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="btn btn--ghost" id="contactGitHub" href="#" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn btn--ghost" id="contactSpotify" href="#" target="_blank" rel="noreferrer">Spotify</a>
+        <a class="btn btn--ghost" id="contactInstagram" href="#" target="_blank" rel="noreferrer">Instagram</a>
+      </div>
+    </div>
+  </template>
 
   <script>
+    /***********************
+     * CONTENT (EDIT THIS) *
+     ***********************/
+    const PROFILE = {
+      name: "César Reyes",
+      location: "Bogotá, Colombia",
+      headline: "Data · Automation · Product",
+      now: "Actualmente en Postobón · Ingeniería de Datos e Inteligencia Artificial",
+      bio: "Me enfoco en construir soluciones de datos y automatización con una capa fuerte de calidad, detalle y diseño. Me muevo cómodo entre ingeniería, análisis y producto.",
+      links: {
+        linkedin: "https://www.linkedin.com/",
+        github: "https://github.com/",
+        instagram: "https://www.instagram.com/caesar__palace/?__pwa=1",
+        spotifyProfile: "https://open.spotify.com/user/31hu2kdccm2vguqtnndm5ecgc2jy?si=fdb28cbfe7b0495b"
+      },
+      whatIDo: [
+        "Automatización (SAP / Excel / Python) con foco en confiabilidad",
+        "Modelado y analítica (métricas, reporting, BI)",
+        "Prototipos UI (web / dashboards) con estética cuidada"
+      ],
+      techTags: ["Python", "SQL", "Power BI", "DAX", "Excel Avanzado", "Tableau", "Looker Studio", "Selenium", "Git", "APIs"],
+      softTags: [
+        "Trabajo en equipo",
+        "Toma de decisiones basada en datos",
+        "Adaptabilidad y gestión del cambio",
+        "Comunicación clara y asertiva",
+        "Proactividad y aprendizaje continuo",
+        "Atención al detalle y enfoque en la calidad"
+      ],
+      experience: [
+        {
+          role: "Gestión / Operación de datos y mantenimiento",
+          company: "Postobón",
+          when: "Actual",
+          bullets: [
+            "Seguimiento y control de órdenes, calidad de datos operativos.",
+            "Automatizaciones para reducir reprocesos y mejorar trazabilidad.",
+            "Integración de reportes y tableros para operación."
+          ]
+        }
+      ],
+      projects: [
+        {
+          name: "BIBLIOCASTIA",
+          when: "Repositorio",
+          desc: "Scripts y herramientas para automatización, export/import, y flujos de datos.",
+          link: "https://github.com/"
+        }
+      ],
+      education: [
+        {
+          name: "Ingeniería de Datos e Inteligencia Artificial",
+          where: "Universidad Autónoma de Occidente (UAO)",
+          when: "En curso",
+          desc: "Estadística, forecasting, BI, y fundamentos de ingeniería de datos."
+        }
+      ],
+      certs: [
+        {
+          name: "Ruta de Análisis de Datos y Business Intelligence (18+ cursos)",
+          where: "Platzi",
+          when: "Completado",
+          desc: "Power BI, DAX, Tableau, Looker Studio, Excel avanzado, forecasting, métricas de negocio, storytelling, estadística aplicada; más fundamentos de Python, circuitos electrónicos, electricidad e inglés técnico."
+        }
+      ]
+    };
+
+    /**********************************
+     * SPOTIFY SETTINGS (CHOOSE MODE) *
+     **********************************
+      - "off": no muestra nada
+      - "public": embebe una playlist pública y (opcional) carga /spotify.json con topArtists/tracks
+      - "proxy": consume un endpoint propio (serverless) que devuelve topArtists y tracks sin exponer tokens al público
+
+      IMPORTANTE:
+      - Spotify NO deja leer tus "Saved Tracks" públicamente desde el front sin autorización del usuario. (requiere user-library-read)  // ver docs
+      - Para visitantes, lo correcto es: playlist pública + (opcional) proxy.
+    */
+    const SPOTIFY = {
+      mode: "public",                 // "off" | "public" | "proxy"
+      spotifyProfileUrl: PROFILE.links.spotifyProfile,
+      publicPlaylistUrl: "",          // ej: "https://open.spotify.com/playlist/XXXXXXXX"
+      publicDataUrl: "/spotify.json", // para mode="public" (archivo estático que tú publicas)
+      proxyUrl: "/api/spotify"        // para mode="proxy" (tu endpoint serverless)
+    };
+
+    /******************************
+     * INSTAGRAM SETTINGS         *
+     ******************************/
+    const INSTAGRAM = {
+      profileUrl: PROFILE.links.instagram,
+      username: "caesar__palace"
+    };
+
+    /******************************
+     * MEMENTO MORI CONFIG        *
+     ******************************/
+    const BIRTHDATE_ISO = "2000-01-25T00:00:00-05:00"; // Bogotá
+    // Promedio usado: 75.4 años (ajustable)
+    const LIFE_EXPECTANCY_YEARS = 75.4;
+
+    /***********************
+     * UTILITIES           *
+     ***********************/
     const $ = (sel, root = document) => root.querySelector(sel);
     const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+    const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
+    const weeksPerYear = 365.2425 / 7;
 
-    const toastEl = $("#toast");
-    function toast(msg) {
-      toastEl.textContent = msg;
-      toastEl.classList.add("is-on");
-      window.clearTimeout(toastEl._t);
-      toastEl._t = window.setTimeout(() => toastEl.classList.remove("is-on"), 1400);
-    }
-
-    function seed() {
-      const s = crypto?.getRandomValues ? crypto.getRandomValues(new Uint8Array(16)) : null;
-      if (!s) return "d869db7f-e62f-b07c-25a0-403e-caea5503";
-      return Array.from(s).map((b) => b.toString(16).padStart(2, "0")).join("");
-    }
-    $("#seed").textContent = seed();
-    $("#year").textContent = new Date().getFullYear();
-
-    let LINKS = {
-      linkedin: "https://www.linkedin.com",
-      github: "https://github.com/caesar-dat-com",
-    };
-    const EMAIL = "cesar.cesarreyes25@gmail.com";
-
-    // DANE (hombres) ~ 74,48 años. (usado como estimación para el Memento Mori)
-    const LIFE_EXPECTANCY_YEARS_CO_MALE = 74.48;
-
-    const BIRTH = new Date(2000, 0, 25, 0, 0, 0, 0); // 25 Jan 2000
-
-    // ===== LinkedIn JSON fallback =====
-    const defaultSummary =
-      "Perfil profesional con foco en automatización, datos y mejora de procesos. Me gusta construir sistemas útiles, medibles y trazables.";
-
-    const fallback = {
-      firstName: "César",
-      lastName: "Reyes",
-      headline: "Data · IA · Automatización",
-      location: "Colombia",
-      publicProfileUrl: LINKS.linkedin,
-      summary: defaultSummary,
-      skills: [
-        { name: "Python" },
-        { name: "Power BI" },
-        { name: "DAX" },
-        { name: "Excel" },
-        { name: "Git" },
-        { name: "HTML/CSS" },
-      ],
-      certifications: [],
+    const fmtHMS = (ms) => {
+      ms = Math.max(0, ms);
+      const s = Math.floor(ms / 1000);
+      const hh = Math.floor(s / 3600);
+      const mm = Math.floor((s % 3600) / 60);
+      const ss = s % 60;
+      const pad = (x) => String(x).padStart(2, "0");
+      return `${pad(hh)}:${pad(mm)}:${pad(ss)}`;
     };
 
-    let allSkills = [];
-    let allCerts = [];
+    const fmtLong = (ms) => {
+      ms = Math.max(0, ms);
+      const s = Math.floor(ms / 1000);
+      const days = Math.floor(s / 86400);
+      const hrs = Math.floor((s % 86400) / 3600);
+      const mins = Math.floor((s % 3600) / 60);
+      return `${days}d ${String(hrs).padStart(2, "0")}h ${String(mins).padStart(2, "0")}m`;
+    };
 
-    async function loadLinkedIn() {
-      try {
-        const res = await fetch("linkedin-data.json", { cache: "no-store" });
-        if (!res.ok) throw new Error("No se pudo cargar linkedin-data.json");
-        const data = await res.json();
-        return { ...fallback, ...data };
-      } catch (e) {
-        console.warn("LinkedIn JSON fallback:", e);
-        return fallback;
+    const safeURL = (u) => {
+      try { return new URL(u).toString(); } catch { return "#"; }
+    };
+
+    function escapeHtml(s) {
+      return String(s ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    /***********************
+     * PANEL RENDERING     *
+     ***********************/
+    const stageTitle = $("#stageTitle");
+    const stageSubtitle = $("#stageSubtitle");
+    const stageBody = $("#stageBody");
+
+    const panels = {
+      overview: { title: "Overview", subtitle: () => `${PROFILE.name} · ${PROFILE.location}` },
+      experience: { title: "Trabajo", subtitle: () => PROFILE.now },
+      projects: { title: "Proyectos", subtitle: () => "Código · demos · docs" },
+      skills: { title: "Skills", subtitle: () => "Stack + forma de trabajar" },
+      education: { title: "Educación", subtitle: () => "Formación" },
+      certs: { title: "Certs", subtitle: () => "Cursos y certificaciones" },
+      contact: { title: "Contacto", subtitle: () => "Conecta rápido" }
+    };
+
+    function mountTemplate(id) {
+      const tpl = document.getElementById("tpl-" + id);
+      stageBody.innerHTML = "";
+      stageBody.appendChild(tpl.content.cloneNode(true));
+      stageBody.scrollTop = 0;
+    }
+
+    function renderPanel(id) {
+      const meta = panels[id];
+      if (!meta) return;
+
+      const doSwap = () => {
+        stageTitle.textContent = meta.title;
+        stageSubtitle.textContent = meta.subtitle();
+        mountTemplate(id);
+        hydratePanel(id);
+        setActiveNav(id);
+      };
+
+      if (document.startViewTransition) {
+        document.startViewTransition(doSwap);
+      } else {
+        doSwap();
       }
     }
 
-    function renderSkills(list, query = "") {
-      const ul = $("#skills");
-      const empty = $("#skills-empty");
-      if (!ul) return;
-      ul.innerHTML = "";
-
-      const q = query.trim().toLowerCase();
-      const filtered = !q ? list : list.filter((s) => (s?.name || "").toLowerCase().includes(q));
-
-      if (!filtered.length) {
-        empty.style.display = "block";
-        return;
-      }
-      empty.style.display = "none";
-
-      filtered.slice(0, 90).forEach((skill) => {
-        const li = document.createElement("li");
-        li.className = "chip";
-        li.textContent = skill.name;
-        ul.appendChild(li);
+    function setActiveNav(id) {
+      $$(".nav .cyber-btn").forEach(btn => {
+        const active = btn.dataset.panel === id;
+        btn.setAttribute("aria-current", active ? "page" : "false");
       });
     }
 
-    function renderCerts(list, query = "") {
-      const ul = $("#certifications");
-      const empty = $("#certs-empty");
-      if (!ul) return;
-      ul.innerHTML = "";
+    function hydratePanel(id) {
+      if (id === "overview") {
+        $("#ovBio").textContent = PROFILE.bio;
+        $("#ovNow").textContent = PROFILE.now;
 
-      const q = query.trim().toLowerCase();
-      const filtered = !q
-        ? list
-        : list.filter((c) => {
-          const n = (c?.name || "").toLowerCase();
-          const a = (c?.authority || "").toLowerCase();
-          return n.includes(q) || a.includes(q);
+        const tags = $("#ovTags");
+        tags.innerHTML = "";
+        PROFILE.techTags.slice(0, 6).forEach(t => tags.appendChild(tagEl(t)));
+
+        const list = $("#ovDo");
+        list.innerHTML = "";
+        PROFILE.whatIDo.forEach(t => list.appendChild(itemEl(t)));
+      }
+
+      if (id === "experience") {
+        const list = $("#xpList");
+        list.innerHTML = "";
+        PROFILE.experience.forEach(x => {
+          list.appendChild(richItemEl({
+            title: `${x.role} — ${x.company}`,
+            when: x.when,
+            body: x.bullets.join(" · ")
+          }));
         });
+      }
 
-      if (!filtered.length) {
-        empty.style.display = "block";
+      if (id === "projects") {
+        const list = $("#pjList");
+        list.innerHTML = "";
+        PROFILE.projects.forEach(p => {
+          list.appendChild(richItemEl({
+            title: p.name,
+            when: p.when,
+            body: p.desc,
+            link: p.link
+          }));
+        });
+      }
+
+      if (id === "skills") {
+        const tech = $("#skTech");
+        tech.innerHTML = "";
+        PROFILE.techTags.forEach(t => tech.appendChild(tagEl(t)));
+
+        const soft = $("#skSoft");
+        soft.innerHTML = "";
+        PROFILE.softTags.forEach(t => soft.appendChild(tagEl(t)));
+      }
+
+      if (id === "education") {
+        const list = $("#edList");
+        list.innerHTML = "";
+        PROFILE.education.forEach(e => {
+          list.appendChild(richItemEl({
+            title: `${e.name} — ${e.where}`,
+            when: e.when,
+            body: e.desc
+          }));
+        });
+      }
+
+      if (id === "certs") {
+        const list = $("#ctList");
+        list.innerHTML = "";
+        PROFILE.certs.forEach(c => {
+          list.appendChild(richItemEl({
+            title: `${c.name} — ${c.where}`,
+            when: c.when,
+            body: c.desc
+          }));
+        });
+      }
+
+      if (id === "contact") {
+        $("#contactLinkedIn").href = safeURL(PROFILE.links.linkedin);
+        $("#contactGitHub").href = safeURL(PROFILE.links.github);
+        $("#contactSpotify").href = safeURL(PROFILE.links.spotifyProfile);
+        $("#contactInstagram").href = safeURL(PROFILE.links.instagram);
+      }
+    }
+
+    function tagEl(txt) {
+      const el = document.createElement("span");
+      el.className = "tag";
+      el.textContent = txt;
+      return el;
+    }
+
+    function itemEl(txt) {
+      const el = document.createElement("div");
+      el.className = "item";
+      el.innerHTML = `
+        <div class="item__top"><p class="item__t">${escapeHtml(txt)}</p><span class="when">—</span></div>
+      `;
+      return el;
+    }
+
+    function richItemEl({ title, when, body, link }) {
+      const el = document.createElement("div");
+      el.className = "item";
+      const t = escapeHtml(title);
+      const w = escapeHtml(when || "");
+      const b = escapeHtml(body || "");
+      el.innerHTML = `
+        <div class="item__top">
+          <p class="item__t">${link ? `<a href="${safeURL(link)}" target="_blank" rel="noreferrer" style="color:inherit;text-decoration:none;border-bottom:1px dashed color-mix(in oklab, var(--accent) 35%, transparent);">${t}</a>` : t}</p>
+          <span class="when">${w}</span>
+        </div>
+        <p class="item__m">${b}</p>
+      `;
+      return el;
+    }
+
+    /***********************
+     * SHORTCUTS + NAV     *
+     ***********************/
+    const navButtons = $$(".nav .cyber-btn");
+    navButtons.forEach(btn => btn.addEventListener("click", () => renderPanel(btn.dataset.panel)));
+
+    window.addEventListener("keydown", (e) => {
+      const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : "";
+      const typing = tag === "input" || tag === "textarea" || e.target?.isContentEditable;
+      if (typing) return;
+
+      const key = e.key.toLowerCase();
+      if (key >= "1" && key <= "7") {
+        const idx = Number(key) - 1;
+        const target = navButtons[idx];
+        if (target) renderPanel(target.dataset.panel);
+      }
+      if (key === "m") openMM();
+      if (key === "s") openSP();
+      if (key === "i") openIG();
+      if (key === "escape") closeAnyPopover();
+    });
+
+    /***********************
+     * POPOVERS (MM/SP/IG) *
+     ***********************/
+    const mmModal = $("#mmModal");
+    const spModal = $("#spModal");
+    const igModal = $("#igModal");
+
+    function openPopover(el) {
+      if (!el) return;
+      if (el.matches(":popover-open")) return;
+      el.showPopover?.();
+    }
+    function closePopover(el) {
+      if (!el) return;
+      el.hidePopover?.();
+    }
+    function closeAnyPopover() {
+      closePopover(mmModal);
+      closePopover(spModal);
+      closePopover(igModal);
+    }
+
+    $("#btnMM").addEventListener("click", openMM);
+    $("#mmClose").addEventListener("click", () => closePopover(mmModal));
+
+    $("#btnSP").addEventListener("click", openSP);
+    $("#spClose").addEventListener("click", () => closePopover(spModal));
+
+    $("#btnIG").addEventListener("click", openIG);
+    $("#igClose").addEventListener("click", () => closePopover(igModal));
+
+    $("#btnContact").addEventListener("click", () => renderPanel("contact"));
+
+    function openMM() {
+      openPopover(mmModal);
+      if (!mmGridBuilt) buildMementoGrid();
+    }
+    function openSP() {
+      openPopover(spModal);
+      loadSpotify();
+    }
+    function openIG() {
+      openPopover(igModal);
+      loadInstagram();
+    }
+
+    /***********************
+     * MEMENTO MORI        *
+     ***********************/
+    const birth = new Date(BIRTHDATE_ISO);
+    const lifeMs = LIFE_EXPECTANCY_YEARS * 365.2425 * 24 * 60 * 60 * 1000;
+    const deathMs = birth.getTime() + lifeMs;
+
+    function getMemento() {
+      const now = new Date();
+
+      const livedWeeks = Math.floor((now - birth) / (7 * 24 * 60 * 60 * 1000));
+      const totalWeeks = Math.round(LIFE_EXPECTANCY_YEARS * weeksPerYear);
+      const leftWeeks = Math.max(0, totalWeeks - livedWeeks);
+
+      // End of day: next midnight
+      const endDay = new Date(now);
+      endDay.setHours(24, 0, 0, 0);
+
+      // End of week: Sunday 23:59:59.999 (local)
+      const endWeek = new Date(now);
+      const dow = endWeek.getDay(); // 0 Sunday
+      const daysToSun = (7 - dow) % 7;
+      endWeek.setDate(endWeek.getDate() + daysToSun);
+      endWeek.setHours(23, 59, 59, 999);
+
+      return {
+        now,
+        livedWeeks,
+        totalWeeks,
+        leftWeeks,
+        endDay,
+        endWeek,
+        death: new Date(deathMs)
+      };
+    }
+
+    function tickMemento() {
+      const m = getMemento();
+      $("#mmWeeksLived").textContent = String(m.livedWeeks);
+      $("#mmWeeksLeft").textContent = String(m.leftWeeks);
+
+      $("#mmLivedBig").textContent = String(m.livedWeeks);
+      $("#mmLeftBig").textContent = String(m.leftWeeks);
+      $("#mmLifeYears").textContent = String(LIFE_EXPECTANCY_YEARS);
+
+      const pct = clamp((m.livedWeeks / m.totalWeeks) * 100, 0, 100);
+      $("#mmBar").style.width = pct.toFixed(1) + "%";
+
+      $("#tDay").textContent = fmtHMS(m.endDay - m.now) + " (" + fmtLong(m.endDay - m.now) + ")";
+      $("#tWeek").textContent = fmtHMS(m.endWeek - m.now) + " (" + fmtLong(m.endWeek - m.now) + ")";
+      $("#tLife").textContent = fmtLong(m.death - m.now);
+
+      if (mmGridBuilt) paintMementoGrid(m.livedWeeks);
+    }
+
+    let mmGridBuilt = false;
+    let mmTotalWeeks = 0;
+
+    function buildMementoGrid() {
+      const m = getMemento();
+      mmTotalWeeks = m.totalWeeks;
+
+      const rows = Math.ceil(mmTotalWeeks / 52);
+      const grid = $("#mmGrid");
+      grid.innerHTML = "";
+      grid.style.gridTemplateRows = `repeat(${rows}, 8px)`;
+
+      for (let i = 0; i < mmTotalWeeks; i++) {
+        const cell = document.createElement("div");
+        cell.className = "mm-cell future";
+        cell.title = `Semana ${i + 1}`;
+        cell.dataset.i = String(i);
+        grid.appendChild(cell);
+      }
+
+      mmGridBuilt = true;
+      paintMementoGrid(m.livedWeeks);
+    }
+
+    function paintMementoGrid(livedWeeks) {
+      const grid = $("#mmGrid");
+      const cells = grid.children;
+      for (let i = 0; i < cells.length; i++) {
+        const c = cells[i];
+        if (i < livedWeeks) c.className = "mm-cell past";
+        else if (i === livedWeeks) c.className = "mm-cell current";
+        else c.className = "mm-cell future";
+      }
+    }
+
+    /***********************
+     * SPOTIFY (PUBLIC/PROXY) *
+     ***********************/
+    const spTop3 = $("#spTop3");
+    const spTracks = $("#spTracks");
+    const spEmbed = $("#spEmbed");
+    const spHint = $("#spHint");
+    const spUpdated = $("#spUpdated");
+    const spTopLabel = $("#spTopLabel");
+
+    $("#spRefresh").addEventListener("click", loadSpotify);
+    $("#spModeInfo").addEventListener("click", () => {
+      alert(
+        `Modo actual: ${SPOTIFY.mode}\n\n` +
+        `public: embebe una playlist pública (SPOTIFY.publicPlaylistUrl) y opcionalmente lee ${SPOTIFY.publicDataUrl}\n` +
+        `proxy: consume ${SPOTIFY.proxyUrl} (recomendado para mostrar a visitantes sin exponer tokens)\n\n` +
+        `Estructura esperada (JSON):\n` +
+        `{\n  "updatedAt": "2026-01-03T00:00:00-05:00",\n  "topArtists":[{"name":"...","url":"...","image":"..."}],\n  "tracks":[{"name":"...","artists":"...","url":"...","id":"spotifyTrackId"}]\n}`
+      );
+    });
+
+    function toEmbedUrl(openUrl) {
+      const u = String(openUrl || "");
+      if (!u) return "";
+      return u.replace("open.spotify.com/", "open.spotify.com/embed/");
+    }
+
+    async function loadSpotify() {
+      spTop3.innerHTML = "";
+      spTracks.innerHTML = "";
+      spUpdated.textContent = "—";
+      spTopLabel.textContent = "—";
+
+      $("#spProfileLink").href = safeURL(SPOTIFY.spotifyProfileUrl);
+
+      if (SPOTIFY.mode === "off") {
+        spHint.textContent = "Spotify está desactivado en config.";
         return;
       }
-      empty.style.display = "none";
 
-      filtered.slice(0, 60).forEach((cert) => {
-        const li = document.createElement("li");
-        const startDate = cert.timePeriod?.startDate
-          ? `${cert.timePeriod.startDate.month}/${cert.timePeriod.startDate.year}`
-          : "N/A";
-        const endDate = cert.timePeriod?.endDate
-          ? `${cert.timePeriod.endDate.month}/${cert.timePeriod.endDate.year}`
-          : "En curso";
+      if (SPOTIFY.mode === "public") {
+        if (SPOTIFY.publicPlaylistUrl) {
+          spEmbed.src = toEmbedUrl(SPOTIFY.publicPlaylistUrl);
+          spHint.textContent = "Playlist pública embebida.";
+        } else {
+          spEmbed.src = "";
+          spHint.textContent = "Pon una playlist pública en SPOTIFY.publicPlaylistUrl. Ej: playlist con tus ‘likes’ curados.";
+        }
 
-        const name = cert.name || "Certificación";
-        const authority = cert.authority || "N/A";
-
-        li.innerHTML = `
-            <div style="margin-bottom:10px;">
-              <strong style="color: var(--colors-secondary--500)">${name}</strong><br/>
-              <span style="opacity:.92;">Autoridad: ${authority}</span><br/>
-              <span style="opacity:.92;">Inicio: ${startDate} · Fin: ${endDate}</span>
-            </div>
-          `;
-        ul.appendChild(li);
-      });
-    }
-
-    // ===== Router (solo una sección visible) =====
-    const stage = $("#stage");
-    const pages = $$("[data-page]");
-    const railButtons = $$("#rail button");
-
-    const sectionMeta = {
-      about: "Quién soy y enfoque actual.",
-      stack: "Skills y herramientas. El filtro aplica aquí.",
-      experience: "Rol actual y trayectoria en planta.",
-      projects: "Construcción de soluciones útiles y medibles.",
-      education: "Formación base + especialización.",
-      certs: "Certificaciones y cursos.",
-      contact: "Contacto rápido vía Actions (U).",
-    };
-
-    function setRailActive(id) {
-      railButtons.forEach((b) => b.classList.toggle("is-active", b.dataset.go === id));
-    }
-
-    function setSnapshot(id) {
-      const names = {
-        about: "Sobre mí",
-        stack: "Stack",
-        experience: "Experiencia",
-        projects: "Proyectos",
-        education: "Educación",
-        certs: "Certificaciones",
-        contact: "Contacto",
-      };
-      $("#current-section").textContent = names[id] || "—";
-      $("#snapshot").textContent = sectionMeta[id] || "Vista rápida.";
-    }
-
-    function showGlitchPulse() {
-      stage.classList.add("is-glitch");
-      window.clearTimeout(stage._g);
-      stage._g = window.setTimeout(() => stage.classList.remove("is-glitch"), 460);
-    }
-
-    function navigate(id, { pushHash = true } = {}) {
-      const target = document.getElementById(id);
-      if (!target) return;
-
-      const current = pages.find((p) => p.classList.contains("is-active"));
-      if (current && current.id === id) return;
-
-      const run = () => {
-        if (current) current.classList.remove("is-active");
-        target.classList.add("is-active");
-        setRailActive(id);
-        setSnapshot(id);
-        stage.scrollTop = 0; // UX app
-      };
-
-      showGlitchPulse();
-      if (document.startViewTransition) document.startViewTransition(run);
-      else run();
-
-      if (pushHash) history.replaceState(null, "", `#${id}`);
-    }
-
-    railButtons.forEach((b) => b.addEventListener("click", () => navigate(b.dataset.go)));
-
-    // ===== Actions popover =====
-    const popActions = $("#actions");
-    $("#actions").addEventListener("click", async (e) => {
-      const btn = e.target.closest("button[data-action]");
-      if (!btn) return;
-      const act = btn.dataset.action;
-
-      if (act === "linkedin") window.open(LINKS.linkedin, "_blank", "noreferrer");
-      if (act === "github") window.open(LINKS.github, "_blank", "noreferrer");
-      if (act === "copy") {
         try {
-          await navigator.clipboard.writeText(EMAIL);
-          toast("EMAIL COPIADO");
+          const res = await fetch(SPOTIFY.publicDataUrl, { cache: "no-store" });
+          if (!res.ok) throw new Error("No public data");
+          const data = await res.json();
+          hydrateSpotifyData(data);
         } catch {
-          toast("NO SE PUDO COPIAR");
+          hydrateSpotifyData({ updatedAt: null, topArtists: [], tracks: [] });
+        }
+        return;
+      }
+
+      if (SPOTIFY.mode === "proxy") {
+        spHint.textContent = "Cargando desde proxy…";
+        try {
+          const res = await fetch(SPOTIFY.proxyUrl, { cache: "no-store" });
+          if (!res.ok) throw new Error("Proxy error");
+          const data = await res.json();
+          hydrateSpotifyData(data);
+          spHint.textContent = "Datos cargados desde proxy.";
+        } catch (err) {
+          spHint.textContent = "No se pudo cargar Spotify. Revisa SPOTIFY.proxyUrl y tu endpoint.";
         }
       }
-      if (act === "close") popActions.hidePopover();
+    }
+
+    function hydrateSpotifyData(data) {
+      const top = (data.topArtists || []).slice(0, 3);
+      const tracks = (data.tracks || []).slice(0, 10);
+
+      spTopLabel.textContent = top.length ? `${top.length}/3` : "—";
+
+      spTop3.innerHTML = top.length ? "" : `<p class="smallprint" style="margin:0">Aún no hay datos. Usa modo public (playlist) o proxy.</p>`;
+      top.forEach((a, idx) => {
+        const el = document.createElement("div");
+        el.className = "sp-artist";
+        el.innerHTML = `
+          <img alt="" src="${escapeHtml(a.image || "")}" />
+          <div style="min-width:0">
+            <b>#${idx + 1}</b>
+            <div style="font-size:13px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+              <a href="${safeURL(a.url || "#")}" target="_blank" rel="noreferrer">${escapeHtml(a.name || "—")}</a>
+            </div>
+          </div>
+        `;
+        spTop3.appendChild(el);
+      });
+
+      spTracks.innerHTML = tracks.length ? "" : `<p class="smallprint" style="margin:0">Sin tracks para mostrar.</p>`;
+      tracks.forEach((t) => {
+        const el = document.createElement("div");
+        el.className = "item";
+        const title = `${t.name || "—"} — ${t.artists || ""}`;
+        el.innerHTML = `
+          <div class="item__top">
+            <p class="item__t" style="margin:0">${escapeHtml(title)}</p>
+            <span class="when">PLAY</span>
+          </div>
+          <p class="item__m" style="margin:6px 0 0">
+            <a href="${safeURL(t.url || "#")}" target="_blank" rel="noreferrer" style="color:inherit;text-decoration:none;border-bottom:1px dashed color-mix(in oklab, var(--accent) 35%, transparent);">
+              Abrir en Spotify
+            </a>
+            · <button class="btn btn--ghost" type="button" style="margin-left:8px; padding:8px 10px; border-radius:14px" data-track="${escapeHtml(t.id || "")}">Embeder</button>
+          </p>
+        `;
+        spTracks.appendChild(el);
+      });
+
+      $$("#spTracks [data-track]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.dataset.track;
+          if (!id) return;
+          spEmbed.src = `https://open.spotify.com/embed/track/${id}`;
+        });
+      });
+
+      if (data.updatedAt) {
+        spUpdated.textContent = "Actualizado: " + data.updatedAt;
+        $("#statusLine").textContent = "Spotify listo · " + data.updatedAt;
+      } else {
+        spUpdated.textContent = "Actualizado: —";
+      }
+    }
+
+    /***********************
+     * INSTAGRAM EMBED     *
+     ***********************/
+    let igScriptPromise = null;
+
+    function loadInstagramScript() {
+      if (igScriptPromise) return igScriptPromise;
+      igScriptPromise = new Promise((resolve, reject) => {
+        const existing = document.querySelector('script[data-ig-embed="1"]');
+        if (existing) {
+          resolve(true);
+          return;
+        }
+        const s = document.createElement("script");
+        s.async = true;
+        s.defer = true;
+        s.dataset.igEmbed = "1";
+        s.src = "https://www.instagram.com/embed.js";
+        s.onload = () => resolve(true);
+        s.onerror = () => reject(new Error("Failed to load Instagram embed.js"));
+        document.body.appendChild(s);
+      });
+      return igScriptPromise;
+    }
+
+    async function loadInstagram() {
+      $("#igOpen").href = safeURL(INSTAGRAM.profileUrl);
+      $("#igLink").href = safeURL(INSTAGRAM.profileUrl);
+      $("#igInfo").textContent = `@${INSTAGRAM.username}`;
+      $("#igLoading").textContent = "Cargando embed…";
+
+      const embedHost = $("#igEmbed");
+      embedHost.innerHTML = "";
+
+      // Instagram embed expects a blockquote with data-instgrm-permalink
+      // Profile embed works only if account is public and "Embeds" setting enabled.
+      const permalink = INSTAGRAM.profileUrl.replace(/\?.*$/, "") + "?utm_source=ig_embed&utm_campaign=loading";
+
+      const block = document.createElement("blockquote");
+      block.className = "instagram-media";
+      block.setAttribute("data-instgrm-permalink", permalink);
+      block.setAttribute("data-instgrm-version", "14");
+      block.innerHTML = `
+        <div style="padding:12px">
+          <a href="${safeURL(INSTAGRAM.profileUrl)}" target="_blank" rel="noreferrer" style="color:inherit;text-decoration:none;border-bottom:1px dashed color-mix(in oklab, var(--accent) 35%, transparent);">
+            Ver en Instagram
+          </a>
+        </div>
+      `;
+      embedHost.appendChild(block);
+
+      try {
+        await loadInstagramScript();
+        // Process embed
+        if (window.instgrm && window.instgrm.Embeds && typeof window.instgrm.Embeds.process === "function") {
+          window.instgrm.Embeds.process();
+          $("#igLoading").textContent = "";
+          $("#statusLine").textContent = "Instagram listo.";
+        } else {
+          $("#igLoading").textContent = "Embed no disponible (script cargó, pero no expuso instgrm).";
+        }
+      } catch {
+        $("#igLoading").textContent = "No se pudo cargar el embed. Se mostrará el enlace.";
+      }
+    }
+
+    /***********************
+     * INIT                *
+     ***********************/
+    function initLinks() {
+      $("#lnkLinkedIn").href = safeURL(PROFILE.links.linkedin);
+      $("#lnkGitHub").href = safeURL(PROFILE.links.github);
+      $("#lnkSpotify").href = safeURL(PROFILE.links.spotifyProfile);
+      $("#lnkInstagram").href = safeURL(PROFILE.links.instagram);
+
+      $("#contactLinkedIn").href = safeURL(PROFILE.links.linkedin);
+      $("#contactGitHub").href = safeURL(PROFILE.links.github);
+      $("#contactSpotify").href = safeURL(PROFILE.links.spotifyProfile);
+      $("#contactInstagram").href = safeURL(PROFILE.links.instagram);
+    }
+
+    // Make widgets clickable
+    $("#mmWidget").addEventListener("click", (e) => {
+      const tag = e.target?.tagName?.toLowerCase();
+      if (tag === "button" || tag === "a") return;
+      openMM();
+    });
+    $("#spWidget").addEventListener("click", (e) => {
+      const tag = e.target?.tagName?.toLowerCase();
+      if (tag === "button" || tag === "a") return;
+      openSP();
+    });
+    $("#igWidget").addEventListener("click", (e) => {
+      const tag = e.target?.tagName?.toLowerCase();
+      if (tag === "button" || tag === "a") return;
+      openIG();
     });
 
-    // ===== Memento Mori =====
-    const popMemento = $("#memento");
-    $("#memento").addEventListener("click", (e) => {
-      const btn = e.target.closest("button[data-action]");
-      if (!btn) return;
-      if (btn.dataset.action === "close-mm") popMemento.hidePopover();
-    });
+    // Tick clocks
+    setInterval(tickMemento, 1000);
 
-    function msToParts(ms) {
-      const s = Math.max(0, Math.floor(ms / 1000));
-      const days = Math.floor(s / 86400);
-      const hours = Math.floor((s % 86400) / 3600);
-      const mins = Math.floor((s % 3600) / 60);
-      const secs = s % 60;
-      return { days, hours, mins, secs };
-    }
+    initLinks();
+    renderPanel("overview");
+    tickMemento();
 
-    function fmtDHMS({ days, hours, mins, secs }) {
-      const hh = String(hours).padStart(2, "0");
-      const mm = String(mins).padStart(2, "0");
-      const ss = String(secs).padStart(2, "0");
-      return days > 0 ? `${days}d ${hh}:${mm}:${ss}` : `${hh}:${mm}:${ss}`;
-    }
-
-    function endOfDay(now) {
-      const d = new Date(now);
-      d.setHours(23, 59, 59, 999);
-      return d;
-    }
-
-    // Semana: termina Domingo 23:59:59 local
-    function endOfWeek(now) {
-      const d = new Date(now);
-      const day = d.getDay(); // 0=Dom
-      const daysToSunday = (7 - 1 - day + 7) % 7; // si hoy es domingo -> 0
-      const eod = endOfDay(d);
-      eod.setDate(eod.getDate() + daysToSunday);
-      return eod;
-    }
-
-    function lifeEndDate() {
-      const days = LIFE_EXPECTANCY_YEARS_CO_MALE * 365.2425;
-      return new Date(BIRTH.getTime() + days * 86400000);
-    }
-
-    function weeksTotals() {
-      const totalDays = LIFE_EXPECTANCY_YEARS_CO_MALE * 365.2425;
-      const totalWeeks = Math.round(totalDays / 7);
-      return totalWeeks;
-    }
-
-    function calcWeeks(now) {
-      const totalWeeks = weeksTotals();
-      const livedWeeks = Math.max(0, Math.floor((now - BIRTH) / 604800000));
-      const leftWeeks = Math.max(0, totalWeeks - livedWeeks);
-      const currentWeekIndex = Math.min(totalWeeks - 1, livedWeeks); // “semana actual”
-      return { totalWeeks, livedWeeks, leftWeeks, currentWeekIndex };
-    }
-
-    function drawMementoGrid(now) {
-      const c = $("#mm-canvas");
-      if (!c) return;
-
-      const ctx = c.getContext("2d");
-      const dpr = Math.max(1, window.devicePixelRatio || 1);
-
-      // Fit to element size (responsive-ish)
-      const cssW = c.clientWidth || c.width;
-      const cssH = c.clientHeight || c.height;
-
-      c.width = Math.floor(cssW * dpr);
-      c.height = Math.floor(cssH * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-      const { totalWeeks, livedWeeks, currentWeekIndex } = calcWeeks(now);
-
-      const cols = 52; // “calendario” por semanas/año
-      const rows = Math.ceil(totalWeeks / cols);
-
-      const pad = 6;
-      const w = cssW - pad * 2;
-      const h = cssH - pad * 2;
-
-      const gap = 1;
-      const cellW = Math.floor((w - gap * (cols - 1)) / cols);
-      const cellH = Math.floor((h - gap * (rows - 1)) / rows);
-      const cell = Math.max(1, Math.min(cellW, cellH)); // cuadrado
-
-      const gridW = cols * cell + gap * (cols - 1);
-      const gridH = rows * cell + gap * (rows - 1);
-
-      const ox = Math.floor((cssW - gridW) / 2);
-      const oy = Math.floor((cssH - gridH) / 2);
-
-      const styles = getComputedStyle(document.documentElement);
-      const livedColor = styles.getPropertyValue("--accent").trim() || "#2be4ea";
-      const leftColor = "rgba(255,255,255,0.12)";
-      const nowColor = styles.getPropertyValue("--colors-tertiary--500").trim() || "#fed33f";
-
-      ctx.clearRect(0, 0, cssW, cssH);
-
-      for (let i = 0; i < totalWeeks; i++) {
-        const r = Math.floor(i / cols);
-        const col = i % cols;
-        const x = ox + col * (cell + gap);
-        const y = oy + r * (cell + gap);
-
-        const isLived = i < livedWeeks;
-        const isNow = i === currentWeekIndex;
-
-        ctx.fillStyle = isNow ? nowColor : isLived ? livedColor : leftColor;
-        ctx.fillRect(x, y, cell, cell);
-      }
-    }
-
-    function updateMemento(now = new Date()) {
-      const { totalWeeks, livedWeeks, leftWeeks } = calcWeeks(now);
-
-      $("#mm-sub").textContent = `Nacido: 25/01/2000 · Total: ${totalWeeks} semanas`;
-      $("#mm-lived").textContent = `${livedWeeks}`;
-      $("#mm-left").textContent = `${leftWeeks}`;
-
-      $("#mm-lived-2").textContent = `${livedWeeks}`;
-      $("#mm-left-2").textContent = `${leftWeeks}`;
-      $("#mm-total-2").textContent = `${totalWeeks}`;
-
-      drawMementoGrid(now);
-
-      const eod = endOfDay(now);
-      const eow = endOfWeek(now);
-      const eol = lifeEndDate();
-
-      $("#t-day").textContent = fmtDHMS(msToParts(eod - now));
-      $("#t-week").textContent = fmtDHMS(msToParts(eow - now));
-
-      const lifeMs = eol - now;
-      const lifeParts = msToParts(lifeMs);
-      // Para “vida”, muestro en días + hh:mm:ss (más estable)
-      $("#t-life").textContent =
-        lifeMs <= 0 ? "00:00:00" : `${lifeParts.days}d ${String(lifeParts.hours).padStart(2, "0")}:${String(lifeParts.mins).padStart(2, "0")}:${String(lifeParts.secs).padStart(2, "0")}`;
-
-      $("#life-date").textContent =
-        `Fecha estimada: ${eol.toLocaleString("es-CO", { year: "numeric", month: "long", day: "numeric" })} · (Usando ${LIFE_EXPECTANCY_YEARS_CO_MALE} años)`;
-    }
-
-    // Keyboard shortcuts
-    window.addEventListener("keydown", (e) => {
-      const map = {
-        "1": "about",
-        "2": "stack",
-        "3": "experience",
-        "4": "projects",
-        "5": "education",
-        "6": "certs",
-        "7": "contact",
-      };
-
-      if (map[e.key]) navigate(map[e.key]);
-
-      if (e.key === "u" || e.key === "U") {
-        const pop = $("#actions");
-        pop.matches(":popover-open") ? pop.hidePopover() : pop.showPopover();
-      }
-
-      if (e.key === "m" || e.key === "M") {
-        const pop = $("#memento");
-        pop.matches(":popover-open") ? pop.hidePopover() : pop.showPopover();
-      }
-
-      if (e.key === "/") {
-        e.preventDefault();
-        $("#search").focus();
-      }
-
-      if (e.key === "Escape") {
-        if (popActions.matches(":popover-open")) popActions.hidePopover();
-        if (popMemento.matches(":popover-open")) popMemento.hidePopover();
-      }
-    });
-
-    // Search filter
-    $("#search").addEventListener("input", (e) => {
-      const q = e.target.value || "";
-      renderSkills(allSkills, q);
-      renderCerts(allCerts, q);
-    });
-
-    // Init
-    (async function init() {
-      const data = await loadLinkedIn();
-
-      $("#name").textContent = `${data.firstName || ""} ${data.lastName || ""}`.trim() || "César Reyes";
-      $("#headline").textContent = (data.headline || "Data · IA · Automatización").replace(/junior/gi, "").trim();
-      $("#location").textContent = data.location || "Colombia";
-
-      const summary = (data.summary || "").trim();
-      $("#summary").textContent = summary || defaultSummary;
-
-      if (data.publicProfileUrl) LINKS.linkedin = data.publicProfileUrl;
-
-      allSkills = (data.skills || []).map((s) => ({ name: s.name || "" })).filter((s) => s.name);
-      allCerts = (data.certifications || []).filter(Boolean);
-
-      renderSkills(allSkills);
-      renderCerts(allCerts);
-
-      const start = (location.hash || "#about").replace("#", "");
-      navigate(start, { pushHash: false });
-
-      updateMemento(new Date());
-      setInterval(() => updateMemento(new Date()), 1000);
-    })();
+    // Preload Spotify UI hint
+    if (SPOTIFY.mode === "off") $("#spHint").textContent = "Spotify desactivado.";
+    else $("#spHint").textContent = "Pulsa “Refrescar” para cargar datos.";
   </script>
 </body>
 
