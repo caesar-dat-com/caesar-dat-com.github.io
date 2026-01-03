@@ -73,8 +73,23 @@
       text-decoration: none;
     }
 
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      width: min(1100px, 100%);
+      padding: 32px 16px 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      justify-content: center;
+      flex: 1;
+    }
+
     header {
-      padding: 32px 16px 0;
       text-align: center;
     }
 
@@ -92,9 +107,6 @@
     }
 
     main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px 16px 64px;
       display: grid;
       gap: 24px;
     }
@@ -232,27 +244,6 @@
       margin-top: 8px;
     }
 
-    .instruction {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      font-family: "VT323", monospace;
-      translate: -150px -30%;
-      color: var(--colors-primary--200);
-      pointer-events: none;
-    }
-
-    .instruction svg {
-      width: 50px;
-    }
-
-    .instruction span {
-      display: inline-block;
-      translate: -140% 120%;
-      rotate: 10deg;
-      font-size: 0.95rem;
-    }
-
     .cyber-btn {
       --corner: 12px;
       --border: 1px;
@@ -304,21 +295,18 @@
       background: var(--colors-secondary--500);
     }
 
-    .cyber-btn .glitch {
-      display: none;
-      position: absolute;
-      inset: 0;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 0.8rem;
-      color: var(--colors-primary--200);
-      text-shadow: 0 0 10px var(--colors-primary--500);
+    .text-glitch {
+      display: inline-block;
+      text-shadow: 0 0 8px rgba(232, 97, 90, 0.45);
     }
 
-    .cyber-btn:hover .glitch,
-    .cyber-btn:focus-visible .glitch {
-      display: flex;
-      animation: glitch 1.5s infinite;
+    .cyber-btn .glitch {
+      display: none;
+    }
+
+    .cyber-btn:hover .text-glitch,
+    .cyber-btn:focus-visible .text-glitch {
+      animation: text-glitch 1.6s infinite;
     }
 
     .cyber-btn:hover .backdrop,
@@ -394,103 +382,90 @@
       }
     }
 
-    @keyframes glitch {
+    @keyframes text-glitch {
       0% {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        text-shadow: 0 0 6px var(--colors-primary--500);
+        transform: translate(0, 0);
       }
       20% {
-        clip-path: polygon(0 10%, 100% 10%, 100% 40%, 0 40%);
         transform: translate(-2px, -1px);
+        text-shadow: -2px 0 var(--colors-secondary--500);
       }
       40% {
-        clip-path: polygon(0 55%, 100% 55%, 100% 80%, 0 80%);
         transform: translate(2px, 1px);
+        text-shadow: 2px 0 var(--colors-primary--200);
       }
       60% {
-        clip-path: polygon(0 30%, 100% 30%, 100% 70%, 0 70%);
         transform: translate(-1px, 1px);
+        text-shadow: -1px 0 var(--colors-secondary--500);
       }
       100% {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
         transform: translate(0, 0);
+        text-shadow: 0 0 8px var(--colors-primary--500);
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Hoja de vida</h1>
-    <p>Perfil dinámico basado en datos de LinkedIn.</p>
-  </header>
+  <div class="page">
+    <header>
+      <h1>Hoja de vida</h1>
+      <p>Perfil dinámico basado en datos de LinkedIn.</p>
+    </header>
 
-  <main>
-    <section class="card">
-      <div class="profile-header">
-        <h2 id="name">Cargando…</h2>
-        <div class="meta">
-          <span>💼 <span id="headline">—</span></span>
-          <span>📍 <span id="location">—</span></span>
-        </div>
-        <p id="summary" class="summary"></p>
-        <div class="contact-card">
-          <div>
-            <strong>Contacto</strong>
-            <p class="section-subtitle">Accesos rápidos para comunicarte.</p>
+    <main>
+      <section class="card">
+        <div class="profile-header">
+          <h2 id="name">Cargando…</h2>
+          <div class="meta">
+            <span>💼 <span id="headline">—</span></span>
+            <span>📍 <span id="location">—</span></span>
           </div>
-          <div class="contact-actions">
-            <a id="linkedin-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-              🔗 LinkedIn
-            </a>
-            <a id="email-link" href="mailto:contacto@caesar-dat.com">
-              ✉️ contacto@caesar-dat.com
-            </a>
+          <p id="summary" class="summary"></p>
+          <div class="contact-card">
+            <div>
+              <strong>Contacto</strong>
+              <p class="section-subtitle">Accesos rápidos para comunicarte.</p>
+            </div>
+            <div class="contact-actions">
+              <a id="linkedin-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+                🔗 LinkedIn
+              </a>
+              <a id="email-link" href="mailto:contacto@caesar-dat.com">
+                ✉️ contacto@caesar-dat.com
+              </a>
+            </div>
           </div>
-        </div>
-        <div class="contact-actions" style="margin-top: 16px;">
-          <div class="instruction">
-            <svg viewBox="0 0 144 141" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M129.189 0.0490494C128.744 0.119441 126.422 0.377545 124.03 0.635648C114.719 1.6446 109.23 2.4893 108.058 3.09936C107.119 3.56864 106.674 4.34295 106.674 5.44576C106.674 6.71281 107.424 7.51058 109.043 7.97986C110.403 8.37875 110.825 8.42567 118.87 9.52847C121.778 9.92736 124.288 10.3028 124.475 10.3732C124.663 10.4436 122.951 11.1006 120.676 11.8749C110.028 15.4414 100.412 20.7677 91.7339 27.9242C88.38 30.7164 81.6957 37.4271 79.2096 40.5009C73.8387 47.2116 69.6874 54.8139 66.5681 63.7302C65.9348 65.4665 65.3484 66.8978 65.2546 66.8978C65.1374 66.8978 63.7771 66.7336 62.2291 66.5693C52.9649 65.5134 43.1847 68.1649 34.1316 74.2186C24.7735 80.46 18.5349 87.7338 10.5371 101.742C2.53943 115.726 -1.0959 127.482 0.287874 135.014C0.89767 138.463 2.0469 140.035 3.97011 140.082C5.28352 140.105 5.37733 139.659 4.20465 139.049C3.05541 138.463 2.6567 137.9 2.32835 136.281C0.616228 128.021 6.24512 113.028 17.4325 96.1104C23.2725 87.241 28.362 81.9147 35.5622 77.1046C43.8649 71.5437 52.7069 69.033 61.1737 69.8308C64.9967 70.1828 64.6917 69.9247 64.1992 72.4822C62.2525 82.5013 63.8005 92.6378 67.9753 97.354C73.1116 103.079 81.9771 102 85.0027 95.2657C86.3395 92.2858 86.3864 87.7103 85.1434 83.9796C83.1498 78.0901 80.007 73.8197 75.4335 70.8163C73.8152 69.7604 70.4848 68.1883 69.875 68.1883C69.359 68.1883 69.4294 67.6487 70.2268 65.3257C72.3377 59.2486 75.457 52.7021 78.4122 48.244C83.2436 40.9232 91.4524 32.5701 99.1687 27.103C105.806 22.4102 113.241 18.5386 120.512 16.0045C123.772 14.8548 129.87 13.1889 130.081 13.3766C130.128 13.447 129.541 14.362 128.791 15.4414C124.78 21.0258 122.716 26.0706 122.388 30.998C122.224 33.7198 122.341 34.588 122.88 34.2595C122.998 34.1891 123.678 32.969 124.405 31.5611C126.281 27.8069 131.722 20.6738 139.579 11.6402C141.127 9.85697 142.652 7.86254 143.027 7.08823C144.552 4.03792 143.52 1.48035 140.377 0.471397C139.439 0.166366 138.102 0.0490408 134.584 0.0255769C132.074 -0.021351 129.635 0.00212153 129.189 0.0490494Z"
-                fill="currentColor"
-              ></path>
-            </svg>
-            <span>Usa esto</span>
-          </div>
-          <button
-            class="cyber-btn"
-            popovertarget="contact-modal"
-            popovertargetaction="show"
-            aria-label="Contactar"
-          >
-            <span class="backdrop"></span>
-            <kbd>✉️</kbd>
-            <span>Contactar</span>
-            <div class="glitch" aria-hidden="true">
+          <div class="contact-actions" style="margin-top: 16px;">
+            <button
+              class="cyber-btn"
+              popovertarget="contact-modal"
+              popovertargetaction="show"
+              aria-label="Contactar"
+            >
               <span class="backdrop"></span>
               <kbd>✉️</kbd>
-              <span>Contactar</span>
-            </div>
-          </button>
+              <span class="text-glitch">Contactar</span>
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="card">
-      <div class="profile-grid">
-        <div>
-          <h3 class="section-title">Habilidades destacadas</h3>
-          <p class="section-subtitle">Tecnologías y competencias registradas en LinkedIn.</p>
-          <ul id="skills" class="chip-list"></ul>
+      <section class="card">
+        <div class="profile-grid">
+          <div>
+            <h3 class="section-title">Habilidades destacadas</h3>
+            <p class="section-subtitle">Tecnologías y competencias registradas en LinkedIn.</p>
+            <ul id="skills" class="chip-list"></ul>
+          </div>
+          <div>
+            <h3 class="section-title">Certificaciones</h3>
+            <ul id="certifications" class="certifications"></ul>
+          </div>
         </div>
-        <div>
-          <h3 class="section-title">Certificaciones</h3>
-          <ul id="certifications" class="certifications"></ul>
-        </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
+  </div>
 
   <div class="modal" popover="auto" id="contact-modal">
     <section class="modal__body">
@@ -511,12 +486,7 @@
         >
           <span class="backdrop"></span>
           <kbd>ESC</kbd>
-          <span>Cerrar</span>
-          <div class="glitch" aria-hidden="true">
-            <span class="backdrop"></span>
-            <kbd>ESC</kbd>
-            <span>Cerrar</span>
-          </div>
+          <span class="text-glitch">Cerrar</span>
         </button>
       </div>
     </section>
