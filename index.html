@@ -2,84 +2,588 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>caesar-dat-com</title>
-  <meta name="description" content="Sitio personal de César Reyes." />
-
-  <!-- Google AdSense: Auto ads (debe ir en el <head>) -->
-  <meta name="google-adsense-account" content="ca-pub-7788698843042083">
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7788698843042083"
-    crossorigin="anonymous"></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hoja de vida · Perfil LinkedIn</title>
+  <meta name="description" content="Hoja de vida basada en los datos de LinkedIn de César Reyes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=VT323&display=swap"
+    rel="stylesheet"
+  />
   <style>
-    :root{
-      --bg:#0f1115; --panel:#151823; --line:#24283b; --text:#e6e6e6; --muted:#a9b2c0; --link:#79b8ff;
+    * {
+      box-sizing: border-box;
+      position: relative;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; background:var(--bg); color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
-      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+
+    html,
+    body {
+      --colors-bg--300: #1e181e;
+      --colors-bg--500: #191a1e;
+      --colors-primary--200: #f4908b;
+      --colors-primary--300: #ea6f69;
+      --colors-primary--500: #e8615a;
+      --colors-primary--600: #9c3230;
+      --colors-primary--700: #5e2122;
+      --colors-primary--800: #451717;
+      --colors-primary--900: #3c181a;
+      --colors-secondary--500: #2be4ea;
+      --colors-secondary--900: #295459;
+      --colors-tertiary--500: #fed33f;
+      --colors-on_bg--500: var(--colors-primary--500);
+      --colors-on_tertiary--500: var(--colors-bg--300);
+      --colors-on_primary--500: var(--colors-primary--200);
+      --colors-active--500: #2bfea0;
+      --fonts-primary: "Rajdhani", sans-serif;
+      --fonts-secondary: "VT323", monospace;
+      --ui-glow: 0 0 5px var(--colors-primary--500);
+      --ui-glow-borders--500: 0 0 3px var(--colors-primary--500);
+      --ui-glow-color: currentcolor;
+      --ui-glow-text: -9px -6px 40px var(--ui-glow-color);
+      --ui-glow-text--dimmed: -9px -6px 40px var(--ui-glow-color);
+      --ui-elevation--1: 2px 2px 0 rgba(0, 0, 0, 0.8);
+      --ui-notch-amount: 1rem;
+      --ui-notch-hypotenuse: 22.627416px;
+      --ui-notch-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - var(--ui-notch-amount) + 2px),
+        calc(100% - var(--ui-notch-amount) + 2px) 100%,
+        0 100%
+      );
+
+      background-color: var(--colors-bg--500);
+      background-image: radial-gradient(
+        ellipse at 33% 10%,
+        #461616 0%,
+        transparent 75%
+      );
+      background-repeat: no-repeat;
+      color: var(--colors-on_bg--500);
+      font-family: var(--fonts-primary);
+      font-size: 100%;
+      line-height: 1.4;
+      margin: 0;
+      min-height: 100vh;
     }
-    header{padding:32px 16px; text-align:center}
-    header h1{margin:0 0 6px}
-    header p{margin:0; color:var(--muted)}
-    main{max-width:900px; margin:0 auto; padding:16px}
-    .card{
-      background:var(--panel); border:1px solid var(--line); border-radius:14px;
-      padding:22px; box-shadow:0 8px 24px rgb(0 0 0 / 22%);
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    .ad-wrap{margin:28px 0; display:flex; justify-content:center}
-    a{color:var(--link); text-decoration:none}
-    a:hover{text-decoration:underline}
-    footer{padding:28px 16px; text-align:center; color:var(--muted)}
+
+    header {
+      padding: 32px 16px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin-bottom: 6px;
+      font-size: clamp(2rem, 3vw, 3rem);
+      text-shadow: var(--ui-glow-text);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    header p {
+      margin: 0;
+      color: var(--colors-primary--200);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .card {
+      background: rgba(30, 24, 30, 0.92);
+      border: 1px solid var(--colors-primary--600);
+      clip-path: var(--ui-notch-path);
+      padding: 24px;
+      box-shadow: var(--ui-glow);
+    }
+
+    .card::before {
+      background-color: var(--colors-primary--600);
+      bottom: 5px;
+      content: "";
+      display: block;
+      height: 3px;
+      position: absolute;
+      right: -6px;
+      transform: rotate(-45deg);
+      width: var(--ui-notch-hypotenuse);
+      z-index: 2;
+    }
+
+    .profile-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .profile-header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .profile-header h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 2.3vw, 2.2rem);
+      color: var(--colors-secondary--500);
+    }
+
+    .meta {
+      color: var(--colors-primary--200);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      font-size: 1rem;
+    }
+
+    .meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-title {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: var(--colors-secondary--500);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .section-subtitle {
+      margin: 6px 0 0;
+      color: var(--colors-primary--200);
+      font-size: 0.95rem;
+    }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(43, 228, 234, 0.1);
+      border: 1px solid rgba(43, 228, 234, 0.45);
+      font-size: 0.95rem;
+      color: var(--colors-secondary--500);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .certifications li {
+      margin-bottom: 14px;
+      border-left: 2px solid var(--colors-primary--600);
+      padding-left: 12px;
+    }
+
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 12px;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #5d2322;
+      background: var(--colors-bg--300);
+      box-shadow: var(--ui-elevation--1);
+    }
+
+    .contact-card strong {
+      font-family: var(--fonts-secondary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .contact-card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: var(--colors-secondary--500);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .instruction {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      font-family: "VT323", monospace;
+      translate: -150px -30%;
+      color: var(--colors-primary--200);
+      pointer-events: none;
+    }
+
+    .instruction svg {
+      width: 50px;
+    }
+
+    .instruction span {
+      display: inline-block;
+      translate: -140% 120%;
+      rotate: 10deg;
+      font-size: 0.95rem;
+    }
+
+    .cyber-btn {
+      --corner: 12px;
+      --border: 1px;
+      --clip: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - var(--corner)),
+        calc(100% - var(--corner)) 100%,
+        0% 100%
+      );
+      font-family: var(--fonts-secondary);
+      width: 180px;
+      text-align: left;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 0.8rem;
+      border: 0;
+      background: transparent;
+      position: relative;
+      color: var(--colors-secondary--500);
+      cursor: pointer;
+    }
+
+    .cyber-btn * {
+      pointer-events: none;
+    }
+
+    .cyber-btn .backdrop {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      clip-path: var(--clip);
+      border: var(--border) solid var(--colors-secondary--500);
+      box-shadow: 0 0 10px rgba(43, 228, 234, 0.4);
+    }
+
+    .cyber-btn kbd {
+      color: var(--colors-bg--300);
+      font-weight: bold;
+      width: 22px;
+      display: inline-grid;
+      place-items: center;
+      aspect-ratio: 1;
+      font-size: 0.8rem;
+      border-radius: 50%;
+      background: var(--colors-secondary--500);
+    }
+
+    .cyber-btn .glitch {
+      display: none;
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 0.8rem;
+      color: var(--colors-primary--200);
+      text-shadow: 0 0 10px var(--colors-primary--500);
+    }
+
+    .cyber-btn:hover .glitch,
+    .cyber-btn:focus-visible .glitch {
+      display: flex;
+      animation: glitch 1.5s infinite;
+    }
+
+    .cyber-btn:hover .backdrop,
+    .cyber-btn:focus-visible .backdrop {
+      background: rgba(43, 228, 234, 0.1);
+    }
+
+    .modal {
+      --corner: 12px;
+      --border: 2px;
+      --clip: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - var(--corner)),
+        calc(100% - var(--corner)) 100%,
+        0% 100%
+      );
+      color: var(--colors-secondary--500);
+      width: min(90vw, 520px);
+      border: 0;
+      padding: 0;
+      background: transparent;
+      font-family: var(--fonts-primary);
+    }
+
+    .modal::backdrop {
+      background: rgba(8, 5, 8, 0.85);
+    }
+
+    .modal__body {
+      background: rgba(25, 26, 30, 0.94);
+      border: 1px solid var(--colors-secondary--500);
+      clip-path: var(--clip);
+      padding: 1rem;
+      box-shadow: 0 0 25px rgba(43, 228, 234, 0.3);
+    }
+
+    .modal__body h2 {
+      margin: 0 0 0.75rem;
+      font-family: var(--fonts-secondary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .modal__actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 0.75rem;
+      gap: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 16px 32px;
+      color: var(--colors-primary--200);
+      font-size: 0.95rem;
+    }
+
+    @media (min-width: 768px) {
+      .profile-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-card {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .contact-actions {
+        margin-top: 0;
+      }
+    }
+
+    @keyframes glitch {
+      0% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+      20% {
+        clip-path: polygon(0 10%, 100% 10%, 100% 40%, 0 40%);
+        transform: translate(-2px, -1px);
+      }
+      40% {
+        clip-path: polygon(0 55%, 100% 55%, 100% 80%, 0 80%);
+        transform: translate(2px, 1px);
+      }
+      60% {
+        clip-path: polygon(0 30%, 100% 30%, 100% 70%, 0 70%);
+        transform: translate(-1px, 1px);
+      }
+      100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        transform: translate(0, 0);
+      }
+    }
   </style>
 </head>
-
 <body>
   <header>
-    <h1>caesar-dat-com</h1>
-    <p>Bienvenido 👋 — Google AdSense integrado en GitHub Pages.</p>
+    <h1>Hoja de vida</h1>
+    <p>Perfil dinámico basado en datos de LinkedIn.</p>
   </header>
 
   <main>
     <section class="card">
-      <h2>Contenido</h2>
-      <p>
-        Esta página integra <strong>Google AdSense</strong> con Auto ads (en el
-        <code>&lt;head&gt;</code>) y un bloque manual responsive para pruebas.
-        Desactiva bloqueadores de anuncios al validar.
-      </p>
-
-      <!-- Bloque de anuncio manual (Display-Home) -->
-      <div class="ad-wrap">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-7788698843042083"
-             data-ad-slot="1386463466"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+      <div class="profile-header">
+        <h2 id="name">Cargando…</h2>
+        <div class="meta">
+          <span>💼 <span id="headline">—</span></span>
+          <span>📍 <span id="location">—</span></span>
+        </div>
+        <p id="summary" class="summary"></p>
+        <div class="contact-card">
+          <div>
+            <strong>Contacto</strong>
+            <p class="section-subtitle">Accesos rápidos para comunicarte.</p>
+          </div>
+          <div class="contact-actions">
+            <a id="linkedin-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+              🔗 LinkedIn
+            </a>
+            <a id="email-link" href="mailto:contacto@caesar-dat.com">
+              ✉️ contacto@caesar-dat.com
+            </a>
+          </div>
+        </div>
+        <div class="contact-actions" style="margin-top: 16px;">
+          <div class="instruction">
+            <svg viewBox="0 0 144 141" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M129.189 0.0490494C128.744 0.119441 126.422 0.377545 124.03 0.635648C114.719 1.6446 109.23 2.4893 108.058 3.09936C107.119 3.56864 106.674 4.34295 106.674 5.44576C106.674 6.71281 107.424 7.51058 109.043 7.97986C110.403 8.37875 110.825 8.42567 118.87 9.52847C121.778 9.92736 124.288 10.3028 124.475 10.3732C124.663 10.4436 122.951 11.1006 120.676 11.8749C110.028 15.4414 100.412 20.7677 91.7339 27.9242C88.38 30.7164 81.6957 37.4271 79.2096 40.5009C73.8387 47.2116 69.6874 54.8139 66.5681 63.7302C65.9348 65.4665 65.3484 66.8978 65.2546 66.8978C65.1374 66.8978 63.7771 66.7336 62.2291 66.5693C52.9649 65.5134 43.1847 68.1649 34.1316 74.2186C24.7735 80.46 18.5349 87.7338 10.5371 101.742C2.53943 115.726 -1.0959 127.482 0.287874 135.014C0.89767 138.463 2.0469 140.035 3.97011 140.082C5.28352 140.105 5.37733 139.659 4.20465 139.049C3.05541 138.463 2.6567 137.9 2.32835 136.281C0.616228 128.021 6.24512 113.028 17.4325 96.1104C23.2725 87.241 28.362 81.9147 35.5622 77.1046C43.8649 71.5437 52.7069 69.033 61.1737 69.8308C64.9967 70.1828 64.6917 69.9247 64.1992 72.4822C62.2525 82.5013 63.8005 92.6378 67.9753 97.354C73.1116 103.079 81.9771 102 85.0027 95.2657C86.3395 92.2858 86.3864 87.7103 85.1434 83.9796C83.1498 78.0901 80.007 73.8197 75.4335 70.8163C73.8152 69.7604 70.4848 68.1883 69.875 68.1883C69.359 68.1883 69.4294 67.6487 70.2268 65.3257C72.3377 59.2486 75.457 52.7021 78.4122 48.244C83.2436 40.9232 91.4524 32.5701 99.1687 27.103C105.806 22.4102 113.241 18.5386 120.512 16.0045C123.772 14.8548 129.87 13.1889 130.081 13.3766C130.128 13.447 129.541 14.362 128.791 15.4414C124.78 21.0258 122.716 26.0706 122.388 30.998C122.224 33.7198 122.341 34.588 122.88 34.2595C122.998 34.1891 123.678 32.969 124.405 31.5611C126.281 27.8069 131.722 20.6738 139.579 11.6402C141.127 9.85697 142.652 7.86254 143.027 7.08823C144.552 4.03792 143.52 1.48035 140.377 0.471397C139.439 0.166366 138.102 0.0490408 134.584 0.0255769C132.074 -0.021351 129.635 0.00212153 129.189 0.0490494Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+            <span>Usa esto</span>
+          </div>
+          <button
+            class="cyber-btn"
+            popovertarget="contact-modal"
+            popovertargetaction="show"
+            aria-label="Contactar"
+          >
+            <span class="backdrop"></span>
+            <kbd>✉️</kbd>
+            <span>Contactar</span>
+            <div class="glitch" aria-hidden="true">
+              <span class="backdrop"></span>
+              <kbd>✉️</kbd>
+              <span>Contactar</span>
+            </div>
+          </button>
+        </div>
       </div>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+    </section>
 
-      <p>
-        Si aún no ves anuncios, es normal durante la revisión inicial. Mantén contenido
-        original y verifica que <code>/ads.txt</code> esté publicado en la raíz.
-      </p>
+    <section class="card">
+      <div class="profile-grid">
+        <div>
+          <h3 class="section-title">Habilidades destacadas</h3>
+          <p class="section-subtitle">Tecnologías y competencias registradas en LinkedIn.</p>
+          <ul id="skills" class="chip-list"></ul>
+        </div>
+        <div>
+          <h3 class="section-title">Certificaciones</h3>
+          <ul id="certifications" class="certifications"></ul>
+        </div>
+      </div>
     </section>
   </main>
 
+  <div class="modal" popover="auto" id="contact-modal">
+    <section class="modal__body">
+      <h2><span>Contacto rápido</span></h2>
+      <p class="section-subtitle">¿Quieres escribirme? Estos son los accesos principales.</p>
+      <div class="contact-actions" style="margin-top: 12px;">
+        <a id="linkedin-link-modal" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+          🔗 Ver LinkedIn
+        </a>
+        <a href="mailto:contacto@caesar-dat.com">✉️ Enviar correo</a>
+      </div>
+      <div class="modal__actions">
+        <button
+          class="cyber-btn"
+          popovertarget="contact-modal"
+          popovertargetaction="close"
+          aria-label="Cerrar"
+        >
+          <span class="backdrop"></span>
+          <kbd>ESC</kbd>
+          <span>Cerrar</span>
+          <div class="glitch" aria-hidden="true">
+            <span class="backdrop"></span>
+            <kbd>ESC</kbd>
+            <span>Cerrar</span>
+          </div>
+        </button>
+      </div>
+    </section>
+  </div>
+
   <footer>
-    © <span id="y"></span> César Reyes · <a href="https://caesar-dat-com.github.io/">Inicio</a>
+    © <span id="year"></span> César Reyes
   </footer>
 
   <script>
-    // año dinámico en el footer
-    document.getElementById('y').textContent = new Date().getFullYear();
+    const defaultSummary =
+      "Perfil profesional generado automáticamente desde LinkedIn.";
+
+    fetch("linkedin-data.json")
+      .then((response) => response.json())
+      .then((data) => {
+        document.getElementById("name").textContent = `${data.firstName} ${data.lastName}`;
+        document.getElementById("headline").textContent = data.headline || "—";
+        document.getElementById("location").textContent = data.location || "—";
+
+        const summary = data.summary?.trim();
+        document.getElementById("summary").textContent = summary || defaultSummary;
+
+        const skillsList = document.getElementById("skills");
+        skillsList.innerHTML = "";
+        (data.skills || []).forEach((skill) => {
+          const li = document.createElement("li");
+          li.textContent = skill.name;
+          li.classList.add("chip");
+          skillsList.appendChild(li);
+        });
+
+        const certificationsList = document.getElementById("certifications");
+        certificationsList.innerHTML = "";
+        (data.certifications || []).forEach((cert) => {
+          const li = document.createElement("li");
+          const startDate = cert.timePeriod?.startDate
+            ? `${cert.timePeriod.startDate.month}/${cert.timePeriod.startDate.year}`
+            : "N/A";
+          const endDate = cert.timePeriod?.endDate
+            ? `${cert.timePeriod.endDate.month}/${cert.timePeriod.endDate.year}`
+            : "En curso";
+
+          li.innerHTML = `
+            <strong>${cert.name}</strong><br>
+            Autoridad: ${cert.authority || "N/A"}<br>
+            Fecha de inicio: ${startDate}<br>
+            Fecha de finalización: ${endDate}<br>
+            ${cert.url ? `<a href="${cert.url}" target="_blank" rel="noreferrer">Ver certificación</a>` : ""}
+          `;
+          certificationsList.appendChild(li);
+        });
+
+        const linkedinLinks = [
+          document.getElementById("linkedin-link"),
+          document.getElementById("linkedin-link-modal"),
+        ];
+        if (data.publicProfileUrl) {
+          linkedinLinks.forEach((link) => {
+            link.href = data.publicProfileUrl;
+            link.textContent = "🔗 Ver perfil en LinkedIn";
+          });
+        }
+      })
+      .catch((error) => console.error("Error al cargar los datos de LinkedIn:", error));
+
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
