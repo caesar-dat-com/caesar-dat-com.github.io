@@ -2,84 +2,216 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>caesar-dat-com</title>
-  <meta name="description" content="Sitio personal de César Reyes." />
-
-  <!-- Google AdSense: Auto ads (debe ir en el <head>) -->
-  <meta name="google-adsense-account" content="ca-pub-7788698843042083">
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7788698843042083"
-    crossorigin="anonymous"></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hoja de vida · Perfil LinkedIn</title>
+  <meta name="description" content="Hoja de vida basada en los datos de LinkedIn de César Reyes." />
   <style>
-    :root{
-      --bg:#0f1115; --panel:#151823; --line:#24283b; --text:#e6e6e6; --muted:#a9b2c0; --link:#79b8ff;
+    :root {
+      --bg: #0f1115;
+      --panel: #151823;
+      --line: #24283b;
+      --text: #e6e6e6;
+      --muted: #a9b2c0;
+      --accent: #79b8ff;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; background:var(--bg); color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
-      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+
+    * {
+      box-sizing: border-box;
     }
-    header{padding:32px 16px; text-align:center}
-    header h1{margin:0 0 6px}
-    header p{margin:0; color:var(--muted)}
-    main{max-width:900px; margin:0 auto; padding:16px}
-    .card{
-      background:var(--panel); border:1px solid var(--line); border-radius:14px;
-      padding:22px; box-shadow:0 8px 24px rgb(0 0 0 / 22%);
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #1b2130 0%, var(--bg) 55%);
+      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
+        "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
     }
-    .ad-wrap{margin:28px 0; display:flex; justify-content:center}
-    a{color:var(--link); text-decoration:none}
-    a:hover{text-decoration:underline}
-    footer{padding:28px 16px; text-align:center; color:var(--muted)}
+
+    header {
+      padding: 32px 16px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin-bottom: 6px;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+    }
+
+    header p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .profile-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .profile-header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .profile-header h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 2.3vw, 2rem);
+    }
+
+    .meta {
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      font-size: 0.95rem;
+    }
+
+    .meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-title {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .certifications li {
+      margin-bottom: 14px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 16px 32px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (min-width: 768px) {
+      .profile-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
   </style>
 </head>
-
 <body>
   <header>
-    <h1>caesar-dat-com</h1>
-    <p>Bienvenido 👋 — Google AdSense integrado en GitHub Pages.</p>
+    <h1>Hoja de vida</h1>
+    <p>Perfil dinámico basado en datos de LinkedIn.</p>
   </header>
 
   <main>
     <section class="card">
-      <h2>Contenido</h2>
-      <p>
-        Esta página integra <strong>Google AdSense</strong> con Auto ads (en el
-        <code>&lt;head&gt;</code>) y un bloque manual responsive para pruebas.
-        Desactiva bloqueadores de anuncios al validar.
-      </p>
-
-      <!-- Bloque de anuncio manual (Display-Home) -->
-      <div class="ad-wrap">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-7788698843042083"
-             data-ad-slot="1386463466"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+      <div class="profile-header">
+        <h2 id="name">Cargando…</h2>
+        <div class="meta">
+          <span>💼 <span id="headline">—</span></span>
+          <span>📍 <span id="location">—</span></span>
+        </div>
+        <p id="summary" class="summary"></p>
       </div>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+    </section>
 
-      <p>
-        Si aún no ves anuncios, es normal durante la revisión inicial. Mantén contenido
-        original y verifica que <code>/ads.txt</code> esté publicado en la raíz.
-      </p>
+    <section class="card" style="margin-top: 24px;">
+      <div class="profile-grid">
+        <div>
+          <h3 class="section-title">Habilidades destacadas</h3>
+          <ul id="skills"></ul>
+        </div>
+        <div>
+          <h3 class="section-title">Certificaciones</h3>
+          <ul id="certifications" class="certifications"></ul>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    © <span id="y"></span> César Reyes · <a href="https://caesar-dat-com.github.io/">Inicio</a>
+    © <span id="year"></span> César Reyes
   </footer>
 
   <script>
-    // año dinámico en el footer
-    document.getElementById('y').textContent = new Date().getFullYear();
+    const defaultSummary =
+      "Perfil profesional generado automáticamente desde LinkedIn.";
+
+    fetch("linkedin-data.json")
+      .then((response) => response.json())
+      .then((data) => {
+        document.getElementById("name").textContent = `${data.firstName} ${data.lastName}`;
+        document.getElementById("headline").textContent = data.headline || "—";
+        document.getElementById("location").textContent = data.location || "—";
+
+        const summary = data.summary?.trim();
+        document.getElementById("summary").textContent = summary || defaultSummary;
+
+        const skillsList = document.getElementById("skills");
+        skillsList.innerHTML = "";
+        (data.skills || []).forEach((skill) => {
+          const li = document.createElement("li");
+          li.textContent = skill.name;
+          skillsList.appendChild(li);
+        });
+
+        const certificationsList = document.getElementById("certifications");
+        certificationsList.innerHTML = "";
+        (data.certifications || []).forEach((cert) => {
+          const li = document.createElement("li");
+          const startDate = cert.timePeriod?.startDate
+            ? `${cert.timePeriod.startDate.month}/${cert.timePeriod.startDate.year}`
+            : "N/A";
+          const endDate = cert.timePeriod?.endDate
+            ? `${cert.timePeriod.endDate.month}/${cert.timePeriod.endDate.year}`
+            : "En curso";
+
+          li.innerHTML = `
+            <strong>${cert.name}</strong><br>
+            Autoridad: ${cert.authority || "N/A"}<br>
+            Fecha de inicio: ${startDate}<br>
+            Fecha de finalización: ${endDate}<br>
+            ${cert.url ? `<a href="${cert.url}" target="_blank" rel="noreferrer">Ver certificación</a>` : ""}
+          `;
+          certificationsList.appendChild(li);
+        });
+      })
+      .catch((error) => console.error("Error al cargar los datos de LinkedIn:", error));
+
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
