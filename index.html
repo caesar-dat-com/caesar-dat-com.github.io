@@ -1,71 +1,112 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hoja de vida · Perfil LinkedIn</title>
-  <meta name="description" content="Hoja de vida basada en los datos de LinkedIn de César Reyes." />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+  <title>César Reyes · Perfil</title>
+  <meta name="description" content="Sitio personal de César Reyes: perfil, experiencia, proyectos, stack y contacto." />
+
+  <meta property="og:title" content="César Reyes · Perfil" />
+  <meta property="og:description" content="Perfil, experiencia, proyectos, stack y contacto." />
+  <meta property="og:type" content="website" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=VT323&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=VT323&display=swap"
+    rel="stylesheet" />
+
   <style>
+    /* =========================
+         Base + Tokens
+      ========================== */
     * {
       box-sizing: border-box;
-      position: relative;
     }
 
     html,
     body {
+      --colors-bg--100: #0e0b10;
       --colors-bg--300: #1e181e;
       --colors-bg--500: #191a1e;
+
       --colors-primary--200: #f4908b;
       --colors-primary--300: #ea6f69;
       --colors-primary--500: #e8615a;
       --colors-primary--600: #9c3230;
       --colors-primary--700: #5e2122;
       --colors-primary--800: #451717;
-      --colors-primary--900: #3c181a;
+
       --colors-secondary--500: #2be4ea;
       --colors-secondary--900: #295459;
+
       --colors-tertiary--500: #fed33f;
-      --colors-on_bg--500: var(--colors-primary--500);
-      --colors-on_tertiary--500: var(--colors-bg--300);
-      --colors-on_primary--500: var(--colors-primary--200);
       --colors-active--500: #2bfea0;
-      --fonts-primary: "Rajdhani", sans-serif;
-      --fonts-secondary: "VT323", monospace;
-      --ui-glow: 0 0 5px var(--colors-primary--500);
-      --ui-glow-borders--500: 0 0 3px var(--colors-primary--500);
-      --ui-glow-color: currentcolor;
-      --ui-glow-text: -9px -6px 40px var(--ui-glow-color);
-      --ui-glow-text--dimmed: -9px -6px 40px var(--ui-glow-color);
+
+      --fonts-primary: "Rajdhani", system-ui, -apple-system, Segoe UI, Roboto,
+        Arial, sans-serif;
+      --fonts-secondary: "VT323", ui-monospace, SFMono-Regular, Menlo, Monaco,
+        Consolas, "Liberation Mono", "Courier New", monospace;
+
+      --ui-glow: 0 0 10px rgba(232, 97, 90, 0.35);
+      --ui-glow-strong: 0 0 18px rgba(43, 228, 234, 0.35);
+      --ui-glow-text: -9px -6px 40px currentColor;
       --ui-elevation--1: 2px 2px 0 rgba(0, 0, 0, 0.8);
+
       --ui-notch-amount: 1rem;
       --ui-notch-hypotenuse: 22.627416px;
-      --ui-notch-path: polygon(
-        0 0,
-        100% 0,
-        100% calc(100% - var(--ui-notch-amount) + 2px),
-        calc(100% - var(--ui-notch-amount) + 2px) 100%,
-        0 100%
-      );
+      --ui-notch-path: polygon(0 0,
+          100% 0,
+          100% calc(100% - var(--ui-notch-amount) + 2px),
+          calc(100% - var(--ui-notch-amount) + 2px) 100%,
+          0 100%);
 
-      background-color: var(--colors-bg--500);
-      background-image: radial-gradient(
-        ellipse at 33% 10%,
-        #461616 0%,
-        transparent 75%
-      );
-      background-repeat: no-repeat;
-      color: var(--colors-on_bg--500);
-      font-family: var(--fonts-primary);
-      font-size: 100%;
-      line-height: 1.4;
+      height: 100%;
       margin: 0;
+    }
+
+    body {
+      font-family: var(--fonts-primary);
+      color: var(--colors-primary--500);
+      background: radial-gradient(ellipse at 28% 12%,
+          rgba(70, 22, 22, 0.95) 0%,
+          transparent 60%),
+        radial-gradient(ellipse at 72% 18%,
+          rgba(43, 228, 234, 0.10) 0%,
+          transparent 55%),
+        linear-gradient(180deg, var(--colors-bg--500), var(--colors-bg--100));
       min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Scanlines + subtle grid */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(to bottom,
+          rgba(255, 255, 255, 0.03),
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px,
+          transparent 4px);
+      opacity: 0.35;
+      mix-blend-mode: overlay;
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(43, 228, 234, 0.07) 1px,
+          transparent 1px),
+        linear-gradient(90deg, rgba(43, 228, 234, 0.07) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.08;
+      z-index: 0;
     }
 
     a {
@@ -73,793 +114,1265 @@
       text-decoration: none;
     }
 
-    body {
+    .skip {
+      position: absolute;
+      left: -9999px;
+      top: 12px;
+      padding: 10px 12px;
+      background: rgba(25, 26, 30, 0.95);
+      border: 1px solid var(--colors-secondary--500);
+      color: var(--colors-secondary--500);
+      font-family: var(--fonts-secondary);
+      z-index: 9999;
+    }
+
+    .skip:focus {
+      left: 12px;
+    }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      html:focus-within {
+        scroll-behavior: auto !important;
+      }
+
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* =========================
+         App Shell (inspirado en tu referencia)
+      ========================== */
+    .app-skeleton {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 16px 14px 72px;
+    }
+
+    .app-header {
       display: flex;
-      flex-direction: column;
       align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 10px 12px;
+      margin-bottom: 14px;
     }
 
-    .page {
-      width: min(1100px, 100%);
-      padding: 32px 16px 64px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      justify-content: center;
-      flex: 1;
-    }
-
-    header {
-      text-align: center;
-    }
-
-    header h1 {
-      margin-bottom: 6px;
-      font-size: clamp(2rem, 3vw, 3rem);
-      text-shadow: var(--ui-glow-text);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    header p {
-      margin: 0;
-      color: var(--colors-primary--200);
-    }
-
-    main {
-      display: grid;
-      gap: 24px;
-    }
-
-    .card {
-      background: rgba(30, 24, 30, 0.92);
-      border: 1px solid var(--colors-primary--600);
-      clip-path: var(--ui-notch-path);
-      padding: 24px;
-      box-shadow: var(--ui-glow);
-    }
-
-    .card::before {
-      background-color: var(--colors-primary--600);
-      bottom: 5px;
+    .app-header::after {
       content: "";
-      display: block;
-      height: 3px;
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background: var(--colors-primary--500);
+      box-shadow: var(--ui-glow);
+      opacity: 0.9;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 6px 8px;
+    }
+
+    .brand__title {
+      font-family: var(--fonts-secondary);
+      font-size: 1.55rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-shadow: var(--ui-glow-text);
+      color: var(--colors-secondary--500);
+      white-space: nowrap;
+    }
+
+    .brand__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 3px 10px;
+      border: 1px solid var(--colors-tertiary--500);
+      color: var(--colors-tertiary--500);
+      font-family: var(--fonts-secondary);
+      letter-spacing: 0.06em;
+      clip-path: var(--ui-notch-path);
+      background: rgba(25, 26, 30, 0.45);
+    }
+
+    .nav {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 18px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .nav__link {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      font-family: var(--fonts-secondary);
+      color: var(--colors-primary--200);
+      text-shadow: var(--ui-glow-text);
+      transition: transform 0.2s, background-color 0.2s, border-color 0.2s;
+    }
+
+    .nav__link:hover,
+    .nav__link:focus-visible {
+      background: rgba(30, 24, 30, 0.8);
+      border-color: rgba(93, 35, 34, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .nav__link--active {
+      color: var(--colors-secondary--500);
+      border-color: var(--colors-secondary--500);
+      box-shadow: 0 0 10px rgba(43, 228, 234, 0.25);
+      transform: none;
+    }
+
+    .header-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mini-pill {
+      font-family: var(--fonts-secondary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      color: var(--colors-primary--200);
+      padding: 6px 10px;
+      border: 1px solid rgba(156, 50, 48, 0.9);
+      background: rgba(25, 26, 30, 0.5);
+      clip-path: var(--ui-notch-path);
+      white-space: nowrap;
+    }
+
+    .app-container {
+      display: grid;
+      grid-template-columns: 280px 1fr 320px;
+      gap: 14px;
+      align-items: start;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .app-container {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .header-actions {
+        display: none;
+      }
+    }
+
+    /* =========================
+         UI Blocks
+      ========================== */
+    .pad {
+      background: rgba(30, 24, 30, 0.92);
+      border: 2px solid var(--colors-primary--600);
+      clip-path: var(--ui-notch-path);
+      box-shadow: var(--ui-glow);
+      position: relative;
+    }
+
+    .pad::before {
+      content: "";
       position: absolute;
       right: -6px;
-      transform: rotate(-45deg);
+      bottom: 5px;
       width: var(--ui-notch-hypotenuse);
+      height: 3px;
+      transform: rotate(-45deg);
+      background: var(--colors-primary--600);
       z-index: 2;
     }
 
-    .profile-grid {
-      display: grid;
-      gap: 24px;
-    }
-
-    .profile-header {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .profile-header h2 {
-      margin: 0;
-      font-size: clamp(1.6rem, 2.3vw, 2.2rem);
-      color: var(--colors-secondary--500);
-    }
-
-    .meta {
-      color: var(--colors-primary--200);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 24px;
-      font-size: 1rem;
-    }
-
-    .meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+    .pad__body {
+      padding: 16px 16px calc(16px + var(--ui-notch-amount));
     }
 
     .section-title {
-      margin-top: 0;
-      font-size: 1.2rem;
-      color: var(--colors-secondary--500);
+      margin: 0 0 6px;
+      font-family: var(--fonts-secondary);
+      letter-spacing: 0.09em;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      color: var(--colors-secondary--500);
+      text-shadow: 0 0 14px rgba(43, 228, 234, 0.25);
     }
 
-    .section-subtitle {
-      margin: 6px 0 0;
+    .muted {
       color: var(--colors-primary--200);
+      margin: 0;
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(232, 97, 90, 0.35);
+      box-shadow: var(--ui-glow);
+      margin: 12px 0;
+      opacity: 0.8;
+    }
+
+    .nav-section {
+      padding-bottom: 10px;
+    }
+
+    .nav-section__header {
+      background: rgba(25, 26, 30, 0.7);
+      border: 1px solid rgba(93, 35, 34, 0.95);
+      border-radius: 3px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+    }
+
+    .nav-section__title {
+      margin: 0;
+      color: var(--colors-secondary--500);
+      font-family: var(--fonts-secondary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-rail {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 6px;
+    }
+
+    .nav-rail a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 9px 10px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      color: var(--colors-secondary--500);
+      background: transparent;
+      transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .nav-rail a:hover,
+    .nav-rail a:focus-visible {
+      background: rgba(25, 26, 30, 0.7);
+      border-color: rgba(93, 35, 34, 0.95);
+      transform: translateX(1px);
+    }
+
+    .nav-rail a.is-active {
+      background: rgba(57, 20, 25, 0.75);
+      border-color: var(--colors-primary--600);
+      color: var(--colors-tertiary--500);
+    }
+
+    .badge {
+      border: 1.5px solid var(--colors-tertiary--500);
+      border-radius: 3px;
+      color: var(--colors-tertiary--500);
+      font-family: var(--fonts-secondary);
+      letter-spacing: 0.06em;
+      padding: 2px 6px;
       font-size: 0.95rem;
     }
 
+    .form-control {
+      background: rgba(25, 26, 30, 0.55);
+      border: 1px solid var(--colors-primary--600);
+      clip-path: var(--ui-notch-path);
+      padding: 8px;
+      position: relative;
+    }
+
+    .form-control::before {
+      content: "";
+      position: absolute;
+      right: -6px;
+      bottom: 5px;
+      width: var(--ui-notch-hypotenuse);
+      height: 3px;
+      transform: rotate(-45deg);
+      background: var(--colors-primary--600);
+    }
+
+    .form-control input {
+      width: 100%;
+      border: 0;
+      outline: none;
+      background: transparent;
+      color: var(--colors-primary--200);
+      font-family: var(--fonts-primary);
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+    }
+
     .chip-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
       margin: 0;
       padding: 0;
       list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .chip {
       padding: 8px 14px;
       border-radius: 2px;
-      background: rgba(30, 24, 30, 0.9);
-      border: 1px solid var(--colors-primary--600);
-      font-size: 0.95rem;
+      background: rgba(25, 26, 30, 0.65);
+      border: 1px solid rgba(156, 50, 48, 0.9);
       color: var(--colors-secondary--500);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
       font-family: var(--fonts-secondary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       clip-path: var(--ui-notch-path);
+      position: relative;
     }
 
     .chip::before {
-      background-color: var(--colors-primary--600);
-      bottom: 4px;
       content: "";
-      display: block;
-      height: 3px;
       position: absolute;
       right: -6px;
-      transform: rotate(-45deg);
+      bottom: 4px;
       width: var(--ui-notch-hypotenuse);
-      z-index: 2;
+      height: 3px;
+      transform: rotate(-45deg);
+      background: rgba(156, 50, 48, 0.9);
     }
 
-    ul {
-      margin: 0;
-      padding-left: 18px;
+    .grid-2 {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
     }
 
-    li + li {
-      margin-top: 8px;
+    @media (min-width: 760px) {
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
-    .certifications li {
-      margin-bottom: 14px;
-      border-left: 2px solid var(--colors-primary--600);
-      padding-left: 12px;
-    }
-
-    .detail-list {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--colors-primary--200);
-      font-size: 0.95rem;
-    }
-
-    .detail-list li + li {
-      margin-top: 6px;
-    }
-
-    .badge-inline {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 999px;
-      border: 1px solid var(--colors-secondary--500);
-      color: var(--colors-secondary--500);
-      font-size: 0.8rem;
-      margin-left: 6px;
-    }
-
-    .stack-grid {
+    .cards {
       display: grid;
       gap: 12px;
     }
 
-    .stack-item {
-      padding: 12px;
-      border: 1px solid var(--colors-primary--600);
+    .item {
+      background: rgba(25, 26, 30, 0.55);
+      border: 1px solid rgba(156, 50, 48, 0.9);
       clip-path: var(--ui-notch-path);
-      background: rgba(25, 26, 30, 0.7);
+      padding: 12px;
+      position: relative;
     }
 
-    .stack-item::before {
-      background-color: var(--colors-primary--600);
-      bottom: 4px;
+    .item::before {
       content: "";
-      display: block;
-      height: 3px;
       position: absolute;
       right: -6px;
-      transform: rotate(-45deg);
+      bottom: 4px;
       width: var(--ui-notch-hypotenuse);
-      z-index: 2;
+      height: 3px;
+      transform: rotate(-45deg);
+      background: rgba(156, 50, 48, 0.9);
     }
 
-    .stack-item h4 {
+    .item h4 {
       margin: 0 0 6px;
-      font-size: 1rem;
       color: var(--colors-secondary--500);
+      font-family: var(--fonts-primary);
+      letter-spacing: 0.02em;
     }
 
-    .stack-item p {
+    .item p {
       margin: 0;
       color: var(--colors-primary--200);
-      font-size: 0.95rem;
     }
 
-    .contact-card {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 12px;
-      padding: 16px;
-      border-radius: 12px;
-      border: 1px solid #5d2322;
-      background: var(--colors-bg--300);
-      box-shadow: var(--ui-elevation--1);
+    .detail-list {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--colors-primary--200);
     }
 
-    .contact-card strong {
-      font-family: var(--fonts-secondary);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .detail-list li+li {
+      margin-top: 6px;
     }
 
-    .contact-card a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 600;
-      color: var(--colors-secondary--500);
-    }
-
-    .contact-actions {
+    .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 10px;
       align-items: center;
-      margin-top: 8px;
+      margin-top: 12px;
     }
 
-    .cyber-btn {
+    .btn {
       --corner: 12px;
-      --border: 1px;
-      --clip: polygon(
-        0 0,
-        100% 0,
-        100% calc(100% - var(--corner)),
-        calc(100% - var(--corner)) 100%,
-        0% 100%
-      );
-      font-family: var(--fonts-secondary);
-      width: 180px;
-      text-align: left;
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 0.8rem;
+      --clip: polygon(0 0,
+          100% 0,
+          100% calc(100% - var(--corner)),
+          calc(100% - var(--corner)) 100%,
+          0% 100%);
+
       border: 0;
-      background: transparent;
-      position: relative;
-      color: var(--colors-secondary--500);
       cursor: pointer;
-    }
-
-    .cyber-btn * {
-      pointer-events: none;
-    }
-
-    .cyber-btn .backdrop {
-      position: absolute;
-      z-index: -1;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.3);
-      clip-path: var(--clip);
-      border: var(--border) solid var(--colors-secondary--500);
-      box-shadow: 0 0 10px rgba(43, 228, 234, 0.4);
-    }
-
-    .cyber-btn kbd {
-      color: var(--colors-bg--300);
-      font-weight: bold;
-      width: 22px;
-      display: inline-grid;
-      place-items: center;
-      aspect-ratio: 1;
-      font-size: 0.8rem;
-      border-radius: 50%;
-      background: var(--colors-secondary--500);
-    }
-
-    .cyber-link {
-      --corner: 12px;
-      --border: 1px;
-      --clip: polygon(
-        0 0,
-        100% 0,
-        100% calc(100% - var(--corner)),
-        calc(100% - var(--corner)) 100%,
-        0% 100%
-      );
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 0.75rem;
-      border: 0;
       background: transparent;
       color: var(--colors-secondary--500);
       font-family: var(--fonts-secondary);
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      text-decoration: none;
       position: relative;
-      cursor: pointer;
+      padding: 10px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .cyber-link .backdrop {
+    .btn .backdrop {
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.3);
-      clip-path: var(--clip);
-      border: var(--border) solid var(--colors-secondary--500);
-      box-shadow: 0 0 10px rgba(43, 228, 234, 0.35);
       z-index: -1;
+      background: rgba(0, 0, 0, 0.25);
+      clip-path: var(--clip);
+      border: 1px solid var(--colors-secondary--500);
+      box-shadow: var(--ui-glow-strong);
     }
 
-    .cyber-link:hover .text-glitch,
-    .cyber-link:focus-visible .text-glitch {
-      animation: text-glitch 1.6s infinite;
+    .btn:hover .backdrop,
+    .btn:focus-visible .backdrop {
+      background: rgba(43, 228, 234, 0.08);
     }
 
-    .text-glitch {
+    .btn--danger {
+      color: var(--colors-primary--200);
+    }
+
+    .btn--danger .backdrop {
+      border-color: rgba(232, 97, 90, 0.85);
+      box-shadow: 0 0 12px rgba(232, 97, 90, 0.25);
+    }
+
+    .k {
+      display: inline-grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--colors-secondary--500);
+      color: var(--colors-bg--300);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .glitch {
       display: inline-block;
       text-shadow: 0 0 8px rgba(232, 97, 90, 0.45);
     }
 
-    .cyber-btn .glitch {
-      display: none;
-    }
-
-    .cyber-btn:hover .text-glitch,
-    .cyber-btn:focus-visible .text-glitch {
+    .btn:hover .glitch,
+    .btn:focus-visible .glitch {
       animation: text-glitch 1.6s infinite;
-    }
-
-    .cyber-btn:hover .backdrop,
-    .cyber-btn:focus-visible .backdrop {
-      background: rgba(43, 228, 234, 0.1);
-    }
-
-    .modal {
-      --corner: 12px;
-      --border: 2px;
-      --clip: polygon(
-        0 0,
-        100% 0,
-        100% calc(100% - var(--corner)),
-        calc(100% - var(--corner)) 100%,
-        0% 100%
-      );
-      color: var(--colors-secondary--500);
-      width: min(90vw, 520px);
-      border: 0;
-      padding: 0;
-      background: transparent;
-      font-family: var(--fonts-primary);
-    }
-
-    .modal::backdrop {
-      background: rgba(8, 5, 8, 0.85);
-    }
-
-    .modal__body {
-      background: rgba(25, 26, 30, 0.94);
-      border: 1px solid var(--colors-secondary--500);
-      clip-path: var(--clip);
-      padding: 1rem;
-      box-shadow: 0 0 25px rgba(43, 228, 234, 0.3);
-    }
-
-    .modal__body h2 {
-      margin: 0 0 0.75rem;
-      font-family: var(--fonts-secondary);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .modal__actions {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 0.75rem;
-      gap: 0.5rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 24px 16px 32px;
-      color: var(--colors-primary--200);
-      font-size: 0.95rem;
-    }
-
-    @media (min-width: 768px) {
-      .profile-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .contact-card {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .contact-actions {
-        margin-top: 0;
-      }
     }
 
     @keyframes text-glitch {
       0% {
-        text-shadow: 0 0 6px var(--colors-primary--500);
         transform: translate(0, 0);
+        text-shadow: 0 0 6px rgba(232, 97, 90, 0.55);
       }
+
       20% {
         transform: translate(-2px, -1px);
-        text-shadow: -2px 0 var(--colors-secondary--500);
+        text-shadow: -2px 0 rgba(43, 228, 234, 0.7);
       }
+
       40% {
         transform: translate(2px, 1px);
-        text-shadow: 2px 0 var(--colors-primary--200);
+        text-shadow: 2px 0 rgba(244, 144, 139, 0.7);
       }
+
       60% {
         transform: translate(-1px, 1px);
-        text-shadow: -1px 0 var(--colors-secondary--500);
+        text-shadow: -1px 0 rgba(43, 228, 234, 0.7);
       }
+
       100% {
         transform: translate(0, 0);
-        text-shadow: 0 0 8px var(--colors-primary--500);
+        text-shadow: 0 0 8px rgba(232, 97, 90, 0.55);
       }
+    }
+
+    /* =========================
+         Content helpers
+      ========================== */
+    .hero-title {
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      letter-spacing: 0.02em;
+      color: var(--colors-secondary--500);
+      text-shadow: var(--ui-glow-text);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      color: var(--colors-primary--200);
+      margin: 0;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border: 1px solid rgba(93, 35, 34, 0.95);
+      background: rgba(25, 26, 30, 0.45);
+      border-radius: 3px;
+    }
+
+    .section {
+      scroll-margin-top: 90px;
+    }
+
+    footer {
+      margin-top: 18px;
+      padding: 18px 10px 0;
+      text-align: center;
+      color: var(--colors-primary--200);
+      opacity: 0.9;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      background: rgba(25, 26, 30, 0.92);
+      border: 1px solid var(--colors-secondary--500);
+      color: var(--colors-secondary--500);
+      padding: 10px 12px;
+      font-family: var(--fonts-secondary);
+      letter-spacing: 0.06em;
+      clip-path: var(--ui-notch-path);
+      box-shadow: var(--ui-glow-strong);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 9999;
+    }
+
+    .toast.is-on {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-2px);
     }
   </style>
 </head>
+
 <body>
-  <div class="page">
-    <header>
-      <h1>Hoja de vida</h1>
-      <p>Perfil dinámico basado en datos de LinkedIn.</p>
-    </header>
+  <a class="skip" href="#main">Saltar al contenido</a>
 
-    <main>
-      <section class="card">
-        <div class="profile-header">
-          <h2 id="name">Cargando…</h2>
-          <div class="meta">
-            <span>💼 <span id="headline">—</span></span>
-            <span>📍 <span id="location">—</span></span>
-          </div>
-          <p id="summary" class="summary"></p>
-          <div class="contact-card">
-            <div>
-              <strong>Contacto</strong>
-              <p class="section-subtitle">Accesos rápidos para comunicarte.</p>
-            </div>
-            <div class="contact-actions">
-              <a
-                id="linkedin-link"
-                class="cyber-link"
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span class="backdrop"></span>
-                <span class="text-glitch">🔗 LinkedIn</span>
-              </a>
-              <a
-                id="email-link"
-                class="cyber-link"
-                href="mailto:contacto@caesar-dat.com"
-              >
-                <span class="backdrop"></span>
-                <span class="text-glitch">✉️ contacto@caesar-dat.com</span>
-              </a>
-            </div>
-          </div>
-          <div class="contact-actions" style="margin-top: 16px;">
-            <button
-              class="cyber-btn"
-              popovertarget="contact-modal"
-              popovertargetaction="show"
-              aria-label="Contactar"
-            >
-              <span class="backdrop"></span>
-              <kbd>✉️</kbd>
-              <span class="text-glitch">Contactar</span>
-            </button>
-          </div>
-        </div>
-      </section>
+  <div class="app-skeleton" id="top">
+    <!-- Header -->
+    <header class="app-header">
+      <a class="brand" href="#top" aria-label="Inicio">
+        <span class="brand__title">CÉSAR REYES</span>
+        <span class="brand__tag">DATA · IA · AUTOMATION</span>
+      </a>
 
-      <section class="card">
-        <div class="profile-grid">
-          <div>
-            <h3 class="section-title">Habilidades destacadas</h3>
-            <p class="section-subtitle">Tecnologías y competencias registradas en LinkedIn.</p>
-            <ul id="skills" class="chip-list"></ul>
-          </div>
-          <div>
-            <h3 class="section-title">Certificaciones</h3>
-            <ul id="certifications" class="certifications"></ul>
-          </div>
-        </div>
-      </section>
+      <nav aria-label="Navegación principal">
+        <ul class="nav" id="top-nav">
+          <li><a class="nav__link" href="#about">Sobre mí</a></li>
+          <li><a class="nav__link" href="#stack">Stack</a></li>
+          <li><a class="nav__link" href="#experience">Experiencia</a></li>
+          <li><a class="nav__link" href="#projects">Proyectos</a></li>
+          <li><a class="nav__link" href="#education">Educación</a></li>
+          <li><a class="nav__link" href="#certs">Certs</a></li>
+          <li><a class="nav__link" href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
 
-      <section class="card">
-        <h3 class="section-title">Perfil profesional</h3>
-        <p class="section-subtitle">
-          Datos adicionales para complementar la hoja de vida.
-        </p>
-        <p class="summary">
-          Cursando la etapa final de la carrera de <strong>Ingeniería en Datos e Inteligencia Artificial</strong> en la Universidad Autónoma de Occidente (UAO) y
-          <strong>Tecnólogo en Gestión de Sistemas Mecatrónicos</strong> por FCECEP, con experiencia como Supervisor y Técnico en
-          <strong>Postobón S.A.</strong> Bases sólidas en Python, POO, HTML/CSS, bases de datos, QA y automatización de pruebas, y experiencia implementando un
-          <strong>aplicativo low-code nacional</strong> para control de personal y tareas con ~1300 usuarios en el área de Mantenimiento. Busco roles junior en datos, desarrollo o QA en empresas de tecnología.
-        </p>
-      </section>
-
-      <section class="card">
-        <div class="profile-grid">
-          <div>
-            <h3 class="section-title">Contacto directo</h3>
-            <div class="contact-actions" style="margin-top: 12px;">
-              <a class="cyber-link" href="mailto:cesar.cesarreyes25@gmail.com">
-                <span class="backdrop"></span>
-                <span class="text-glitch">📧 cesar.cesarreyes25@gmail.com</span>
-              </a>
-              <a class="cyber-link" href="tel:+573174254144">
-                <span class="backdrop"></span>
-                <span class="text-glitch">☎ +57 317 425 4144</span>
-              </a>
-              <a
-                class="cyber-link"
-                href="https://github.com/caesar-dat-com"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span class="backdrop"></span>
-                <span class="text-glitch">{} GitHub</span>
-              </a>
-            </div>
-          </div>
-          <div>
-            <h3 class="section-title">Skills clave</h3>
-            <ul class="chip-list">
-              <li class="chip">Python</li>
-              <li class="chip">POO</li>
-              <li class="chip">HTML5 / CSS3</li>
-              <li class="chip">Bases de datos</li>
-              <li class="chip">QA &amp; testing</li>
-              <li class="chip">Low-code</li>
-              <li class="chip">Git / GitHub</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h3 class="section-title">Competencias detalladas</h3>
-        <div class="stack-grid">
-          <div class="stack-item">
-            <h4>Programación</h4>
-            <p>Python, programación orientada a objetos, HTML5, CSS3.</p>
-          </div>
-          <div class="stack-item">
-            <h4>Datos e IA</h4>
-            <p>Conceptos de ciencia de datos y machine learning, estadística básica, fundamentos de big data, visión por computador y NLP.</p>
-          </div>
-          <div class="stack-item">
-            <h4>Bases de datos</h4>
-            <p>Conceptos relacionales, modelado básico y consultas iniciales.</p>
-          </div>
-          <div class="stack-item">
-            <h4>QA y pruebas</h4>
-            <p>Fundamentos de automatización de pruebas y diseño básico de casos de prueba.</p>
-          </div>
-          <div class="stack-item">
-            <h4>Herramientas</h4>
-            <p>Git, GitHub, terminal (Windows), configuración de entornos, Microsoft Office.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h3 class="section-title">Soft skills &amp; idiomas</h3>
-        <p class="section-subtitle">
-          Comunicación clara, trabajo en equipo, organización del tiempo, aprendizaje continuo, pensamiento lógico y orientación a la mejora de procesos.
-        </p>
-        <p class="section-subtitle" style="margin-top: 12px;">
-          <strong>Español:</strong> nativo<br />
-          <strong>Inglés:</strong> intermedio (B1–B2, respaldado por la carrera de Ingeniería en Datos e IA).
-        </p>
-      </section>
-
-      <section class="card">
-        <h3 class="section-title">Cursos &amp; certificaciones adicionales</h3>
-        <p class="section-subtitle">
-          Más de 20 cursos en Platzi en programación (Python, POO, HTML/CSS, bases de datos), QA, informática básica e inglés. Diplomado en Codificación y Programación
-          (Pontificia Universidad Javeriana &amp; Samsung). Participación en conferencias como Inspiring Study Conference with Google.
-        </p>
-      </section>
-
-      <section class="card">
-        <h3 class="section-title">Experiencia</h3>
-        <div class="stack-grid">
-          <div class="stack-item">
-            <h4>Supervisor – Postobón S.A.</h4>
-            <p>Cali, Colombia <span class="badge-inline">Operaciones &amp; mejora de procesos</span></p>
-            <ul class="detail-list">
-              <li>Supervisión de operaciones en planta, asegurando estándares de calidad, productividad y seguridad.</li>
-              <li>Asignación y seguimiento de tareas del personal operativo para garantizar continuidad de la producción.</li>
-              <li>Elaboración de reportes e indicadores con herramientas ofimáticas y sistemas internos.</li>
-              <li>Trabajo conjunto con Mantenimiento para reportar incidentes y proponer mejoras de proceso.</li>
-            </ul>
-          </div>
-          <div class="stack-item">
-            <h4>Técnico – Postobón S.A.</h4>
-            <p>Cali, Colombia <span class="badge-inline">Soporte técnico</span></p>
-            <ul class="detail-list">
-              <li>Soporte técnico en líneas de producción y equipos, participando en actividades de mantenimiento y operación.</li>
-              <li>Registro de incidencias e intervenciones en sistemas internos, mejorando la trazabilidad de la información.</li>
-              <li>Colaboración con supervisores y operarios para reducir tiempos de parada y aumentar la eficiencia de la planta.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h3 class="section-title">Proyectos destacados</h3>
-        <div class="stack-grid">
-          <div class="stack-item">
-            <h4>Aplicativo low-code nacional – Postobón S.A.</h4>
-            <p>Control de personal y tareas de Mantenimiento <span class="badge-inline">~1300 usuarios</span></p>
-            <ul class="detail-list">
-              <li>Diseño e implementación de aplicativo low-code para control de personal, asignación de tareas y seguimiento de actividades de Mantenimiento.</li>
-              <li>Gestión de ~1300 usuarios a nivel nacional, reemplazando procesos manuales por un flujo digital centralizado.</li>
-            </ul>
-          </div>
-          <div class="stack-item">
-            <h4>Rally Latinoamericano de Innovación – 1er lugar</h4>
-            <p>Categoría Innovación, UAO <span class="badge-inline">Innovación</span></p>
-            <ul class="detail-list">
-              <li>Integrante del equipo ganador, desarrollando una solución innovadora a un reto real en tiempo limitado.</li>
-            </ul>
-          </div>
-          <div class="stack-item">
-            <h4>Platzi Space Program – Diseño y fabricación de un satélite</h4>
-            <p>Programa intensivo <span class="badge-inline">Space &amp; engineering</span></p>
-            <ul class="detail-list">
-              <li>Participación en programa intensivo, reforzando fundamentos de ingeniería, trabajo en equipo y pensamiento sistémico.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h3 class="section-title">Educación</h3>
-        <div class="stack-grid">
-          <div class="stack-item">
-            <h4>Ingeniería en Datos e Inteligencia Artificial</h4>
-            <p>Universidad Autónoma de Occidente (UAO) · Cali, Colombia</p>
-            <p class="section-subtitle" style="margin-top: 6px;">Etapa final de la carrera · Incluye certificación de inglés en nivel B1/B2.</p>
-          </div>
-          <div class="stack-item">
-            <h4>Tecnología en Gestión de Sistemas Mecatrónicos</h4>
-            <p>Fundación Centro Colombiano de Estudios Profesionales (FCECEP) · Cali, Colombia</p>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <div class="modal" popover="auto" id="contact-modal">
-    <section class="modal__body">
-      <h2><span>Contacto rápido</span></h2>
-      <p class="section-subtitle">¿Quieres escribirme? Estos son los accesos principales.</p>
-      <div class="contact-actions" style="margin-top: 12px;">
-        <a
-          id="linkedin-link-modal"
-          class="cyber-link"
-          href="https://www.linkedin.com"
-          target="_blank"
-          rel="noreferrer"
-        >
+      <div class="header-actions">
+        <span class="mini-pill" id="status-pill">Open to: Junior · Data / QA</span>
+        <button class="btn btn--danger" type="button" id="contact-quick">
           <span class="backdrop"></span>
-          <span class="text-glitch">🔗 Ver LinkedIn</span>
-        </a>
-        <a class="cyber-link" href="mailto:contacto@caesar-dat.com">
-          <span class="backdrop"></span>
-          <span class="text-glitch">✉️ Enviar correo</span>
-        </a>
-      </div>
-      <div class="modal__actions">
-        <button
-          class="cyber-btn"
-          popovertarget="contact-modal"
-          popovertargetaction="close"
-          aria-label="Cerrar"
-        >
-          <span class="backdrop"></span>
-          <kbd>ESC</kbd>
-          <span class="text-glitch">Cerrar</span>
+          <span class="k">✉</span>
+          <span class="glitch">Escríbeme</span>
         </button>
       </div>
-    </section>
+    </header>
+
+    <!-- App Container -->
+    <div class="app-container">
+      <!-- Left rail -->
+      <aside>
+        <div class="pad">
+          <div class="pad__body">
+            <div class="nav-section">
+              <div class="nav-section__header">
+                <h2 class="nav-section__title">Secciones</h2>
+              </div>
+              <ul class="nav-rail" id="rail">
+                <li><a href="#about"><span>Sobre mí</span><span class="badge">01</span></a></li>
+                <li><a href="#stack"><span>Stack</span><span class="badge">02</span></a></li>
+                <li><a href="#experience"><span>Experiencia</span><span class="badge">03</span></a></li>
+                <li><a href="#projects"><span>Proyectos</span><span class="badge">04</span></a></li>
+                <li><a href="#education"><span>Educación</span><span class="badge">05</span></a></li>
+                <li><a href="#certs"><span>Certificaciones</span><span class="badge">06</span></a></li>
+                <li><a href="#contact"><span>Contacto</span><span class="badge">07</span></a></li>
+              </ul>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3 class="section-title" style="font-size: 1.05rem">Buscar</h3>
+            <p class="muted" style="margin-bottom: 10px">
+              Filtra skills y certificaciones por palabra.
+            </p>
+            <div class="form-control">
+              <input id="search" type="text" placeholder="python, power bi, QA, ..." autocomplete="off" />
+            </div>
+
+            <div class="divider"></div>
+
+            <h3 class="section-title" style="font-size: 1.05rem">Links</h3>
+            <div class="actions" style="margin-top: 10px">
+              <a class="btn" id="linkedin-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+                <span class="backdrop"></span><span class="k">in</span><span class="glitch">LinkedIn</span>
+              </a>
+              <a class="btn" href="https://github.com/caesar-dat-com" target="_blank" rel="noreferrer">
+                <span class="backdrop"></span><span class="k">{ }</span><span class="glitch">GitHub</span>
+              </a>
+              <button class="btn" type="button" id="copy-email">
+                <span class="backdrop"></span><span class="k">@</span><span class="glitch">Copiar email</span>
+              </button>
+            </div>
+            <p class="muted" style="margin-top: 10px">
+              Email: <span id="email-text">cesar.cesarreyes25@gmail.com</span>
+            </p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main id="main">
+        <!-- HERO -->
+        <section class="pad section" id="about" aria-label="Sobre mí">
+          <div class="pad__body">
+            <h1 class="hero-title" id="name">Cargando…</h1>
+
+            <p class="hero-meta">
+              <span>💼 <strong id="headline">—</strong></span>
+              <span>📍 <strong id="location">—</strong></span>
+              <span>⚡ <strong id="focus">Automatización · Datos · IA</strong></span>
+            </p>
+
+            <div class="divider"></div>
+
+            <p class="muted" id="summary" style="font-size: 1.05rem">
+              Cargando resumen…
+            </p>
+
+            <div class="actions">
+              <a class="btn" id="cta-linkedin" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+                <span class="backdrop"></span><span class="k">in</span><span class="glitch">Ver perfil</span>
+              </a>
+              <a class="btn" href="mailto:cesar.cesarreyes25@gmail.com">
+                <span class="backdrop"></span><span class="k">✉</span><span class="glitch">Email</span>
+              </a>
+              <a class="btn" href="tel:+573174254144">
+                <span class="backdrop"></span><span class="k">☎</span><span class="glitch">Llamar</span>
+              </a>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="grid-2">
+              <div class="item">
+                <h4>Enfoque actual</h4>
+                <p>
+                  Ingeniería en Datos e IA (UAO) + automatización de procesos y
+                  mejora continua (experiencia industrial).
+                </p>
+              </div>
+              <div class="item">
+                <h4>Highlights</h4>
+                <ul class="detail-list">
+                  <li>Implementé un aplicativo low-code (~1300 usuarios).</li>
+                  <li>1er lugar Rally Latinoamericano de Innovación (UAO).</li>
+                  <li>Ruta BI/Analytics (Power BI, DAX, Tableau, Looker, Excel).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- STACK -->
+        <section class="pad section" id="stack" aria-label="Stack">
+          <div class="pad__body">
+            <h2 class="section-title">Stack</h2>
+            <p class="muted">
+              Skills sincronizados (LinkedIn) + skills clave (curados).
+            </p>
+
+            <div class="divider"></div>
+
+            <div class="grid-2">
+              <div>
+                <h3 class="section-title" style="font-size: 1.05rem">
+                  Skills (LinkedIn)
+                </h3>
+                <ul id="skills" class="chip-list" style="margin-top: 10px"></ul>
+                <p class="muted" id="skills-empty" style="display: none; margin-top: 10px">
+                  No hay skills para mostrar (o el filtro está muy estricto).
+                </p>
+              </div>
+
+              <div>
+                <h3 class="section-title" style="font-size: 1.05rem">
+                  Skills clave
+                </h3>
+                <ul class="chip-list" style="margin-top: 10px">
+                  <li class="chip">Python</li>
+                  <li class="chip">POO</li>
+                  <li class="chip">SQL (base)</li>
+                  <li class="chip">Power BI</li>
+                  <li class="chip">DAX</li>
+                  <li class="chip">Tableau</li>
+                  <li class="chip">Looker Studio</li>
+                  <li class="chip">Excel avanzado</li>
+                  <li class="chip">QA & testing</li>
+                  <li class="chip">Git / GitHub</li>
+                  <li class="chip">HTML / CSS</li>
+                  <li class="chip">Low-code</li>
+                </ul>
+
+                <div class="divider"></div>
+
+                <div class="item">
+                  <h4>Soft skills & idiomas</h4>
+                  <p>
+                    Trabajo en equipo · Decisiones basadas en datos · Adaptabilidad
+                    y gestión del cambio · Comunicación clara y asertiva · Proactividad
+                    y aprendizaje continuo · Atención al detalle y enfoque en la calidad.
+                  </p>
+                  <p style="margin-top: 10px" class="muted">
+                    <strong>Español:</strong> nativo · <strong>Inglés:</strong> intermedio (B1–B2)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section class="pad section" id="experience" aria-label="Experiencia">
+          <div class="pad__body">
+            <h2 class="section-title">Experiencia</h2>
+            <p class="muted">
+              Roles industriales con foco en operación, soporte y mejora de procesos.
+            </p>
+
+            <div class="divider"></div>
+
+            <div class="cards">
+              <article class="item">
+                <h4>Supervisor – Postobón S.A.</h4>
+                <p class="muted">
+                  Cali, Colombia · <span class="badge">Operaciones & mejora</span>
+                </p>
+                <ul class="detail-list">
+                  <li>Supervisión de operaciones en planta, estándares de calidad, productividad y seguridad.</li>
+                  <li>Asignación y seguimiento de tareas para continuidad de producción.</li>
+                  <li>Reportes e indicadores con herramientas ofimáticas y sistemas internos.</li>
+                  <li>Trabajo con Mantenimiento para reportar incidentes y proponer mejoras.</li>
+                </ul>
+              </article>
+
+              <article class="item">
+                <h4>Técnico – Postobón S.A.</h4>
+                <p class="muted">
+                  Cali, Colombia · <span class="badge">Soporte técnico</span>
+                </p>
+                <ul class="detail-list">
+                  <li>Soporte técnico en líneas de producción y equipos.</li>
+                  <li>Registro de incidencias/intervenciones mejorando trazabilidad.</li>
+                  <li>Colaboración para reducir tiempos de parada y aumentar eficiencia.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="pad section" id="projects" aria-label="Proyectos">
+          <div class="pad__body">
+            <h2 class="section-title">Proyectos</h2>
+            <p class="muted">
+              Proyectos con impacto (operación real + innovación).
+            </p>
+
+            <div class="divider"></div>
+
+            <div class="cards">
+              <article class="item">
+                <h4>Aplicativo low-code nacional – Postobón S.A.</h4>
+                <p class="muted">
+                  Control de personal y tareas de Mantenimiento ·
+                  <span class="badge">~1300 usuarios</span>
+                </p>
+                <ul class="detail-list">
+                  <li>Diseño e implementación para control de personal, asignación y seguimiento.</li>
+                  <li>Centralización de procesos manuales en flujo digital trazable.</li>
+                </ul>
+              </article>
+
+              <article class="item">
+                <h4>Rally Latinoamericano de Innovación – 1er lugar</h4>
+                <p class="muted">
+                  Categoría Innovación (UAO) · <span class="badge">Competencia</span>
+                </p>
+                <ul class="detail-list">
+                  <li>Integrante del equipo ganador con solución a reto real en tiempo limitado.</li>
+                </ul>
+              </article>
+
+              <article class="item">
+                <h4>Platzi Space Program – Satélite</h4>
+                <p class="muted">
+                  Programa intensivo · <span class="badge">Space & engineering</span>
+                </p>
+                <ul class="detail-list">
+                  <li>Refuerzo de fundamentos de ingeniería, trabajo en equipo y pensamiento sistémico.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="pad section" id="education" aria-label="Educación">
+          <div class="pad__body">
+            <h2 class="section-title">Educación</h2>
+            <p class="muted">Formación base + especialización en datos/IA.</p>
+
+            <div class="divider"></div>
+
+            <div class="cards">
+              <article class="item">
+                <h4>Ingeniería en Datos e Inteligencia Artificial</h4>
+                <p class="muted">Universidad Autónoma de Occidente (UAO) · Cali, Colombia</p>
+                <p class="muted" style="margin-top: 8px">
+                  Etapa final · Incluye certificación de inglés (B1/B2).
+                </p>
+              </article>
+
+              <article class="item">
+                <h4>Tecnología en Gestión de Sistemas Mecatrónicos</h4>
+                <p class="muted">FCECEP · Cali, Colombia</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- CERTS -->
+        <section class="pad section" id="certs" aria-label="Certificaciones">
+          <div class="pad__body">
+            <h2 class="section-title">Certificaciones</h2>
+            <p class="muted">
+              Lista cargada desde LinkedIn (si existe en tu <code>linkedin-data.json</code>).
+            </p>
+
+            <div class="divider"></div>
+
+            <div class="grid-2">
+              <div class="item">
+                <h4>Certificaciones (LinkedIn)</h4>
+                <ul id="certifications" class="detail-list" style="margin-top: 10px"></ul>
+                <p class="muted" id="certs-empty" style="display: none; margin-top: 10px">
+                  No hay certificaciones para mostrar (o el filtro está muy estricto).
+                </p>
+              </div>
+
+              <div class="item">
+                <h4>Formación adicional</h4>
+                <p class="muted">
+                  Más de 18 cursos en ruta BI/Analytics (Power BI, DAX, Tableau, Looker, Excel, forecasting, métricas,
+                  storytelling, estadística aplicada) + fundamentos de Python, circuitos electrónicos, electricidad e
+                  inglés técnico enfocado en tecnología e innovación.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="pad section" id="contact" aria-label="Contacto">
+          <div class="pad__body">
+            <h2 class="section-title">Contacto</h2>
+            <p class="muted">
+              Si quieres hablar de un rol junior, prácticas, o un proyecto de automatización/BI, escríbeme.
+            </p>
+
+            <div class="divider"></div>
+
+            <div class="grid-2">
+              <div class="item">
+                <h4>Directo</h4>
+                <div class="actions">
+                  <a class="btn" href="mailto:cesar.cesarreyes25@gmail.com">
+                    <span class="backdrop"></span><span class="k">✉</span><span class="glitch">Email</span>
+                  </a>
+                  <a class="btn" href="tel:+573174254144">
+                    <span class="backdrop"></span><span class="k">☎</span><span class="glitch">Teléfono</span>
+                  </a>
+                  <a class="btn" href="https://github.com/caesar-dat-com" target="_blank" rel="noreferrer">
+                    <span class="backdrop"></span><span class="k">{ }</span><span class="glitch">GitHub</span>
+                  </a>
+                </div>
+                <p class="muted" style="margin-top: 12px">
+                  También puedes ver el perfil público en LinkedIn desde el panel izquierdo.
+                </p>
+              </div>
+
+              <div class="item">
+                <h4>Mensaje rápido</h4>
+                <p class="muted">
+                  “Hola César, vi tu perfil y me interesa hablar sobre…”
+                </p>
+                <div class="actions">
+                  <a class="btn btn--danger"
+                    href="mailto:cesar.cesarreyes25@gmail.com?subject=Contacto%20desde%20tu%20sitio&body=Hola%20C%C3%A9sar%2C%20vi%20tu%20perfil%20y%20me%20gustar%C3%ADa%20hablar%20sobre%3A%20">
+                    <span class="backdrop"></span><span class="k">⚡</span><span class="glitch">Abrir correo</span>
+                  </a>
+                  <button class="btn" type="button" id="scroll-top">
+                    <span class="backdrop"></span><span class="k">↑</span><span class="glitch">Arriba</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <footer>
+              © <span id="year"></span> César Reyes
+            </footer>
+          </div>
+        </section>
+      </main>
+
+      <!-- Right rail -->
+      <aside>
+        <div class="pad">
+          <div class="pad__body">
+            <h2 class="section-title">Snapshot</h2>
+            <p class="muted">
+              Vista rápida del perfil (lo que quieres que se entienda en 10 segundos).
+            </p>
+
+            <div class="divider"></div>
+
+            <div class="item">
+              <h4>Quién soy</h4>
+              <p class="muted">
+                <strong>Ing. en Datos & IA (UAO)</strong> + experiencia industrial en Postobón.
+                Me gusta automatizar, medir, mejorar y dejar trazabilidad.
+              </p>
+            </div>
+
+            <div style="height: 12px"></div>
+
+            <div class="item">
+              <h4>Lo que busco</h4>
+              <p class="muted" id="right-open">
+                Rol junior / práctica en datos, QA o desarrollo. 100% remoto idealmente.
+              </p>
+            </div>
+
+            <div style="height: 12px"></div>
+
+            <div class="item">
+              <h4>Acciones</h4>
+              <div class="actions">
+                <a class="btn" id="right-linkedin" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+                  <span class="backdrop"></span><span class="k">in</span><span class="glitch">LinkedIn</span>
+                </a>
+                <button class="btn" type="button" id="right-email">
+                  <span class="backdrop"></span><span class="k">@</span><span class="glitch">Copiar email</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <p class="muted" style="margin: 0">
+              <span
+                style="color: var(--colors-tertiary--500); font-family: var(--fonts-secondary); letter-spacing: 0.06em;">
+                NETWIRE_ID
+              </span>
+              <span style="opacity: 0.8">:</span>
+              <span id="seed" class="muted"></span>
+            </p>
+          </div>
+        </div>
+      </aside>
+    </div>
   </div>
 
-  <footer>
-    © <span id="year"></span> César Reyes
-  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
+    // =========================
+    // Helpers
+    // =========================
+    const $ = (sel, root = document) => root.querySelector(sel);
+    const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+    const toastEl = $("#toast");
+    function toast(msg) {
+      toastEl.textContent = msg;
+      toastEl.classList.add("is-on");
+      window.clearTimeout(toastEl._t);
+      toastEl._t = window.setTimeout(() => toastEl.classList.remove("is-on"), 1400);
+    }
+
+    function seed() {
+      const s = crypto && crypto.getRandomValues ? crypto.getRandomValues(new Uint8Array(16)) : null;
+      if (!s) return "d869db7f-e62f-b07c-25a0-403e-caea5503";
+      return Array.from(s).map((b) => b.toString(16).padStart(2, "0")).join("");
+    }
+
+    $("#seed").textContent = seed();
+
+    // =========================
+    // Data load (LinkedIn JSON)
+    // =========================
     const defaultSummary =
-      "Perfil profesional generado automáticamente desde LinkedIn.";
+      "Perfil profesional con foco en automatización, datos y mejora de procesos. Me interesa aportar en roles junior (Data / QA / Dev) con mentalidad de calidad y entrega.";
 
-    fetch("linkedin-data.json")
-      .then((response) => response.json())
-      .then((data) => {
-        document.getElementById("name").textContent = `${data.firstName} ${data.lastName}`;
-        document.getElementById("headline").textContent = data.headline || "—";
-        document.getElementById("location").textContent = data.location || "—";
+    const fallback = {
+      firstName: "César",
+      lastName: "Reyes",
+      headline: "Data & AI · Automation · QA (Junior)",
+      location: "Colombia",
+      publicProfileUrl: "https://www.linkedin.com",
+      summary: defaultSummary,
+      skills: [
+        { name: "Python" },
+        { name: "Power BI" },
+        { name: "DAX" },
+        { name: "Excel" },
+        { name: "Git" },
+        { name: "HTML/CSS" }
+      ],
+      certifications: []
+    };
 
-        const summary = data.summary?.trim();
-        document.getElementById("summary").textContent = summary || defaultSummary;
+    let allSkills = [];
+    let allCerts = [];
 
-        const skillsList = document.getElementById("skills");
-        skillsList.innerHTML = "";
-        (data.skills || []).forEach((skill) => {
-          const li = document.createElement("li");
-          li.textContent = skill.name;
-          li.classList.add("chip");
-          skillsList.appendChild(li);
+    function renderSkills(list, query = "") {
+      const ul = $("#skills");
+      const empty = $("#skills-empty");
+      ul.innerHTML = "";
+
+      const q = query.trim().toLowerCase();
+      const filtered = !q
+        ? list
+        : list.filter((s) => (s?.name || "").toLowerCase().includes(q));
+
+      if (!filtered.length) {
+        empty.style.display = "block";
+        return;
+      }
+      empty.style.display = "none";
+
+      filtered.slice(0, 80).forEach((skill) => {
+        const li = document.createElement("li");
+        li.className = "chip";
+        li.textContent = skill.name;
+        ul.appendChild(li);
+      });
+    }
+
+    function renderCerts(list, query = "") {
+      const ul = $("#certifications");
+      const empty = $("#certs-empty");
+      ul.innerHTML = "";
+
+      const q = query.trim().toLowerCase();
+      const filtered = !q
+        ? list
+        : list.filter((c) => {
+          const n = (c?.name || "").toLowerCase();
+          const a = (c?.authority || "").toLowerCase();
+          return n.includes(q) || a.includes(q);
         });
 
-        const certificationsList = document.getElementById("certifications");
-        certificationsList.innerHTML = "";
-        (data.certifications || []).forEach((cert) => {
-          const li = document.createElement("li");
-          const startDate = cert.timePeriod?.startDate
-            ? `${cert.timePeriod.startDate.month}/${cert.timePeriod.startDate.year}`
-            : "N/A";
-          const endDate = cert.timePeriod?.endDate
-            ? `${cert.timePeriod.endDate.month}/${cert.timePeriod.endDate.year}`
-            : "En curso";
+      if (!filtered.length) {
+        empty.style.display = "block";
+        return;
+      }
+      empty.style.display = "none";
 
-          li.innerHTML = `
-            <strong>${cert.name}</strong><br>
-            Autoridad: ${cert.authority || "N/A"}<br>
-            Fecha de inicio: ${startDate}<br>
-            Fecha de finalización: ${endDate}<br>
-            ${
-              cert.url
-                ? `<a class="cyber-link" href="${cert.url}" target="_blank" rel="noreferrer"><span class="backdrop"></span><span class="text-glitch">Ver certificación</span></a>`
-                : ""
-            }
+      filtered.slice(0, 50).forEach((cert) => {
+        const li = document.createElement("li");
+
+        const startDate = cert.timePeriod?.startDate
+          ? `${cert.timePeriod.startDate.month}/${cert.timePeriod.startDate.year}`
+          : "N/A";
+        const endDate = cert.timePeriod?.endDate
+          ? `${cert.timePeriod.endDate.month}/${cert.timePeriod.endDate.year}`
+          : "En curso";
+
+        const name = cert.name || "Certificación";
+        const authority = cert.authority || "N/A";
+
+        li.innerHTML = `
+            <div style="margin-bottom:10px;">
+              <strong style="color: var(--colors-secondary--500)">${name}</strong><br/>
+              <span style="opacity:.92;">Autoridad: ${authority}</span><br/>
+              <span style="opacity:.92;">Inicio: ${startDate} · Fin: ${endDate}</span>
+              ${cert.url
+            ? `<div style="margin-top:8px">
+                      <a class="btn" href="${cert.url}" target="_blank" rel="noreferrer">
+                        <span class="backdrop"></span><span class="k">↗</span><span class="glitch">Ver</span>
+                      </a>
+                    </div>`
+            : ""
+          }
+            </div>
           `;
-          certificationsList.appendChild(li);
-        });
+        ul.appendChild(li);
+      });
+    }
 
-        const linkedinLinks = [
-          document.getElementById("linkedin-link"),
-          document.getElementById("linkedin-link-modal"),
-        ];
-        if (data.publicProfileUrl) {
-          linkedinLinks.forEach((link) => {
-            link.href = data.publicProfileUrl;
-            link.textContent = "🔗 Ver perfil en LinkedIn";
-          });
+    async function loadLinkedIn() {
+      try {
+        const res = await fetch("linkedin-data.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("No se pudo cargar linkedin-data.json");
+        const data = await res.json();
+        return { ...fallback, ...data };
+      } catch (e) {
+        console.warn("LinkedIn JSON fallback:", e);
+        return fallback;
+      }
+    }
+
+    function setLinkedInLinks(url) {
+      const u = url || "https://www.linkedin.com";
+      $("#linkedin-link").href = u;
+      $("#cta-linkedin").href = u;
+      $("#right-linkedin").href = u;
+    }
+
+    // =========================
+    // Scroll spy (sidebar + top nav)
+    // =========================
+    const sectionIds = ["about", "stack", "experience", "projects", "education", "certs", "contact"];
+
+    function setActiveNav(id) {
+      // rail
+      $$("#rail a").forEach((a) => {
+        a.classList.toggle("is-active", a.getAttribute("href") === `#${id}`);
+      });
+
+      // top nav
+      $$("#top-nav a").forEach((a) => {
+        a.classList.toggle("nav__link--active", a.getAttribute("href") === `#${id}`);
+      });
+    }
+
+    function setupScrollSpy() {
+      const targets = sectionIds
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((e) => e.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (visible?.target?.id) setActiveNav(visible.target.id);
+        },
+        { root: null, threshold: [0.15, 0.25, 0.35, 0.5] }
+      );
+
+      targets.forEach((t) => io.observe(t));
+    }
+
+    // =========================
+    // Wiring
+    // =========================
+    (async function init() {
+      const data = await loadLinkedIn();
+
+      $("#name").textContent = `${data.firstName || ""} ${data.lastName || ""}`.trim() || "César Reyes";
+      $("#headline").textContent = data.headline || "—";
+      $("#location").textContent = data.location || "—";
+
+      const summary = (data.summary || "").trim();
+      $("#summary").textContent = summary || defaultSummary;
+
+      setLinkedInLinks(data.publicProfileUrl);
+
+      allSkills = (data.skills || []).map((s) => ({ name: s.name || "" })).filter((s) => s.name);
+      allCerts = (data.certifications || []).filter(Boolean);
+
+      renderSkills(allSkills);
+      renderCerts(allCerts);
+
+      // Email copy
+      const email = "cesar.cesarreyes25@gmail.com";
+      const copy = async () => {
+        try {
+          await navigator.clipboard.writeText(email);
+          toast("EMAIL COPIADO");
+        } catch {
+          toast("NO SE PUDO COPIAR");
         }
-      })
-      .catch((error) => console.error("Error al cargar los datos de LinkedIn:", error));
+      };
+      $("#copy-email").addEventListener("click", copy);
+      $("#right-email").addEventListener("click", copy);
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+      // Search filter
+      $("#search").addEventListener("input", (e) => {
+        const q = e.target.value || "";
+        renderSkills(allSkills, q);
+        renderCerts(allCerts, q);
+      });
+
+      // Quick actions
+      $("#contact-quick").addEventListener("click", () => {
+        location.hash = "#contact";
+      });
+      $("#scroll-top").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      $("#year").textContent = new Date().getFullYear();
+      setupScrollSpy();
+      setActiveNav("about");
+    })();
   </script>
 </body>
+
 </html>
