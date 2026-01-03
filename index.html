@@ -227,6 +227,64 @@
       padding-left: 12px;
     }
 
+    .detail-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--colors-primary--200);
+      font-size: 0.95rem;
+    }
+
+    .detail-list li + li {
+      margin-top: 6px;
+    }
+
+    .badge-inline {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--colors-secondary--500);
+      color: var(--colors-secondary--500);
+      font-size: 0.8rem;
+      margin-left: 6px;
+    }
+
+    .stack-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .stack-item {
+      padding: 12px;
+      border: 1px solid var(--colors-primary--600);
+      clip-path: var(--ui-notch-path);
+      background: rgba(25, 26, 30, 0.7);
+    }
+
+    .stack-item::before {
+      background-color: var(--colors-primary--600);
+      bottom: 4px;
+      content: "";
+      display: block;
+      height: 3px;
+      position: absolute;
+      right: -6px;
+      transform: rotate(-45deg);
+      width: var(--ui-notch-hypotenuse);
+      z-index: 2;
+    }
+
+    .stack-item h4 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      color: var(--colors-secondary--500);
+    }
+
+    .stack-item p {
+      margin: 0;
+      color: var(--colors-primary--200);
+      font-size: 0.95rem;
+    }
+
     .contact-card {
       display: flex;
       flex-direction: column;
@@ -530,6 +588,171 @@
           <div>
             <h3 class="section-title">Certificaciones</h3>
             <ul id="certifications" class="certifications"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3 class="section-title">Perfil profesional</h3>
+        <p class="section-subtitle">
+          Datos adicionales para complementar la hoja de vida.
+        </p>
+        <p class="summary">
+          Cursando la etapa final de la carrera de <strong>Ingeniería en Datos e Inteligencia Artificial</strong> en la Universidad Autónoma de Occidente (UAO) y
+          <strong>Tecnólogo en Gestión de Sistemas Mecatrónicos</strong> por FCECEP, con experiencia como Supervisor y Técnico en
+          <strong>Postobón S.A.</strong> Bases sólidas en Python, POO, HTML/CSS, bases de datos, QA y automatización de pruebas, y experiencia implementando un
+          <strong>aplicativo low-code nacional</strong> para control de personal y tareas con ~1300 usuarios en el área de Mantenimiento. Busco roles junior en datos, desarrollo o QA en empresas de tecnología.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="profile-grid">
+          <div>
+            <h3 class="section-title">Contacto directo</h3>
+            <div class="contact-actions" style="margin-top: 12px;">
+              <a class="cyber-link" href="mailto:cesar.cesarreyes25@gmail.com">
+                <span class="backdrop"></span>
+                <span class="text-glitch">📧 cesar.cesarreyes25@gmail.com</span>
+              </a>
+              <a class="cyber-link" href="tel:+573174254144">
+                <span class="backdrop"></span>
+                <span class="text-glitch">☎ +57 317 425 4144</span>
+              </a>
+              <a
+                class="cyber-link"
+                href="https://github.com/caesar-dat-com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span class="backdrop"></span>
+                <span class="text-glitch">{} GitHub</span>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="section-title">Skills clave</h3>
+            <ul class="chip-list">
+              <li class="chip">Python</li>
+              <li class="chip">POO</li>
+              <li class="chip">HTML5 / CSS3</li>
+              <li class="chip">Bases de datos</li>
+              <li class="chip">QA &amp; testing</li>
+              <li class="chip">Low-code</li>
+              <li class="chip">Git / GitHub</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3 class="section-title">Competencias detalladas</h3>
+        <div class="stack-grid">
+          <div class="stack-item">
+            <h4>Programación</h4>
+            <p>Python, programación orientada a objetos, HTML5, CSS3.</p>
+          </div>
+          <div class="stack-item">
+            <h4>Datos e IA</h4>
+            <p>Conceptos de ciencia de datos y machine learning, estadística básica, fundamentos de big data, visión por computador y NLP.</p>
+          </div>
+          <div class="stack-item">
+            <h4>Bases de datos</h4>
+            <p>Conceptos relacionales, modelado básico y consultas iniciales.</p>
+          </div>
+          <div class="stack-item">
+            <h4>QA y pruebas</h4>
+            <p>Fundamentos de automatización de pruebas y diseño básico de casos de prueba.</p>
+          </div>
+          <div class="stack-item">
+            <h4>Herramientas</h4>
+            <p>Git, GitHub, terminal (Windows), configuración de entornos, Microsoft Office.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3 class="section-title">Soft skills &amp; idiomas</h3>
+        <p class="section-subtitle">
+          Comunicación clara, trabajo en equipo, organización del tiempo, aprendizaje continuo, pensamiento lógico y orientación a la mejora de procesos.
+        </p>
+        <p class="section-subtitle" style="margin-top: 12px;">
+          <strong>Español:</strong> nativo<br />
+          <strong>Inglés:</strong> intermedio (B1–B2, respaldado por la carrera de Ingeniería en Datos e IA).
+        </p>
+      </section>
+
+      <section class="card">
+        <h3 class="section-title">Cursos &amp; certificaciones adicionales</h3>
+        <p class="section-subtitle">
+          Más de 20 cursos en Platzi en programación (Python, POO, HTML/CSS, bases de datos), QA, informática básica e inglés. Diplomado en Codificación y Programación
+          (Pontificia Universidad Javeriana &amp; Samsung). Participación en conferencias como Inspiring Study Conference with Google.
+        </p>
+      </section>
+
+      <section class="card">
+        <h3 class="section-title">Experiencia</h3>
+        <div class="stack-grid">
+          <div class="stack-item">
+            <h4>Supervisor – Postobón S.A.</h4>
+            <p>Cali, Colombia <span class="badge-inline">Operaciones &amp; mejora de procesos</span></p>
+            <ul class="detail-list">
+              <li>Supervisión de operaciones en planta, asegurando estándares de calidad, productividad y seguridad.</li>
+              <li>Asignación y seguimiento de tareas del personal operativo para garantizar continuidad de la producción.</li>
+              <li>Elaboración de reportes e indicadores con herramientas ofimáticas y sistemas internos.</li>
+              <li>Trabajo conjunto con Mantenimiento para reportar incidentes y proponer mejoras de proceso.</li>
+            </ul>
+          </div>
+          <div class="stack-item">
+            <h4>Técnico – Postobón S.A.</h4>
+            <p>Cali, Colombia <span class="badge-inline">Soporte técnico</span></p>
+            <ul class="detail-list">
+              <li>Soporte técnico en líneas de producción y equipos, participando en actividades de mantenimiento y operación.</li>
+              <li>Registro de incidencias e intervenciones en sistemas internos, mejorando la trazabilidad de la información.</li>
+              <li>Colaboración con supervisores y operarios para reducir tiempos de parada y aumentar la eficiencia de la planta.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3 class="section-title">Proyectos destacados</h3>
+        <div class="stack-grid">
+          <div class="stack-item">
+            <h4>Aplicativo low-code nacional – Postobón S.A.</h4>
+            <p>Control de personal y tareas de Mantenimiento <span class="badge-inline">~1300 usuarios</span></p>
+            <ul class="detail-list">
+              <li>Diseño e implementación de aplicativo low-code para control de personal, asignación de tareas y seguimiento de actividades de Mantenimiento.</li>
+              <li>Gestión de ~1300 usuarios a nivel nacional, reemplazando procesos manuales por un flujo digital centralizado.</li>
+            </ul>
+          </div>
+          <div class="stack-item">
+            <h4>Rally Latinoamericano de Innovación – 1er lugar</h4>
+            <p>Categoría Innovación, UAO <span class="badge-inline">Innovación</span></p>
+            <ul class="detail-list">
+              <li>Integrante del equipo ganador, desarrollando una solución innovadora a un reto real en tiempo limitado.</li>
+            </ul>
+          </div>
+          <div class="stack-item">
+            <h4>Platzi Space Program – Diseño y fabricación de un satélite</h4>
+            <p>Programa intensivo <span class="badge-inline">Space &amp; engineering</span></p>
+            <ul class="detail-list">
+              <li>Participación en programa intensivo, reforzando fundamentos de ingeniería, trabajo en equipo y pensamiento sistémico.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3 class="section-title">Educación</h3>
+        <div class="stack-grid">
+          <div class="stack-item">
+            <h4>Ingeniería en Datos e Inteligencia Artificial</h4>
+            <p>Universidad Autónoma de Occidente (UAO) · Cali, Colombia</p>
+            <p class="section-subtitle" style="margin-top: 6px;">Etapa final de la carrera · Incluye certificación de inglés en nivel B1/B2.</p>
+          </div>
+          <div class="stack-item">
+            <h4>Tecnología en Gestión de Sistemas Mecatrónicos</h4>
+            <p>Fundación Centro Colombiano de Estudios Profesionales (FCECEP) · Cali, Colombia</p>
           </div>
         </div>
       </section>
