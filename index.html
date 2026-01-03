@@ -187,12 +187,29 @@
     }
 
     .chip {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(43, 228, 234, 0.1);
-      border: 1px solid rgba(43, 228, 234, 0.45);
+      padding: 8px 14px;
+      border-radius: 2px;
+      background: rgba(30, 24, 30, 0.9);
+      border: 1px solid var(--colors-primary--600);
       font-size: 0.95rem;
       color: var(--colors-secondary--500);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: var(--fonts-secondary);
+      clip-path: var(--ui-notch-path);
+    }
+
+    .chip::before {
+      background-color: var(--colors-primary--600);
+      bottom: 4px;
+      content: "";
+      display: block;
+      height: 3px;
+      position: absolute;
+      right: -6px;
+      transform: rotate(-45deg);
+      width: var(--ui-notch-hypotenuse);
+      z-index: 2;
     }
 
     ul {
@@ -293,6 +310,46 @@
       font-size: 0.8rem;
       border-radius: 50%;
       background: var(--colors-secondary--500);
+    }
+
+    .cyber-link {
+      --corner: 12px;
+      --border: 1px;
+      --clip: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - var(--corner)),
+        calc(100% - var(--corner)) 100%,
+        0% 100%
+      );
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      border: 0;
+      background: transparent;
+      color: var(--colors-secondary--500);
+      font-family: var(--fonts-secondary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .cyber-link .backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      clip-path: var(--clip);
+      border: var(--border) solid var(--colors-secondary--500);
+      box-shadow: 0 0 10px rgba(43, 228, 234, 0.35);
+      z-index: -1;
+    }
+
+    .cyber-link:hover .text-glitch,
+    .cyber-link:focus-visible .text-glitch {
+      animation: text-glitch 1.6s infinite;
     }
 
     .text-glitch {
@@ -428,11 +485,23 @@
               <p class="section-subtitle">Accesos rápidos para comunicarte.</p>
             </div>
             <div class="contact-actions">
-              <a id="linkedin-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-                🔗 LinkedIn
+              <a
+                id="linkedin-link"
+                class="cyber-link"
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span class="backdrop"></span>
+                <span class="text-glitch">🔗 LinkedIn</span>
               </a>
-              <a id="email-link" href="mailto:contacto@caesar-dat.com">
-                ✉️ contacto@caesar-dat.com
+              <a
+                id="email-link"
+                class="cyber-link"
+                href="mailto:contacto@caesar-dat.com"
+              >
+                <span class="backdrop"></span>
+                <span class="text-glitch">✉️ contacto@caesar-dat.com</span>
               </a>
             </div>
           </div>
@@ -472,10 +541,20 @@
       <h2><span>Contacto rápido</span></h2>
       <p class="section-subtitle">¿Quieres escribirme? Estos son los accesos principales.</p>
       <div class="contact-actions" style="margin-top: 12px;">
-        <a id="linkedin-link-modal" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-          🔗 Ver LinkedIn
+        <a
+          id="linkedin-link-modal"
+          class="cyber-link"
+          href="https://www.linkedin.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span class="backdrop"></span>
+          <span class="text-glitch">🔗 Ver LinkedIn</span>
         </a>
-        <a href="mailto:contacto@caesar-dat.com">✉️ Enviar correo</a>
+        <a class="cyber-link" href="mailto:contacto@caesar-dat.com">
+          <span class="backdrop"></span>
+          <span class="text-glitch">✉️ Enviar correo</span>
+        </a>
       </div>
       <div class="modal__actions">
         <button
@@ -535,7 +614,11 @@
             Autoridad: ${cert.authority || "N/A"}<br>
             Fecha de inicio: ${startDate}<br>
             Fecha de finalización: ${endDate}<br>
-            ${cert.url ? `<a href="${cert.url}" target="_blank" rel="noreferrer">Ver certificación</a>` : ""}
+            ${
+              cert.url
+                ? `<a class="cyber-link" href="${cert.url}" target="_blank" rel="noreferrer"><span class="backdrop"></span><span class="text-glitch">Ver certificación</span></a>`
+                : ""
+            }
           `;
           certificationsList.appendChild(li);
         });
