@@ -16,6 +16,8 @@
   <style>
     * {
       box-sizing: border-box;
+      min-width: 0;
+      /* ✅ evita overflow horizontal en grid/flex */
     }
 
     html,
@@ -67,7 +69,37 @@
           transparent 55%),
         linear-gradient(180deg, var(--colors-bg--500), var(--colors-bg--100));
       overflow: hidden;
-      /* ✅ evita “romper” fondos por altura infinita */
+    }
+
+    /* ✅ Scrollbars "cyber" (vertical + horizontal) */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(43, 228, 234, 0.65) rgba(25, 26, 30, 0.35);
+    }
+
+    *::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    *::-webkit-scrollbar-track {
+      background: rgba(25, 26, 30, 0.35);
+      border: 1px solid rgba(93, 35, 34, 0.55);
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background: rgba(43, 228, 234, 0.25);
+      border: 1px solid rgba(43, 228, 234, 0.65);
+      box-shadow: var(--ui-glow-strong);
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+      background: rgba(43, 228, 234, 0.35);
+    }
+
+    *::-webkit-scrollbar-corner {
+      background: rgba(25, 26, 30, 0.45);
     }
 
     /* Scanlines + grid */
@@ -103,6 +135,20 @@
       text-decoration: none;
     }
 
+    /* ✅ evita overflow horizontal por textos/links largos */
+    p,
+    li,
+    h1,
+    h2,
+    h3,
+    h4,
+    span,
+    a,
+    code {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
     .skip {
       position: absolute;
       left: -9999px;
@@ -135,7 +181,6 @@
       margin: 0 auto;
       padding: 16px 14px 16px;
       height: 100dvh;
-      /* ✅ */
       display: flex;
       flex-direction: column;
       gap: 14px;
@@ -208,7 +253,6 @@
     .app-container {
       flex: 1 1 auto;
       min-height: 0;
-      /* ✅ crucial para scroll interno */
       display: grid;
       grid-template-columns: 280px 1fr 320px;
       gap: 14px;
@@ -218,7 +262,10 @@
     .app-container>aside,
     .app-container>main {
       min-height: 0;
-      /* ✅ */
+    }
+
+    .app-container>* {
+      min-width: 0;
     }
 
     @media (max-width: 980px) {
@@ -265,7 +312,11 @@
 
     .pad__scroll {
       overflow: auto;
-      /* ✅ scroll interno */
+      overflow-x: hidden;
+      /* ✅ evita barra horizontal fea */
+      scrollbar-gutter: stable both-edges;
+      /* ✅ mantiene layout estable */
+      overscroll-behavior: contain;
     }
 
     .section-title {
@@ -395,7 +446,10 @@
       position: relative;
       height: 100%;
       overflow: auto;
-      /* ✅ */
+      overflow-x: hidden;
+      /* ✅ no barra horizontal */
+      scrollbar-gutter: stable both-edges;
+      overscroll-behavior: contain;
       padding: 16px 16px calc(16px + var(--ui-notch-amount));
     }
 
@@ -977,6 +1031,11 @@
       padding: 10px;
     }
 
+    canvas {
+      display: block;
+      max-width: 100%;
+    }
+
     .mm-legend {
       margin-top: 10px;
       display: flex;
@@ -1030,110 +1089,117 @@
       font-family: var(--fonts-secondary);
     }
 
-    /* ========== Embeds / previews ========== */
-    .embed-wrap {
-      margin-top: 10px;
-      border: 1px solid rgba(43, 228, 234, 0.35);
-      background: rgba(0, 0, 0, 0.18);
-      clip-path: var(--ui-notch-path);
-      padding: 10px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .embed-head {
+    /* ✅ Social preview widgets (sin iframes frágiles) */
+    .social-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .embed-title {
-      margin: 0;
-      font-family: var(--fonts-secondary);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--colors-secondary--500);
-    }
-
-    .embed-actions {
-      display: inline-flex;
-      gap: 8px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
-    .mini-btn {
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid rgba(93, 35, 34, 0.95);
+      background: rgba(25, 26, 30, 0.45);
+      border-radius: 3px;
+      color: var(--colors-primary--200);
+    }
+
+    .social-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .link-btn {
       border: 1px solid rgba(43, 228, 234, 0.65);
-      background: rgba(0, 0, 0, 0.25);
-      color: var(--accent);
+      background: rgba(0, 0, 0, 0.22);
+      color: var(--colors-secondary--500);
       font-family: var(--fonts-secondary);
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      padding: 8px 10px;
+      padding: 10px 12px;
       cursor: pointer;
       clip-path: var(--ui-notch-path);
-      font-size: 0.95rem;
     }
 
-    .mini-btn:hover,
-    .mini-btn:focus-visible {
+    .link-btn:hover,
+    .link-btn:focus-visible {
       outline: none;
       background: rgba(43, 228, 234, 0.08);
     }
 
-    .mini-btn--ig {
-      border-color: rgba(254, 211, 63, 0.55);
+    .link-btn--yellow {
+      border-color: rgba(254, 211, 63, 0.7);
       color: var(--colors-tertiary--500);
     }
 
-    .mini-btn--ig:hover,
-    .mini-btn--ig:focus-visible {
-      background: rgba(254, 211, 63, 0.08);
+    .ig-mock {
+      margin-top: 12px;
+      border: 1px solid rgba(43, 228, 234, 0.35);
+      background: radial-gradient(ellipse at 18% 20%,
+          rgba(232, 97, 90, 0.25) 0%,
+          transparent 55%),
+        radial-gradient(ellipse at 78% 26%,
+          rgba(43, 228, 234, 0.18) 0%,
+          transparent 50%),
+        rgba(0, 0, 0, 0.18);
+      clip-path: var(--ui-notch-path);
+      padding: 12px;
     }
 
-    .embed-frame {
-      width: 100%;
-      height: 520px;
-      border: 1px solid rgba(156, 50, 48, 0.7);
-      background: rgba(25, 26, 30, 0.35);
-      border-radius: 4px;
-      overflow: hidden;
+    .ig-grid {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 10px;
+    }
+
+    .ig-tile {
+      aspect-ratio: 1;
+      border: 1px solid rgba(93, 35, 34, 0.55);
+      background: linear-gradient(135deg,
+          rgba(43, 228, 234, 0.12),
+          rgba(232, 97, 90, 0.12));
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
       clip-path: var(--ui-notch-path);
       position: relative;
+      overflow: hidden;
     }
 
-    .embed-frame iframe {
+    .ig-tile::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(to bottom,
+          rgba(255, 255, 255, 0.04),
+          rgba(255, 255, 255, 0.04) 1px,
+          transparent 1px,
+          transparent 5px);
+      opacity: 0.25;
+      mix-blend-mode: overlay;
+    }
+
+    .spotify-embed {
       width: 100%;
-      height: 100%;
       border: 0;
-      background: transparent;
+      border-radius: 8px;
+      overflow: hidden;
+      clip-path: var(--ui-notch-path);
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(43, 228, 234, 0.35);
     }
 
-    .embed-hint {
-      margin-top: 10px;
-      color: var(--colors-primary--200);
-    }
-
-    .mini-preview {
-      height: 220px;
-    }
-
-    .embed-fallback {
-      display: none;
-      margin-top: 10px;
-    }
-
-    .embed-fallback.is-on {
-      display: block;
-    }
-
-    .glow-bar {
-      height: 2px;
-      background: var(--colors-secondary--500);
-      opacity: 0.35;
-      box-shadow: var(--ui-glow-strong);
-      margin-top: 10px;
+    .embed-wrap {
+      margin-top: 12px;
+      padding: 10px;
+      border: 1px solid rgba(43, 228, 234, 0.35);
+      background: rgba(0, 0, 0, 0.18);
+      clip-path: var(--ui-notch-path);
     }
   </style>
 </head>
@@ -1277,7 +1343,9 @@
 
                 <div class="divider"></div>
 
-                <p class="muted" id="summary" style="font-size: 1.05rem">Cargando resumen…</p>
+                <p class="muted" id="summary" style="font-size: 1.05rem">
+                  Cargando resumen…
+                </p>
 
                 <div class="divider"></div>
 
@@ -1285,8 +1353,8 @@
                   <div class="item">
                     <h4>Enfoque actual</h4>
                     <p>
-                      Ingeniería en Datos e IA (UAO) + automatización de procesos y mejora continua (experiencia
-                      industrial).
+                      Ingeniería en Datos e IA (UAO) + automatización de procesos y
+                      mejora continua (experiencia industrial).
                     </p>
                   </div>
                   <div class="item">
@@ -1296,38 +1364,6 @@
                       <li>1er lugar Rally Latinoamericano de Innovación (UAO).</li>
                       <li>Ruta BI/Analytics (Power BI, DAX, Tableau, Looker, Excel).</li>
                     </ul>
-                  </div>
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="item">
-                  <h4>Social quick look</h4>
-                  <p class="muted">
-                    Instagram y Spotify en pestañas dedicadas. También tienes acceso desde <code>U</code> (Actions).
-                  </p>
-                  <div class="glow-bar"></div>
-                  <div class="embed-wrap" style="margin-top: 12px">
-                    <div class="embed-head">
-                      <h3 class="embed-title" style="color: var(--colors-tertiary--500)">Instagram preview</h3>
-                      <div class="embed-actions">
-                        <button class="mini-btn mini-btn--ig" type="button" id="open-ig-about">Open Instagram</button>
-                        <button class="mini-btn" type="button" id="go-ig-about">Go to tab</button>
-                      </div>
-                    </div>
-
-                    <div class="embed-frame mini-preview">
-                      <iframe id="ig-iframe-mini" title="Instagram preview (mini)" loading="lazy"
-                        referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-                        src=""></iframe>
-                    </div>
-
-                    <p class="embed-hint muted" style="margin-top: 10px">
-                      Si el preview no carga por restricciones del navegador, usa <code>Open Instagram</code>.
-                    </p>
-                    <div class="embed-fallback muted" id="ig-fallback-mini">
-                      Preview bloqueado. Abre el perfil en una pestaña nueva.
-                    </div>
                   </div>
                 </div>
               </section>
@@ -1341,7 +1377,9 @@
 
                 <div class="grid-2">
                   <div>
-                    <h3 class="section-title" style="font-size: 1.05rem">Skills (LinkedIn)</h3>
+                    <h3 class="section-title" style="font-size: 1.05rem">
+                      Skills (LinkedIn)
+                    </h3>
                     <ul id="skills" class="chip-list" style="margin-top: 10px"></ul>
                     <p class="muted" id="skills-empty" style="display: none; margin-top: 10px">
                       No hay skills para mostrar.
@@ -1349,7 +1387,9 @@
                   </div>
 
                   <div>
-                    <h3 class="section-title" style="font-size: 1.05rem">Skills clave</h3>
+                    <h3 class="section-title" style="font-size: 1.05rem">
+                      Skills clave
+                    </h3>
                     <ul class="chip-list" style="margin-top: 10px">
                       <li class="chip">Python</li>
                       <li class="chip">POO</li>
@@ -1370,12 +1410,13 @@
                     <div class="item">
                       <h4>Soft skills & idiomas</h4>
                       <p>
-                        Trabajo en equipo · Decisiones basadas en datos · Adaptabilidad y gestión del cambio ·
-                        Comunicación clara y asertiva · Proactividad y aprendizaje continuo · Atención al detalle y
-                        enfoque en la calidad.
+                        Trabajo en equipo · Decisiones basadas en datos · Adaptabilidad
+                        y gestión del cambio · Comunicación clara y asertiva · Proactividad
+                        y aprendizaje continuo · Atención al detalle y enfoque en la calidad.
                       </p>
                       <p style="margin-top: 10px" class="muted">
-                        <strong>Español:</strong> nativo · <strong>Inglés:</strong> intermedio (B1–B2)
+                        <strong>Español:</strong> nativo · <strong>Inglés:</strong>
+                        intermedio (B1–B2)
                       </p>
                     </div>
                   </div>
@@ -1394,10 +1435,18 @@
                     <h4>Supervisor – Postobón S.A. <span class="badge">Actual</span></h4>
                     <p class="muted">Cali, Colombia</p>
                     <ul class="detail-list">
-                      <li>Supervisión de operaciones en planta, estándares de calidad, productividad y seguridad.</li>
-                      <li>Asignación y seguimiento de tareas para continuidad de producción.</li>
-                      <li>Reportes e indicadores con herramientas ofimáticas y sistemas internos.</li>
-                      <li>Trabajo con Mantenimiento para reportar incidentes y proponer mejoras.</li>
+                      <li>
+                        Supervisión de operaciones en planta, estándares de calidad, productividad y seguridad.
+                      </li>
+                      <li>
+                        Asignación y seguimiento de tareas para continuidad de producción.
+                      </li>
+                      <li>
+                        Reportes e indicadores con herramientas ofimáticas y sistemas internos.
+                      </li>
+                      <li>
+                        Trabajo con Mantenimiento para reportar incidentes y proponer mejoras.
+                      </li>
                     </ul>
                   </article>
 
@@ -1424,10 +1473,13 @@
                   <article class="item">
                     <h4>Aplicativo low-code nacional – Postobón S.A.</h4>
                     <p class="muted">
-                      Control de personal y tareas de Mantenimiento · <span class="badge">~1300 usuarios</span>
+                      Control de personal y tareas de Mantenimiento ·
+                      <span class="badge">~1300 usuarios</span>
                     </p>
                     <ul class="detail-list">
-                      <li>Diseño e implementación para control de personal, asignación y seguimiento.</li>
+                      <li>
+                        Diseño e implementación para control de personal, asignación y seguimiento.
+                      </li>
                       <li>Centralización de procesos manuales en flujo digital trazable.</li>
                     </ul>
                   </article>
@@ -1436,7 +1488,9 @@
                     <h4>Rally Latinoamericano de Innovación – 1er lugar</h4>
                     <p class="muted">Categoría Innovación (UAO)</p>
                     <ul class="detail-list">
-                      <li>Integrante del equipo ganador con solución a reto real en tiempo limitado.</li>
+                      <li>
+                        Integrante del equipo ganador con solución a reto real en tiempo limitado.
+                      </li>
                     </ul>
                   </article>
 
@@ -1444,7 +1498,9 @@
                     <h4>Platzi Space Program – Satélite</h4>
                     <p class="muted">Programa intensivo</p>
                     <ul class="detail-list">
-                      <li>Refuerzo de fundamentos de ingeniería, trabajo en equipo y pensamiento sistémico.</li>
+                      <li>
+                        Refuerzo de fundamentos de ingeniería, trabajo en equipo y pensamiento sistémico.
+                      </li>
                     </ul>
                   </article>
                 </div>
@@ -1460,8 +1516,12 @@
                 <div class="cards">
                   <article class="item">
                     <h4>Ingeniería en Datos e Inteligencia Artificial</h4>
-                    <p class="muted">Universidad Autónoma de Occidente (UAO) · Cali, Colombia</p>
-                    <p class="muted" style="margin-top: 8px">Etapa final · Incluye certificación de inglés (B1/B2).</p>
+                    <p class="muted">
+                      Universidad Autónoma de Occidente (UAO) · Cali, Colombia
+                    </p>
+                    <p class="muted" style="margin-top: 8px">
+                      Etapa final · Incluye certificación de inglés (B1/B2).
+                    </p>
                   </article>
 
                   <article class="item">
@@ -1493,8 +1553,7 @@
                       Más de 18 cursos completados como parte de una ruta integral en Análisis de Datos y Business
                       Intelligence, incluyendo Power BI, DAX, Tableau, Looker Studio, Excel avanzado, forecasting,
                       métricas de negocio, storytelling, estadística aplicada. Además de cursos de fundamentos de
-                      Python, circuitos electrónicos, electricidad e inglés técnico enfocado en tecnología e
-                      innovación.
+                      Python, circuitos electrónicos, electricidad e inglés técnico enfocado en tecnología e innovación.
                     </p>
                   </div>
                 </div>
@@ -1503,13 +1562,29 @@
               <!-- CONTACT -->
               <section class="page" id="contact" data-page>
                 <h2 class="section-title">Contacto</h2>
-                <p class="muted">Email: <span id="email-text">cesar.cesarreyes25@gmail.com</span></p>
+                <p class="muted">
+                  Email: <span id="email-text">cesar.cesarreyes25@gmail.com</span>
+                </p>
 
                 <div class="divider"></div>
 
                 <div class="item">
                   <h4>Mensaje rápido</h4>
                   <p class="muted">“Hola César, vi tu perfil y me gustaría hablar sobre…”</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="item">
+                  <h4>Social</h4>
+                  <p class="muted">
+                    Instagram:
+                    <a id="ig-link-inline" href="#" target="_blank" rel="noreferrer"
+                      style="color: var(--colors-tertiary--500)">@caesar__palace</a><br />
+                    Spotify:
+                    <a id="sp-link-inline" href="#" target="_blank" rel="noreferrer"
+                      style="color: var(--colors-tertiary--500)">Mi perfil</a>
+                  </p>
                 </div>
 
                 <div class="divider"></div>
@@ -1522,55 +1597,56 @@
               <!-- INSTAGRAM -->
               <section class="page" id="instagram" data-page>
                 <h2 class="section-title">Instagram</h2>
-                <p class="muted">
-                  Perfil y previsualización. Si el embed se bloquea, usa el botón de abrir en nueva pestaña.
-                </p>
+                <p class="muted">Acceso rápido + previsualización estilo cyber.</p>
+
+                <div class="divider"></div>
+
+                <div class="item">
+                  <div class="social-header">
+                    <div class="social-pill">
+                      <span class="mono" style="color: var(--colors-tertiary--500)">IG</span>
+                      <span>@caesar__palace</span>
+                    </div>
+
+                    <div class="social-actions">
+                      <button class="link-btn link-btn--yellow" type="button" data-open="instagram">
+                        Open Instagram
+                      </button>
+                      <button class="link-btn" type="button" data-action="copy-ig">
+                        Copy link
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="ig-mock" aria-label="Previsualización de Instagram">
+                    <p class="muted">
+                      Previsualización (mock): Instagram suele bloquear iframes de perfiles por seguridad, así que aquí
+                      tienes una vista estilo “grid” y el botón abre tu perfil real.
+                    </p>
+
+                    <div class="ig-grid" aria-hidden="true">
+                      <div class="ig-tile"></div>
+                      <div class="ig-tile"></div>
+                      <div class="ig-tile"></div>
+                      <div class="ig-tile"></div>
+                      <div class="ig-tile"></div>
+                      <div class="ig-tile"></div>
+                    </div>
+                  </div>
+                </div>
 
                 <div class="divider"></div>
 
                 <div class="grid-2">
                   <div class="item">
-                    <h4>Perfil</h4>
-                    <p class="muted">
-                      <span class="mono" style="color: var(--colors-tertiary--500)">USER</span>
-                      <span style="opacity: 0.8">:</span>
-                      <span>@caesar__palace</span>
-                    </p>
-                    <div class="divider"></div>
-                    <p class="muted">
-                      Link:
-                      <a id="ig-link" href="#" target="_blank" rel="noreferrer">
-                        <code id="ig-link-text">—</code>
-                      </a>
-                    </p>
-                    <div class="divider"></div>
-                    <button class="mini-btn mini-btn--ig" type="button" id="open-ig">Open Instagram</button>
-                    <button class="mini-btn" type="button" id="copy-ig">Copy link</button>
+                    <h4>Link</h4>
+                    <p class="muted" id="ig-url">—</p>
                   </div>
-
                   <div class="item">
-                    <h4>Preview</h4>
-
-                    <div class="embed-wrap" style="margin-top: 10px">
-                      <div class="embed-head">
-                        <h3 class="embed-title" style="color: var(--colors-tertiary--500)">Live preview</h3>
-                        <div class="embed-actions">
-                          <button class="mini-btn mini-btn--ig" type="button" id="open-ig-2">Open</button>
-                        </div>
-                      </div>
-
-                      <div class="embed-frame" style="height: 560px">
-                        <iframe id="ig-iframe" title="Instagram preview" loading="lazy" referrerpolicy="no-referrer"
-                          sandbox="allow-scripts allow-same-origin allow-forms allow-popups" src=""></iframe>
-                      </div>
-
-                      <p class="embed-hint muted">
-                        Tip: el navegador puede bloquear el perfil en iframe. Si pasa, abre con <code>Open</code>.
-                      </p>
-                      <div class="embed-fallback muted" id="ig-fallback">
-                        Preview bloqueado. Abre el perfil en una pestaña nueva.
-                      </div>
-                    </div>
+                    <h4>Tip</h4>
+                    <p class="muted">
+                      Si quieres embeds reales, la vía estable es incrustar posts individuales (no el perfil).
+                    </p>
                   </div>
                 </div>
               </section>
@@ -1578,59 +1654,53 @@
               <!-- SPOTIFY -->
               <section class="page" id="spotify" data-page>
                 <h2 class="section-title">Spotify</h2>
-                <p class="muted">
-                  Perfil y previsualización. (Spotify a veces bloquea iframes para perfiles de usuario).
-                </p>
+                <p class="muted">Acceso rápido + embed (si Spotify lo permite para tu perfil).</p>
+
+                <div class="divider"></div>
+
+                <div class="item">
+                  <div class="social-header">
+                    <div class="social-pill">
+                      <span class="mono" style="color: var(--colors-secondary--500)">SPOTIFY</span>
+                      <span>Perfil</span>
+                    </div>
+
+                    <div class="social-actions">
+                      <button class="link-btn" type="button" data-open="spotify">Open Spotify</button>
+                      <button class="link-btn link-btn--yellow" type="button" data-action="copy-sp">
+                        Copy link
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="embed-wrap">
+                    <p class="muted">
+                      Si el embed no carga en tu navegador/red, igual tienes el botón “Open Spotify”.
+                    </p>
+
+                    <iframe id="spotify-iframe" class="spotify-embed" height="152" loading="lazy"
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      referrerpolicy="strict-origin-when-cross-origin" title="Spotify Embed"></iframe>
+
+                    <p class="muted" id="sp-embed-status" style="margin-top: 10px; opacity: 0.92">
+                      Estado: cargando…
+                    </p>
+                  </div>
+                </div>
 
                 <div class="divider"></div>
 
                 <div class="grid-2">
                   <div class="item">
-                    <h4>Perfil</h4>
-                    <p class="muted">
-                      <span class="mono" style="color: var(--colors-secondary--500)">ID</span>
-                      <span style="opacity: 0.8">:</span>
-                      <span>31hu2kdccm2vguqtnndm5ecgc2jy</span>
-                    </p>
-
-                    <div class="divider"></div>
-
-                    <p class="muted">
-                      Link:
-                      <a id="sp-link" href="#" target="_blank" rel="noreferrer">
-                        <code id="sp-link-text">—</code>
-                      </a>
-                    </p>
-
-                    <div class="divider"></div>
-
-                    <button class="mini-btn" type="button" id="open-sp">Open Spotify</button>
-                    <button class="mini-btn" type="button" id="copy-sp">Copy link</button>
+                    <h4>Link</h4>
+                    <p class="muted" id="sp-url">—</p>
                   </div>
-
                   <div class="item">
-                    <h4>Preview</h4>
-
-                    <div class="embed-wrap" style="margin-top: 10px">
-                      <div class="embed-head">
-                        <h3 class="embed-title">Live preview</h3>
-                        <div class="embed-actions">
-                          <button class="mini-btn" type="button" id="open-sp-2">Open</button>
-                        </div>
-                      </div>
-
-                      <div class="embed-frame" style="height: 560px">
-                        <iframe id="sp-iframe" title="Spotify preview" loading="lazy" referrerpolicy="no-referrer"
-                          sandbox="allow-scripts allow-same-origin allow-forms allow-popups" src=""></iframe>
-                      </div>
-
-                      <p class="embed-hint muted">
-                        Si el iframe no carga, abre el perfil con <code>Open</code>.
-                      </p>
-                      <div class="embed-fallback muted" id="sp-fallback">
-                        Preview bloqueado. Abre el perfil en una pestaña nueva.
-                      </div>
-                    </div>
+                    <h4>Embed</h4>
+                    <p class="muted">
+                      Si tu perfil no soporta embed, cambia el iframe a una playlist/track/album público y queda 100%
+                      estable.
+                    </p>
                   </div>
                 </div>
               </section>
@@ -1655,21 +1725,16 @@
 
             <div class="divider"></div>
 
-            <!-- Instagram mini preview (siempre visible) -->
-            <div class="item" style="padding-bottom: 16px">
-              <h4>Instagram</h4>
-              <p class="muted" style="margin-bottom: 10px">Previsualización rápida.</p>
-              <div class="embed-frame mini-preview" style="border-color: rgba(254, 211, 63, 0.35)">
-                <iframe id="ig-iframe-rail" title="Instagram preview (rail)" loading="lazy" referrerpolicy="no-referrer"
-                  sandbox="allow-scripts allow-same-origin allow-forms allow-popups" src=""></iframe>
-              </div>
-              <div class="embed-fallback muted" id="ig-fallback-rail" style="margin-top: 10px">
-                Preview bloqueado. Abre el perfil en Actions (U).
-              </div>
-              <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap">
-                <button class="mini-btn mini-btn--ig" type="button" id="open-ig-rail">Open</button>
-                <button class="mini-btn" type="button" id="go-ig-rail">Go to tab</button>
-              </div>
+            <!-- ✅ Instagram preview (lado derecho) -->
+            <div class="item" id="ig-preview-right">
+              <h4>Instagram (preview)</h4>
+              <p class="muted">
+                <span class="mono" style="color: var(--colors-tertiary--500)">@caesar__palace</span>
+              </p>
+              <div class="divider"></div>
+              <button class="action-btn" type="button" data-open="instagram" style="width: 100%; text-align: center">
+                Open Instagram
+              </button>
             </div>
 
             <div class="divider"></div>
@@ -1732,7 +1797,9 @@
           <button class="action-btn" data-action="instagram" type="button">Open Instagram</button>
           <button class="action-btn" data-action="spotify" type="button">Open Spotify</button>
           <button class="action-btn" data-action="copy" type="button">Copy email</button>
-          <button class="action-btn action-btn--danger" data-action="close" type="button">Close (Esc)</button>
+          <button class="action-btn action-btn--danger" data-action="close" type="button">
+            Close (Esc)
+          </button>
         </div>
       </div>
     </section>
@@ -1772,7 +1839,9 @@
         </div>
 
         <div class="modal__actions">
-          <button class="action-btn action-btn--danger" data-action="close-mm" type="button">Close (Esc)</button>
+          <button class="action-btn action-btn--danger" data-action="close-mm" type="button">
+            Close (Esc)
+          </button>
         </div>
       </div>
     </section>
@@ -1802,16 +1871,14 @@
     $("#seed").textContent = seed();
     $("#year").textContent = new Date().getFullYear();
 
-    const INSTAGRAM_URL = "https://www.instagram.com/caesar__palace/?__pwa=1";
-    const SPOTIFY_URL =
-      "https://open.spotify.com/user/31hu2kdccm2vguqtnndm5ecgc2jy?si=fdb28cbfe7b0495b";
-
     let LINKS = {
       linkedin: "https://www.linkedin.com",
       github: "https://github.com/caesar-dat-com",
-      instagram: INSTAGRAM_URL,
-      spotify: SPOTIFY_URL,
+      instagram: "https://www.instagram.com/caesar__palace/?__pwa=1",
+      spotify:
+        "https://open.spotify.com/user/31hu2kdccm2vguqtnndm5ecgc2jy?si=fdb28cbfe7b0495b",
     };
+
     const EMAIL = "cesar.cesarreyes25@gmail.com";
 
     // DANE (hombres) ~ 74,48 años. (usado como estimación para el Memento Mori)
@@ -1898,7 +1965,9 @@
         const startDate = cert.timePeriod?.startDate
           ? `${cert.timePeriod.startDate.month}/${cert.timePeriod.startDate.year}`
           : "N/A";
-        const endDate = cert.timePeriod?.endDate ? `${cert.timePeriod.endDate.month}/${cert.timePeriod.endDate.year}` : "En curso";
+        const endDate = cert.timePeriod?.endDate
+          ? `${cert.timePeriod.endDate.month}/${cert.timePeriod.endDate.year}`
+          : "En curso";
 
         const name = cert.name || "Certificación";
         const authority = cert.authority || "N/A";
@@ -1927,8 +1996,8 @@
       education: "Formación base + especialización.",
       certs: "Certificaciones y cursos.",
       contact: "Contacto rápido vía Actions (U).",
-      instagram: "Perfil + preview (puede bloquearse por el navegador).",
-      spotify: "Perfil + preview (puede bloquearse por el navegador).",
+      instagram: "Instagram: acceso rápido + preview.",
+      spotify: "Spotify: acceso rápido + embed.",
     };
 
     function setRailActive(id) {
@@ -1969,7 +2038,7 @@
         target.classList.add("is-active");
         setRailActive(id);
         setSnapshot(id);
-        stage.scrollTop = 0; // UX app
+        stage.scrollTop = 0;
       };
 
       showGlitchPulse();
@@ -2001,58 +2070,38 @@
           toast("NO SE PUDO COPIAR");
         }
       }
+
       if (act === "close") popActions.hidePopover();
     });
 
-    // ===== IG / Spotify helpers =====
-    function setHrefText(aEl, tEl, url) {
-      if (aEl) aEl.href = url;
-      if (tEl) tEl.textContent = url;
-    }
-
-    async function copyText(txt, okMsg = "COPIADO", badMsg = "NO SE PUDO COPIAR") {
-      try {
-        await navigator.clipboard.writeText(txt);
-        toast(okMsg);
-      } catch {
-        toast(badMsg);
+    // ===== Right rail open buttons + page buttons =====
+    document.addEventListener("click", async (e) => {
+      const openBtn = e.target.closest("button[data-open]");
+      if (openBtn) {
+        const key = openBtn.dataset.open;
+        if (LINKS[key]) window.open(LINKS[key], "_blank", "noreferrer");
       }
-    }
 
-    function setIframeSafe(iframe, url, fallbackEl) {
-      if (!iframe) return;
-      if (fallbackEl) fallbackEl.classList.remove("is-on");
+      const actBtn = e.target.closest("button[data-action]");
+      if (!actBtn) return;
 
-      // set src
-      iframe.src = url;
-
-      // "Best effort" fallback: si a los X segundos sigue en about:blank o no navega, mostramos fallback
-      window.clearTimeout(iframe._ft);
-      iframe._ft = window.setTimeout(() => {
+      if (actBtn.dataset.action === "copy-ig") {
         try {
-          // Si el navegador bloquea por X-Frame-Options, no hay evento confiable.
-          // Mostramos fallback suave igual para guiar al usuario.
-          if (fallbackEl) fallbackEl.classList.add("is-on");
+          await navigator.clipboard.writeText(LINKS.instagram);
+          toast("LINK IG COPIADO");
         } catch {
-          if (fallbackEl) fallbackEl.classList.add("is-on");
+          toast("NO SE PUDO COPIAR");
         }
-      }, 2200);
-    }
-
-    // Quick buttons (About / Rail / Tabs)
-    $("#open-ig-about")?.addEventListener("click", () => window.open(LINKS.instagram, "_blank", "noreferrer"));
-    $("#go-ig-about")?.addEventListener("click", () => navigate("instagram"));
-
-    $("#open-ig")?.addEventListener("click", () => window.open(LINKS.instagram, "_blank", "noreferrer"));
-    $("#open-ig-2")?.addEventListener("click", () => window.open(LINKS.instagram, "_blank", "noreferrer"));
-    $("#copy-ig")?.addEventListener("click", () => copyText(LINKS.instagram, "LINK COPIADO"));
-
-    $("#open-sp")?.addEventListener("click", () => window.open(LINKS.spotify, "_blank", "noreferrer"));
-    $("#open-sp-2")?.addEventListener("click", () => window.open(LINKS.spotify, "_blank", "noreferrer"));
-    $("#copy-sp")?.addEventListener("click", () => copyText(LINKS.spotify, "LINK COPIADO"));
-
-    $("#open-ig-rail")?.addEventListener("click", () => window.open(LINKS.instagram, "_blank", "noreferrer"));
-    $("#go-ig-rail")?.addEventListener("click", () => navigate("instagram"));
+      }
+      if (actBtn.dataset.action === "copy-sp") {
+        try {
+          await navigator.clipboard.writeText(LINKS.spotify);
+          toast("LINK SPOTIFY COPIADO");
+        } catch {
+          toast("NO SE PUDO COPIAR");
+        }
+      }
+    });
 
     // ===== Memento Mori =====
     const popMemento = $("#memento");
@@ -2084,11 +2133,11 @@
       return d;
     }
 
-    // Semana: termina Domingo 23:59:59 local
+    // ✅ Semana: termina Domingo 23:59:59 local (corregido)
     function endOfWeek(now) {
       const d = new Date(now);
       const day = d.getDay(); // 0=Dom
-      const daysToSunday = (7 - 1 - day + 7) % 7; // si hoy es domingo -> 0
+      const daysToSunday = (7 - day) % 7; // si hoy es domingo -> 0
       const eod = endOfDay(d);
       eod.setDate(eod.getDate() + daysToSunday);
       return eod;
@@ -2109,7 +2158,7 @@
       const totalWeeks = weeksTotals();
       const livedWeeks = Math.max(0, Math.floor((now - BIRTH) / 604800000));
       const leftWeeks = Math.max(0, totalWeeks - livedWeeks);
-      const currentWeekIndex = Math.min(totalWeeks - 1, livedWeeks); // “semana actual”
+      const currentWeekIndex = Math.min(totalWeeks - 1, livedWeeks);
       return { totalWeeks, livedWeeks, leftWeeks, currentWeekIndex };
     }
 
@@ -2120,7 +2169,6 @@
       const ctx = c.getContext("2d");
       const dpr = Math.max(1, window.devicePixelRatio || 1);
 
-      // Fit to element size (responsive-ish)
       const cssW = c.clientWidth || c.width;
       const cssH = c.clientHeight || c.height;
 
@@ -2130,7 +2178,7 @@
 
       const { totalWeeks, livedWeeks, currentWeekIndex } = calcWeeks(now);
 
-      const cols = 52; // “calendario” por semanas/año
+      const cols = 52;
       const rows = Math.ceil(totalWeeks / cols);
 
       const pad = 6;
@@ -2140,7 +2188,7 @@
       const gap = 1;
       const cellW = Math.floor((w - gap * (cols - 1)) / cols);
       const cellH = Math.floor((h - gap * (rows - 1)) / rows);
-      const cell = Math.max(1, Math.min(cellW, cellH)); // cuadrado
+      const cell = Math.max(1, Math.min(cellW, cellH));
 
       const gridW = cols * cell + gap * (cols - 1);
       const gridH = rows * cell + gap * (rows - 1);
@@ -2191,14 +2239,12 @@
 
       const lifeMs = eol - now;
       const lifeParts = msToParts(lifeMs);
-      // Para “vida”, muestro en días + hh:mm:ss (más estable)
       $("#t-life").textContent =
         lifeMs <= 0
           ? "00:00:00"
-          : `${lifeParts.days}d ${String(lifeParts.hours).padStart(2, "0")}:${String(lifeParts.mins).padStart(
-            2,
-            "0"
-          )}:${String(lifeParts.secs).padStart(2, "0")}`;
+          : `${lifeParts.days}d ${String(lifeParts.hours).padStart(2, "0")}:${String(
+            lifeParts.mins
+          ).padStart(2, "0")}:${String(lifeParts.secs).padStart(2, "0")}`;
 
       $("#life-date").textContent = `Fecha estimada: ${eol.toLocaleString("es-CO", {
         year: "numeric",
@@ -2251,20 +2297,52 @@
       renderCerts(allCerts, q);
     });
 
+    // ===== Spotify embed wiring (estable) =====
+    function setupSpotifyEmbed() {
+      const iframe = $("#spotify-iframe");
+      const status = $("#sp-embed-status");
+      if (!iframe) return;
+
+      // Intento 1: embed directo /embed/user/<id>
+      const userId = "31hu2kdccm2vguqtnndm5ecgc2jy";
+      const embed1 = `https://open.spotify.com/embed/user/${userId}`;
+
+      // Intento 2: embed legacy uri
+      const embed2 = `https://open.spotify.com/embed?uri=spotify:user:${userId}`;
+
+      let tried2 = false;
+
+      iframe.src = embed1;
+      status.textContent = "Estado: cargando embed…";
+
+      const t = setTimeout(() => {
+        // Si en 4s no se ve, intentamos fallback embed2 (algunas redes bloquean el primero)
+        if (!tried2) {
+          tried2 = true;
+          iframe.src = embed2;
+          status.textContent = "Estado: reintentando embed…";
+        }
+      }, 4000);
+
+      iframe.addEventListener("load", () => {
+        clearTimeout(t);
+        status.textContent = "Estado: embed cargado (si ves el player).";
+      });
+
+      iframe.addEventListener("error", () => {
+        clearTimeout(t);
+        status.textContent = "Estado: no se pudo cargar el embed aquí. Usa Open Spotify.";
+      });
+    }
+
     // Init
     (async function init() {
-      // set links text + href
-      setHrefText($("#ig-link"), $("#ig-link-text"), INSTAGRAM_URL);
-      setHrefText($("#sp-link"), $("#sp-link-text"), SPOTIFY_URL);
-
-      // set email text (por si lo cambias en el futuro)
-      $("#email-text").textContent = EMAIL;
-
-      // load data
       const data = await loadLinkedIn();
 
       $("#name").textContent = `${data.firstName || ""} ${data.lastName || ""}`.trim() || "César Reyes";
-      $("#headline").textContent = (data.headline || "Data · IA · Automatización").replace(/junior/gi, "").trim();
+      $("#headline").textContent = (data.headline || "Data · IA · Automatización")
+        .replace(/junior/gi, "")
+        .trim();
       $("#location").textContent = data.location || "Colombia";
 
       const summary = (data.summary || "").trim();
@@ -2272,25 +2350,21 @@
 
       if (data.publicProfileUrl) LINKS.linkedin = data.publicProfileUrl;
 
-      allSkills = (data.skills || [])
-        .map((s) => ({ name: s.name || "" }))
-        .filter((s) => s.name);
+      allSkills = (data.skills || []).map((s) => ({ name: s.name || "" })).filter((s) => s.name);
       allCerts = (data.certifications || []).filter(Boolean);
 
       renderSkills(allSkills);
       renderCerts(allCerts);
 
-      // iframes (best-effort preview)
-      setIframeSafe($("#ig-iframe"), INSTAGRAM_URL, $("#ig-fallback"));
-      setIframeSafe($("#ig-iframe-mini"), INSTAGRAM_URL, $("#ig-fallback-mini"));
-      setIframeSafe($("#ig-iframe-rail"), INSTAGRAM_URL, $("#ig-fallback-rail"));
+      // Wire social links in UI
+      $("#ig-url").textContent = LINKS.instagram;
+      $("#sp-url").textContent = LINKS.spotify;
 
-      setIframeSafe($("#sp-iframe"), SPOTIFY_URL, $("#sp-fallback"));
+      $("#ig-link-inline").href = LINKS.instagram;
+      $("#sp-link-inline").href = LINKS.spotify;
 
-      // Additional navigations
-      $("#go-ig-rail")?.addEventListener("click", () => navigate("instagram"));
+      setupSpotifyEmbed();
 
-      // start route
       const start = (location.hash || "#about").replace("#", "");
       navigate(start, { pushHash: false });
 
