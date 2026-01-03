@@ -79,10 +79,8 @@
         radial-gradient(900px 600px at 85% 20%, color-mix(in oklab, var(--shadow) 10%, transparent), transparent 55%),
         linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow: hidden;
-      /* internal scrolling only (prevents background breaking on long content) */
     }
 
-    /* Fixed background layers */
     body::before {
       content: "";
       position: fixed;
@@ -107,7 +105,6 @@
       transform: rotate(-7deg);
     }
 
-    /* Scrollbars (same aesthetic as buttons) */
     :where(.scrollArea, body) {
       scrollbar-width: thin;
       scrollbar-color: var(--sbThumb) var(--sbTrack);
@@ -139,7 +136,6 @@
       filter: saturate(1.2) brightness(1.06);
     }
 
-    /* Layout */
     .app {
       height: 100dvh;
       display: grid;
@@ -564,7 +560,6 @@
       box-shadow: none;
     }
 
-    /* Right rail widgets */
     .widget {
       border-radius: 20px;
       border: 1px solid var(--stroke2);
@@ -628,7 +623,6 @@
       line-height: 1.45;
     }
 
-    /* Modal / popover (centered) */
     .modal {
       width: min(980px, calc(100vw - 32px));
       border-radius: 26px;
@@ -698,7 +692,6 @@
       overflow: auto;
     }
 
-    /* Glitch layer (subtle) */
     .glitch {
       position: absolute;
       inset: 0;
@@ -730,7 +723,6 @@
       }
     }
 
-    /* Memento grid */
     .mm-wrap {
       display: grid;
       grid-template-columns: 1fr;
@@ -808,7 +800,6 @@
       border-color: rgba(255, 255, 255, .06);
     }
 
-    /* Spotify */
     .spotify-embed {
       width: 100%;
       height: 360px;
@@ -852,7 +843,6 @@
       border-bottom: 1px dashed color-mix(in oklab, var(--accent) 35%, transparent);
     }
 
-    /* Instagram embed area */
     .ig-shell {
       border-radius: 22px;
       border: 1px solid var(--stroke2);
@@ -897,7 +887,6 @@
       min-width: 0 !important;
     }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       .stage::before {
         animation: none;
@@ -1008,8 +997,7 @@
                 style="margin-left:6px">7</kbd></button>
           </div>
           <p class="smallprint" style="margin:0">
-            Acciones únicas aquí (sin repetir lo mismo en la parte superior). Todo el contenido vive en el panel
-            central.
+            Acciones únicas aquí. Todo el contenido vive en el panel central.
           </p>
         </div>
 
@@ -1030,10 +1018,7 @@
             <button class="btn btn--ghost" id="btnSP" type="button">Abrir <kbd style="margin-left:6px">S</kbd></button>
           </div>
           <div class="metric"><span>Top artistas</span><b id="spTopLabel">—</b></div>
-          <p class="smallprint" style="margin:10px 0 0">
-            Para mostrar “likes” y top artistas de forma automática a visitantes, lo recomendado es un proxy (para no
-            exponer tokens).
-          </p>
+          <p class="smallprint" style="margin:10px 0 0">Abre para ver la playlist y el top (si está configurado).</p>
         </div>
 
         <div class="widget" id="igWidget">
@@ -1042,7 +1027,7 @@
             <button class="btn btn--ghost" id="btnIG" type="button">Abrir <kbd style="margin-left:6px">I</kbd></button>
           </div>
           <p class="smallprint" style="margin:0">
-            Previsualización del perfil (si tu cuenta es pública y tienes activado “Embeds”).
+            Previsualización del perfil.
           </p>
         </div>
 
@@ -1083,10 +1068,6 @@
         <div class="mm-grid">
           <div class="mm-grid__inner" id="mmGrid" aria-label="Calendario de semanas"></div>
         </div>
-
-        <p class="smallprint" style="margin:0">
-          Ajuste rápido: edita <code style="font-family:var(--mono)">LIFE_EXPECTANCY_YEARS</code>.
-        </p>
       </div>
     </div>
   </div>
@@ -1109,11 +1090,6 @@
               style="color:inherit;text-decoration:none;border-bottom:1px dashed color-mix(in oklab, var(--accent) 35%, transparent);">
               Abrir en Spotify
             </a>
-          </p>
-          <p class="smallprint" style="margin:10px 0 0">
-            Spotify no ofrece un “embed oficial” de perfil de usuario como iframe (lo típico es embebible para
-            playlists/tracks/albums/artists).
-            Por eso aquí abrimos tu perfil y embebemos una playlist pública (o tracks individuales).
           </p>
 
           <h4 class="h" style="margin-top:12px">Top 3 artistas</h4>
@@ -1164,31 +1140,23 @@
             </div>
 
             <div class="ig-embed" id="igEmbedWrap">
-              <!-- Instagram embed will render inside -->
               <div class="smallprint" id="igLoading">Cargando embed…</div>
               <div id="igEmbed"></div>
             </div>
           </div>
 
           <p class="smallprint" style="margin:10px 0 0">
-            Si el embed no carga: revisa que tu cuenta sea pública y que la opción “Embeds” esté activa.
+            Si el embed no carga, usa el botón “Abrir”.
           </p>
         </div>
 
         <div class="card">
-          <h4 class="h">Enlace rápido</h4>
+          <h4 class="h">Enlace</h4>
           <p class="p" style="margin:0">
             <a id="igLink" href="#" target="_blank" rel="noreferrer"
               style="color:inherit;text-decoration:none;border-bottom:1px dashed color-mix(in oklab, var(--accent) 35%, transparent);">
               Abrir @caesar__palace
             </a>
-          </p>
-
-          <h4 class="h" style="margin-top:12px">Tip</h4>
-          <p class="smallprint" style="margin:0">
-            Si quieres algo tipo “grid de posts” embebido, normalmente se hace con una herramienta/servicio (feed
-            widget) o con un backend que lea contenido.
-            Para “solo preview”, el embed oficial de Instagram es lo más liviano.
           </p>
         </div>
       </div>
@@ -1218,7 +1186,7 @@
   <template id="tpl-experience">
     <div class="card">
       <h4 class="h">Trabajo</h4>
-      <p class="p">Experiencia y responsabilidades (una sección visible a la vez).</p>
+      <p class="p">Experiencia y responsabilidades.</p>
     </div>
     <div class="list" id="xpList"></div>
   </template>
@@ -1261,7 +1229,7 @@
   <template id="tpl-contact">
     <div class="card">
       <h4 class="h">Contacto</h4>
-      <p class="p">Links directos y CTA corto.</p>
+      <p class="p">Links directos.</p>
       <div class="tagrow" style="margin-top:12px">
         <a class="btn" id="contactEmail" href="mailto:tu-correo@ejemplo.com">Email</a>
         <a class="btn btn--ghost" id="contactLinkedIn" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -1280,9 +1248,11 @@
       name: "César Reyes",
       location: "Bogotá, Colombia",
       headline: "Data · Automation · Product",
+      email: "",
       now: "Actualmente en Postobón · Ingeniería de Datos e Inteligencia Artificial",
       bio: "Me enfoco en construir soluciones de datos y automatización con una capa fuerte de calidad, detalle y diseño. Me muevo cómodo entre ingeniería, análisis y producto.",
       links: {
+
         linkedin: "https://www.linkedin.com/",
         github: "https://github.com/",
         instagram: "https://www.instagram.com/caesar__palace/?__pwa=1",
@@ -1335,48 +1305,33 @@
           name: "Ruta de Análisis de Datos y Business Intelligence (18+ cursos)",
           where: "Platzi",
           when: "Completado",
-          desc: "Power BI, DAX, Tableau, Looker Studio, Excel avanzado, forecasting, métricas de negocio, storytelling, estadística aplicada; más fundamentos de Python, circuitos electrónicos, electricidad e inglés técnico."
+          desc: "Power BI, DAX, Tableau, Looker Studio, Excel avanzado, forecasting, métricas de negocio, storytelling, estadística aplicada. Además de cursos de fundamentos de Python, circuitos electrónicos, electricidad e inglés técnico enfocado en tecnología e innovación."
         }
       ]
     };
 
     /**********************************
-     * SPOTIFY SETTINGS (CHOOSE MODE) *
-     **********************************
-      - "off": no muestra nada
-      - "public": embebe una playlist pública y (opcional) carga /spotify.json con topArtists/tracks
-      - "proxy": consume un endpoint propio (serverless) que devuelve topArtists y tracks sin exponer tokens al público
-
-      IMPORTANTE:
-      - Spotify NO deja leer tus "Saved Tracks" públicamente desde el front sin autorización del usuario. (requiere user-library-read)  // ver docs
-      - Para visitantes, lo correcto es: playlist pública + (opcional) proxy.
-    */
+     * SPOTIFY SETTINGS
+     * - off: desactivado
+     * - public: playlist pública + (opcional) /spotify.json
+     * - proxy: endpoint propio (recomendado)
+     **********************************/
     const SPOTIFY = {
       mode: "public",                 // "off" | "public" | "proxy"
       spotifyProfileUrl: PROFILE.links.spotifyProfile,
       publicPlaylistUrl: "",          // ej: "https://open.spotify.com/playlist/XXXXXXXX"
-      publicDataUrl: "/spotify.json", // para mode="public" (archivo estático que tú publicas)
-      proxyUrl: "/api/spotify"        // para mode="proxy" (tu endpoint serverless)
+      publicDataUrl: "/spotify.json", // para mode="public"
+      proxyUrl: "/api/spotify"        // para mode="proxy"
     };
 
-    /******************************
-     * INSTAGRAM SETTINGS         *
-     ******************************/
     const INSTAGRAM = {
       profileUrl: PROFILE.links.instagram,
       username: "caesar__palace"
     };
 
-    /******************************
-     * MEMENTO MORI CONFIG        *
-     ******************************/
     const BIRTHDATE_ISO = "2000-01-25T00:00:00-05:00"; // Bogotá
-    // Promedio usado: 75.4 años (ajustable)
     const LIFE_EXPECTANCY_YEARS = 75.4;
 
-    /***********************
-     * UTILITIES           *
-     ***********************/
     const $ = (sel, root = document) => root.querySelector(sel);
     const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
     const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
@@ -1414,9 +1369,6 @@
         .replaceAll("'", "&#039;");
     }
 
-    /***********************
-     * PANEL RENDERING     *
-     ***********************/
     const stageTitle = $("#stageTitle");
     const stageSubtitle = $("#stageSubtitle");
     const stageBody = $("#stageBody");
@@ -1450,11 +1402,8 @@
         setActiveNav(id);
       };
 
-      if (document.startViewTransition) {
-        document.startViewTransition(doSwap);
-      } else {
-        doSwap();
-      }
+      if (document.startViewTransition) document.startViewTransition(doSwap);
+      else doSwap();
     }
 
     function setActiveNav(id) {
@@ -1538,6 +1487,10 @@
       }
 
       if (id === "contact") {
+        const email = PROFILE.email || "tu-correo@ejemplo.com";
+        const emailEl = document.getElementById("contactEmail");
+        if (emailEl) emailEl.href = "mailto:" + email;
+
         $("#contactLinkedIn").href = safeURL(PROFILE.links.linkedin);
         $("#contactGitHub").href = safeURL(PROFILE.links.github);
         $("#contactSpotify").href = safeURL(PROFILE.links.spotifyProfile);
@@ -1577,9 +1530,6 @@
       return el;
     }
 
-    /***********************
-     * SHORTCUTS + NAV     *
-     ***********************/
     const navButtons = $$(".nav .cyber-btn");
     navButtons.forEach(btn => btn.addEventListener("click", () => renderPanel(btn.dataset.panel)));
 
@@ -1600,9 +1550,6 @@
       if (key === "escape") closeAnyPopover();
     });
 
-    /***********************
-     * POPOVERS (MM/SP/IG) *
-     ***********************/
     const mmModal = $("#mmModal");
     const spModal = $("#spModal");
     const igModal = $("#igModal");
@@ -1646,9 +1593,6 @@
       loadInstagram();
     }
 
-    /***********************
-     * MEMENTO MORI        *
-     ***********************/
     const birth = new Date(BIRTHDATE_ISO);
     const lifeMs = LIFE_EXPECTANCY_YEARS * 365.2425 * 24 * 60 * 60 * 1000;
     const deathMs = birth.getTime() + lifeMs;
@@ -1660,26 +1604,16 @@
       const totalWeeks = Math.round(LIFE_EXPECTANCY_YEARS * weeksPerYear);
       const leftWeeks = Math.max(0, totalWeeks - livedWeeks);
 
-      // End of day: next midnight
       const endDay = new Date(now);
       endDay.setHours(24, 0, 0, 0);
 
-      // End of week: Sunday 23:59:59.999 (local)
       const endWeek = new Date(now);
-      const dow = endWeek.getDay(); // 0 Sunday
+      const dow = endWeek.getDay();
       const daysToSun = (7 - dow) % 7;
       endWeek.setDate(endWeek.getDate() + daysToSun);
       endWeek.setHours(23, 59, 59, 999);
 
-      return {
-        now,
-        livedWeeks,
-        totalWeeks,
-        leftWeeks,
-        endDay,
-        endWeek,
-        death: new Date(deathMs)
-      };
+      return { now, livedWeeks, totalWeeks, leftWeeks, endDay, endWeek, death: new Date(deathMs) };
     }
 
     function tickMemento() {
@@ -1736,9 +1670,6 @@
       }
     }
 
-    /***********************
-     * SPOTIFY (PUBLIC/PROXY) *
-     ***********************/
     const spTop3 = $("#spTop3");
     const spTracks = $("#spTracks");
     const spEmbed = $("#spEmbed");
@@ -1748,13 +1679,7 @@
 
     $("#spRefresh").addEventListener("click", loadSpotify);
     $("#spModeInfo").addEventListener("click", () => {
-      alert(
-        `Modo actual: ${SPOTIFY.mode}\n\n` +
-        `public: embebe una playlist pública (SPOTIFY.publicPlaylistUrl) y opcionalmente lee ${SPOTIFY.publicDataUrl}\n` +
-        `proxy: consume ${SPOTIFY.proxyUrl} (recomendado para mostrar a visitantes sin exponer tokens)\n\n` +
-        `Estructura esperada (JSON):\n` +
-        `{\n  "updatedAt": "2026-01-03T00:00:00-05:00",\n  "topArtists":[{"name":"...","url":"...","image":"..."}],\n  "tracks":[{"name":"...","artists":"...","url":"...","id":"spotifyTrackId"}]\n}`
-      );
+      alert(`Modo Spotify: ${SPOTIFY.mode}\n\nEdita SPOTIFY.mode y (si usas "public") define SPOTIFY.publicPlaylistUrl y/o publica ${SPOTIFY.publicDataUrl}.`);
     });
 
     function toEmbedUrl(openUrl) {
@@ -1772,17 +1697,17 @@
       $("#spProfileLink").href = safeURL(SPOTIFY.spotifyProfileUrl);
 
       if (SPOTIFY.mode === "off") {
-        spHint.textContent = "Spotify está desactivado en config.";
+        spHint.textContent = "Spotify desactivado.";
         return;
       }
 
       if (SPOTIFY.mode === "public") {
         if (SPOTIFY.publicPlaylistUrl) {
           spEmbed.src = toEmbedUrl(SPOTIFY.publicPlaylistUrl);
-          spHint.textContent = "Playlist pública embebida.";
+          spHint.textContent = "Playlist lista.";
         } else {
           spEmbed.src = "";
-          spHint.textContent = "Pon una playlist pública en SPOTIFY.publicPlaylistUrl. Ej: playlist con tus ‘likes’ curados.";
+          spHint.textContent = "Define una playlist pública en SPOTIFY.publicPlaylistUrl.";
         }
 
         try {
@@ -1797,15 +1722,15 @@
       }
 
       if (SPOTIFY.mode === "proxy") {
-        spHint.textContent = "Cargando desde proxy…";
+        spHint.textContent = "Cargando…";
         try {
           const res = await fetch(SPOTIFY.proxyUrl, { cache: "no-store" });
           if (!res.ok) throw new Error("Proxy error");
           const data = await res.json();
           hydrateSpotifyData(data);
-          spHint.textContent = "Datos cargados desde proxy.";
+          spHint.textContent = "Listo.";
         } catch (err) {
-          spHint.textContent = "No se pudo cargar Spotify. Revisa SPOTIFY.proxyUrl y tu endpoint.";
+          spHint.textContent = "No se pudo cargar Spotify.";
         }
       }
     }
@@ -1816,7 +1741,7 @@
 
       spTopLabel.textContent = top.length ? `${top.length}/3` : "—";
 
-      spTop3.innerHTML = top.length ? "" : `<p class="smallprint" style="margin:0">Aún no hay datos. Usa modo public (playlist) o proxy.</p>`;
+      spTop3.innerHTML = top.length ? "" : `<p class="smallprint" style="margin:0">Sin datos.</p>`;
       top.forEach((a, idx) => {
         const el = document.createElement("div");
         el.className = "sp-artist";
@@ -1832,7 +1757,7 @@
         spTop3.appendChild(el);
       });
 
-      spTracks.innerHTML = tracks.length ? "" : `<p class="smallprint" style="margin:0">Sin tracks para mostrar.</p>`;
+      spTracks.innerHTML = tracks.length ? "" : `<p class="smallprint" style="margin:0">Sin tracks.</p>`;
       tracks.forEach((t) => {
         const el = document.createElement("div");
         el.className = "item";
@@ -1868,19 +1793,13 @@
       }
     }
 
-    /***********************
-     * INSTAGRAM EMBED     *
-     ***********************/
     let igScriptPromise = null;
 
     function loadInstagramScript() {
       if (igScriptPromise) return igScriptPromise;
       igScriptPromise = new Promise((resolve, reject) => {
         const existing = document.querySelector('script[data-ig-embed="1"]');
-        if (existing) {
-          resolve(true);
-          return;
-        }
+        if (existing) { resolve(true); return; }
         const s = document.createElement("script");
         s.async = true;
         s.defer = true;
@@ -1902,8 +1821,6 @@
       const embedHost = $("#igEmbed");
       embedHost.innerHTML = "";
 
-      // Instagram embed expects a blockquote with data-instgrm-permalink
-      // Profile embed works only if account is public and "Embeds" setting enabled.
       const permalink = INSTAGRAM.profileUrl.replace(/\?.*$/, "") + "?utm_source=ig_embed&utm_campaign=loading";
 
       const block = document.createElement("blockquote");
@@ -1921,35 +1838,30 @@
 
       try {
         await loadInstagramScript();
-        // Process embed
         if (window.instgrm && window.instgrm.Embeds && typeof window.instgrm.Embeds.process === "function") {
           window.instgrm.Embeds.process();
           $("#igLoading").textContent = "";
           $("#statusLine").textContent = "Instagram listo.";
         } else {
-          $("#igLoading").textContent = "Embed no disponible (script cargó, pero no expuso instgrm).";
+          $("#igLoading").textContent = "Embed no disponible.";
         }
       } catch {
-        $("#igLoading").textContent = "No se pudo cargar el embed. Se mostrará el enlace.";
+        $("#igLoading").textContent = "No se pudo cargar el embed.";
       }
     }
 
-    /***********************
-     * INIT                *
-     ***********************/
     function initLinks() {
-      $("#lnkLinkedIn").href = safeURL(PROFILE.links.linkedin);
-      $("#lnkGitHub").href = safeURL(PROFILE.links.github);
-      $("#lnkSpotify").href = safeURL(PROFILE.links.spotifyProfile);
-      $("#lnkInstagram").href = safeURL(PROFILE.links.instagram);
+      const setHref = (id, url) => {
+        const el = document.getElementById(id);
+        if (el) el.href = safeURL(url);
+      };
 
-      $("#contactLinkedIn").href = safeURL(PROFILE.links.linkedin);
-      $("#contactGitHub").href = safeURL(PROFILE.links.github);
-      $("#contactSpotify").href = safeURL(PROFILE.links.spotifyProfile);
-      $("#contactInstagram").href = safeURL(PROFILE.links.instagram);
+      setHref("lnkLinkedIn", PROFILE.links.linkedin);
+      setHref("lnkGitHub", PROFILE.links.github);
+      setHref("lnkSpotify", PROFILE.links.spotifyProfile);
+      setHref("lnkInstagram", PROFILE.links.instagram);
     }
 
-    // Make widgets clickable
     $("#mmWidget").addEventListener("click", (e) => {
       const tag = e.target?.tagName?.toLowerCase();
       if (tag === "button" || tag === "a") return;
@@ -1966,16 +1878,14 @@
       openIG();
     });
 
-    // Tick clocks
     setInterval(tickMemento, 1000);
 
     initLinks();
     renderPanel("overview");
     tickMemento();
 
-    // Preload Spotify UI hint
     if (SPOTIFY.mode === "off") $("#spHint").textContent = "Spotify desactivado.";
-    else $("#spHint").textContent = "Pulsa “Refrescar” para cargar datos.";
+    else $("#spHint").textContent = "Pulsa “Refrescar” para cargar.";
   </script>
 </body>
 
