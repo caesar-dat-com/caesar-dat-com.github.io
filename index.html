@@ -63,7 +63,7 @@
           rgba(70, 22, 22, 0.95) 0%,
           transparent 60%),
         radial-gradient(ellipse at 72% 18%,
-          rgba(43, 228, 234, 0.10) 0%,
+          rgba(43, 228, 234, 0.1) 0%,
           transparent 55%),
         linear-gradient(180deg, var(--colors-bg--500), var(--colors-bg--100));
       overflow: hidden;
@@ -91,8 +91,7 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      background-image: linear-gradient(rgba(43, 228, 234, 0.07) 1px,
-          transparent 1px),
+      background-image: linear-gradient(rgba(43, 228, 234, 0.07) 1px, transparent 1px),
         linear-gradient(90deg, rgba(43, 228, 234, 0.07) 1px, transparent 1px);
       background-size: 42px 42px;
       opacity: 0.08;
@@ -755,21 +754,49 @@
 
     @keyframes glitch {
       0% {
-        clip-path: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
+        clip-path: polygon(0 2%,
+            100% 2%,
+            100% 95%,
+            95% 95%,
+            95% 90%,
+            85% 90%,
+            85% 95%,
+            8% 95%,
+            0 70%);
       }
 
       8% {
-        clip-path: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
+        clip-path: polygon(0 78%,
+            100% 78%,
+            100% 100%,
+            95% 100%,
+            95% 90%,
+            85% 90%,
+            85% 100%,
+            8% 100%,
+            0 78%);
         transform: translate(-2px, 0);
       }
 
       10% {
-        clip-path: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 85% 54%, 8% 54%, 0 54%);
+        clip-path: polygon(0 44%,
+            100% 44%,
+            100% 54%,
+            95% 54%,
+            85% 54%,
+            8% 54%,
+            0 54%);
         transform: translate(2px, 0);
       }
 
       45% {
-        clip-path: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 85% 85%, 8% 85%, 0 70%);
+        clip-path: polygon(0 40%,
+            100% 40%,
+            100% 85%,
+            95% 85%,
+            85% 85%,
+            8% 85%,
+            0 70%);
         transform: translate(-2px, 0);
       }
 
@@ -1002,6 +1029,112 @@
       color: var(--colors-tertiary--500);
       font-family: var(--fonts-secondary);
     }
+
+    /* ========== Embeds / previews ========== */
+    .embed-wrap {
+      margin-top: 10px;
+      border: 1px solid rgba(43, 228, 234, 0.35);
+      background: rgba(0, 0, 0, 0.18);
+      clip-path: var(--ui-notch-path);
+      padding: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .embed-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .embed-title {
+      margin: 0;
+      font-family: var(--fonts-secondary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--colors-secondary--500);
+    }
+
+    .embed-actions {
+      display: inline-flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .mini-btn {
+      border: 1px solid rgba(43, 228, 234, 0.65);
+      background: rgba(0, 0, 0, 0.25);
+      color: var(--accent);
+      font-family: var(--fonts-secondary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 8px 10px;
+      cursor: pointer;
+      clip-path: var(--ui-notch-path);
+      font-size: 0.95rem;
+    }
+
+    .mini-btn:hover,
+    .mini-btn:focus-visible {
+      outline: none;
+      background: rgba(43, 228, 234, 0.08);
+    }
+
+    .mini-btn--ig {
+      border-color: rgba(254, 211, 63, 0.55);
+      color: var(--colors-tertiary--500);
+    }
+
+    .mini-btn--ig:hover,
+    .mini-btn--ig:focus-visible {
+      background: rgba(254, 211, 63, 0.08);
+    }
+
+    .embed-frame {
+      width: 100%;
+      height: 520px;
+      border: 1px solid rgba(156, 50, 48, 0.7);
+      background: rgba(25, 26, 30, 0.35);
+      border-radius: 4px;
+      overflow: hidden;
+      clip-path: var(--ui-notch-path);
+      position: relative;
+    }
+
+    .embed-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: transparent;
+    }
+
+    .embed-hint {
+      margin-top: 10px;
+      color: var(--colors-primary--200);
+    }
+
+    .mini-preview {
+      height: 220px;
+    }
+
+    .embed-fallback {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .embed-fallback.is-on {
+      display: block;
+    }
+
+    .glow-bar {
+      height: 2px;
+      background: var(--colors-secondary--500);
+      opacity: 0.35;
+      box-shadow: var(--ui-glow-strong);
+      margin-top: 10px;
+    }
   </style>
 </head>
 
@@ -1015,7 +1148,7 @@
         <span class="brand__tag">DATA · IA · AUTOMATION</span>
       </a>
 
-      <span class="hint-pill">U: Actions · 1–7: Secciones · M: Memento</span>
+      <span class="hint-pill">U: Actions · 1–9: Secciones · M: Memento</span>
     </header>
 
     <div class="app-container">
@@ -1062,6 +1195,16 @@
                 <li>
                   <button type="button" data-go="contact">
                     <span>Contacto</span><span class="badge">7</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" data-go="instagram">
+                    <span>Instagram</span><span class="badge">8</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" data-go="spotify">
+                    <span>Spotify</span><span class="badge">9</span>
                   </button>
                 </li>
               </ul>
@@ -1134,9 +1277,7 @@
 
                 <div class="divider"></div>
 
-                <p class="muted" id="summary" style="font-size: 1.05rem">
-                  Cargando resumen…
-                </p>
+                <p class="muted" id="summary" style="font-size: 1.05rem">Cargando resumen…</p>
 
                 <div class="divider"></div>
 
@@ -1144,8 +1285,8 @@
                   <div class="item">
                     <h4>Enfoque actual</h4>
                     <p>
-                      Ingeniería en Datos e IA (UAO) + automatización de procesos y
-                      mejora continua (experiencia industrial).
+                      Ingeniería en Datos e IA (UAO) + automatización de procesos y mejora continua (experiencia
+                      industrial).
                     </p>
                   </div>
                   <div class="item">
@@ -1155,6 +1296,38 @@
                       <li>1er lugar Rally Latinoamericano de Innovación (UAO).</li>
                       <li>Ruta BI/Analytics (Power BI, DAX, Tableau, Looker, Excel).</li>
                     </ul>
+                  </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="item">
+                  <h4>Social quick look</h4>
+                  <p class="muted">
+                    Instagram y Spotify en pestañas dedicadas. También tienes acceso desde <code>U</code> (Actions).
+                  </p>
+                  <div class="glow-bar"></div>
+                  <div class="embed-wrap" style="margin-top: 12px">
+                    <div class="embed-head">
+                      <h3 class="embed-title" style="color: var(--colors-tertiary--500)">Instagram preview</h3>
+                      <div class="embed-actions">
+                        <button class="mini-btn mini-btn--ig" type="button" id="open-ig-about">Open Instagram</button>
+                        <button class="mini-btn" type="button" id="go-ig-about">Go to tab</button>
+                      </div>
+                    </div>
+
+                    <div class="embed-frame mini-preview">
+                      <iframe id="ig-iframe-mini" title="Instagram preview (mini)" loading="lazy"
+                        referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                        src=""></iframe>
+                    </div>
+
+                    <p class="embed-hint muted" style="margin-top: 10px">
+                      Si el preview no carga por restricciones del navegador, usa <code>Open Instagram</code>.
+                    </p>
+                    <div class="embed-fallback muted" id="ig-fallback-mini">
+                      Preview bloqueado. Abre el perfil en una pestaña nueva.
+                    </div>
                   </div>
                 </div>
               </section>
@@ -1168,9 +1341,7 @@
 
                 <div class="grid-2">
                   <div>
-                    <h3 class="section-title" style="font-size: 1.05rem">
-                      Skills (LinkedIn)
-                    </h3>
+                    <h3 class="section-title" style="font-size: 1.05rem">Skills (LinkedIn)</h3>
                     <ul id="skills" class="chip-list" style="margin-top: 10px"></ul>
                     <p class="muted" id="skills-empty" style="display: none; margin-top: 10px">
                       No hay skills para mostrar.
@@ -1178,9 +1349,7 @@
                   </div>
 
                   <div>
-                    <h3 class="section-title" style="font-size: 1.05rem">
-                      Skills clave
-                    </h3>
+                    <h3 class="section-title" style="font-size: 1.05rem">Skills clave</h3>
                     <ul class="chip-list" style="margin-top: 10px">
                       <li class="chip">Python</li>
                       <li class="chip">POO</li>
@@ -1201,9 +1370,9 @@
                     <div class="item">
                       <h4>Soft skills & idiomas</h4>
                       <p>
-                        Trabajo en equipo · Decisiones basadas en datos · Adaptabilidad
-                        y gestión del cambio · Comunicación clara y asertiva · Proactividad
-                        y aprendizaje continuo · Atención al detalle y enfoque en la calidad.
+                        Trabajo en equipo · Decisiones basadas en datos · Adaptabilidad y gestión del cambio ·
+                        Comunicación clara y asertiva · Proactividad y aprendizaje continuo · Atención al detalle y
+                        enfoque en la calidad.
                       </p>
                       <p style="margin-top: 10px" class="muted">
                         <strong>Español:</strong> nativo · <strong>Inglés:</strong> intermedio (B1–B2)
@@ -1254,8 +1423,9 @@
                 <div class="cards">
                   <article class="item">
                     <h4>Aplicativo low-code nacional – Postobón S.A.</h4>
-                    <p class="muted">Control de personal y tareas de Mantenimiento · <span class="badge">~1300
-                        usuarios</span></p>
+                    <p class="muted">
+                      Control de personal y tareas de Mantenimiento · <span class="badge">~1300 usuarios</span>
+                    </p>
                     <ul class="detail-list">
                       <li>Diseño e implementación para control de personal, asignación y seguimiento.</li>
                       <li>Centralización de procesos manuales en flujo digital trazable.</li>
@@ -1291,9 +1461,7 @@
                   <article class="item">
                     <h4>Ingeniería en Datos e Inteligencia Artificial</h4>
                     <p class="muted">Universidad Autónoma de Occidente (UAO) · Cali, Colombia</p>
-                    <p class="muted" style="margin-top: 8px">
-                      Etapa final · Incluye certificación de inglés (B1/B2).
-                    </p>
+                    <p class="muted" style="margin-top: 8px">Etapa final · Incluye certificación de inglés (B1/B2).</p>
                   </article>
 
                   <article class="item">
@@ -1324,9 +1492,9 @@
                     <p class="muted">
                       Más de 18 cursos completados como parte de una ruta integral en Análisis de Datos y Business
                       Intelligence, incluyendo Power BI, DAX, Tableau, Looker Studio, Excel avanzado, forecasting,
-                      métricas de negocio, storytelling, estadística aplicada.
-                      Además de cursos de fundamentos de Python, circuitos electrónicos, electricidad e inglés técnico
-                      enfocado en tecnología e innovación.
+                      métricas de negocio, storytelling, estadística aplicada. Además de cursos de fundamentos de
+                      Python, circuitos electrónicos, electricidad e inglés técnico enfocado en tecnología e
+                      innovación.
                     </p>
                   </div>
                 </div>
@@ -1335,24 +1503,136 @@
               <!-- CONTACT -->
               <section class="page" id="contact" data-page>
                 <h2 class="section-title">Contacto</h2>
-                <p class="muted">
-                  Email: <span id="email-text">cesar.cesarreyes25@gmail.com</span>
-                </p>
+                <p class="muted">Email: <span id="email-text">cesar.cesarreyes25@gmail.com</span></p>
 
                 <div class="divider"></div>
 
                 <div class="item">
                   <h4>Mensaje rápido</h4>
-                  <p class="muted">
-                    “Hola César, vi tu perfil y me gustaría hablar sobre…”
-                  </p>
+                  <p class="muted">“Hola César, vi tu perfil y me gustaría hablar sobre…”</p>
                 </div>
 
                 <div class="divider"></div>
 
-                <p class="muted" style="text-align:center; opacity:.9;">
+                <p class="muted" style="text-align: center; opacity: 0.9">
                   © <span id="year"></span> César Reyes
                 </p>
+              </section>
+
+              <!-- INSTAGRAM -->
+              <section class="page" id="instagram" data-page>
+                <h2 class="section-title">Instagram</h2>
+                <p class="muted">
+                  Perfil y previsualización. Si el embed se bloquea, usa el botón de abrir en nueva pestaña.
+                </p>
+
+                <div class="divider"></div>
+
+                <div class="grid-2">
+                  <div class="item">
+                    <h4>Perfil</h4>
+                    <p class="muted">
+                      <span class="mono" style="color: var(--colors-tertiary--500)">USER</span>
+                      <span style="opacity: 0.8">:</span>
+                      <span>@caesar__palace</span>
+                    </p>
+                    <div class="divider"></div>
+                    <p class="muted">
+                      Link:
+                      <a id="ig-link" href="#" target="_blank" rel="noreferrer">
+                        <code id="ig-link-text">—</code>
+                      </a>
+                    </p>
+                    <div class="divider"></div>
+                    <button class="mini-btn mini-btn--ig" type="button" id="open-ig">Open Instagram</button>
+                    <button class="mini-btn" type="button" id="copy-ig">Copy link</button>
+                  </div>
+
+                  <div class="item">
+                    <h4>Preview</h4>
+
+                    <div class="embed-wrap" style="margin-top: 10px">
+                      <div class="embed-head">
+                        <h3 class="embed-title" style="color: var(--colors-tertiary--500)">Live preview</h3>
+                        <div class="embed-actions">
+                          <button class="mini-btn mini-btn--ig" type="button" id="open-ig-2">Open</button>
+                        </div>
+                      </div>
+
+                      <div class="embed-frame" style="height: 560px">
+                        <iframe id="ig-iframe" title="Instagram preview" loading="lazy" referrerpolicy="no-referrer"
+                          sandbox="allow-scripts allow-same-origin allow-forms allow-popups" src=""></iframe>
+                      </div>
+
+                      <p class="embed-hint muted">
+                        Tip: el navegador puede bloquear el perfil en iframe. Si pasa, abre con <code>Open</code>.
+                      </p>
+                      <div class="embed-fallback muted" id="ig-fallback">
+                        Preview bloqueado. Abre el perfil en una pestaña nueva.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- SPOTIFY -->
+              <section class="page" id="spotify" data-page>
+                <h2 class="section-title">Spotify</h2>
+                <p class="muted">
+                  Perfil y previsualización. (Spotify a veces bloquea iframes para perfiles de usuario).
+                </p>
+
+                <div class="divider"></div>
+
+                <div class="grid-2">
+                  <div class="item">
+                    <h4>Perfil</h4>
+                    <p class="muted">
+                      <span class="mono" style="color: var(--colors-secondary--500)">ID</span>
+                      <span style="opacity: 0.8">:</span>
+                      <span>31hu2kdccm2vguqtnndm5ecgc2jy</span>
+                    </p>
+
+                    <div class="divider"></div>
+
+                    <p class="muted">
+                      Link:
+                      <a id="sp-link" href="#" target="_blank" rel="noreferrer">
+                        <code id="sp-link-text">—</code>
+                      </a>
+                    </p>
+
+                    <div class="divider"></div>
+
+                    <button class="mini-btn" type="button" id="open-sp">Open Spotify</button>
+                    <button class="mini-btn" type="button" id="copy-sp">Copy link</button>
+                  </div>
+
+                  <div class="item">
+                    <h4>Preview</h4>
+
+                    <div class="embed-wrap" style="margin-top: 10px">
+                      <div class="embed-head">
+                        <h3 class="embed-title">Live preview</h3>
+                        <div class="embed-actions">
+                          <button class="mini-btn" type="button" id="open-sp-2">Open</button>
+                        </div>
+                      </div>
+
+                      <div class="embed-frame" style="height: 560px">
+                        <iframe id="sp-iframe" title="Spotify preview" loading="lazy" referrerpolicy="no-referrer"
+                          sandbox="allow-scripts allow-same-origin allow-forms allow-popups" src=""></iframe>
+                      </div>
+
+                      <p class="embed-hint muted">
+                        Si el iframe no carga, abre el perfil con <code>Open</code>.
+                      </p>
+                      <div class="embed-fallback muted" id="sp-fallback">
+                        Preview bloqueado. Abre el perfil en una pestaña nueva.
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </section>
             </div>
           </div>
@@ -1375,9 +1655,28 @@
 
             <div class="divider"></div>
 
+            <!-- Instagram mini preview (siempre visible) -->
+            <div class="item" style="padding-bottom: 16px">
+              <h4>Instagram</h4>
+              <p class="muted" style="margin-bottom: 10px">Previsualización rápida.</p>
+              <div class="embed-frame mini-preview" style="border-color: rgba(254, 211, 63, 0.35)">
+                <iframe id="ig-iframe-rail" title="Instagram preview (rail)" loading="lazy" referrerpolicy="no-referrer"
+                  sandbox="allow-scripts allow-same-origin allow-forms allow-popups" src=""></iframe>
+              </div>
+              <div class="embed-fallback muted" id="ig-fallback-rail" style="margin-top: 10px">
+                Preview bloqueado. Abre el perfil en Actions (U).
+              </div>
+              <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap">
+                <button class="mini-btn mini-btn--ig" type="button" id="open-ig-rail">Open</button>
+                <button class="mini-btn" type="button" id="go-ig-rail">Go to tab</button>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
             <!-- MEMENTO MORI WIDGET -->
             <button class="item" id="mm-card" type="button" popovertarget="memento" popovertargetaction="show"
-              style="width:100%; text-align:left; cursor:pointer;" aria-label="Abrir Memento Mori">
+              style="width: 100%; text-align: left; cursor: pointer" aria-label="Abrir Memento Mori">
               <div class="mm-header">
                 <h3 class="mm-title">Memento Mori</h3>
                 <span class="badge">Semanas</span>
@@ -1408,7 +1707,7 @@
             <div class="divider"></div>
 
             <p class="muted" style="margin: 0">
-              <span class="mono" style="color: var(--colors-tertiary--500);">NETWIRE_ID</span>
+              <span class="mono" style="color: var(--colors-tertiary--500)">NETWIRE_ID</span>
               <span style="opacity: 0.8">:</span>
               <span id="seed" class="muted"></span>
             </p>
@@ -1430,6 +1729,8 @@
         <div class="modal__actions">
           <button class="action-btn" data-action="linkedin" type="button">Open LinkedIn</button>
           <button class="action-btn" data-action="github" type="button">Open GitHub</button>
+          <button class="action-btn" data-action="instagram" type="button">Open Instagram</button>
+          <button class="action-btn" data-action="spotify" type="button">Open Spotify</button>
           <button class="action-btn" data-action="copy" type="button">Copy email</button>
           <button class="action-btn action-btn--danger" data-action="close" type="button">Close (Esc)</button>
         </div>
@@ -1458,7 +1759,7 @@
           <div class="item">
             <h4>Vida (estimado)</h4>
             <p class="muted mono" id="t-life">—</p>
-            <p class="muted" id="life-date" style="margin-top:8px; opacity:.9;"></p>
+            <p class="muted" id="life-date" style="margin-top: 8px; opacity: 0.9"></p>
           </div>
           <div class="item">
             <h4>Semanas</h4>
@@ -1494,14 +1795,22 @@
     function seed() {
       const s = crypto?.getRandomValues ? crypto.getRandomValues(new Uint8Array(16)) : null;
       if (!s) return "d869db7f-e62f-b07c-25a0-403e-caea5503";
-      return Array.from(s).map((b) => b.toString(16).padStart(2, "0")).join("");
+      return Array.from(s)
+        .map((b) => b.toString(16).padStart(2, "0"))
+        .join("");
     }
     $("#seed").textContent = seed();
     $("#year").textContent = new Date().getFullYear();
 
+    const INSTAGRAM_URL = "https://www.instagram.com/caesar__palace/?__pwa=1";
+    const SPOTIFY_URL =
+      "https://open.spotify.com/user/31hu2kdccm2vguqtnndm5ecgc2jy?si=fdb28cbfe7b0495b";
+
     let LINKS = {
       linkedin: "https://www.linkedin.com",
       github: "https://github.com/caesar-dat-com",
+      instagram: INSTAGRAM_URL,
+      spotify: SPOTIFY_URL,
     };
     const EMAIL = "cesar.cesarreyes25@gmail.com";
 
@@ -1521,14 +1830,7 @@
       location: "Colombia",
       publicProfileUrl: LINKS.linkedin,
       summary: defaultSummary,
-      skills: [
-        { name: "Python" },
-        { name: "Power BI" },
-        { name: "DAX" },
-        { name: "Excel" },
-        { name: "Git" },
-        { name: "HTML/CSS" },
-      ],
+      skills: [{ name: "Python" }, { name: "Power BI" }, { name: "DAX" }, { name: "Excel" }, { name: "Git" }, { name: "HTML/CSS" }],
       certifications: [],
     };
 
@@ -1596,9 +1898,7 @@
         const startDate = cert.timePeriod?.startDate
           ? `${cert.timePeriod.startDate.month}/${cert.timePeriod.startDate.year}`
           : "N/A";
-        const endDate = cert.timePeriod?.endDate
-          ? `${cert.timePeriod.endDate.month}/${cert.timePeriod.endDate.year}`
-          : "En curso";
+        const endDate = cert.timePeriod?.endDate ? `${cert.timePeriod.endDate.month}/${cert.timePeriod.endDate.year}` : "En curso";
 
         const name = cert.name || "Certificación";
         const authority = cert.authority || "N/A";
@@ -1627,6 +1927,8 @@
       education: "Formación base + especialización.",
       certs: "Certificaciones y cursos.",
       contact: "Contacto rápido vía Actions (U).",
+      instagram: "Perfil + preview (puede bloquearse por el navegador).",
+      spotify: "Perfil + preview (puede bloquearse por el navegador).",
     };
 
     function setRailActive(id) {
@@ -1642,6 +1944,8 @@
         education: "Educación",
         certs: "Certificaciones",
         contact: "Contacto",
+        instagram: "Instagram",
+        spotify: "Spotify",
       };
       $("#current-section").textContent = names[id] || "—";
       $("#snapshot").textContent = sectionMeta[id] || "Vista rápida.";
@@ -1686,6 +1990,9 @@
 
       if (act === "linkedin") window.open(LINKS.linkedin, "_blank", "noreferrer");
       if (act === "github") window.open(LINKS.github, "_blank", "noreferrer");
+      if (act === "instagram") window.open(LINKS.instagram, "_blank", "noreferrer");
+      if (act === "spotify") window.open(LINKS.spotify, "_blank", "noreferrer");
+
       if (act === "copy") {
         try {
           await navigator.clipboard.writeText(EMAIL);
@@ -1696,6 +2003,56 @@
       }
       if (act === "close") popActions.hidePopover();
     });
+
+    // ===== IG / Spotify helpers =====
+    function setHrefText(aEl, tEl, url) {
+      if (aEl) aEl.href = url;
+      if (tEl) tEl.textContent = url;
+    }
+
+    async function copyText(txt, okMsg = "COPIADO", badMsg = "NO SE PUDO COPIAR") {
+      try {
+        await navigator.clipboard.writeText(txt);
+        toast(okMsg);
+      } catch {
+        toast(badMsg);
+      }
+    }
+
+    function setIframeSafe(iframe, url, fallbackEl) {
+      if (!iframe) return;
+      if (fallbackEl) fallbackEl.classList.remove("is-on");
+
+      // set src
+      iframe.src = url;
+
+      // "Best effort" fallback: si a los X segundos sigue en about:blank o no navega, mostramos fallback
+      window.clearTimeout(iframe._ft);
+      iframe._ft = window.setTimeout(() => {
+        try {
+          // Si el navegador bloquea por X-Frame-Options, no hay evento confiable.
+          // Mostramos fallback suave igual para guiar al usuario.
+          if (fallbackEl) fallbackEl.classList.add("is-on");
+        } catch {
+          if (fallbackEl) fallbackEl.classList.add("is-on");
+        }
+      }, 2200);
+    }
+
+    // Quick buttons (About / Rail / Tabs)
+    $("#open-ig-about")?.addEventListener("click", () => window.open(LINKS.instagram, "_blank", "noreferrer"));
+    $("#go-ig-about")?.addEventListener("click", () => navigate("instagram"));
+
+    $("#open-ig")?.addEventListener("click", () => window.open(LINKS.instagram, "_blank", "noreferrer"));
+    $("#open-ig-2")?.addEventListener("click", () => window.open(LINKS.instagram, "_blank", "noreferrer"));
+    $("#copy-ig")?.addEventListener("click", () => copyText(LINKS.instagram, "LINK COPIADO"));
+
+    $("#open-sp")?.addEventListener("click", () => window.open(LINKS.spotify, "_blank", "noreferrer"));
+    $("#open-sp-2")?.addEventListener("click", () => window.open(LINKS.spotify, "_blank", "noreferrer"));
+    $("#copy-sp")?.addEventListener("click", () => copyText(LINKS.spotify, "LINK COPIADO"));
+
+    $("#open-ig-rail")?.addEventListener("click", () => window.open(LINKS.instagram, "_blank", "noreferrer"));
+    $("#go-ig-rail")?.addEventListener("click", () => navigate("instagram"));
 
     // ===== Memento Mori =====
     const popMemento = $("#memento");
@@ -1836,10 +2193,18 @@
       const lifeParts = msToParts(lifeMs);
       // Para “vida”, muestro en días + hh:mm:ss (más estable)
       $("#t-life").textContent =
-        lifeMs <= 0 ? "00:00:00" : `${lifeParts.days}d ${String(lifeParts.hours).padStart(2, "0")}:${String(lifeParts.mins).padStart(2, "0")}:${String(lifeParts.secs).padStart(2, "0")}`;
+        lifeMs <= 0
+          ? "00:00:00"
+          : `${lifeParts.days}d ${String(lifeParts.hours).padStart(2, "0")}:${String(lifeParts.mins).padStart(
+            2,
+            "0"
+          )}:${String(lifeParts.secs).padStart(2, "0")}`;
 
-      $("#life-date").textContent =
-        `Fecha estimada: ${eol.toLocaleString("es-CO", { year: "numeric", month: "long", day: "numeric" })} · (Usando ${LIFE_EXPECTANCY_YEARS_CO_MALE} años)`;
+      $("#life-date").textContent = `Fecha estimada: ${eol.toLocaleString("es-CO", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })} · (Usando ${LIFE_EXPECTANCY_YEARS_CO_MALE} años)`;
     }
 
     // Keyboard shortcuts
@@ -1852,6 +2217,8 @@
         "5": "education",
         "6": "certs",
         "7": "contact",
+        "8": "instagram",
+        "9": "spotify",
       };
 
       if (map[e.key]) navigate(map[e.key]);
@@ -1886,6 +2253,14 @@
 
     // Init
     (async function init() {
+      // set links text + href
+      setHrefText($("#ig-link"), $("#ig-link-text"), INSTAGRAM_URL);
+      setHrefText($("#sp-link"), $("#sp-link-text"), SPOTIFY_URL);
+
+      // set email text (por si lo cambias en el futuro)
+      $("#email-text").textContent = EMAIL;
+
+      // load data
       const data = await loadLinkedIn();
 
       $("#name").textContent = `${data.firstName || ""} ${data.lastName || ""}`.trim() || "César Reyes";
@@ -1897,12 +2272,25 @@
 
       if (data.publicProfileUrl) LINKS.linkedin = data.publicProfileUrl;
 
-      allSkills = (data.skills || []).map((s) => ({ name: s.name || "" })).filter((s) => s.name);
+      allSkills = (data.skills || [])
+        .map((s) => ({ name: s.name || "" }))
+        .filter((s) => s.name);
       allCerts = (data.certifications || []).filter(Boolean);
 
       renderSkills(allSkills);
       renderCerts(allCerts);
 
+      // iframes (best-effort preview)
+      setIframeSafe($("#ig-iframe"), INSTAGRAM_URL, $("#ig-fallback"));
+      setIframeSafe($("#ig-iframe-mini"), INSTAGRAM_URL, $("#ig-fallback-mini"));
+      setIframeSafe($("#ig-iframe-rail"), INSTAGRAM_URL, $("#ig-fallback-rail"));
+
+      setIframeSafe($("#sp-iframe"), SPOTIFY_URL, $("#sp-fallback"));
+
+      // Additional navigations
+      $("#go-ig-rail")?.addEventListener("click", () => navigate("instagram"));
+
+      // start route
       const start = (location.hash || "#about").replace("#", "");
       navigate(start, { pushHash: false });
 
