@@ -145,6 +145,15 @@
           <span>📍 <span id="location">—</span></span>
         </div>
         <p id="summary" class="summary"></p>
+        <div class="contact-card">
+          <strong>Contacto</strong>
+          <a id="linkedin-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+            🔗 LinkedIn
+          </a>
+          <a id="email-link" href="mailto:contacto@caesar-dat.com">
+            ✉️ contacto@caesar-dat.com
+          </a>
+        </div>
       </div>
     </section>
 
@@ -152,7 +161,8 @@
       <div class="profile-grid">
         <div>
           <h3 class="section-title">Habilidades destacadas</h3>
-          <ul id="skills"></ul>
+          <p class="section-subtitle">Tecnologías y competencias registradas en LinkedIn.</p>
+          <ul id="skills" class="chip-list"></ul>
         </div>
         <div>
           <h3 class="section-title">Certificaciones</h3>
@@ -185,6 +195,7 @@
         (data.skills || []).forEach((skill) => {
           const li = document.createElement("li");
           li.textContent = skill.name;
+          li.classList.add("chip");
           skillsList.appendChild(li);
         });
 
@@ -208,6 +219,12 @@
           `;
           certificationsList.appendChild(li);
         });
+
+        const linkedinLink = document.getElementById("linkedin-link");
+        if (data.publicProfileUrl) {
+          linkedinLink.href = data.publicProfileUrl;
+          linkedinLink.textContent = "🔗 Ver perfil en LinkedIn";
+        }
       })
       .catch((error) => console.error("Error al cargar los datos de LinkedIn:", error));
 
@@ -215,3 +232,43 @@
   </script>
 </body>
 </html>
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(36, 40, 59, 0.6);
+      border: 1px solid var(--line);
+    }
+
+    .contact-card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(121, 184, 255, 0.12);
+      border: 1px solid rgba(121, 184, 255, 0.3);
+      font-size: 0.9rem;
+    }
+
+    .section-subtitle {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
