@@ -1,66 +1,80 @@
 import { useState, useEffect } from 'react'
-import NotchCard from '../components/NotchCard'
+import GlassCard from '../components/GlassCard'
+import NeonText from '../components/NeonText'
 
 export default function CertsPage() {
   const [certs, setCerts] = useState<any[]>([])
 
   useEffect(() => {
-    const load = async () => {
-      try {
-        const res = await fetch('/data/linkedin-data.json')
-        if (res.ok) {
-          const data = await res.json()
-          setCerts(data.certifications || [])
-        }
-      } catch {
-        setCerts([])
-      }
-    }
-    load()
+    fetch('/data/linkedin-data.json')
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { if (d?.certifications) setCerts(d.certifications) })
+      .catch(() => {})
   }, [])
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div>
-        <h3 className="text-secondary-500 font-mono tracking-wider uppercase text-sm mb-3">Certificaciones (LinkedIn)</h3>
-        <div id="certifications">
-          {certs.length > 0 ? (
-            certs.map((c: any, i: number) => (
-              <NotchCard key={i} className="mb-2">
+    <div className="space-y-5">
+      <div className="animate-fade-up">
+        <NeonText as="h2" color="cyan" className="text-lg">Certificaciones</NeonText>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* LinkedIn certs */}
+        <div className="animate-fade-up stagger-1">
+          <NeonText as="h3" color="lunar" className="text-sm mb-3">LinkedIn</NeonText>
+          <div className="space-y-2">
+            {certs.length > 0 ? certs.map((c: any, i: number) => (
+              <GlassCard key={i}>
                 <div className="flex items-center justify-between mb-1">
-                  <h4 className="text-secondary-500 font-mono tracking-wider uppercase text-xs">{c.name}</h4>
+                  <NeonText as="h4" color="lunar" className="text-xs">{c.name}</NeonText>
                   {c.url && (
-                    <span className="border border-primary-600/90 text-primary-200 font-mono tracking-wider px-1.5 py-0.5 text-[0.8rem] uppercase rounded-sm">
-                      ver
-                    </span>
+                    <a
+                      href={c.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-2 py-0.5 rounded-md border border-secondary-500/15 bg-secondary-500/5
+                                 text-secondary-500 font-mono text-xs uppercase transition-all duration-300
+                                 hover:border-secondary-500/30 hover:bg-secondary-500/10"
+                    >
+                      Ver
+                    </a>
                   )}
                 </div>
-                <p className="text-primary-200 text-xs mb-1">{c.authority}</p>
-                <p className="text-primary-200 text-xs opacity-80">
+                <p className="text-primary-300 text-xs">{c.authority}</p>
+                <p className="text-primary-200 text-xs mt-0.5">
                   {c.timePeriod?.startDate?.month && c.timePeriod?.startDate?.year
                     ? `${c.timePeriod.startDate.month}/${c.timePeriod.startDate.year}`
                     : '—'}
                 </p>
-              </NotchCard>
-            ))
-          ) : (
-            <p className="text-primary-200 text-sm">Cargando certificaciones...</p>
-          )}
+              </GlassCard>
+            )) : (
+              <p className="text-primary-200 text-sm">Cargando certificaciones...</p>
+            )}
+          </div>
         </div>
-        <p className="text-primary-200 text-xs mt-2">Formación adicional: +18 cursos BI/Analytics</p>
-      </div>
 
-      <div>
-        <h3 className="text-secondary-500 font-mono tracking-wider uppercase text-sm mb-3">Formación adicional</h3>
-        <NotchCard>
-          <p className="text-primary-200 text-sm leading-relaxed">
-            Más de 18 cursos completados como parte de una ruta integral en Análisis de Datos y Business Intelligence, incluyendo:
-          </p>
-          <ul className="list-disc pl-5 space-y-1 text-primary-200 text-sm mt-2">
-            <li>Power BI, DAX, Tableau, Looker Studio, Excel avanzado, forecasting, métricas de negocio, storytelling, estadística aplicada.</li>
-            <li>Python, circuitos electrónicos, electricidad e inglés técnico enfocado en tecnología e innovación.</li>
-          </ul>
-        </NotchCard>
+        {/* Additional training */}
+        <div className="animate-fade-up stagger-2">
+          <NeonText as="h3" color="cyan" className="text-sm mb-3">Formación adicional</NeonText>
+          <GlassCard glow="lunar">
+            <p className="text-primary-300 text-sm leading-relaxed mb-3">
+              Más de 18 cursos completados como parte de una ruta integral en Análisis de Datos y Business Intelligence:
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {['Power BI', 'DAX', 'Tableau', 'Looker Studio', 'Excel', 'Forecasting',
+                'Storytelling', 'Estadística', 'Python', 'Git'].map(s => (
+                <span
+                  key={s}
+                  className="px-2 py-1 rounded-md border border-secondary-500/10 bg-secondary-500/4
+                             text-primary-300 font-mono text-xs uppercase
+                             transition-all duration-300 hover:border-secondary-500/20"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+          </GlassCard>
+        </div>
       </div>
     </div>
   )

@@ -6,6 +6,7 @@ import NavRail from './components/NavRail'
 import SnapshotRail from './components/SnapshotRail'
 import MementoMori from './components/MementoMori'
 import CvGenerator from './components/CvGenerator'
+import StarField from './components/StarField'
 
 // Pages
 import AboutPage from './pages/AboutPage'
@@ -112,6 +113,8 @@ export default function App() {
 
   return (
     <div className="app-skeleton" id="top">
+      {/* Starfield background — Artemis 2 lunar aesthetic */}
+      <StarField />
       {/* ─── Header ─── */}
       <header className="app-header">
         <a className="brand" href="#top" aria-label="Inicio">
