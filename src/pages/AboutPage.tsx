@@ -40,21 +40,21 @@ export default function AboutPage() {
   }
 
   return (
-    <div className="space-y-5">
-      {/* Hero section */}
-      <div className="animate-fade-up">
-        <NeonText as="h1" color="cyan" className="text-4xl font-bold tracking-widest">
-          {p.firstName} {p.lastName}
-        </NeonText>
-        <p className="text-primary-300 mt-2 text-lg">{p.headline}</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-secondary-500/15 bg-secondary-500/5 text-primary-300 text-sm backdrop-blur-sm">
+    <div className="space-y-6">
+      {/* Hero — Apple clean, big name */}
+      <div className="animate-spring-in">
+        <h1 className="text-4xl font-bold tracking-tight text-primary-500">
+          {p.firstName} <span className="text-secondary-500">{p.lastName}</span>
+        </h1>
+        <p className="text-primary-300 mt-2 text-lg tracking-wide">{p.headline}</p>
+        <div className="mt-5 flex flex-wrap gap-2.5">
+          <span className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-secondary-500/10 bg-secondary-500/5 text-primary-300 text-sm backdrop-blur-sm transition-all duration-300 hover:bg-secondary-500/10 hover:-translate-y-0.5">
             💼 {p.headline}
           </span>
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-lunar-200/30 bg-lunar-100/50 text-primary-300 text-sm backdrop-blur-sm">
+          <span className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-lunar-200/30 bg-lunar-100/50 text-primary-300 text-sm backdrop-blur-sm transition-all duration-300 hover:bg-lunar-200/15 hover:-translate-y-0.5">
             📍 {p.location}
           </span>
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-tertiary-500/15 bg-tertiary-500/5 text-primary-300 text-sm backdrop-blur-sm">
+          <span className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-tertiary-500/10 bg-tertiary-500/4 text-primary-300 text-sm backdrop-blur-sm transition-all duration-300 hover:bg-tertiary-500/8 hover:-translate-y-0.5">
             ⚡ Automatización · Datos · IA
           </span>
         </div>
@@ -62,17 +62,17 @@ export default function AboutPage() {
 
       <div className="separator" />
 
-      {/* Summary */}
+      {/* Summary — Apple clean typography */}
       <p className="text-primary-300 text-lg leading-relaxed animate-fade-up stagger-1">
         {p.summary}
       </p>
 
       <div className="separator" />
 
-      {/* Info cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-up stagger-2">
-        <GlassCard glow="cyan">
-          <NeonText as="h4" color="cyan" className="text-sm mb-2">Enfoque actual</NeonText>
+      {/* Info cards — Liquid Glass */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-spring-in stagger-2">
+        <GlassCard glow="blue">
+          <NeonText as="h4" color="blue" className="text-sm mb-2">Enfoque actual</NeonText>
           <p className="text-primary-300 text-sm leading-relaxed">
             Ingeniería en Datos e IA (UAO) + automatización de procesos y mejora continua (experiencia industrial).
           </p>
@@ -87,8 +87,8 @@ export default function AboutPage() {
         </GlassCard>
       </div>
 
-      {/* Mission statement — Artemis reference */}
-      <GlassCard className="animate-fade-up stagger-3">
+      {/* Mission — Apple inspirational */}
+      <GlassCard className="animate-spring-in stagger-3">
         <div className="flex items-start gap-3">
           <span className="text-2xl">🌙</span>
           <div>
@@ -103,7 +103,7 @@ export default function AboutPage() {
         </div>
       </GlassCard>
 
-      {/* Links */}
+      {/* Links — Apple pill buttons */}
       <div className="flex flex-wrap gap-3 animate-fade-up stagger-4">
         {Object.entries(LINKS).map(([key, url]) => (
           <a
@@ -111,10 +111,11 @@ export default function AboutPage() {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded-lg border border-secondary-500/10 bg-secondary-500/5 text-primary-300 text-sm
+            className="px-5 py-2.5 rounded-xl border border-primary-600/10 bg-bg-300/80 text-primary-300 text-sm font-medium
                        backdrop-blur-sm transition-all duration-300
-                       hover:border-secondary-500/25 hover:bg-secondary-500/10 hover:shadow-[0_0_15px_rgba(0,240,255,0.1)]
-                       hover:-translate-y-0.5"
+                       hover:border-secondary-500/20 hover:bg-secondary-500/5 hover:text-secondary-500
+                       hover:shadow-[0_4px_16px_rgba(0,113,227,0.08)]
+                       hover:-translate-y-0.5 active:scale-[0.98]"
           >
             {key === 'linkedin' ? '💼 LinkedIn' :
              key === 'github' ? '⚡ GitHub' :

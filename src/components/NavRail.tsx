@@ -12,7 +12,7 @@ export default function NavRail({ active, onNavigate }: NavRailProps) {
         <div className="p-3 min-w-0 overflow-auto overscroll-contain h-full scrollbar-thin overflow-x-hidden">
 
           {/* Navigation */}
-          <p className="text-secondary-500 font-mono tracking-[0.18em] uppercase text-[0.55rem] opacity-60 mb-2 px-1">
+          <p className="text-secondary-500 font-mono tracking-[0.18em] uppercase text-[0.55rem] opacity-50 mb-2 px-1">
             Nav
           </p>
           <ul className="list-none m-0 p-0 flex flex-col gap-0.5 mb-3">
@@ -28,8 +28,8 @@ export default function NavRail({ active, onNavigate }: NavRailProps) {
                     focus-visible:outline-none focus-visible:ring-2
                     focus-visible:ring-secondary-500/40
                     ${active === s.id
-                      ? 'bg-secondary-500/8 border-secondary-500/18 text-primary-500 shadow-[0_0_10px_rgba(0,240,255,0.06)]'
-                      : 'bg-transparent border-transparent text-primary-300 hover:bg-lunar-100/50 hover:text-primary-500 hover:translate-x-px hover:border-lunar-200/15'
+                      ? 'bg-secondary-500/5 border-secondary-500/12 text-primary-500 shadow-[0_2px_8px_rgba(0,113,227,0.06)]'
+                      : 'bg-transparent border-transparent text-primary-300 hover:bg-primary-600/4 hover:text-primary-500 hover:translate-x-px hover:border-primary-600/6'
                     }
                   `}
                 >
@@ -92,7 +92,7 @@ function NavActions() {
           data-action={action}
           className={`w-full text-left flex items-center gap-2.5 px-2 py-[7px]
             rounded-lg border border-transparent bg-transparent cursor-pointer
-            transition-all duration-200 hover:bg-lunar-100/50 hover:border-lunar-200/10 ${color}`}
+            transition-all duration-200 hover:bg-primary-600/4 hover:border-primary-600/4 ${color}`}
         >
           <span className={`${bg} text-bg-300 font-bold w-5 h-5 text-[0.5rem] rounded-full inline-grid place-items-center flex-none`}>
             {key}

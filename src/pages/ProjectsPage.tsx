@@ -5,15 +5,15 @@ export default function ProjectsPage() {
   return (
     <div className="space-y-5">
       <div className="animate-fade-up">
-        <NeonText as="h2" color="cyan" className="text-lg">Proyectos</NeonText>
+        <NeonText as="h2" color="blue" className="text-lg">Proyectos</NeonText>
         <p className="text-primary-300 text-sm mt-1">Construcción de soluciones útiles y medibles.</p>
       </div>
 
-      <GlassCard glow="cyan" className="animate-fade-up stagger-1">
-        <NeonText as="h4" color="cyan" className="text-sm mb-2">Aplicativo low-code nacional</NeonText>
+      <GlassCard glow="blue" className="animate-spring-in stagger-1">
+        <NeonText as="h4" color="blue" className="text-sm mb-2">Aplicativo low-code nacional</NeonText>
         <p className="text-primary-300 text-sm mb-3">
           Control de personal y tareas de Mantenimiento ·{' '}
-          <span className="px-2 py-0.5 rounded-md border border-tertiary-500/20 bg-tertiary-500/8 text-tertiary-500 font-mono tracking-wider text-xs uppercase">
+          <span className="px-2.5 py-0.5 rounded-lg border border-tertiary-500/12 bg-tertiary-500/4 text-tertiary-500 font-mono tracking-wider text-xs uppercase">
             ~1300 usuarios
           </span>
         </p>
@@ -23,10 +23,10 @@ export default function ProjectsPage() {
         </ul>
       </GlassCard>
 
-      <GlassCard glow="lunar" className="animate-fade-up stagger-2">
+      <GlassCard glow="lunar" className="animate-spring-in stagger-2">
         <div className="flex items-center gap-3 mb-2">
           <NeonText as="h4" color="lunar" className="text-sm">Rally Latinoamericano de Innovación</NeonText>
-          <span className="px-2 py-0.5 rounded-md border border-tertiary-500/20 bg-tertiary-500/8 text-tertiary-500 font-mono tracking-wider text-xs uppercase">
+          <span className="px-2.5 py-0.5 rounded-lg border border-tertiary-500/12 bg-tertiary-500/4 text-tertiary-500 font-mono tracking-wider text-xs uppercase">
             🏆 1er lugar
           </span>
         </div>
@@ -36,7 +36,7 @@ export default function ProjectsPage() {
         </ul>
       </GlassCard>
 
-      <GlassCard className="animate-fade-up stagger-3">
+      <GlassCard className="animate-spring-in stagger-3">
         <NeonText as="h4" color="lunar" className="text-sm mb-2">Platzi Space Program</NeonText>
         <p className="text-primary-300 text-sm mb-2">Programa intensivo · Satélite</p>
         <ul className="list-disc pl-5 space-y-1 text-primary-300 text-sm">

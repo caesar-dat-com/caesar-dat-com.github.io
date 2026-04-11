@@ -14,13 +14,13 @@ export default function CertsPage() {
 
   return (
     <div className="space-y-5">
-      <div className="animate-fade-up">
-        <NeonText as="h2" color="cyan" className="text-lg">Certificaciones</NeonText>
+      <div className="animate-spring-in">
+        <NeonText as="h2" color="blue" className="text-lg">Certificaciones</NeonText>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* LinkedIn certs */}
-        <div className="animate-fade-up stagger-1">
+        <div className="animate-spring-in stagger-1">
           <NeonText as="h3" color="lunar" className="text-sm mb-3">LinkedIn</NeonText>
           <div className="space-y-2">
             {certs.length > 0 ? certs.map((c: any, i: number) => (
@@ -32,9 +32,9 @@ export default function CertsPage() {
                       href={c.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-2 py-0.5 rounded-md border border-secondary-500/15 bg-secondary-500/5
+                      className="px-2.5 py-0.5 rounded-lg border border-secondary-500/10 bg-secondary-500/4
                                  text-secondary-500 font-mono text-xs uppercase transition-all duration-300
-                                 hover:border-secondary-500/30 hover:bg-secondary-500/10"
+                                 hover:border-secondary-500/20 hover:bg-secondary-500/8"
                     >
                       Ver
                     </a>
@@ -54,8 +54,8 @@ export default function CertsPage() {
         </div>
 
         {/* Additional training */}
-        <div className="animate-fade-up stagger-2">
-          <NeonText as="h3" color="cyan" className="text-sm mb-3">Formación adicional</NeonText>
+        <div className="animate-spring-in stagger-2">
+          <NeonText as="h3" color="blue" className="text-sm mb-3">Formación adicional</NeonText>
           <GlassCard glow="lunar">
             <p className="text-primary-300 text-sm leading-relaxed mb-3">
               Más de 18 cursos completados como parte de una ruta integral en Análisis de Datos y Business Intelligence:
@@ -65,9 +65,9 @@ export default function CertsPage() {
                 'Storytelling', 'Estadística', 'Python', 'Git'].map(s => (
                 <span
                   key={s}
-                  className="px-2 py-1 rounded-md border border-secondary-500/10 bg-secondary-500/4
+                  className="px-2.5 py-1 rounded-lg border border-primary-600/6 bg-bg-300/50
                              text-primary-300 font-mono text-xs uppercase
-                             transition-all duration-300 hover:border-secondary-500/20"
+                             transition-all duration-300 hover:border-secondary-500/12 hover:bg-secondary-500/4"
                 >
                   {s}
                 </span>

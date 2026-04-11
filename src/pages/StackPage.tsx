@@ -16,17 +16,17 @@ export default function StackPage() {
   return (
     <div className="space-y-6">
       {/* LinkedIn Skills */}
-      <div className="animate-fade-up">
-        <NeonText as="h3" color="cyan" className="text-sm mb-3">Skills (LinkedIn)</NeonText>
+      <div className="animate-spring-in">
+        <NeonText as="h3" color="blue" className="text-sm mb-3">Skills (LinkedIn)</NeonText>
         <div className="flex flex-wrap gap-2">
           {skills.length > 0 ? skills.map((s, i) => (
             <span
               key={i}
-              className="px-3 py-1.5 rounded-lg border border-secondary-500/12 bg-secondary-500/5
+              className="px-3.5 py-1.5 rounded-xl border border-primary-600/8 bg-bg-300/60
                          text-primary-300 font-mono tracking-wider text-sm uppercase
                          backdrop-blur-sm transition-all duration-300
-                         hover:border-secondary-500/25 hover:bg-secondary-500/10
-                         hover:shadow-[0_0_12px_rgba(0,240,255,0.08)] hover:-translate-y-0.5"
+                         hover:border-secondary-500/15 hover:bg-secondary-500/5 hover:text-secondary-500
+                         hover:-translate-y-0.5"
             >
               {s}
             </span>
@@ -39,7 +39,7 @@ export default function StackPage() {
       <div className="separator" />
 
       {/* Core Skills Grid */}
-      <div className="animate-fade-up stagger-1">
+      <div className="animate-spring-in stagger-1">
         <NeonText as="h3" color="lunar" className="text-sm mb-3">Skills clave</NeonText>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
           {CORE_SKILLS.map((s, i) => (
@@ -57,8 +57,8 @@ export default function StackPage() {
       <div className="separator" />
 
       {/* Soft Skills & Languages */}
-      <div className="animate-fade-up stagger-2">
-        <NeonText as="h3" color="cyan" className="text-sm mb-3">Soft skills & idiomas</NeonText>
+      <div className="animate-spring-in stagger-2">
+        <NeonText as="h3" color="blue" className="text-sm mb-3">Soft skills & idiomas</NeonText>
         <GlassCard glow="lunar" className="mb-4">
           <p className="text-primary-300 text-sm leading-relaxed">
             {SOFT_SKILLS.join(' · ')}
