@@ -1,0 +1,513 @@
+{
+    "firstName": "cesar",
+    "lastName": "reyes",
+    "headline": "POSTOBON S.A.",
+    "location": "Cali, Valle del Cauca",
+    "summary": "",
+    "skills": [
+        {
+            "name": "Innovación, Liderazgo de equipos, Creatividad"
+        },
+        {
+            "name": "Innovación, Creatividad, Resolución de problemas"
+        },
+        {
+            "name": "Capacidad de análisis"
+        },
+        {
+            "name": "Microsoft Power BI"
+        }
+    ],
+    "certifications": [
+        {
+            "authority": "Platzi",
+            "name": "Curso de Pensamiento Lógico: Manejo de Datos, Estructuras y Funciones",
+            "timePeriod": {
+                "startDate": {
+                    "month": 8,
+                    "year": 2022
+                }
+            },
+            "licenseNumber": "d8891339-4788-4b2c-9bfb-755f9523f7dd",
+            "company": {
+                "objectUrn": "urn:li:company:2822346",
+                "entityUrn": "urn:li:fs_miniCompany:2822346",
+                "name": "Platzi",
+                "showcase": false,
+                "active": true,
+                "logo": {
+                    "com.linkedin.common.VectorImage": {
+                        "artifacts": [
+                            {
+                                "width": 200,
+                                "fileIdentifyingUrlPathSegment": "200_200/company-logo_200_200/0/1677870818258/platzi_inc_logo?e=1740614400&v=beta&t=IYD2wTR36WGVagH6ZAQ7da9hkIsqr03cifRhfuPlnto",
+                                "expiresAt": 1740614400000,
+                                "height": 200
+                            },
+                            {
+                                "width": 100,
+                                "fileIdentifyingUrlPathSegment": "100_100/company-logo_100_100/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=azUnx0m0BXIgbHLSrjJtAIo5jpJxS-Ic_5-CjL57brQ",
+                                "expiresAt": 1740614400000,
+                                "height": 100
+                            },
+                            {
+                                "width": 400,
+                                "fileIdentifyingUrlPathSegment": "400_400/company-logo_400_400/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=zzFMT4l1TAxN9FBodqKid16-8DreefQMrdkevWaMjzE",
+                                "expiresAt": 1740614400000,
+                                "height": 400
+                            }
+                        ],
+                        "rootUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEOTcHh0HnWwQ/company-logo_"
+                    }
+                },
+                "universalName": "platzi-inc",
+                "dashCompanyUrn": "urn:li:fsd_company:2822346",
+                "trackingId": "9nCtIrSGTH6jIx4DD6HPng=="
+            },
+            "displaySource": "platzi.com",
+            "companyUrn": "urn:li:fs_miniCompany:2822346",
+            "url": "https://platzi.com/p/cesar.cesarreyes25390/curso/3222-pensamiento-logico-estructuras/diploma/detalle/"
+        },
+        {
+            "authority": "Platzi",
+            "name": "Curso Profesional de Git y GitHub",
+            "timePeriod": {
+                "startDate": {
+                    "month": 5,
+                    "year": 2023
+                }
+            },
+            "licenseNumber": "05970d36-3a68-4f43-b3d5-151422af3ee0",
+            "company": {
+                "objectUrn": "urn:li:company:2822346",
+                "entityUrn": "urn:li:fs_miniCompany:2822346",
+                "name": "Platzi",
+                "showcase": false,
+                "active": true,
+                "logo": {
+                    "com.linkedin.common.VectorImage": {
+                        "artifacts": [
+                            {
+                                "width": 200,
+                                "fileIdentifyingUrlPathSegment": "200_200/company-logo_200_200/0/1677870818258/platzi_inc_logo?e=1740614400&v=beta&t=IYD2wTR36WGVagH6ZAQ7da9hkIsqr03cifRhfuPlnto",
+                                "expiresAt": 1740614400000,
+                                "height": 200
+                            },
+                            {
+                                "width": 100,
+                                "fileIdentifyingUrlPathSegment": "100_100/company-logo_100_100/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=azUnx0m0BXIgbHLSrjJtAIo5jpJxS-Ic_5-CjL57brQ",
+                                "expiresAt": 1740614400000,
+                                "height": 100
+                            },
+                            {
+                                "width": 400,
+                                "fileIdentifyingUrlPathSegment": "400_400/company-logo_400_400/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=zzFMT4l1TAxN9FBodqKid16-8DreefQMrdkevWaMjzE",
+                                "expiresAt": 1740614400000,
+                                "height": 400
+                            }
+                        ],
+                        "rootUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEOTcHh0HnWwQ/company-logo_"
+                    }
+                },
+                "universalName": "platzi-inc",
+                "dashCompanyUrn": "urn:li:fsd_company:2822346",
+                "trackingId": "XzeDA2qXRMu1JxrGipGmkQ=="
+            },
+            "displaySource": "platzi.com",
+            "companyUrn": "urn:li:fs_miniCompany:2822346",
+            "url": "https://platzi.com/p/cesar.cesarreyes25390/curso/1557-git-github/diploma/detalle/"
+        },
+        {
+            "authority": "Platzi",
+            "name": "Curso de Pensamiento Lógico: Lenguajes de Programación",
+            "timePeriod": {
+                "startDate": {
+                    "month": 8,
+                    "year": 2022
+                }
+            },
+            "licenseNumber": "d4418088-8a5a-4923-9046-c1d44ce2c1ce",
+            "company": {
+                "objectUrn": "urn:li:company:2822346",
+                "entityUrn": "urn:li:fs_miniCompany:2822346",
+                "name": "Platzi",
+                "showcase": false,
+                "active": true,
+                "logo": {
+                    "com.linkedin.common.VectorImage": {
+                        "artifacts": [
+                            {
+                                "width": 200,
+                                "fileIdentifyingUrlPathSegment": "200_200/company-logo_200_200/0/1677870818258/platzi_inc_logo?e=1740614400&v=beta&t=IYD2wTR36WGVagH6ZAQ7da9hkIsqr03cifRhfuPlnto",
+                                "expiresAt": 1740614400000,
+                                "height": 200
+                            },
+                            {
+                                "width": 100,
+                                "fileIdentifyingUrlPathSegment": "100_100/company-logo_100_100/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=azUnx0m0BXIgbHLSrjJtAIo5jpJxS-Ic_5-CjL57brQ",
+                                "expiresAt": 1740614400000,
+                                "height": 100
+                            },
+                            {
+                                "width": 400,
+                                "fileIdentifyingUrlPathSegment": "400_400/company-logo_400_400/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=zzFMT4l1TAxN9FBodqKid16-8DreefQMrdkevWaMjzE",
+                                "expiresAt": 1740614400000,
+                                "height": 400
+                            }
+                        ],
+                        "rootUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEOTcHh0HnWwQ/company-logo_"
+                    }
+                },
+                "universalName": "platzi-inc",
+                "dashCompanyUrn": "urn:li:fsd_company:2822346",
+                "trackingId": "sWHn8Kq6S8q8OjGV6g8OPg=="
+            },
+            "displaySource": "platzi.com",
+            "companyUrn": "urn:li:fs_miniCompany:2822346",
+            "url": "https://platzi.com/p/cesar.cesarreyes25390/curso/3223-pensamiento-logico-lenguajes/diploma/detalle/"
+        },
+        {
+            "authority": "Platzi",
+            "name": "Curso de Pensamiento Lógico: Algoritmos y Diagramas de Flujo",
+            "timePeriod": {
+                "startDate": {
+                    "month": 8,
+                    "year": 2022
+                }
+            },
+            "licenseNumber": "43778f43-1510-4340-b5de-e349e3a7bd8b",
+            "company": {
+                "objectUrn": "urn:li:company:2822346",
+                "entityUrn": "urn:li:fs_miniCompany:2822346",
+                "name": "Platzi",
+                "showcase": false,
+                "active": true,
+                "logo": {
+                    "com.linkedin.common.VectorImage": {
+                        "artifacts": [
+                            {
+                                "width": 200,
+                                "fileIdentifyingUrlPathSegment": "200_200/company-logo_200_200/0/1677870818258/platzi_inc_logo?e=1740614400&v=beta&t=IYD2wTR36WGVagH6ZAQ7da9hkIsqr03cifRhfuPlnto",
+                                "expiresAt": 1740614400000,
+                                "height": 200
+                            },
+                            {
+                                "width": 100,
+                                "fileIdentifyingUrlPathSegment": "100_100/company-logo_100_100/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=azUnx0m0BXIgbHLSrjJtAIo5jpJxS-Ic_5-CjL57brQ",
+                                "expiresAt": 1740614400000,
+                                "height": 100
+                            },
+                            {
+                                "width": 400,
+                                "fileIdentifyingUrlPathSegment": "400_400/company-logo_400_400/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=zzFMT4l1TAxN9FBodqKid16-8DreefQMrdkevWaMjzE",
+                                "expiresAt": 1740614400000,
+                                "height": 400
+                            }
+                        ],
+                        "rootUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEOTcHh0HnWwQ/company-logo_"
+                    }
+                },
+                "universalName": "platzi-inc",
+                "dashCompanyUrn": "urn:li:fsd_company:2822346",
+                "trackingId": "Y/r+WQZ5SJqpKJIN0My9Aw=="
+            },
+            "displaySource": "platzi.com",
+            "companyUrn": "urn:li:fs_miniCompany:2822346",
+            "url": "https://platzi.com/p/cesar.cesarreyes25390/curso/3221-pensamiento-logico/diploma/detalle/"
+        },
+        {
+            "authority": "Platzi",
+            "name": "Curso de Pensamiento Lógico: Algoritmos y Diagramas de Flujo",
+            "timePeriod": {
+                "startDate": {
+                    "month": 8,
+                    "year": 2022
+                }
+            },
+            "licenseNumber": "43778f43-1510-4340-b5de-e349e3a7bd8b",
+            "company": {
+                "objectUrn": "urn:li:company:2822346",
+                "entityUrn": "urn:li:fs_miniCompany:2822346",
+                "name": "Platzi",
+                "showcase": false,
+                "active": true,
+                "logo": {
+                    "com.linkedin.common.VectorImage": {
+                        "artifacts": [
+                            {
+                                "width": 200,
+                                "fileIdentifyingUrlPathSegment": "200_200/company-logo_200_200/0/1677870818258/platzi_inc_logo?e=1740614400&v=beta&t=IYD2wTR36WGVagH6ZAQ7da9hkIsqr03cifRhfuPlnto",
+                                "expiresAt": 1740614400000,
+                                "height": 200
+                            },
+                            {
+                                "width": 100,
+                                "fileIdentifyingUrlPathSegment": "100_100/company-logo_100_100/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=azUnx0m0BXIgbHLSrjJtAIo5jpJxS-Ic_5-CjL57brQ",
+                                "expiresAt": 1740614400000,
+                                "height": 100
+                            },
+                            {
+                                "width": 400,
+                                "fileIdentifyingUrlPathSegment": "400_400/company-logo_400_400/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=zzFMT4l1TAxN9FBodqKid16-8DreefQMrdkevWaMjzE",
+                                "expiresAt": 1740614400000,
+                                "height": 400
+                            }
+                        ],
+                        "rootUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEOTcHh0HnWwQ/company-logo_"
+                    }
+                },
+                "universalName": "platzi-inc",
+                "dashCompanyUrn": "urn:li:fsd_company:2822346",
+                "trackingId": "KFWFm7jyT4StYrEr5oPnEQ=="
+            },
+            "displaySource": "platzi.com",
+            "companyUrn": "urn:li:fs_miniCompany:2822346",
+            "url": "https://platzi.com/p/cesar.cesarreyes25390/curso/3221-pensamiento-logico/diploma/detalle/"
+        },
+        {
+            "authority": "Platzi",
+            "name": "Curso de Introducción a la Web: Historia y Funcionamiento de Internet",
+            "timePeriod": {
+                "startDate": {
+                    "month": 5,
+                    "year": 2023
+                }
+            },
+            "licenseNumber": "a087bd5f-ea24-435b-a8a3-9638791a92ce",
+            "company": {
+                "objectUrn": "urn:li:company:2822346",
+                "entityUrn": "urn:li:fs_miniCompany:2822346",
+                "name": "Platzi",
+                "showcase": false,
+                "active": true,
+                "logo": {
+                    "com.linkedin.common.VectorImage": {
+                        "artifacts": [
+                            {
+                                "width": 200,
+                                "fileIdentifyingUrlPathSegment": "200_200/company-logo_200_200/0/1677870818258/platzi_inc_logo?e=1740614400&v=beta&t=IYD2wTR36WGVagH6ZAQ7da9hkIsqr03cifRhfuPlnto",
+                                "expiresAt": 1740614400000,
+                                "height": 200
+                            },
+                            {
+                                "width": 100,
+                                "fileIdentifyingUrlPathSegment": "100_100/company-logo_100_100/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=azUnx0m0BXIgbHLSrjJtAIo5jpJxS-Ic_5-CjL57brQ",
+                                "expiresAt": 1740614400000,
+                                "height": 100
+                            },
+                            {
+                                "width": 400,
+                                "fileIdentifyingUrlPathSegment": "400_400/company-logo_400_400/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=zzFMT4l1TAxN9FBodqKid16-8DreefQMrdkevWaMjzE",
+                                "expiresAt": 1740614400000,
+                                "height": 400
+                            }
+                        ],
+                        "rootUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEOTcHh0HnWwQ/company-logo_"
+                    }
+                },
+                "universalName": "platzi-inc",
+                "dashCompanyUrn": "urn:li:fsd_company:2822346",
+                "trackingId": "TL0EGJ9jTkuHiBlbVoYrmQ=="
+            },
+            "displaySource": "platzi.com",
+            "companyUrn": "urn:li:fs_miniCompany:2822346",
+            "url": "https://platzi.com/p/cesar.cesarreyes25390/curso/2053-intro-historia-internet/diploma/detalle/"
+        },
+        {
+            "authority": "Platzi",
+            "name": "Curso de Introducción a la Terminal y Línea de Comandos",
+            "timePeriod": {
+                "startDate": {
+                    "month": 3,
+                    "year": 2023
+                }
+            },
+            "licenseNumber": "ca5e13b0-13bf-46c9-9c07-be5dc5040245",
+            "company": {
+                "objectUrn": "urn:li:company:2822346",
+                "entityUrn": "urn:li:fs_miniCompany:2822346",
+                "name": "Platzi",
+                "showcase": false,
+                "active": true,
+                "logo": {
+                    "com.linkedin.common.VectorImage": {
+                        "artifacts": [
+                            {
+                                "width": 200,
+                                "fileIdentifyingUrlPathSegment": "200_200/company-logo_200_200/0/1677870818258/platzi_inc_logo?e=1740614400&v=beta&t=IYD2wTR36WGVagH6ZAQ7da9hkIsqr03cifRhfuPlnto",
+                                "expiresAt": 1740614400000,
+                                "height": 200
+                            },
+                            {
+                                "width": 100,
+                                "fileIdentifyingUrlPathSegment": "100_100/company-logo_100_100/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=azUnx0m0BXIgbHLSrjJtAIo5jpJxS-Ic_5-CjL57brQ",
+                                "expiresAt": 1740614400000,
+                                "height": 100
+                            },
+                            {
+                                "width": 400,
+                                "fileIdentifyingUrlPathSegment": "400_400/company-logo_400_400/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=zzFMT4l1TAxN9FBodqKid16-8DreefQMrdkevWaMjzE",
+                                "expiresAt": 1740614400000,
+                                "height": 400
+                            }
+                        ],
+                        "rootUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEOTcHh0HnWwQ/company-logo_"
+                    }
+                },
+                "universalName": "platzi-inc",
+                "dashCompanyUrn": "urn:li:fsd_company:2822346",
+                "trackingId": "wFBczn2pTie0YZvleuk9Hg=="
+            },
+            "displaySource": "platzi.com",
+            "companyUrn": "urn:li:fs_miniCompany:2822346",
+            "url": "https://platzi.com/p/cesar.cesarreyes25390/curso/2292-terminal/diploma/detalle/"
+        },
+        {
+            "authority": "Platzi",
+            "name": "Curso Definitivo de HTML y CSS",
+            "timePeriod": {
+                "startDate": {
+                    "month": 5,
+                    "year": 2023
+                }
+            },
+            "licenseNumber": "685b65da-4cd4-4b63-bc62-dad13c335540",
+            "company": {
+                "objectUrn": "urn:li:company:2822346",
+                "entityUrn": "urn:li:fs_miniCompany:2822346",
+                "name": "Platzi",
+                "showcase": false,
+                "active": true,
+                "logo": {
+                    "com.linkedin.common.VectorImage": {
+                        "artifacts": [
+                            {
+                                "width": 200,
+                                "fileIdentifyingUrlPathSegment": "200_200/company-logo_200_200/0/1677870818258/platzi_inc_logo?e=1740614400&v=beta&t=IYD2wTR36WGVagH6ZAQ7da9hkIsqr03cifRhfuPlnto",
+                                "expiresAt": 1740614400000,
+                                "height": 200
+                            },
+                            {
+                                "width": 100,
+                                "fileIdentifyingUrlPathSegment": "100_100/company-logo_100_100/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=azUnx0m0BXIgbHLSrjJtAIo5jpJxS-Ic_5-CjL57brQ",
+                                "expiresAt": 1740614400000,
+                                "height": 100
+                            },
+                            {
+                                "width": 400,
+                                "fileIdentifyingUrlPathSegment": "400_400/company-logo_400_400/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=zzFMT4l1TAxN9FBodqKid16-8DreefQMrdkevWaMjzE",
+                                "expiresAt": 1740614400000,
+                                "height": 400
+                            }
+                        ],
+                        "rootUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEOTcHh0HnWwQ/company-logo_"
+                    }
+                },
+                "universalName": "platzi-inc",
+                "dashCompanyUrn": "urn:li:fsd_company:2822346",
+                "trackingId": "y2C5lxbDQj2bje5Y9yMaFA=="
+            },
+            "displaySource": "platzi.com",
+            "companyUrn": "urn:li:fs_miniCompany:2822346",
+            "url": "https://platzi.com/p/cesar.cesarreyes25390/curso/2008-html-css/diploma/detalle/"
+        },
+        {
+            "authority": "Platzi",
+            "name": "Curso de Diseño para Developers",
+            "timePeriod": {
+                "startDate": {
+                    "month": 5,
+                    "year": 2023
+                }
+            },
+            "licenseNumber": "a83d486f-4976-41b0-bde5-415338739271",
+            "company": {
+                "objectUrn": "urn:li:company:2822346",
+                "entityUrn": "urn:li:fs_miniCompany:2822346",
+                "name": "Platzi",
+                "showcase": false,
+                "active": true,
+                "logo": {
+                    "com.linkedin.common.VectorImage": {
+                        "artifacts": [
+                            {
+                                "width": 200,
+                                "fileIdentifyingUrlPathSegment": "200_200/company-logo_200_200/0/1677870818258/platzi_inc_logo?e=1740614400&v=beta&t=IYD2wTR36WGVagH6ZAQ7da9hkIsqr03cifRhfuPlnto",
+                                "expiresAt": 1740614400000,
+                                "height": 200
+                            },
+                            {
+                                "width": 100,
+                                "fileIdentifyingUrlPathSegment": "100_100/company-logo_100_100/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=azUnx0m0BXIgbHLSrjJtAIo5jpJxS-Ic_5-CjL57brQ",
+                                "expiresAt": 1740614400000,
+                                "height": 100
+                            },
+                            {
+                                "width": 400,
+                                "fileIdentifyingUrlPathSegment": "400_400/company-logo_400_400/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=zzFMT4l1TAxN9FBodqKid16-8DreefQMrdkevWaMjzE",
+                                "expiresAt": 1740614400000,
+                                "height": 400
+                            }
+                        ],
+                        "rootUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEOTcHh0HnWwQ/company-logo_"
+                    }
+                },
+                "universalName": "platzi-inc",
+                "dashCompanyUrn": "urn:li:fsd_company:2822346",
+                "trackingId": "FCXf9kYbQd2B60qOMhJcaw=="
+            },
+            "displaySource": "platzi.com",
+            "companyUrn": "urn:li:fs_miniCompany:2822346",
+            "url": "https://platzi.com/p/cesar.cesarreyes25390/curso/1906-diseno-programadores/diploma/detalle/"
+        },
+        {
+            "authority": "Platzi",
+            "name": "Curso Básico de Computadores e Informática",
+            "timePeriod": {
+                "startDate": {
+                    "month": 8,
+                    "year": 2022
+                }
+            },
+            "licenseNumber": "94a5fbd8-e233-4c58-a31c-b3451a41afcd",
+            "company": {
+                "objectUrn": "urn:li:company:2822346",
+                "entityUrn": "urn:li:fs_miniCompany:2822346",
+                "name": "Platzi",
+                "showcase": false,
+                "active": true,
+                "logo": {
+                    "com.linkedin.common.VectorImage": {
+                        "artifacts": [
+                            {
+                                "width": 200,
+                                "fileIdentifyingUrlPathSegment": "200_200/company-logo_200_200/0/1677870818258/platzi_inc_logo?e=1740614400&v=beta&t=IYD2wTR36WGVagH6ZAQ7da9hkIsqr03cifRhfuPlnto",
+                                "expiresAt": 1740614400000,
+                                "height": 200
+                            },
+                            {
+                                "width": 100,
+                                "fileIdentifyingUrlPathSegment": "100_100/company-logo_100_100/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=azUnx0m0BXIgbHLSrjJtAIo5jpJxS-Ic_5-CjL57brQ",
+                                "expiresAt": 1740614400000,
+                                "height": 100
+                            },
+                            {
+                                "width": 400,
+                                "fileIdentifyingUrlPathSegment": "400_400/company-logo_400_400/0/1677870818259/platzi_inc_logo?e=1740614400&v=beta&t=zzFMT4l1TAxN9FBodqKid16-8DreefQMrdkevWaMjzE",
+                                "expiresAt": 1740614400000,
+                                "height": 400
+                            }
+                        ],
+                        "rootUrl": "https://media.licdn.com/dms/image/v2/C4E0BAQEOTcHh0HnWwQ/company-logo_"
+                    }
+                },
+                "universalName": "platzi-inc",
+                "dashCompanyUrn": "urn:li:fsd_company:2822346",
+                "trackingId": "CCk9qy2ITn6EbBhZHU4FNA=="
+            },
+            "displaySource": "platzi.com",
+            "companyUrn": "urn:li:fs_miniCompany:2822346",
+            "url": "https://platzi.com/p/cesar.cesarreyes25390/curso/2793-computacion-basica/diploma/detalle/"
+        }
+    ]
+}
