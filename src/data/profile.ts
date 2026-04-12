@@ -24,16 +24,13 @@ export interface LinkedInData {
 }
 
 export const LINKS = {
-  linkedin: 'https://www.linkedin.com',
+  linkedin: 'https://www.linkedin.com/in/caesar-reyes-8a60622b2',
   github: 'https://github.com/caesar-dat-com',
-  instagram: 'https://www.instagram.com/caesar__palace/?__pwa=1',
+  instagram: 'https://www.instagram.com/caesar__palace/',
   spotify: 'https://open.spotify.com/user/31hu2kdccm2vguqtnndm5ecgc2jy?si=fdb28cbfe7b0495b',
 } as const
 
 export const EMAIL = 'cesar.cesarreyes25@gmail.com'
-
-export const BIRTH = new Date(2000, 0, 25, 0, 0, 0, 0)
-export const LIFE_EXPECTANCY_YEARS = 74.48
 
 export const SECTIONS = [
   { id: 'about', label: 'Sobre mí', key: '1' },
@@ -54,7 +51,7 @@ export const SECTION_META: Record<string, string> = {
   projects: 'Construcción de soluciones útiles y medibles.',
   education: 'Formación base + especialización.',
   certs: 'Certificaciones y cursos (con links).',
-  contact: 'Contacto rápido vía Actions (U).',
+  contact: 'Contacto rápido.',
   instagram: 'Previsualización del perfil + link.',
   spotify: 'Previsualización + link.',
 }
