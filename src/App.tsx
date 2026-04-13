@@ -1,244 +1,262 @@
-import { useEffect, useState, useCallback } from 'react'
-import { useNavigate, Routes, Route } from 'react-router-dom'
-import { toast } from './components/Toast'
-import Toast from './components/Toast'
-import NavRail from './components/NavRail'
-import SnapshotRail from './components/SnapshotRail'
-import MementoMori from './components/MementoMori'
-import CvGenerator from './components/CvGenerator'
+import { useState, useEffect, useRef, useCallback, Suspense, lazy } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 import StarField from './components/StarField'
+import ThemeToggle from './components/ThemeToggle'
+import ScrollProgress from './components/ScrollProgress'
+import GrainOverlay from './components/GrainOverlay'
+import MeshGradient from './components/MeshGradient'
+import TelemetryTypewriter from './components/TelemetryTypewriter'
+import TrajectoryLine from './components/TrajectoryLine'
+import HUDBracket from './components/HUDBracket'
+import MagneticButton from './components/MagneticButton'
+import CursorSpotlight from './components/CursorSpotlight'
+import SectionCounter from './components/SectionCounter'
 
-// Pages
-import AboutPage from './pages/AboutPage'
-import StackPage from './pages/StackPage'
-import ExperiencePage from './pages/ExperiencePage'
-import ProjectsPage from './pages/ProjectsPage'
-import EducationPage from './pages/EducationPage'
-import CertsPage from './pages/CertsPage'
-import ContactPage from './pages/ContactPage'
-import InstagramPage from './pages/InstagramPage'
-import SpotifyPage from './pages/SpotifyPage'
+// Sections (converted from pages)
+import HeroSection from './sections/HeroSection'
+import StackSection from './sections/StackSection'
+import ExperienceSection from './sections/ExperienceSection'
+import ProjectsSection from './sections/ProjectsSection'
+import EducationSection from './sections/EducationSection'
+import CertsSection from './sections/CertsSection'
+import ContactSection from './sections/ContactSection'
 
-type Theme = 'dark' | 'light'
+import { LINKS, EMAIL } from './data/profile'
 
-function getInitialTheme(): Theme {
-  try {
-    const saved = localStorage.getItem('theme') as Theme | null
-    if (saved === 'dark' || saved === 'light') return saved
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
-  } catch {
-    return 'dark'
-  }
-}
+gsap.registerPlugin(ScrollTrigger)
 
-function applyTheme(theme: Theme) {
-  const root = document.documentElement
-  root.classList.remove('theme-dark', 'theme-light')
-  root.classList.add(theme === 'light' ? 'theme-light' : 'theme-dark')
-  try { localStorage.setItem('theme', theme) } catch { /* noop */ }
-}
+const NAV_ITEMS = [
+  { id: 'hero', label: 'Inicio' },
+  { id: 'stack', label: 'Stack' },
+  { id: 'experience', label: 'Experiencia' },
+  { id: 'projects', label: 'Proyectos' },
+  { id: 'education', label: 'Educación' },
+  { id: 'certs', label: 'Certificaciones' },
+  { id: 'contact', label: 'Contacto' },
+]
 
-export default function App() {
-  const navigate = useNavigate()
-  const [active, setActive] = useState('about')
-  const [theme, setTheme] = useState<Theme>(getInitialTheme)
-  const [memento, setMemento] = useState<{ livedWeeks: number; leftWeeks: number; totalWeeks: number } | null>(null)
-  const [mementoModalOpen, setMementoModalOpen] = useState(false)
-  const [cvModalOpen, setCvModalOpen] = useState(false)
-  const [actionsModalOpen, setActionsModalOpen] = useState(false)
+function StickyNav() {
+  const [activeSection, setActiveSection] = useState('hero')
+  const [mobileOpen, setMobileOpen] = useState(false)
 
-  // Apply theme on change
-  useEffect(() => { applyTheme(theme) }, [theme])
+  // Track active section via IntersectionObserver
+  useEffect(() => {
+    const sections = NAV_ITEMS.map(item => document.getElementById(item.id))
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+          }
+        })
+      },
+      { threshold: 0.3, rootMargin: '-80px 0px -40% 0px' }
+    )
 
-  const toggleTheme = useCallback(() => {
-    setTheme(t => t === 'dark' ? 'light' : 'dark')
+    sections.forEach(section => {
+      if (section) observer.observe(section)
+    })
+
+    return () => observer.disconnect()
   }, [])
 
-  // Navigation
-  const handleNavigate = useCallback((id: string) => {
-    setActive(id)
-    navigate(`/${id}`)
-  }, [navigate])
-
-  // Keyboard shortcuts
-  useEffect(() => {
-    const map: Record<string, string> = {
-      '1': 'about', '2': 'stack', '3': 'experience',
-      '4': 'projects', '5': 'education', '6': 'certs',
-      '7': 'contact', '8': 'instagram', '9': 'spotify',
-    }
-    function onKeyDown(e: KeyboardEvent) {
-      const tag = (e.target as HTMLElement)?.tagName
-      if (tag === 'INPUT' || tag === 'TEXTAREA') return
-
-      if (e.key === '/') {
-        const input = document.querySelector('#search') as HTMLInputElement | null
-        if (input) { e.preventDefault(); input.focus() }
-        return
+  const scrollTo = useCallback((id: string) => {
+    setMobileOpen(false)
+    const el = document.getElementById(id)
+    if (el) {
+      const lenis = (window as any).__lenis
+      if (lenis) {
+        lenis.scrollTo(el, { offset: 0 })
+      } else {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
-      if (e.key === 'Escape') {
-        setMementoModalOpen(false); setCvModalOpen(false); setActionsModalOpen(false)
-        return
-      }
-      if (map[e.key]) { handleNavigate(map[e.key]); return }
-      if ((e.key === 'u' || e.key === 'U') && !e.repeat) setActionsModalOpen(v => !v)
-      if ((e.key === 'm' || e.key === 'M') && !e.repeat) setMementoModalOpen(v => !v)
-      if ((e.key === 'c' || e.key === 'C') && !e.repeat) setCvModalOpen(v => !v)
-      if ((e.key === 't' || e.key === 'T') && !e.repeat) toggleTheme()
     }
-    window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [handleNavigate, toggleTheme])
-
-  // Memento Mori data
-  useEffect(() => {
-    function calc() {
-      const now = new Date()
-      const BIRTH = new Date(2000, 0, 25)
-      const totalWeeks = Math.round(74.48 * 365.2425 / 7)
-      const livedWeeks = Math.max(0, Math.floor((now.getTime() - BIRTH.getTime()) / 604800000))
-      const leftWeeks = Math.max(0, totalWeeks - livedWeeks)
-      setMemento({ livedWeeks, leftWeeks, totalWeeks })
-    }
-    calc()
-    const id = setInterval(calc, 1000)
-    return () => clearInterval(id)
   }, [])
-
-  // Sync active with URL
-  useEffect(() => {
-    const hash = (window.location.hash || '#about').replace('#', '')
-    if (hash !== active) setActive(hash)
-  }, [active])
 
   return (
-    <div className="app-skeleton" id="top">
-      {/* Starfield background — Artemis 2 lunar aesthetic */}
-      <StarField />
-      {/* ─── Header ─── */}
-      <header className="app-header">
-        <a className="brand" href="#top" aria-label="Inicio">
-          <span className="brand__title">CÉSAR REYES</span>
-          <span className="brand__tag">DATA · IA · AUTOMATION</span>
-        </a>
-
-        <div className="flex items-center gap-2">
-          <span className="hint-pill hidden sm:inline">T: Tema · U/M/C · 1–9: Nav</span>
+    <>
+      <ScrollProgress />
+      <header className="nav-helmet">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
           <button
-            type="button"
-            className="theme-toggle"
-            onClick={toggleTheme}
-            aria-label={theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
-            title={`Tema: ${theme === 'dark' ? 'oscuro' : 'claro'} (T)`}
+            onClick={() => scrollTo('hero')}
+            className="font-heading text-lg font-bold tracking-wider hover:text-orbital transition-colors"
+            style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-lunar)' }}
           >
-            {theme === 'dark' ? '☀' : '◗'}
+            <span className="text-orbital">CÉSAR</span> REYES
+          </button>
+
+          {/* Desktop nav */}
+          <nav className="hidden items-center gap-5 md:flex">
+            {NAV_ITEMS.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className={`nav-link relative text-xs font-medium tracking-widest uppercase transition-colors ${
+                  activeSection === item.id
+                    ? 'text-orbital'
+                    : 'text-text-tertiary hover:text-lunar'
+                }`}
+                style={{ fontFamily: 'var(--font-heading)' }}
+              >
+                {item.label}
+                {activeSection === item.id && (
+                  <motion.div
+                    layoutId="nav-indicator"
+                    className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-orbital rounded-full"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </button>
+            ))}
+            <ThemeToggle />
+          </nav>
+
+          {/* Mobile toggle */}
+          <button
+            className="text-text-primary md:hidden text-xl"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? '✕' : '☰'}
           </button>
         </div>
       </header>
 
-      {/* ─── Main grid ─── */}
-      <div className="app-container">
-        <NavRail active={active} onNavigate={handleNavigate} />
-
-        <main className="h-full min-w-0 overflow-hidden">
-          {/* Content card — notch-clip cyberpunk */}
-          <div className="relative h-full glass-panel notch-clip card-shadow overflow-hidden">
-            <span className="notch-deco" />
-            <div className="pad__body pad__scroll min-h-0 min-w-0 h-full">
-              <Routes>
-                <Route path="/"           element={<AboutPage />} />
-                <Route path="/about"      element={<AboutPage />} />
-                <Route path="/stack"      element={<StackPage />} />
-                <Route path="/experience" element={<ExperiencePage />} />
-                <Route path="/projects"   element={<ProjectsPage />} />
-                <Route path="/education"  element={<EducationPage />} />
-                <Route path="/certs"      element={<CertsPage />} />
-                <Route path="/contact"    element={<ContactPage />} />
-                <Route path="/instagram"  element={<InstagramPage />} />
-                <Route path="/spotify"    element={<SpotifyPage />} />
-              </Routes>
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="mobile-menu md:hidden"
+          >
+            {NAV_ITEMS.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className={`text-lg font-medium tracking-wide uppercase ${
+                  activeSection === item.id
+                    ? 'text-orbital'
+                    : 'text-text-secondary hover:text-lunar'
+                }`}
+                style={{ fontFamily: 'var(--font-heading)' }}
+              >
+                {item.label}
+              </button>
+            ))}
+            <div className="mt-4">
+              <ThemeToggle />
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  )
+}
+
+export default function App() {
+  // Initialize theme
+  useEffect(() => {
+    const saved = localStorage.getItem('theme')
+    if (saved === 'lunar') {
+      document.body.classList.add('lunar')
+    }
+
+    // Sync Lenis with GSAP ScrollTrigger
+    const lenis = (window as any).__lenis
+    if (lenis) {
+      lenis.on('scroll', ScrollTrigger.update)
+    }
+  }, [])
+
+  // GSAP ScrollTrigger setup for section reveals
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    // Kill all existing ScrollTriggers
+    ScrollTrigger.getAll().forEach(t => t.kill())
+
+    const sections = containerRef.current?.querySelectorAll('.scroll-section')
+    if (!sections) return
+
+    sections.forEach((section) => {
+      const elements = section.querySelectorAll('.gsap-reveal')
+      elements.forEach((el, i) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 60, scale: 0.96 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              end: 'top 50%',
+              toggleActions: 'play none none reverse',
+            },
+            delay: i * 0.1,
+          }
+        )
+      })
+    })
+
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill())
+    }
+  }, [])
+
+  return (
+    <div className="app-container" ref={containerRef}>
+      <StarField />
+      <MeshGradient />
+      <GrainOverlay />
+      <CursorSpotlight />
+      <StickyNav />
+      <SectionCounter />
+
+      <main className="relative z-10 flex-1">
+        <HeroSection />
+        <TrajectoryLine className="hidden md:block" />
+        <StackSection />
+        <TrajectoryLine className="hidden md:block" />
+        <ExperienceSection />
+        <TrajectoryLine className="hidden md:block" />
+        <ProjectsSection />
+        <TrajectoryLine className="hidden md:block" />
+        <EducationSection />
+        <TrajectoryLine className="hidden md:block" />
+        <CertsSection />
+        <TrajectoryLine className="hidden md:block" />
+        <ContactSection />
+      </main>
+
+      <footer className="relative z-10 border-t border-glass-border py-8" style={{ transition: 'border-color 0.5s ease' }}>
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 sm:flex-row sm:px-6">
+          <p className="text-text-muted text-sm" style={{ fontFamily: 'var(--font-mono)' }}>
+            © {new Date().getFullYear()} César Reyes
+          </p>
+          <TelemetryTypewriter />
+          <div className="flex items-center gap-6 text-sm text-text-tertiary">
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" className="nav-link hover:text-orbital transition-colors">
+              LinkedIn
+            </a>
+            <a href="https://github.com/caesar-dat-com" target="_blank" rel="noreferrer" className="nav-link hover:text-orbital transition-colors">
+              GitHub
+            </a>
+            <a href={`mailto:${EMAIL}`} className="nav-link hover:text-orbital transition-colors">
+              Email
+            </a>
           </div>
-        </main>
-
-        <SnapshotRail
-          active={active}
-          onOpenCv={() => setCvModalOpen(true)}
-          onOpenMemento={() => setMementoModalOpen(true)}
-          mmData={memento}
-        />
-      </div>
-
-      {/* ─── Modal: Actions ─── */}
-      {actionsModalOpen && (
-        <dialog
-          open
-          onClose={() => setActionsModalOpen(false)}
-          className="modal"
-          onClick={(e) => { if (e.target === e.currentTarget) setActionsModalOpen(false) }}
-        >
-          <div className="modal__body">
-            <div className="body__content">
-              <h2>Actions</h2>
-              <p className="text-primary-300 text-sm mb-4">Acciones rápidas de navegación y utilidades.</p>
-              <div className="space-y-2">
-                {[
-                  { label: 'Copiar link perfil', action: () => { navigator.clipboard.writeText(window.location.href).then(() => toast('Copiado', 'success')); setActionsModalOpen(false) } },
-                  { label: 'Abrir LinkedIn', action: () => { window.open('https://www.linkedin.com/in/caesar-reyes-8a60622b2', '_blank', 'noopener'); setActionsModalOpen(false) } },
-                  { label: 'Abrir GitHub', action: () => { window.open('https://github.com/caesar-dat-com', '_blank', 'noopener'); setActionsModalOpen(false) } },
-                ].map(({ label, action }) => (
-                  <div key={label} className="flex items-center justify-between gap-3 py-1">
-                    <span className="text-primary-300 text-sm">{label}</span>
-                    <button
-                      type="button"
-                      className="border border-secondary-500/50 bg-secondary-500/08 text-secondary-500 font-mono tracking-wider uppercase px-2.5 py-1.5 cursor-pointer notch-clip text-xs transition-all duration-200 hover:bg-secondary-500/15 hover:border-secondary-500/80"
-                      onClick={action}
-                    >
-                      Ir
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </dialog>
-      )}
-
-      {/* ─── Modal: Memento Mori ─── */}
-      {mementoModalOpen && (
-        <dialog
-          open
-          onClose={() => setMementoModalOpen(false)}
-          className="modal modal--wide"
-          onClick={(e) => { if (e.target === e.currentTarget) setMementoModalOpen(false) }}
-        >
-          <div className="modal__body">
-            <div className="body__content">
-              <h2>Memento Mori</h2>
-              {memento && <MementoMori />}
-            </div>
-          </div>
-        </dialog>
-      )}
-
-      {/* ─── Modal: CV ─── */}
-      {cvModalOpen && (
-        <dialog
-          open
-          onClose={() => setCvModalOpen(false)}
-          className="modal modal--wide"
-          onClick={(e) => { if (e.target === e.currentTarget) setCvModalOpen(false) }}
-        >
-          <div className="modal__body">
-            <div className="body__content">
-              <h2>CV Imprimible</h2>
-              <CvGenerator />
-            </div>
-          </div>
-        </dialog>
-      )}
-
-      <Toast />
+        </div>
+      </footer>
     </div>
   )
 }

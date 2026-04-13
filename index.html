@@ -39,23 +39,22 @@
     }
     </script>
 
-    <!-- Anti-FOUC: aplica clase de tema ANTES de renderizar React -->
+    <!-- Anti-FOUC: dark mode by default -->
     <script>
       (function () {
         try {
           var saved = localStorage.getItem('theme');
-          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          var theme = saved || (prefersDark ? 'dark' : 'light');
-          if (theme === 'light') document.documentElement.classList.add('theme-light');
-          else document.documentElement.classList.add('theme-dark');
+          if (saved === 'lunar') {
+            document.body.classList.add('lunar');
+          }
         } catch (_) {}
       })();
     </script>
 
-    <!-- Google Fonts — Rajdhani para headings tech -->
+    <!-- Google Fonts — Rajdhani (headings) + Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div id="root"></div>
