@@ -80,7 +80,8 @@ export default function AboutPage() {
         <GlassCard glow="lunar">
           <NeonText as="h4" color="lunar" className="text-sm mb-2">Highlights</NeonText>
           <ul className="list-disc pl-4 text-primary-300 text-sm space-y-1">
-            <li>Implementé un aplicativo low-code (~1300 usuarios).</li>
+            <li>6+ años de experiencia desde 2020.</li>
+            <li>Implementé un aplicativo low-code (~2000 usuarios).</li>
             <li>1er lugar Rally Latinoamericano de Innovación (UAO).</li>
             <li>Ruta BI/Analytics (Power BI, DAX, Tableau, Looker, Excel).</li>
           </ul>

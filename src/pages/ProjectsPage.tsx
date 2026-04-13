@@ -14,7 +14,7 @@ export default function ProjectsPage() {
         <p className="text-primary-300 text-sm mb-3">
           Control de personal y tareas de Mantenimiento ·{' '}
           <span className="px-2.5 py-0.5 rounded-lg border border-tertiary-500/12 bg-tertiary-500/4 text-tertiary-500 font-mono tracking-wider text-xs uppercase">
-            ~1300 usuarios
+            ~2000 usuarios
           </span>
         </p>
         <ul className="list-disc pl-5 space-y-1 text-primary-300 text-sm">

@@ -6,7 +6,7 @@ export default function ExperiencePage() {
     <div className="space-y-5">
       <div className="animate-spring-in">
         <NeonText as="h2" color="blue" className="text-lg">Experiencia</NeonText>
-        <p className="text-primary-300 text-sm mt-1">Rol actual y trayectoria en planta.</p>
+        <p className="text-primary-300 text-sm mt-1">Rol actual y trayectoria en planta · <span className="text-secondary-500 font-mono">6+ años</span> desde 2020.</p>
       </div>
 
       {/* Timeline */}

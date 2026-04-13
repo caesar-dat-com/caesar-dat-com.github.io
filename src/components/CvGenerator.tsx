@@ -24,7 +24,7 @@ export default function CvGenerator() {
       <h2 style="font-size: 18px; margin: 0 0 6px; text-transform: uppercase; color: #2be4ea;">Resumen</h2>
       <p style="margin: 0 0 12px; font-size: 14px; color: #333; line-height: 1.45;">
         Enfocado en automatización, datos e IA, construyo sistemas útiles, medibles y trazables en entornos reales.
-        Con experiencia en análisis, BI y desarrollo de soluciones low-code escalables.
+        6+ años de experiencia desde 2020. Con experiencia en análisis, BI y desarrollo de soluciones low-code escalables.
       </p>
       
       <h2 style="font-size: 18px; margin: 0 0 6px; text-transform: uppercase; color: #2be4ea;">Experiencia</h2>
