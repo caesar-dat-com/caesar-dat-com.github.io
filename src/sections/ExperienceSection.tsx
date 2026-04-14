@@ -1,39 +1,43 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import LaunchTimeline, { TimelineEntry } from '../components/LaunchTimeline'
 import HUDBracket from '../components/HUDBracket'
 import StaggerText from '../components/StaggerText'
 
-gsap.registerPlugin(ScrollTrigger)
 
-// Animated countdown numbers — uses GSAP ScrollTrigger (compatible with Lenis)
+// Animated countdown numbers — uses IntersectionObserver to trigger GSAP tween
 function MissionCountdown({ label, value, suffix = '' }: { label: string; value: number; suffix?: string }) {
   const [displayed, setDisplayed] = useState(0)
   const ref = useRef<HTMLDivElement>(null)
+  const hasAnimated = useRef(false)
 
   useEffect(() => {
     if (!ref.current) return
 
-    const obj = { val: 0 }
-    const tween = gsap.to(obj, {
-      val: value,
-      duration: 2,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: ref.current,
-        start: 'top 90%',
-        end: 'top 60%',
-        toggleActions: 'play none none reverse',
+    const el = ref.current
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true
+          const obj = { val: 0 }
+          gsap.to(obj, {
+            val: value,
+            duration: 2,
+            ease: 'power2.out',
+            onUpdate: () => {
+              setDisplayed(Math.round(obj.val))
+            },
+          })
+        }
       },
-      onUpdate: () => {
-        setDisplayed(Math.round(obj.val))
-      },
-    })
+      { threshold: 0.3 }
+    )
+
+    observer.observe(el)
 
     return () => {
-      tween.scrollTrigger?.kill()
-      tween.kill()
+      observer.disconnect()
     }
   }, [value])
 

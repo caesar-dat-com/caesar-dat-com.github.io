@@ -24,7 +24,7 @@ export interface LinkedInData {
 }
 
 export const LINKS = {
-  linkedin: 'https://www.linkedin.com/in/caesar-reyes-8a60622b2',
+  linkedin: 'https://www.linkedin.com/in/cesar-reyes-8a60622b2/',
   github: 'https://github.com/caesar-dat-com',
   instagram: 'https://www.instagram.com/caesar__palace/',
   spotify: 'https://open.spotify.com/user/31hu2kdccm2vguqtnndm5ecgc2jy?si=fdb28cbfe7b0495b',

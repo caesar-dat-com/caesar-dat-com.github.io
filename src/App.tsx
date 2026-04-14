@@ -245,10 +245,10 @@ export default function App() {
           </p>
           <TelemetryTypewriter />
           <div className="flex items-center gap-6 text-sm text-text-tertiary">
-            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" className="nav-link hover:text-orbital transition-colors">
+            <a href={LINKS.linkedin} target="_blank" rel="noreferrer" className="nav-link hover:text-orbital transition-colors">
               LinkedIn
             </a>
-            <a href="https://github.com/caesar-dat-com" target="_blank" rel="noreferrer" className="nav-link hover:text-orbital transition-colors">
+            <a href={LINKS.github} target="_blank" rel="noreferrer" className="nav-link hover:text-orbital transition-colors">
               GitHub
             </a>
             <a href={`mailto:${EMAIL}`} className="nav-link hover:text-orbital transition-colors">
