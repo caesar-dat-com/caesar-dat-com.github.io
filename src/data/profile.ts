@@ -69,23 +69,30 @@ export const SECTION_NAMES: Record<string, string> = {
 }
 
 export const CORE_SKILLS = [
-  'Python', 'POO', 'SQL', 'Power BI', 'DAX', 'Tableau',
-  'Looker Studio', 'Excel', 'QA & Testing', 'Git/GitHub',
-  'HTML/CSS', 'Low-code', 'ETL', 'Data Warehousing', 'Supabase',
-  'React', 'TypeScript', 'Vite', 'Tailwind CSS', 'APIs REST',
+  'Python', 'SQL', 'Docker', 'Git/GitHub', 'PowerShell',
+  'JavaScript', 'TypeScript', 'React', 'Node.js', 'HTML/CSS',
+  'Apache Airflow', 'Apache Spark', 'Big Data', 'ETL', 'Ingeniería de datos',
+  'Machine Learning', 'Computer Vision', 'NLP', 'Kubernetes', 'Power BI',
+  'DAX', 'Tableau', 'Looker Studio', 'Excel', 'Supabase',
+  'Tailwind CSS', 'Vite', 'APIs REST', 'QA & Testing', 'Low-code',
 ]
 
 export const SOFT_SKILLS = [
+  'Innovación',
+  'Creatividad',
+  'Liderazgo de equipos',
+  'Resolución de problemas',
   'Trabajo en equipo',
   'Decisiones basadas en datos',
   'Adaptabilidad',
   'Comunicación clara',
   'Proactividad',
   'Atención al detalle',
+  'Capacidad de análisis',
 ]
 
 export const defaultSummary =
-  'Enfocado en automatización, datos e IA, construyo sistemas útiles, medibles y trazables en entornos reales.'
+  'Ingeniero de Datos e IA con experiencia en automatización industrial y desarrollo de software. En POSTOBON S.A. diseño e implemento soluciones low-code que centralizan procesos operativos para +2,000 usuarios en planta. Estudiante de último año de Ingeniería en Datos e Inteligencia Artificial (UAO), con formación en ML, Big Data, NLP y Computer Vision. Stack: Python · JavaScript · React · SQL · Docker · Airflow · Spark · Git · Power BI. Enfoque: datos trazables, sistemas útiles, resultados medibles.'
 
 export const fallbackData: LinkedInData = {
   firstName: 'César',
@@ -94,12 +101,17 @@ export const fallbackData: LinkedInData = {
   location: 'Colombia',
   summary: defaultSummary,
   skills: [
-    { name: 'Python' },
-    { name: 'Power BI' },
-    { name: 'DAX' },
-    { name: 'Excel' },
-    { name: 'Git' },
-    { name: 'HTML/CSS' },
+    { name: 'Python' }, { name: 'Docker' }, { name: 'Git' }, { name: 'Kubernetes' },
+    { name: 'SQL' }, { name: 'JavaScript' }, { name: 'React' }, { name: 'TypeScript' },
+    { name: 'Apache Airflow' }, { name: 'Apache Spark' }, { name: 'Machine Learning' },
+    { name: 'Computer Vision' }, { name: 'ETL' }, { name: 'Big Data' },
+    { name: 'NLP' }, { name: 'Power BI' }, { name: 'PowerShell' },
   ],
-  certifications: [],
+  certifications: [
+    { name: 'Curso de Introducción a C', authority: 'Platzi', url: 'https://platzi.com/p/cesar.cesarreyes25390/curso/introduccion-c/diploma/detalle/', timePeriod: { startDate: { month: 3, year: 2026 } } },
+    { name: 'Python Core', authority: 'Sololearn', timePeriod: { startDate: { month: 2, year: 2026 } } },
+    { name: 'Primer lugar en la categoría de Innovación - Rally Latinoamericano de Innovación, Edición 2024', authority: 'Universidad Autónoma de Occidente', timePeriod: { startDate: { month: 10, year: 2024 } } },
+    { name: 'Curso de Fundamentos de Python', authority: 'Platzi', url: 'https://platzi.com/p/cesar.cesarreyes25390/curso/fundamentos-python/diploma/detalle/', timePeriod: { startDate: { month: 2, year: 2024 } } },
+    { name: 'Tecnólogo en Gestión de Sistemas Mecatrónicos', authority: 'FCECEP', timePeriod: { startDate: { month: 4, year: 2023 } } },
+  ],
 }

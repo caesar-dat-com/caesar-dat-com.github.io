@@ -84,10 +84,10 @@ export default function CertsSection() {
                 Formación adicional
               </h3>
               <p className="text-text-secondary text-sm mb-3">
-                Más de 18 cursos en Power BI, DAX, Tableau, Looker, Excel, Python.
+                39 certificaciones validadas en Power BI, DAX, SQL, Python, Docker, Airflow, Spark, Git, React, Node.js.
               </p>
               <div className="flex flex-wrap gap-2">
-                {['Power BI', 'DAX', 'Tableau', 'Looker Studio', 'Excel', 'Forecasting', 'Storytelling', 'Estadística', 'Python', 'Git'].map(s => (
+                {['Python', 'Docker', 'SQL', 'Git', 'Kubernetes', 'Apache Airflow', 'Apache Spark', 'Machine Learning', 'Computer Vision', 'NLP', 'ETL', 'Big Data', 'React', 'TypeScript', 'Node.js', 'PowerShell', 'Power BI', 'DAX', 'Ingeniería de datos', 'POO'].map(s => (
                   <span key={s} className="skill-orbit">
                     {s}
                   </span>

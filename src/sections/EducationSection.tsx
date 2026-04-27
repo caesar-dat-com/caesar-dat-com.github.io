@@ -80,6 +80,27 @@ export default function EducationSection() {
               </div>
             </div>
           </div>
+
+          <div className="gsap-reveal">
+            <div className="flight-plan">
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-text-muted/30 bg-space-700 text-xl">
+                  💻
+                </div>
+                <div>
+                  <div className="mb-1 inline-block rounded-full bg-space-600 px-2 py-0.5 text-xs font-mono uppercase tracking-wider text-text-tertiary">
+                    Completado
+                  </div>
+                  <h3 style={{ fontFamily: 'var(--font-heading)' }} className="text-lg font-semibold text-lunar mb-1">
+                    Codificación y Programación (Diplomado)
+                  </h3>
+                  <p className="text-text-tertiary text-sm" style={{ fontFamily: 'var(--font-mono)' }}>
+                    Pontificia Universidad Javeriana + Samsung Electronics · Cali, Colombia
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
