@@ -31,7 +31,7 @@
       "url": "https://caesar-dat-com.github.io/",
       "email": "cesar.cesarreyes25@gmail.com",
       "sameAs": [
-        "https://www.linkedin.com/in/caesar-reyes-8a60622b2",
+        "https://www.linkedin.com/in/cesar-reyes-8a60622b2",
         "https://github.com/caesar-dat-com",
         "https://www.instagram.com/caesar__palace/",
         "https://open.spotify.com/user/31hu2kdccm2vguqtnndm5ecgc2jy"
@@ -39,28 +39,28 @@
     }
     </script>
 
-    <!-- Anti-FOUC: dark mode by default -->
-    <script>
-      (function () {
-        try {
-          var saved = localStorage.getItem('theme');
-          if (saved === 'lunar') {
-            document.body.classList.add('lunar');
-          }
-        } catch (_) {}
-      })();
-    </script>
-
     <!-- Google Fonts — Rajdhani (headings) + Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/assets/index-BRlG8_CY.js"></script>
+    <script type="module" crossorigin src="/assets/index-BnraO75U.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/framer-motion-ayiVVDFJ.js">
     <link rel="modulepreload" crossorigin href="/assets/three-CvR88XiX.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-BPyDAPpC.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-Bj-mf9a3.css">
   </head>
   <body>
+    <!-- Anti-FOUC: oscuro por defecto. Va dentro de <body> porque en <head>
+         document.body todavía es null y el tema nunca llegaba a aplicarse. -->
+    <script>
+      (function () {
+        try {
+          document.body.classList.toggle(
+            'lunar',
+            localStorage.getItem('theme') === 'lunar'
+          );
+        } catch (_) {}
+      })();
+    </script>
     <div id="root"></div>
   </body>
 </html>
