@@ -8,6 +8,7 @@ import MagneticButton from '../components/MagneticButton'
 import TelemetryTypewriter from '../components/TelemetryTypewriter'
 import ParallaxNebula from '../components/ParallaxNebula'
 import AuroraEffect from '../components/AuroraEffect'
+import { Mail, GithubIcon, LinkedinIcon } from '../components/icons'
 
 const MoonScene = lazy(() => import('../components/MoonScene'))
 
@@ -176,7 +177,9 @@ export default function HeroSection() {
               className="btn-orbital"
               strength={0.2}
             >
-              📧 Contacto
+              <span className="icon-inline">
+                <Mail size={17} strokeWidth={1.6} /> Contacto
+              </span>
             </MagneticButton>
             <MagneticButton
               href={LINKS.linkedin}
@@ -185,7 +188,9 @@ export default function HeroSection() {
               className="btn-ghost"
               strength={0.2}
             >
-              💼 LinkedIn
+              <span className="icon-inline">
+                <LinkedinIcon size={16} /> LinkedIn
+              </span>
             </MagneticButton>
             <MagneticButton
               href={LINKS.github}
@@ -194,7 +199,9 @@ export default function HeroSection() {
               className="btn-ghost"
               strength={0.2}
             >
-              ⚡ GitHub
+              <span className="icon-inline">
+                <GithubIcon size={16} /> GitHub
+              </span>
             </MagneticButton>
           </div>
         </motion.div>

@@ -1,13 +1,15 @@
 import GlassCard from '../components/GlassCard'
 import HUDBracket from '../components/HUDBracket'
 import StaggerText from '../components/StaggerText'
+import IconBadge from '../components/IconBadge'
+import { GraduationCap, Cpu, CodeXml } from '../components/icons'
 
 export default function EducationSection() {
   return (
     <section id="education" className="scroll-section relative min-h-screen flex items-center py-24 md:py-32">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 w-full">
         <div className="mb-16 text-center gsap-reveal">
-          <HUDBracket className="inline-block mb-4" size={16}>
+          <HUDBracket className="section-badge inline-block mb-4" size={16}>
             <span
               className="text-xs uppercase tracking-[0.3em] text-orbital"
               style={{ fontFamily: 'var(--font-mono)', padding: '0.5rem 2rem' }}
@@ -33,15 +35,14 @@ export default function EducationSection() {
           >
             Flight plan — formación base + especialización.
           </p>
+          <div className="section-rule mx-auto mt-8 max-w-[220px]" />
         </div>
 
         <div className="mx-auto max-w-2xl space-y-6">
           <div className="gsap-reveal">
             <div className="flight-plan">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-orbital/30 bg-orbital/10 text-xl">
-                  🎓
-                </div>
+                <IconBadge icon={GraduationCap} variant="orbital" shape="circle" boxSize={48} size={22} />
                 <div>
                   <div className="mb-1 inline-block rounded-full bg-orbital/10 px-2 py-0.5 text-xs font-mono uppercase tracking-wider text-orbital">
                     En curso
@@ -63,9 +64,7 @@ export default function EducationSection() {
           <div className="gsap-reveal">
             <div className="flight-plan">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-text-muted/30 bg-space-700 text-xl">
-                  ⚙️
-                </div>
+                <IconBadge icon={Cpu} variant="muted" shape="circle" boxSize={48} size={22} />
                 <div>
                   <div className="mb-1 inline-block rounded-full bg-space-600 px-2 py-0.5 text-xs font-mono uppercase tracking-wider text-text-tertiary">
                     Completado
@@ -84,9 +83,7 @@ export default function EducationSection() {
           <div className="gsap-reveal">
             <div className="flight-plan">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-text-muted/30 bg-space-700 text-xl">
-                  💻
-                </div>
+                <IconBadge icon={CodeXml} variant="muted" shape="circle" boxSize={48} size={22} />
                 <div>
                   <div className="mb-1 inline-block rounded-full bg-space-600 px-2 py-0.5 text-xs font-mono uppercase tracking-wider text-text-tertiary">
                     Completado

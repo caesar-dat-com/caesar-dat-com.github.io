@@ -1,18 +1,19 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Award } from './icons'
 
 interface RevealImageProps {
   src: string
   alt: string
   className?: string
-  placeholder?: string
+  placeholder?: React.ReactNode
 }
 
 export default function RevealImage({
   src,
   alt,
   className = '',
-  placeholder = '🏅',
+  placeholder,
 }: RevealImageProps) {
   const [loaded, setLoaded] = useState(false)
   const [inView, setInView] = useState(false)
@@ -51,7 +52,7 @@ export default function RevealImage({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {placeholder}
+            {placeholder ?? <Award size={20} strokeWidth={1.5} />}
           </motion.div>
         )}
       </AnimatePresence>

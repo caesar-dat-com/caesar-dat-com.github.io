@@ -1,13 +1,15 @@
 import MissionPatch from '../components/MissionPatch'
 import HUDBracket from '../components/HUDBracket'
 import StaggerText from '../components/StaggerText'
+import IconBadge from '../components/IconBadge'
+import { Satellite, Trophy, Rocket, BrainCircuit, Settings2, ChartNoAxesCombined } from '../components/icons'
 
 export default function ProjectsSection() {
   return (
     <section id="projects" className="scroll-section relative min-h-screen flex items-center py-24 md:py-32">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 w-full">
         <div className="mb-16 text-center gsap-reveal">
-          <HUDBracket className="inline-block mb-4" size={16}>
+          <HUDBracket className="section-badge inline-block mb-4" size={16}>
             <span
               className="text-xs uppercase tracking-[0.3em] text-orbital"
               style={{ fontFamily: 'var(--font-mono)', padding: '0.5rem 2rem' }}
@@ -33,12 +35,13 @@ export default function ProjectsSection() {
           >
             Cada proyecto es una misión. Cada misión, un resultado.
           </p>
+          <div className="section-rule mx-auto mt-8 max-w-[220px]" />
         </div>
 
         <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2">
           <div className="gsap-reveal">
             <MissionPatch missionId="MISIÓN-001" status="active" className="h-full">
-              <div className="text-4xl mb-4">🛰️</div>
+              <IconBadge icon={Satellite} variant="orbital" shape="squircle" boxSize={54} size={26} orbit className="mb-5 mx-auto" />
               <h3 style={{ fontFamily: 'var(--font-heading)' }} className="text-xl font-semibold text-lunar mb-2">
                 Aplicativo Low-Code Nacional
               </h3>
@@ -63,7 +66,7 @@ export default function ProjectsSection() {
 
           <div className="gsap-reveal">
             <MissionPatch missionId="MISIÓN-002" status="complete" className="h-full">
-              <div className="text-4xl mb-4">🏆</div>
+              <IconBadge icon={Trophy} variant="sls" shape="squircle" boxSize={54} size={26} orbit className="mb-5 mx-auto" />
               <h3 style={{ fontFamily: 'var(--font-heading)' }} className="text-xl font-semibold text-lunar mb-2">
                 Rally Latinoamericano de Innovación
               </h3>
@@ -81,7 +84,7 @@ export default function ProjectsSection() {
 
           <div className="md:col-span-2 gsap-reveal">
             <MissionPatch missionId="MISIÓN-003" status="training">
-              <div className="text-4xl mb-4">🚀</div>
+              <IconBadge icon={Rocket} variant="orbital" shape="squircle" boxSize={54} size={26} orbit className="mb-5 mx-auto" />
               <h3 style={{ fontFamily: 'var(--font-heading)' }} className="text-xl font-semibold text-lunar mb-2">
                 Platzi Space Program
               </h3>
@@ -99,7 +102,7 @@ export default function ProjectsSection() {
 
           <div className="gsap-reveal">
             <MissionPatch missionId="MISIÓN-004" status="complete" className="h-full">
-              <div className="text-4xl mb-4">🧠</div>
+              <IconBadge icon={BrainCircuit} variant="orbital" shape="squircle" boxSize={54} size={26} orbit className="mb-5 mx-auto" />
               <h3 style={{ fontFamily: 'var(--font-heading)' }} className="text-xl font-semibold text-lunar mb-2">
                 Nyou — Plataforma SaaS para Clínicas Psicológicas
               </h3>
@@ -118,7 +121,7 @@ export default function ProjectsSection() {
 
           <div className="gsap-reveal">
             <MissionPatch missionId="MISIÓN-005" status="active" className="h-full">
-              <div className="text-4xl mb-4">⚙️</div>
+              <IconBadge icon={Settings2} variant="sls" shape="squircle" boxSize={54} size={26} orbit className="mb-5 mx-auto" />
               <h3 style={{ fontFamily: 'var(--font-heading)' }} className="text-xl font-semibold text-lunar mb-2">
                 Torque (Troqu3) — Gestión de Mantenimiento Industrial
               </h3>
@@ -139,7 +142,7 @@ export default function ProjectsSection() {
 
           <div className="gsap-reveal">
             <MissionPatch missionId="MISIÓN-006" status="training" className="h-full">
-              <div className="text-4xl mb-4">📊</div>
+              <IconBadge icon={ChartNoAxesCombined} variant="orbital" shape="squircle" boxSize={54} size={26} orbit className="mb-5 mx-auto" />
               <h3 style={{ fontFamily: 'var(--font-heading)' }} className="text-xl font-semibold text-lunar mb-2">
                 Ares Profile — Dashboard Personal
               </h3>

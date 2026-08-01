@@ -964,3 +964,264 @@ html.lenis, html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
+/* ===================================================
+   ICONOGRAFÍA — badges de línea (reemplazo de emojis)
+   =================================================== */
+
+.icon-badge {
+  position: relative;
+  /* flex (nivel bloque) para que `mx-auto` lo centre y no se pegue
+     al pill inline que lo precede en las mission patches */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+  border: 1px solid var(--color-glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.35s var(--ease-apple), box-shadow 0.35s var(--ease-apple),
+    background-color 0.35s var(--ease-apple);
+  will-change: transform;
+}
+
+.icon-badge--circle { border-radius: 999px; }
+.icon-badge--squircle { border-radius: 30%; }
+
+.icon-badge--orbital { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 0 0 0 rgba(0, 102, 255, 0); }
+.icon-badge--sls { border-color: rgba(255, 107, 53, 0.22); }
+.icon-badge--muted { border-color: rgba(139, 148, 158, 0.22); }
+
+.icon-badge svg { position: relative; z-index: 2; }
+
+/* Halo interior que respira en hover */
+.icon-badge__glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 40%, currentColor 0%, transparent 68%);
+  opacity: 0.09;
+  transition: opacity 0.4s var(--ease-apple);
+  pointer-events: none;
+}
+.icon-badge:hover .icon-badge__glow { opacity: 0.24; }
+.icon-badge:hover {
+  border-color: currentColor;
+  box-shadow: 0 0 22px -6px currentColor, inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Anillo orbital girando */
+.icon-badge__orbit {
+  position: absolute;
+  inset: -5px;
+  border-radius: inherit;
+  border: 1px dashed currentColor;
+  opacity: 0.22;
+  animation: badge-orbit 14s linear infinite;
+  pointer-events: none;
+}
+@keyframes badge-orbit {
+  to { transform: rotate(360deg); }
+}
+
+body.lunar .icon-badge {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+body.lunar .icon-badge:hover {
+  border-color: currentColor;
+  box-shadow: 0 4px 18px -6px currentColor;
+}
+
+/* Trazado del icono al entrar en viewport */
+.icon-draw svg path,
+.icon-draw svg line,
+.icon-draw svg polyline,
+.icon-draw svg polygon,
+.icon-draw svg rect,
+.icon-draw svg circle,
+.icon-draw svg ellipse {
+  stroke-dasharray: 140;
+  stroke-dashoffset: 140;
+  animation: icon-draw-in 1.1s var(--ease-out-expo) forwards;
+}
+@keyframes icon-draw-in {
+  to { stroke-dashoffset: 0; }
+}
+
+.icon-badge-bare svg { vertical-align: -0.15em; }
+
+/* Icono inline dentro de botones/links */
+.icon-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.icon-inline svg {
+  transition: transform 0.35s var(--ease-spring);
+}
+.btn-orbital:hover .icon-inline svg,
+.btn-ghost:hover .icon-inline svg,
+.contact-link:hover .icon-inline svg {
+  transform: translateX(2px) scale(1.1);
+}
+
+/* ===================================================
+   ANIMACIONES EXTRA
+   =================================================== */
+
+/* Tilt 3D en tarjetas — se alimenta de --rx/--ry vía JS */
+.tilt-card {
+  transform-style: preserve-3d;
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(0);
+  transition: transform 0.45s var(--ease-out-expo);
+  will-change: transform;
+}
+.tilt-card.is-tilting { transition: transform 0.08s linear; }
+.tilt-card > * { transform-style: preserve-3d; }
+
+/* Reflejo especular que sigue al cursor */
+.tilt-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.1),
+    transparent 42%
+  );
+  transition: opacity 0.4s var(--ease-apple);
+  z-index: 3;
+}
+.tilt-card:hover .tilt-sheen { opacity: 1; }
+body.lunar .tilt-sheen {
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(0, 102, 255, 0.07),
+    transparent 42%
+  );
+}
+
+/* Línea de escaneo que barre secciones al revelarse */
+.scan-sweep {
+  position: relative;
+  overflow: hidden;
+}
+.scan-sweep::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 -40%;
+  width: 40%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 102, 255, 0.09),
+    transparent
+  );
+  transform: skewX(-14deg);
+  pointer-events: none;
+  z-index: 1;
+}
+.scan-sweep.in-view::before {
+  animation: scan-sweep-run 1.5s var(--ease-out-expo) 0.15s;
+}
+@keyframes scan-sweep-run {
+  to { left: 110%; }
+}
+
+/* Título de sección con regla animada */
+.section-rule {
+  position: relative;
+  height: 1px;
+  background: var(--color-glass-border);
+  overflow: hidden;
+}
+.section-rule::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--color-orbital), transparent);
+  transition: transform 1.1s var(--ease-out-expo);
+}
+.section-rule.in-view::after { transform: scaleX(1); }
+
+/* Pulso de estado (reemplaza el emoji 🟢) */
+.status-pulse {
+  position: relative;
+  display: inline-flex;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: currentColor;
+}
+.status-pulse::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: currentColor;
+  animation: status-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes status-ping {
+  0% { transform: scale(1); opacity: 0.7; }
+  75%, 100% { transform: scale(2.8); opacity: 0; }
+}
+
+/* Contador de dígitos con blur de movimiento */
+.counter-value {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Flotación suave para elementos decorativos */
+@keyframes drift-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.drift { animation: drift-y 7s ease-in-out infinite; }
+
+/* Respeto a prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .icon-draw svg * { animation: none; stroke-dashoffset: 0; }
+  .icon-badge__orbit, .drift, .status-pulse::after { animation: none; }
+  .scan-sweep::before { display: none; }
+  .tilt-card { transform: none !important; }
+}
+
+/* El toggle de tema usa iconos SVG (currentColor): necesita color explícito
+   o hereda blanco y desaparece en modo lunar. */
+.theme-toggle-btn {
+  color: var(--color-text-secondary);
+  transition: color 0.3s var(--ease-apple), border-color 0.3s var(--ease-apple),
+    background-color 0.3s var(--ease-apple);
+}
+.theme-toggle-btn:hover { color: var(--color-orbital); }
+
+/* Crossfade de iconos apilados (toggle de tema, menú móvil).
+   Ambos montados siempre: nada que pueda quedarse a medio animar. */
+.theme-icon-swap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4em;
+  height: 1.4em;
+}
+.theme-icon-swap > svg {
+  position: absolute;
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+  transition: opacity 0.28s var(--ease-apple), transform 0.28s var(--ease-out-expo);
+}
+.theme-icon-swap > svg.is-on {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-icon-swap > svg { transition: none; }
+}

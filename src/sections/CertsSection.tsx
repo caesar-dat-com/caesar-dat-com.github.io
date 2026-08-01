@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import GlassCard from '../components/GlassCard'
 import HUDBracket from '../components/HUDBracket'
 import StaggerText from '../components/StaggerText'
+import IconBadge from '../components/IconBadge'
+import { Award } from '../components/icons'
 
 export default function CertsSection() {
   const [certs, setCerts] = useState<Array<{ name: string; authority: string; url?: string; timePeriod?: { startDate?: { month: number; year: number } } }>>([])
@@ -17,7 +19,7 @@ export default function CertsSection() {
     <section id="certs" className="scroll-section relative min-h-screen flex items-center py-24 md:py-32">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 w-full">
         <div className="mb-16 text-center gsap-reveal">
-          <HUDBracket className="inline-block mb-4" size={16}>
+          <HUDBracket className="section-badge inline-block mb-4" size={16}>
             <span
               className="text-xs uppercase tracking-[0.3em] text-orbital"
               style={{ fontFamily: 'var(--font-mono)', padding: '0.5rem 2rem' }}
@@ -43,13 +45,14 @@ export default function CertsSection() {
           >
             Mission badges — validación de habilidades y formación continua.
           </p>
+          <div className="section-rule mx-auto mt-8 max-w-[220px]" />
         </div>
 
         <div className="mx-auto max-w-2xl space-y-4">
           {certs.length > 0 ? certs.map((c, i: number) => (
             <div key={i} className="gsap-reveal">
               <div className="mission-badge group cursor-default">
-                <span className="badge-icon">🏅</span>
+                <IconBadge icon={Award} variant="orbital" shape="squircle" boxSize={36} size={18} className="badge-icon" />
                 <div className="flex-1">
                   <div className="text-sm font-medium text-text-primary group-hover:text-orbital transition-colors">
                     {c.name}

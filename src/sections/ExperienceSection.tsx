@@ -64,7 +64,7 @@ export default function ExperienceSection() {
     <section id="experience" className="scroll-section relative min-h-screen flex items-center py-24 md:py-32">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 w-full">
         <div className="mb-16 text-center gsap-reveal">
-          <HUDBracket className="inline-block mb-4" size={16}>
+          <HUDBracket className="section-badge inline-block mb-4" size={16}>
             <span
               className="text-xs uppercase tracking-[0.3em] text-orbital"
               style={{ fontFamily: 'var(--font-mono)', padding: '0.5rem 2rem' }}
@@ -90,6 +90,7 @@ export default function ExperienceSection() {
           >
             Trayectoria profesional — cuenta regresiva de lanzamiento.
           </p>
+          <div className="section-rule mx-auto mt-8 max-w-[220px]" />
         </div>
 
         {/* Mission countdown stats */}
@@ -107,7 +108,7 @@ export default function ExperienceSection() {
                   Supervisor
                 </h3>
                 <span className="mission-badge">
-                  <span className="badge-icon">🟢</span>
+                  <span className="badge-icon status-pulse text-orbital" aria-hidden="true" />
                   <span className="text-xs font-mono uppercase tracking-wider text-orbital">ACTIVO</span>
                 </span>
               </div>

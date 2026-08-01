@@ -24,6 +24,7 @@ import EducationSection from './sections/EducationSection'
 import CertsSection from './sections/CertsSection'
 import ContactSection from './sections/ContactSection'
 
+import { Menu, X, GithubIcon, LinkedinIcon, Mail } from './components/icons'
 import { LINKS, EMAIL } from './data/profile'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -117,11 +118,15 @@ function StickyNav() {
 
           {/* Mobile toggle */}
           <button
-            className="text-text-primary md:hidden text-xl"
+            className="text-text-primary md:hidden flex h-9 w-9 items-center justify-center"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+            aria-label="Abrir menú"
+            aria-expanded={mobileOpen}
           >
-            {mobileOpen ? '✕' : '☰'}
+            <span className="theme-icon-swap" aria-hidden="true">
+              <X size={22} strokeWidth={1.6} className={mobileOpen ? 'is-on' : ''} />
+              <Menu size={22} strokeWidth={1.6} className={mobileOpen ? '' : 'is-on'} />
+            </span>
           </button>
         </div>
       </header>
@@ -181,34 +186,77 @@ export default function App() {
     // Kill all existing ScrollTriggers
     ScrollTrigger.getAll().forEach(t => t.kill())
 
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const sections = containerRef.current?.querySelectorAll('.scroll-section')
     if (!sections) return
+
+    if (reduced) {
+      containerRef.current?.querySelectorAll('.gsap-reveal').forEach(el => {
+        gsap.set(el, { opacity: 1, y: 0, scale: 1, filter: 'none' })
+      })
+      return
+    }
 
     sections.forEach((section) => {
       const elements = section.querySelectorAll('.gsap-reveal')
       elements.forEach((el, i) => {
+        // Sin blur aquí: el desenfoque lo aplican GlassCard/MissionPatch a
+        // nivel de tarjeta. Anidarlos deja el filtro pegado si el trigger
+        // no completa, y cuesta caro en GPU.
         gsap.fromTo(
           el,
-          { opacity: 0, y: 60, scale: 0.96 },
+          { opacity: 0, y: 64, scale: 0.965 },
           {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 1,
-            ease: 'power2.out',
+            duration: 1.05,
+            ease: 'expo.out',
             scrollTrigger: {
               trigger: el,
-              start: 'top 85%',
-              end: 'top 50%',
-              toggleActions: 'play none none reverse',
+              start: 'top 94%',
+              once: true,
             },
-            delay: i * 0.1,
+            delay: i * 0.08,
           }
         )
       })
+
+      // Parallax suave del badge de cada sección (hijo, no colisiona con el reveal)
+      const badge = section.querySelector('.section-badge')
+      if (badge) {
+        gsap.fromTo(
+          badge,
+          { y: 26 },
+          {
+            y: -26,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1,
+            },
+          }
+        )
+      }
     })
 
+    // Las fuentes cambian la altura del layout → recalcular posiciones
+    if (document.fonts?.ready) document.fonts.ready.then(() => ScrollTrigger.refresh())
+    const refreshTimer = window.setTimeout(() => ScrollTrigger.refresh(), 800)
+
+    // Dispara .in-view para las animaciones CSS (scan-sweep, section-rule)
+    const cssAnimated = containerRef.current?.querySelectorAll('.scan-sweep, .section-rule')
+    const io = new IntersectionObserver(
+      entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('in-view')),
+      { threshold: 0.25 }
+    )
+    cssAnimated?.forEach(el => io.observe(el))
+
     return () => {
+      window.clearTimeout(refreshTimer)
+      io.disconnect()
       ScrollTrigger.getAll().forEach(t => t.kill())
     }
   }, [])
@@ -245,14 +293,14 @@ export default function App() {
           </p>
           <TelemetryTypewriter />
           <div className="flex items-center gap-6 text-sm text-text-tertiary">
-            <a href={LINKS.linkedin} target="_blank" rel="noreferrer" className="nav-link hover:text-orbital transition-colors">
-              LinkedIn
+            <a href={LINKS.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="icon-inline nav-link hover:text-orbital transition-colors">
+              <LinkedinIcon size={15} /> LinkedIn
             </a>
-            <a href={LINKS.github} target="_blank" rel="noreferrer" className="nav-link hover:text-orbital transition-colors">
-              GitHub
+            <a href={LINKS.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="icon-inline nav-link hover:text-orbital transition-colors">
+              <GithubIcon size={15} /> GitHub
             </a>
-            <a href={`mailto:${EMAIL}`} className="nav-link hover:text-orbital transition-colors">
-              Email
+            <a href={`mailto:${EMAIL}`} aria-label="Email" className="icon-inline nav-link hover:text-orbital transition-colors">
+              <Mail size={15} strokeWidth={1.6} /> Email
             </a>
           </div>
         </div>

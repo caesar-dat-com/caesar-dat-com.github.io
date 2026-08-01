@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { Moon, SunMedium } from './icons'
 
 export default function ThemeToggle() {
   const [isLunar, setIsLunar] = useState(() => {
@@ -48,9 +49,12 @@ export default function ThemeToggle() {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       aria-label={isLunar ? 'Switch to space mode' : 'Switch to lunar mode'}
-      title={isLunar ? '🌙 Lunar mode' : '✨ Space mode'}
+      title={isLunar ? 'Modo lunar' : 'Modo espacio'}
     >
-      {isLunar ? '🌙' : '✨'}
+      <span className="theme-icon-swap" aria-hidden="true">
+        <SunMedium size={15} strokeWidth={1.6} className={isLunar ? 'is-on' : ''} />
+        <Moon size={15} strokeWidth={1.6} className={isLunar ? '' : 'is-on'} />
+      </span>
     </motion.button>
   )
 }
