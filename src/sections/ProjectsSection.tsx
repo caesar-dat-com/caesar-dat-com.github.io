@@ -2,7 +2,7 @@ import MissionPatch from '../components/MissionPatch'
 import HUDBracket from '../components/HUDBracket'
 import StaggerText from '../components/StaggerText'
 import IconBadge from '../components/IconBadge'
-import { Satellite, Trophy, Rocket, BrainCircuit, Settings2, ChartNoAxesCombined } from '../components/icons'
+import { Satellite, Trophy, Rocket, BrainCircuit, Settings2, ChartNoAxesCombined, GraduationCap } from '../components/icons'
 
 export default function ProjectsSection() {
   return (
@@ -155,6 +155,35 @@ export default function ProjectsSection() {
                   <span>React 19 + Vite + Tailwind 4 + Recharts. Visualización de métricas de salud (Apple Health) y finanzas personales.</span>
                 </li>
               </ul>
+            </MissionPatch>
+          </div>
+
+          <div className="gsap-reveal">
+            <MissionPatch missionId="MISIÓN-007" status="active" className="h-full">
+              <IconBadge icon={GraduationCap} variant="orbital" shape="squircle" boxSize={54} size={26} orbit className="mb-5 mx-auto" />
+              <h3 style={{ fontFamily: 'var(--font-heading)' }} className="text-xl font-semibold text-lunar mb-2">
+                Saber Pro — Repaso abierto
+              </h3>
+              <p className="text-text-tertiary text-sm mb-3" style={{ fontFamily: 'var(--font-mono)' }}>
+                Web app · Preparación ICFES
+              </p>
+              <div className="mb-4 inline-block rounded-full bg-orbital/10 px-3 py-1 text-sm font-bold text-orbital">
+                90 preguntas · Gratis · Sin registro
+              </div>
+              <ul className="space-y-2 text-text-secondary text-sm text-left">
+                <li className="flex gap-2">
+                  <span className="text-orbital">▸</span>
+                  <span>Banco de simulacro con la respuesta correcta y su explicación; las que fallas vuelven a salir hasta dominarlas.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-orbital">▸</span>
+                  <span>Modo examen con reloj, guía de estudio por módulo y autoevaluación. Funciona en el celular y sin conexión.</span>
+                </li>
+              </ul>
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                <a href="/saber-pro-repaso/" className="btn-orbital">Repasar ahora →</a>
+                <a href="https://github.com/caesar-dat-com/saber-pro-repaso" target="_blank" rel="noopener noreferrer" className="btn-ghost">Código</a>
+              </div>
             </MissionPatch>
           </div>
 
