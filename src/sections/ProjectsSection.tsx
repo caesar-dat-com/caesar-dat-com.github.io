@@ -169,12 +169,12 @@ export default function ProjectsSection() {
                 Web app · Preparación ICFES
               </p>
               <div className="mb-4 inline-block rounded-full bg-orbital/10 px-3 py-1 text-sm font-bold text-orbital">
-                90 preguntas · Gratis · Sin registro
+                188 preguntas · 5 módulos · Gratis
               </div>
               <ul className="space-y-2 text-text-secondary text-sm text-left">
                 <li className="flex gap-2">
                   <span className="text-orbital">▸</span>
-                  <span>Banco de simulacro con la respuesta correcta y su explicación; las que fallas vuelven a salir hasta dominarlas.</span>
+                  <span>Simulacros 2026 y cuadernillos oficiales del Icfes, con la respuesta correcta y su explicación; las que fallas vuelven a salir hasta dominarlas.</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-orbital">▸</span>
