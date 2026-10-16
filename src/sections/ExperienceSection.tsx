@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import LaunchTimeline, { TimelineEntry } from '../components/LaunchTimeline'
 import HUDBracket from '../components/HUDBracket'
 import StaggerText from '../components/StaggerText'
+import ScrambleText from '../components/ScrambleText'
 
 
 // Animated countdown numbers — uses IntersectionObserver to trigger GSAP tween
@@ -69,7 +70,7 @@ export default function ExperienceSection() {
               className="text-xs uppercase tracking-[0.3em] text-orbital"
               style={{ fontFamily: 'var(--font-mono)', padding: '0.5rem 2rem' }}
             >
-              FLIGHT.LOG
+              <ScrambleText text="FLIGHT.LOG" />
             </span>
           </HUDBracket>
           <StaggerText

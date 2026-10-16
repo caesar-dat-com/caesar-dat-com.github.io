@@ -13,6 +13,8 @@ import TrajectoryLine from './components/TrajectoryLine'
 import HUDBracket from './components/HUDBracket'
 import MagneticButton from './components/MagneticButton'
 import CursorSpotlight from './components/CursorSpotlight'
+import BlueprintGrid from './components/BlueprintGrid'
+import HUDCursor from './components/HUDCursor'
 import SectionCounter from './components/SectionCounter'
 
 // Sections (converted from pages)
@@ -165,12 +167,9 @@ function StickyNav() {
 }
 
 export default function App() {
-  // Initialize theme
+  // Initialize theme (toggle, no solo add: así también vuelve a oscuro si cambió)
   useEffect(() => {
-    const saved = localStorage.getItem('theme')
-    if (saved === 'lunar') {
-      document.body.classList.add('lunar')
-    }
+    document.body.classList.toggle('lunar', localStorage.getItem('theme') === 'lunar')
 
     // Sync Lenis with GSAP ScrollTrigger
     const lenis = (window as any).__lenis
@@ -265,8 +264,10 @@ export default function App() {
     <div className="app-container" ref={containerRef}>
       <StarField />
       <MeshGradient />
+      <BlueprintGrid />
       <GrainOverlay />
       <CursorSpotlight />
+      <HUDCursor />
       <StickyNav />
       <SectionCounter />
 
@@ -293,10 +294,10 @@ export default function App() {
           </p>
           <TelemetryTypewriter />
           <div className="flex items-center gap-6 text-sm text-text-tertiary">
-            <a href={LINKS.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="icon-inline nav-link hover:text-orbital transition-colors">
+            <a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="icon-inline nav-link hover:text-orbital transition-colors">
               <LinkedinIcon size={15} /> LinkedIn
             </a>
-            <a href={LINKS.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="icon-inline nav-link hover:text-orbital transition-colors">
+            <a href={LINKS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="icon-inline nav-link hover:text-orbital transition-colors">
               <GithubIcon size={15} /> GitHub
             </a>
             <a href={`mailto:${EMAIL}`} aria-label="Email" className="icon-inline nav-link hover:text-orbital transition-colors">

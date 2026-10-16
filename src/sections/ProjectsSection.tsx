@@ -3,6 +3,7 @@ import HUDBracket from '../components/HUDBracket'
 import StaggerText from '../components/StaggerText'
 import IconBadge from '../components/IconBadge'
 import { Satellite, Trophy, Rocket, BrainCircuit, Settings2, ChartNoAxesCombined, GraduationCap } from '../components/icons'
+import ScrambleText from '../components/ScrambleText'
 
 export default function ProjectsSection() {
   return (
@@ -14,7 +15,7 @@ export default function ProjectsSection() {
               className="text-xs uppercase tracking-[0.3em] text-orbital"
               style={{ fontFamily: 'var(--font-mono)', padding: '0.5rem 2rem' }}
             >
-              MISSION.LOG
+              <ScrambleText text="MISSION.LOG" />
             </span>
           </HUDBracket>
           <StaggerText

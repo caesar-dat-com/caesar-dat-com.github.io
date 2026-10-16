@@ -41,14 +41,14 @@ export default function TrajectoryLine({ className = '' }: TrajectoryLineProps) 
         <path
           ref={pathRef}
           d="M20 0 C20 40, 35 60, 20 100 C5 140, 20 160, 20 200"
-          stroke="rgba(0, 102, 255, 0.2)"
+          stroke="rgba(255, 255, 255, 0.16)"
           strokeWidth="1"
           fill="none"
         />
         {/* Small orbit dots */}
-        <circle cx="20" cy="100" r="2" fill="rgba(0, 102, 255, 0.3)" />
-        <circle cx="28" cy="60" r="1.5" fill="rgba(0, 102, 255, 0.2)" />
-        <circle cx="12" cy="150" r="1.5" fill="rgba(0, 102, 255, 0.2)" />
+        <circle cx="20" cy="100" r="2" fill="rgba(255, 255, 255, 0.28)" />
+        <circle cx="28" cy="60" r="1.5" fill="rgba(255, 255, 255, 0.18)" />
+        <circle cx="12" cy="150" r="1.5" fill="rgba(255, 255, 255, 0.18)" />
       </svg>
     </div>
   )

@@ -6,6 +6,7 @@ import TelemetryTypewriter from '../components/TelemetryTypewriter'
 import StaggerText from '../components/StaggerText'
 import IconBadge from '../components/IconBadge'
 import { RadioTower, Send, Mail, MapPin, ArrowUpRight, GithubIcon, LinkedinIcon, InstagramIcon, SpotifyIcon } from '../components/icons'
+import ScrambleText from '../components/ScrambleText'
 
 const SOCIAL_ICON: Record<string, React.ReactNode> = {
   linkedin: <LinkedinIcon size={16} />,
@@ -31,7 +32,7 @@ export default function ContactSection() {
               className="text-xs uppercase tracking-[0.3em] text-orbital"
               style={{ fontFamily: 'var(--font-mono)', padding: '0.5rem 2rem' }}
             >
-              COMMS.LINK
+              <ScrambleText text="COMMS.LINK" />
             </span>
           </HUDBracket>
           <StaggerText

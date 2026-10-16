@@ -18,7 +18,7 @@ export default function HUDBracket({ children, className = '', size = 12 }: HUDB
     return () => obs.disconnect()
   }, [])
 
-  const strokeColor = isLunar ? 'rgba(0, 102, 255, 0.25)' : 'rgba(0,102,255,0.4)'
+  const strokeColor = isLunar ? 'rgba(0, 0, 0, 0.22)' : 'rgba(255,255,255,0.28)'
 
   return (
     <div className={`hud-bracket relative ${className}`}>

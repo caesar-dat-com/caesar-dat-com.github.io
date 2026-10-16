@@ -56,7 +56,7 @@ export default function CursorSpotlight() {
 
   // Respect reduced motion
   const prefersReduced = typeof window !== 'undefined'
-    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ? window.matchMedia('(hover: none)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches
     : false
 
   if (isLunar || prefersReduced) return null
@@ -66,7 +66,7 @@ export default function CursorSpotlight() {
       ref={spotlightRef}
       className="pointer-events-none fixed z-[1] h-[400px] w-[400px] rounded-full opacity-0 transition-opacity duration-500"
       style={{
-        background: 'radial-gradient(circle, rgba(0,102,255,0.07) 0%, rgba(0,102,255,0.02) 40%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.018) 40%, transparent 70%)',
         mixBlendMode: 'screen',
         opacity: isVisible ? 1 : 0,
         willChange: 'transform',

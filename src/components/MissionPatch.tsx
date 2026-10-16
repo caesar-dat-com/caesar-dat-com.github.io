@@ -10,15 +10,15 @@ interface MissionPatchProps {
 }
 
 const statusColors = {
-  active: { bg: 'rgba(0, 102, 255, 0.1)', border: 'rgba(0, 102, 255, 0.4)', text: '#0066ff', glow: 'rgba(0, 102, 255, 0.3)' },
-  complete: { bg: 'rgba(255, 107, 53, 0.1)', border: 'rgba(255, 107, 53, 0.4)', text: '#ff6b35', glow: 'rgba(255, 107, 53, 0.25)' },
-  training: { bg: 'rgba(139, 148, 158, 0.1)', border: 'rgba(139, 148, 158, 0.4)', text: '#8b949e', glow: 'rgba(139, 148, 158, 0.2)' },
+  active: { bg: 'rgba(255, 255, 255, 0.08)', border: 'rgba(255, 255, 255, 0.32)', text: '#ffffff', glow: 'rgba(255, 255, 255, 0.22)' },
+  complete: { bg: 'rgba(192, 138, 94, 0.08)', border: 'rgba(192, 138, 94, 0.3)', text: '#c08a5e', glow: 'rgba(192, 138, 94, 0.18)' },
+  training: { bg: 'rgba(124, 130, 140, 0.08)', border: 'rgba(124, 130, 140, 0.3)', text: '#7c828c', glow: 'rgba(124, 130, 140, 0.15)' },
 }
 
 const lunarStatusColors = {
-  active: { bg: 'rgba(0, 102, 255, 0.06)', border: 'rgba(0, 102, 255, 0.25)', text: '#0066ff' },
-  complete: { bg: 'rgba(255, 107, 53, 0.06)', border: 'rgba(255, 107, 53, 0.25)', text: '#ff6b35' },
-  training: { bg: 'rgba(0, 0, 0, 0.04)', border: 'rgba(0, 0, 0, 0.1)', text: '#86868b' },
+  active: { bg: '#000000', border: '#000000', text: '#ffffff' },
+  complete: { bg: 'rgba(138, 90, 51, 0.08)', border: 'rgba(138, 90, 51, 0.4)', text: '#7a4d29' },
+  training: { bg: '#ffffff', border: 'rgba(0, 0, 0, 0.16)', text: '#6a6a70' },
 }
 
 const STATUS_LABEL: Record<string, string> = {
@@ -93,6 +93,7 @@ export default function MissionPatch({
         ...(reduced ? {} : { transformPerspective: 900, rotateX: srx, rotateY: sry }),
       }}
     >
+      <span className="trace-border" aria-hidden="true" />
       {/* Reflejo que sigue al cursor */}
       {!reduced && (
         <motion.div

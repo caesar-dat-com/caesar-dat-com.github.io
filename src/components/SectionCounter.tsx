@@ -46,8 +46,8 @@ export default function SectionCounter() {
   const current = String(activeIndex + 1).padStart(2, '0')
   const total = String(TOTAL).padStart(2, '0')
 
-  const mutedColor = isLunar ? '#aeaeb2' : undefined
-  const textColor = isLunar ? '#86868b' : undefined
+  const mutedColor = isLunar ? '#a5a5aa' : undefined
+  const textColor = isLunar ? '#75757a' : undefined
 
   return (
     <div

@@ -46,11 +46,11 @@ export default function ScrollProgress() {
   }, [])
 
   // Color interpolation based on velocity
-  // Slow (0) = orbital blue (#0066ff), Fast (>2) = SLS orange (#ff6b35)
+  // Lento (0) = blanco orbital, rápido (>2) = cobre SLS (#c08a5e)
   const t = Math.min(velocity / 2, 1) // normalize 0-1
-  const r = Math.round(0 + t * 255)
-  const g = Math.round(102 + t * (107 - 102))
-  const b = Math.round(255 + t * (53 - 255))
+  const r = Math.round(255 + t * (192 - 255))
+  const g = Math.round(255 + t * (138 - 255))
+  const b = Math.round(255 + t * (94 - 255))
   const barColor = `rgb(${r}, ${g}, ${b})`
   const glowColor = `rgba(${r}, ${g}, ${b}, 0.6)`
 

@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
+import useLiteMode from '../hooks/useLiteMode'
 
 export default function GrainOverlay() {
+  const lite = useLiteMode()
   const [isLunar, setIsLunar] = useState(false)
 
   // Check theme
@@ -12,12 +14,12 @@ export default function GrainOverlay() {
     return () => obs.disconnect()
   }, [])
 
-  if (isLunar) return null
+  if (lite) return null
 
   return (
     <div
       className="grain-overlay pointer-events-none fixed inset-0 z-[1]"
-      style={{ opacity: 0.04 }}
+      style={{ opacity: isLunar ? 0.035 : 0.04 }}
       aria-hidden="true"
     >
       <svg width="100%" height="100%">

@@ -3,6 +3,7 @@ import HUDBracket from '../components/HUDBracket'
 import StaggerText from '../components/StaggerText'
 import IconBadge from '../components/IconBadge'
 import { GraduationCap, Cpu, CodeXml } from '../components/icons'
+import ScrambleText from '../components/ScrambleText'
 
 export default function EducationSection() {
   return (
@@ -14,7 +15,7 @@ export default function EducationSection() {
               className="text-xs uppercase tracking-[0.3em] text-orbital"
               style={{ fontFamily: 'var(--font-mono)', padding: '0.5rem 2rem' }}
             >
-              FLIGHT.PLAN
+              <ScrambleText text="FLIGHT.PLAN" />
             </span>
           </HUDBracket>
           <StaggerText

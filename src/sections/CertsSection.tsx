@@ -4,6 +4,10 @@ import HUDBracket from '../components/HUDBracket'
 import StaggerText from '../components/StaggerText'
 import IconBadge from '../components/IconBadge'
 import { Award } from '../components/icons'
+import ScrambleText from '../components/ScrambleText'
+
+// Platzi solo enlaza bien a la ficha del curso (/curso/<id>-...); el resto de sus URLs no sirve como verificación
+const hasCertLink = (url?: string) => !!url && (!/platzi\.com/.test(url) || /\/curso\/\d+-/.test(url))
 
 export default function CertsSection() {
   const [certs, setCerts] = useState<Array<{ name: string; authority: string; url?: string; timePeriod?: { startDate?: { month: number; year: number } } }>>([])
@@ -24,7 +28,7 @@ export default function CertsSection() {
               className="text-xs uppercase tracking-[0.3em] text-orbital"
               style={{ fontFamily: 'var(--font-mono)', padding: '0.5rem 2rem' }}
             >
-              MISSION.BADGE
+              <ScrambleText text="MISSION.BADGE" />
             </span>
           </HUDBracket>
           <StaggerText
@@ -64,7 +68,7 @@ export default function CertsSection() {
                     )}
                   </div>
                 </div>
-                {c.url && (
+                {hasCertLink(c.url) && (
                   <a
                     href={c.url}
                     target="_blank"

@@ -10,11 +10,9 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     // Check saved preference
-    const saved = localStorage.getItem('theme')
-    if (saved === 'lunar') {
-      document.body.classList.add('lunar')
-      setIsLunar(true)
-    }
+    const lunar = localStorage.getItem('theme') === 'lunar'
+    document.body.classList.toggle('lunar', lunar)
+    setIsLunar(lunar)
   }, [])
 
   const toggle = () => {
@@ -41,7 +39,7 @@ export default function ThemeToggle() {
   return (
     <motion.button
       onClick={toggle}
-      className={`theme-toggle-btn relative flex h-8 w-8 items-center justify-center rounded-full border text-sm backdrop-blur-sm transition-colors ${
+      className={`theme-toggle-btn relative flex h-8 w-8 items-center justify-center rounded-full border text-sm md:backdrop-blur-sm transition-colors ${
         isLunar
           ? 'border-black/15 bg-black/[0.04] hover:border-orbital/40 hover:bg-orbital/10'
           : 'border-white/10 bg-white/5 hover:border-orbital/40 hover:bg-orbital/10'

@@ -29,12 +29,12 @@ interface Meteor {
   maxLife: number
 }
 
-// Clases espectrales — blanco azulado dominante, algunas cálidas
+// Clases espectrales — blanco neutro dominante, algunas cálidas
 const SPECTRUM = [
-  '200,220,255', '200,220,255', '200,220,255',
-  '170,200,255',
-  '255,244,224',
-  '255,214,180',
+  '255,255,255', '255,255,255', '255,255,255',
+  '228,230,235',
+  '250,244,236',
+  '224,196,170',
 ]
 
 export default function StarField() {
@@ -56,7 +56,9 @@ export default function StarField() {
   }, [])
 
   const initStars = useCallback((width: number, height: number) => {
-    const count = Math.min(Math.floor((width * height) / 4200), 340)
+    // En celular: menos estrellas (presupuesto de GPU/batería)
+    const mobile = width < 768
+    const count = Math.min(Math.floor((width * height) / (mobile ? 9000 : 4200)), mobile ? 110 : 340)
     const stars: Star[] = []
     for (let i = 0; i < count; i++) {
       // 3 capas: fondo (lento/tenue) → frente (rápido/brillante)
@@ -103,7 +105,7 @@ export default function StarField() {
     let H = 0
 
     const resize = () => {
-      dpr = Math.min(window.devicePixelRatio || 1, 1.5)
+      dpr = window.innerWidth < 768 ? 1 : Math.min(window.devicePixelRatio || 1, 1.5)
       W = window.innerWidth
       H = window.innerHeight
       canvas.width = W * dpr
@@ -162,7 +164,7 @@ export default function StarField() {
         ctx.fill()
 
         // halo en las brillantes
-        if (star.size > 1.6) {
+        if (star.size > 1.6 && W >= 768) {
           const g = ctx.createRadialGradient(px, wrappedY, 0, px, wrappedY, star.size * 5)
           g.addColorStop(0, `rgba(${star.color},${alpha * 0.32})`)
           g.addColorStop(1, `rgba(${star.color},0)`)
@@ -186,9 +188,9 @@ export default function StarField() {
         const nx = m.vx / Math.hypot(m.vx, m.vy)
         const ny = m.vy / Math.hypot(m.vx, m.vy)
         const g = ctx.createLinearGradient(m.x, m.y, m.x - nx * m.len, m.y - ny * m.len)
-        g.addColorStop(0, `rgba(215,232,255,${0.85 * fade})`)
-        g.addColorStop(0.35, `rgba(120,170,255,${0.32 * fade})`)
-        g.addColorStop(1, 'rgba(120,170,255,0)')
+        g.addColorStop(0, `rgba(255,255,255,${0.9 * fade})`)
+        g.addColorStop(0.35, `rgba(200,205,215,${0.28 * fade})`)
+        g.addColorStop(1, 'rgba(200,205,215,0)')
 
         ctx.beginPath()
         ctx.moveTo(m.x, m.y)
@@ -229,11 +231,11 @@ export default function StarField() {
       <div
         className="starfield-container"
         style={{
-          backgroundImage: `radial-gradient(1px 1px at 10% 20%, rgba(200,220,255,0.4) 0%, transparent 100%),
-            radial-gradient(1px 1px at 30% 60%, rgba(200,220,255,0.3) 0%, transparent 100%),
-            radial-gradient(1px 1px at 50% 40%, rgba(200,220,255,0.5) 0%, transparent 100%),
-            radial-gradient(1.5px 1.5px at 70% 30%, rgba(100,160,255,0.3) 0%, transparent 100%),
-            radial-gradient(1px 1px at 90% 80%, rgba(200,220,255,0.3) 0%, transparent 100%)`,
+          backgroundImage: `radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.42) 0%, transparent 100%),
+            radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+            radial-gradient(1px 1px at 50% 40%, rgba(255,255,255,0.5) 0%, transparent 100%),
+            radial-gradient(1.5px 1.5px at 70% 30%, rgba(220,224,230,0.3) 0%, transparent 100%),
+            radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.3) 0%, transparent 100%)`,
         }}
       />
     )

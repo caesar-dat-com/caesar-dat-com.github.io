@@ -119,7 +119,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           {/* Mission badge */}
-          <HUDBracket className="hero-badge mb-6 inline-flex items-center gap-2 rounded-full border border-glass-border bg-space-800/50 px-4 py-1.5 text-xs uppercase tracking-widest text-orbital backdrop-blur-sm" size={8}>
+          <HUDBracket className="hero-badge mb-6 inline-flex items-center gap-2 rounded-full border border-glass-border bg-space-800/50 px-4 py-1.5 text-xs uppercase tracking-widest text-orbital md:backdrop-blur-sm" size={8}>
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-orbital animate-pulse" />
             <span style={{ fontFamily: 'var(--font-mono)' }}>MISIÓN ACTIVA</span>
           </HUDBracket>

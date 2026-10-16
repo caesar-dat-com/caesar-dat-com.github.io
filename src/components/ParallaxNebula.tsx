@@ -19,22 +19,22 @@ const LAYERS: NebulaLayer[] = [
   {
     id: 'nebula-1',
     cx: '25%', cy: '35%', rx: '300', ry: '200',
-    color1: 'rgba(0,102,255,0.08)',
-    color2: 'rgba(0,60,180,0.03)',
+    color1: 'rgba(255,255,255,0.06)',
+    color2: 'rgba(255,255,255,0.015)',
     speed: 0.3,
   },
   {
     id: 'nebula-2',
     cx: '70%', cy: '60%', rx: '250', ry: '180',
-    color1: 'rgba(255,107,53,0.06)',
-    color2: 'rgba(180,60,20,0.02)',
+    color1: 'rgba(192,138,94,0.045)',
+    color2: 'rgba(120,86,58,0.015)',
     speed: 0.5,
   },
   {
     id: 'nebula-3',
     cx: '50%', cy: '20%', rx: '350', ry: '150',
-    color1: 'rgba(100,0,255,0.05)',
-    color2: 'rgba(50,0,150,0.02)',
+    color1: 'rgba(200,205,215,0.04)',
+    color2: 'rgba(120,125,135,0.015)',
     speed: 0.7,
   },
 ]

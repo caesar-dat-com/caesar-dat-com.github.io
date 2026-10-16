@@ -39,9 +39,9 @@ export default function GlassCard({ children, delay = 0, className = '', glow = 
   const shadowY = useTransform(springRotateX, [-8, 8], [-10, 10])
 
   // Gradientes reactivos — useMotionTemplate sí se re-evalúa en cada frame
-  const glowBg = useMotionTemplate`radial-gradient(340px circle at ${springX}px ${springY}px, rgba(0,102,255,0.13), transparent 65%)`
+  const glowBg = useMotionTemplate`radial-gradient(340px circle at ${springX}px ${springY}px, rgba(255,255,255,0.09), transparent 65%)`
   const sheenBg = useMotionTemplate`radial-gradient(240px circle at ${springX}px ${springY}px, rgba(255,255,255,0.09), transparent 55%)`
-  const lunarGlowBg = useMotionTemplate`radial-gradient(320px circle at ${springX}px ${springY}px, rgba(0,102,255,0.07), transparent 62%)`
+  const lunarGlowBg = useMotionTemplate`radial-gradient(320px circle at ${springX}px ${springY}px, rgba(0,0,0,0.06), transparent 62%)`
   const boxShadow = useMotionTemplate`${shadowX}px ${shadowY}px 34px rgba(0,0,0,0.32)`
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -83,6 +83,7 @@ export default function GlassCard({ children, delay = 0, className = '', glow = 
         rotateY: springRotateY,
       }}
     >
+      <span className="trace-border" aria-hidden="true" />
       {/* Halo que sigue al cursor */}
       {(glow || isHovered) && (
         <motion.div

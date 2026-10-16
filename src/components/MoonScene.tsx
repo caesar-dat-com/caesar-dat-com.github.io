@@ -144,7 +144,7 @@ function buildMoonMaps(size: number) {
 /* --- Atmósfera / rim glow por fresnel --- */
 const atmosphereShader = {
   uniforms: {
-    uColor: { value: new THREE.Color('#4f8cff') },
+    uColor: { value: new THREE.Color('#b9c2d0') },
     uIntensity: { value: 0.3 },
     uPower: { value: 5.5 },
   },
@@ -260,7 +260,7 @@ function DustBelt({ count = 420 }: { count?: number }) {
       <pointsMaterial
         size={0.028}
         sizeAttenuation
-        color="#9fc0ff"
+        color="#dfe3ea"
         transparent
         opacity={0.55}
         depthWrite={false}
@@ -282,13 +282,13 @@ function DistantEarth() {
     const ctx = c.getContext('2d')!
     // océano
     const og = ctx.createLinearGradient(0, 0, 0, c.height)
-    og.addColorStop(0, '#0a2d6b')
-    og.addColorStop(0.5, '#0f4a9c')
-    og.addColorStop(1, '#0a2d6b')
+    og.addColorStop(0, '#0b0f16')
+    og.addColorStop(0.5, '#1a2230')
+    og.addColorStop(1, '#0b0f16')
     ctx.fillStyle = og
     ctx.fillRect(0, 0, c.width, c.height)
     // continentes
-    ctx.fillStyle = 'rgba(38,96,58,0.85)'
+    ctx.fillStyle = 'rgba(78,82,88,0.85)'
     for (let i = 0; i < 26; i++) {
       const x = hash(i * 4.1) * c.width
       const y = hash(i * 8.7) * c.height
@@ -298,7 +298,7 @@ function DistantEarth() {
       ctx.fill()
     }
     // nubes
-    ctx.fillStyle = 'rgba(255,255,255,0.32)'
+    ctx.fillStyle = 'rgba(255,255,255,0.26)'
     for (let i = 0; i < 40; i++) {
       const x = hash(i * 6.9 + 11) * c.width
       const y = hash(i * 14.2 + 7) * c.height
@@ -329,7 +329,7 @@ function DistantEarth() {
             {
               ...atmosphereShader,
               uniforms: {
-                uColor: { value: new THREE.Color('#5fa8ff') },
+                uColor: { value: new THREE.Color('#c6cdd8') },
                 uIntensity: { value: 0.8 },
                 uPower: { value: 3.4 },
               },
@@ -401,9 +401,13 @@ export default function MoonScene() {
     >
       <Canvas
         camera={{ position: [0, 0, 6], fov: 45 }}
-        dpr={[1, quality === 'high' ? 1.75 : 1.25]}
+        dpr={[1, quality === 'high' ? 1.75 : 1]}
         style={{ background: 'transparent' }}
-        gl={{ alpha: true, antialias: true, powerPreference: 'high-performance' }}
+        gl={{
+          alpha: true,
+          antialias: quality === 'high',
+          powerPreference: quality === 'high' ? 'high-performance' : 'low-power',
+        }}
       >
         {/* luz ambiente muy baja → terminador marcado */}
         {/* ambiente casi nulo → el lado oscuro se ve oscuro de verdad */}
@@ -411,9 +415,9 @@ export default function MoonScene() {
         {/* sol rasante desde la derecha: crea el terminador */}
         <directionalLight position={[6, 1.6, 1.2]} intensity={2.6} color="#fff6e6" />
         {/* rebote frío de la Tierra sobre el lado en sombra */}
-        <directionalLight position={[-4, 0.5, 2.5]} intensity={0.16} color="#3f7dff" />
+        <directionalLight position={[-4, 0.5, 2.5]} intensity={0.14} color="#aeb6c4" />
         {/* rim naranja SLS por detrás */}
-        <pointLight position={[-3.4, 1.4, -2.4]} intensity={2.4} distance={11} color="#ff6b35" />
+        <pointLight position={[-3.4, 1.4, -2.4]} intensity={1.6} distance={11} color="#c08a5e" />
 
         <Moon quality={quality} />
         {rich && <DustBelt />}

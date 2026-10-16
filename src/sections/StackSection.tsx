@@ -7,6 +7,7 @@ import HUDBracket from '../components/HUDBracket'
 import StaggerText from '../components/StaggerText'
 import IconBadge from '../components/IconBadge'
 import { Zap, Satellite, Target } from '../components/icons'
+import ScrambleText from '../components/ScrambleText'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -29,7 +30,7 @@ export default function StackSection() {
               className="text-xs uppercase tracking-[0.3em] text-orbital"
               style={{ fontFamily: 'var(--font-mono)', padding: '0.5rem 2rem' }}
             >
-              SYS.STACK
+              <ScrambleText text="SYS.STACK" />
             </span>
           </HUDBracket>
           <StaggerText
