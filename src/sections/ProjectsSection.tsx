@@ -169,16 +169,16 @@ export default function ProjectsSection() {
                 Web app · Preparación ICFES
               </p>
               <div className="mb-4 inline-block rounded-full bg-orbital/10 px-3 py-1 text-sm font-bold text-orbital">
-                188 preguntas · 5 módulos · Gratis
+                1.116 preguntas · 38 módulos · Gratis
               </div>
               <ul className="space-y-2 text-text-secondary text-sm text-left">
                 <li className="flex gap-2">
                   <span className="text-orbital">▸</span>
-                  <span>Simulacros 2026 y cuadernillos oficiales del Icfes, con la respuesta correcta y su explicación; las que fallas vuelven a salir hasta dominarlas.</span>
+                  <span>Ruta al examen estilo Duolingo: lecciones de 8 preguntas, XP, vidas, racha de días y repasos relámpago de lo que fallas.</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-orbital">▸</span>
-                  <span>Modo examen con reloj, guía de estudio por módulo y autoevaluación. Funciona en el celular y sin conexión.</span>
+                  <span>Modo enfoque para TDAH (lectura frase a frase, pistas de Hades), modo examen con reloj y guía por módulo. Simulacros 2026 y cuadernillos oficiales del Icfes.</span>
                 </li>
               </ul>
               <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
